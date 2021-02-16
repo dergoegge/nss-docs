@@ -1,0 +1,70 @@
+--- title: FC_GenerateKey slug:
+Mozilla/Projects/NSS/Reference/FC_GenerateKey tags: - NSS ---
+
+.. _Name:
+
+Name
+~~~~
+
+FC_GenerateKey - generate a new key
+
+.. _Syntax:
+
+Syntax
+~~~~~~
+
+.. code:: eval
+
+   CK_RV FC_GenerateKey(
+     CK_SESSION_HANDLE hSession,
+     CK_MECHANISM_PTR pMechanism,
+     CK_ATTRIBUTE_PTR pTemplate,
+     CK_ULONG ulCount,
+     CK_OBJECT_HANDLE_PTR phKey
+   );
+
+.. _Parameters:
+
+Parameters
+~~~~~~~~~~
+
+``hSession``
+   {{ mediawiki.external('in') }} session handle.
+``pMechanism``
+   {{ mediawiki.external('in') }} pointer to the mechanism to use.
+``pTemplate``
+   {{ mediawiki.external('in') }} pointer to the template for the new
+   key.
+``ulCount``
+   {{ mediawiki.external('in') }} number of attributes in the template.
+``phKey``
+   {{ mediawiki.external('out') }} pointer to the location to receive
+   the handle of the new key.
+
+.. _Description:
+
+Description
+~~~~~~~~~~~
+
+``FC_GenerateKey`` generates a secret key, creating a new key object.
+The handle of new key is returned.
+
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_GenerateKey``.
+
+.. _Return_value:
+
+Return value
+~~~~~~~~~~~~
+
+.. _Examples:
+
+Examples
+~~~~~~~~
+
+.. _See_also:
+
+See also
+~~~~~~~~
+
+-  `NSC_GenerateKey </en-US/NSC_GenerateKey>`__

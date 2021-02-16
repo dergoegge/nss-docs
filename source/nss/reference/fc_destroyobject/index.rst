@@ -1,0 +1,58 @@
+--- title: FC_DestroyObject slug:
+Mozilla/Projects/NSS/Reference/FC_DestroyObject tags: - NSS ---
+
+.. _Name:
+
+Name
+~~~~
+
+FC_DestroyObject - destroy an object.
+
+.. _Syntax:
+
+Syntax
+~~~~~~
+
+.. code:: eval
+
+   CK_RV FC_DestroyObject(
+     CK_SESSION_HANDLE hSession,
+     CK_OBJECT_HANDLE hObject
+   );
+
+.. _Parameters:
+
+Parameters
+~~~~~~~~~~
+
+``hSession``
+   {{ mediawiki.external('in') }} session handle.
+``hObject``
+   {{ mediawiki.external('in') }} object handle.
+
+.. _Description:
+
+Description
+~~~~~~~~~~~
+
+``FC_DestroyObject`` destroys an object.
+
+A user must log into the token (to assume the NSS User role) before
+destroying a secret or private key object.
+
+.. _Return_value:
+
+Return value
+~~~~~~~~~~~~
+
+.. _Examples:
+
+Examples
+~~~~~~~~
+
+.. _See_also:
+
+See also
+~~~~~~~~
+
+-  `NSC_DestroyObject </en-US/NSC_DestroyObject>`__
