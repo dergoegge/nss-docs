@@ -1,3 +1,6 @@
+============
+FC_SignFinal
+============
 --- title: FC_SignFinal slug:
 Mozilla/Projects/NSS/Reference/FC_SignFinal tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pSignature``
-   {{ mediawiki.external('out') }} pointer to the buffer which will
+   [out] pointer to the buffer which will
    receive the digest or NULL.
 ``pusSignatureLen``
-   {{ mediawiki.external('in, out') }} pointer to location containing
+   [in, out] pointer to location containing
    the maximum buffer size.
 
 .. _Description:

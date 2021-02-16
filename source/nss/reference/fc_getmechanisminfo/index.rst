@@ -1,3 +1,6 @@
+===================
+FC_GetMechanismInfo
+===================
 --- title: FC_GetMechanismInfo slug:
 Mozilla/Projects/NSS/Reference/FC_GetMechanismInfo tags: - NSS ---
 
@@ -29,11 +32,11 @@ Parameters
 ``FC_GetMechanismInfo`` takes three parameters:
 
 ``slotID``
-   {{ mediawiki.external('Input') }}
+   [Input]
 ``type``
-   {{ mediawiki.external('Input') }} .
+   [Input] .
 ``pInfo``
-   {{ mediawiki.external('Output') }} .
+   [Output] .
 
 .. _Description:
 

@@ -1,3 +1,6 @@
+=============
+FC_Initialize
+=============
 --- title: FC_Initialize slug:
 Mozilla/Projects/NSS/Reference/FC_Initialize tags: - NSS ---
 

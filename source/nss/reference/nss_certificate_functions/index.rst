@@ -1,3 +1,6 @@
+=========================
+NSS Certificate Functions
+=========================
 --- title: NSS Certificate Functions slug:
 Mozilla/Projects/NSS/Reference/NSS_Certificate_Functions tags: - NSS ---
 
@@ -265,11 +268,11 @@ the construction of common names in SSL server certificates:
 -   ? matches one character
 -  \ escapes a special character
 -  $ matches the end of the string
--  {{ mediawiki.external('abc') }} matches one occurrence of a, b, or c.
+-  [abc] matches one occurrence of a, b, or c.
    The only character that needs to be escaped in this is ], all others
    are not special.
--  {{ mediawiki.external('a-z') }} matches any character between a and z
--  {{ mediawiki.external('^az') }} matches any character except a or z
+-  [a-z] matches any character between a and z
+-  [^az] matches any character except a or z
 -  ~ followed by another shell expression removes any pattern matching
    the shell expression from the match list
 -  (foo|bar) matches either the substring foo or the substring bar.

@@ -1,3 +1,6 @@
+==============================================
+NSS Sample Code Sample_2_Initialization of NSS
+==============================================
 --- title: NSS Sample Code Sample_2_Initialization of NSS slug: >-
 Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_Sample_2_Initialization_of_NSS
 tags: - Examples - NSS - Security ---

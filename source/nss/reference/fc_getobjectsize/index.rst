@@ -1,3 +1,6 @@
+================
+FC_GetObjectSize
+================
 --- title: FC_GetObjectSize slug:
 Mozilla/Projects/NSS/Reference/FC_GetObjectSize tags: - NSS ---
 
@@ -27,11 +30,11 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``hObject``
-   {{ mediawiki.external('in') }} object handle.
+   [in] object handle.
 ``pusSize``
-   {{ mediawiki.external('out') }} pointer to location to receive the
+   [out] pointer to location to receive the
    object's size.
 
 .. _Description:

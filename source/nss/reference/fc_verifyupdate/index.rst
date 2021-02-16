@@ -1,3 +1,6 @@
+===============
+FC_VerifyUpdate
+===============
 --- title: FC_VerifyUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_VerifyUpdate tags: - NSS ---
 
@@ -28,12 +31,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pPart``
-   {{ mediawiki.external('in') }} pointer to the next block of the data
+   [in] pointer to the next block of the data
    to be verified.
 ``usPartLen``
-   {{ mediawiki.external('in') }} length of data block in bytes.
+   [in] length of data block in bytes.
 
 .. _Description:
 

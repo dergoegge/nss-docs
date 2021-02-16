@@ -1,3 +1,6 @@
+==============
+FC_GetSlotInfo
+==============
 --- title: FC_GetSlotInfo slug:
 Mozilla/Projects/NSS/Reference/FC_GetSlotInfo tags: - NSS ---
 
@@ -28,9 +31,9 @@ Parameters
 ``FC_GetSlotInfo`` takes two parameters:
 
 ``slotID``
-   {{ mediawiki.external('in') }}
+   [in]
 ``pInfo``
-   {{ mediawiki.external('out') }} The address of a ``CK_SLOT_INFO``
+   [out] The address of a ``CK_SLOT_INFO``
    structure.
 
 .. _Description:

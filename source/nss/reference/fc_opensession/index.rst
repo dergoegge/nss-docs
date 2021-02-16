@@ -1,3 +1,6 @@
+==============
+FC_OpenSession
+==============
 --- title: FC_OpenSession slug:
 Mozilla/Projects/NSS/Reference/FC_OpenSession tags: - NSS ---
 
@@ -31,15 +34,15 @@ Parameters
 ``FC_OpenSession`` has the following parameters:
 
 ``slotID``
-   {{ mediawiki.external('in') }} the ID of the token's slot.
+   [in] the ID of the token's slot.
 ``flags``
-   {{ mediawiki.external('in') }}
+   [in]
 ``pApplication``
 ``Notify``
-   {{ mediawiki.external('in') }} pointer to a notification callback
+   [in] pointer to a notification callback
    function. Not currently supported.
 ``phSession``
-   {{ mediawiki.external('out') }} pointer to a session handle.
+   [out] pointer to a session handle.
 
 .. _Description:
 

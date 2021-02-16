@@ -1,3 +1,6 @@
+======================
+FC_DecryptVerifyUpdate
+======================
 --- title: FC_DecryptVerifyUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_DecryptVerifyUpdate tags: - NSS ---
 
@@ -30,16 +33,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pEncryptedData``
-   {{ mediawiki.external('in') }} pointer to the encrypted data part.
+   [in] pointer to the encrypted data part.
 ``ulEncryptedDataLen``
-   {{ mediawiki.external('in') }} length of encrypted data in bytes.
+   [in] length of encrypted data in bytes.
 ``pData``
-   {{ mediawiki.external('in') }} pointer to the location which receives
+   [in] pointer to the location which receives
    the recovered data part or NULL.
 ``pulDataLen``
-   {{ mediawiki.external('in') }} pointer to the length of the recovered
+   [in] pointer to the length of the recovered
    part buffer.
 
 .. _Description:

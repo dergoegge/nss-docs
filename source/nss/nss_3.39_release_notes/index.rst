@@ -1,3 +1,6 @@
+======================
+NSS 3.39 release notes
+======================
 --- title: NSS 3.39 release notes slug:
 Mozilla/Projects/NSS/NSS_3.39_release_notes ---
 

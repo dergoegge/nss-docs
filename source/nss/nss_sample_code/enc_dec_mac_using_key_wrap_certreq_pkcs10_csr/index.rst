@@ -1,3 +1,6 @@
+=============================================
+Enc Dec MAC Using Key Wrap CertReq PKCS10 CSR
+=============================================
 --- title: Enc Dec MAC Using Key Wrap CertReq PKCS10 CSR slug: >-
 Mozilla/Projects/NSS/NSS_Sample_Code/Enc_Dec_MAC_Using_Key_Wrap_CertReq_PKCS10_CSR
 ---
@@ -807,7 +810,7 @@ Usage:  %s %s
             if (body)
                 trail = strstr(++body, trailer);
             if (trail != NULL) {
-                *trail = ' ';
+                *trail = '';
             } else {
                 PR_fprintf(PR_STDERR,  "input has header but no trailer
 ");

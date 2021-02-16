@@ -1,3 +1,6 @@
+============
+FC_DigestKey
+============
 --- title: FC_DigestKey slug:
 Mozilla/Projects/NSS/Reference/FC_DigestKey tags: - NSS ---
 
@@ -26,9 +29,9 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``hKey``
-   {{ mediawiki.external('in') }} handle of the key to be digested.
+   [in] handle of the key to be digested.
 
 .. _Description:
 

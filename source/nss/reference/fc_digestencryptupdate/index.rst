@@ -1,3 +1,6 @@
+======================
+FC_DigestEncryptUpdate
+======================
 --- title: FC_DigestEncryptUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_DigestEncryptUpdate tags: - NSS ---
 
@@ -30,16 +33,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pPart``
-   {{ mediawiki.external('in') }} pointer to the data part.
+   [in] pointer to the data part.
 ``ulPartLen``
-   {{ mediawiki.external('in') }} length of data in bytes.
+   [in] length of data in bytes.
 ``pEncryptedPart``
-   {{ mediawiki.external('in') }} pointer to the location which receives
+   [in] pointer to the location which receives
    the digested and encrypted part or NULL.
 ``pulEncryptedPartLen``
-   {{ mediawiki.external('in') }} pointer to the length of the encrypted
+   [in] pointer to the length of the encrypted
    part buffer.
 
 .. _Description:

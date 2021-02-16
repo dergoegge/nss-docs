@@ -1,3 +1,6 @@
+=========
+FC_SetPIN
+=========
 --- title: FC_SetPIN slug: Mozilla/Projects/NSS/Reference/FC_SetPIN
 tags: - NSS ---
 
@@ -31,15 +34,15 @@ Parameters
 ``FC_SetPIN`` takes five parameters:
 
 ``hSession``
-   {{ mediawiki.external('Input') }} the session's handle
+   [Input] the session's handle
 ``pOldPin``
-   {{ mediawiki.external('Input') }} points to the old PIN.
+   [Input] points to the old PIN.
 ``ulOldLen``
-   {{ mediawiki.external('Input') }} the length in bytes of the old PIN.
+   [Input] the length in bytes of the old PIN.
 ``pNewPin``
-   {{ mediawiki.external('Input') }} points to the new PIN.
+   [Input] points to the new PIN.
 ``ulNewLen``
-   {{ mediawiki.external('Input') }} the length in bytes of the new PIN.
+   [Input] the length in bytes of the new PIN.
 
 .. _Description:
 

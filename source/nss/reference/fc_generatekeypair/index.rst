@@ -1,3 +1,6 @@
+==================
+FC_GenerateKeyPair
+==================
 --- title: FC_GenerateKeyPair slug:
 Mozilla/Projects/NSS/Reference/FC_GenerateKeyPair tags: - NSS ---
 
@@ -32,24 +35,24 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} pointer to the mechanism to use.
+   [in] pointer to the mechanism to use.
 ``pPublicKeyTemplate``
-   {{ mediawiki.external('in') }} pointer to the public key template.
+   [in] pointer to the public key template.
 ``usPublicKeyAttributeCount``
-   {{ mediawiki.external('in') }} number of attributes in the public key
+   [in] number of attributes in the public key
    template.
 ``pPrivateKeyTemplate``
-   {{ mediawiki.external('in') }} pointer to the private key template.
+   [in] pointer to the private key template.
 ``usPrivateKeyAttributeCount``
-   {{ mediawiki.external('in') }} number of attributes in the private
+   [in] number of attributes in the private
    key template.
 ``phPublicKey``
-   {{ mediawiki.external('out') }} pointer to the location to receive
+   [out] pointer to the location to receive
    the handle of the new public key.
 ``phPrivateKey``
-   {{ mediawiki.external('out') }} pointer to the location to receive
+   [out] pointer to the location to receive
    the handle of the new private key.
 
 .. _Description:

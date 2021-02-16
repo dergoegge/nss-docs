@@ -1,3 +1,6 @@
+==============
+FC_GetSlotList
+==============
 --- title: FC_GetSlotList slug:
 Mozilla/Projects/NSS/Reference/FC_GetSlotList tags: - NSS ---
 
@@ -27,13 +30,13 @@ Parameters
 ~~~~~~~~~~
 
 ``tokenPresent``
-   {{ mediawiki.external('in') }} If true only slots with a token
+   [in] If true only slots with a token
    present are included in the list, otherwise all slots are included.
 ``pSlotList``
-   {{ mediawiki.external('out') }} Either null or a pointer to an
+   [out] Either null or a pointer to an
    existing array of ``CK_SLOT_ID`` objects.
 ``pulCount``
-   {{ mediawiki.external('out') }} Pointer to a ``CK_ULONG`` variable
+   [out] Pointer to a ``CK_ULONG`` variable
    which receives the slot count.;
 
 .. _Description:

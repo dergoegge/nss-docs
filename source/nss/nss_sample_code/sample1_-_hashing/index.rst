@@ -1,3 +1,6 @@
+==================
+Hashing - sample 1
+==================
 --- title: Hashing - sample 1 slug:
 Mozilla/Projects/NSS/NSS_Sample_Code/Sample1_-_Hashing tags: - HTML -
 Hashing Sample - JavaScript - NSS - Web Development - hashing ---

@@ -1,3 +1,6 @@
+====================
+FC_GetOperationState
+====================
 --- title: FC_GetOperationState slug:
 Mozilla/Projects/NSS/Reference/FC_GetOperationState tags: - NSS ---
 
@@ -28,12 +31,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} handle of the open session.
+   [in] handle of the open session.
 ``pOperationState``
-   {{ mediawiki.external('out') }} pointer to a byte array of a length
+   [out] pointer to a byte array of a length
    sufficient for containing the operation state or NULL.
 ``pulOperationStateLen``
-   {{ mediawiki.external('out') }} pointer to
+   [out] pointer to
    `CK_ULONG </en-US/CK_ULONG>`__ which receives the total length (in
    bytes) of the operation state.
 

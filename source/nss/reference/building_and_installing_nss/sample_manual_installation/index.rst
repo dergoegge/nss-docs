@@ -1,3 +1,6 @@
+==========================
+Sample manual installation
+==========================
 --- title: Sample manual installation slug: >-
 Mozilla/Projects/NSS/Reference/Building_and_installing_NSS/Sample_manual_installation
 tags: - NSS ---

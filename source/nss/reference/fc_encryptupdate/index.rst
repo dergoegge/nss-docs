@@ -1,3 +1,6 @@
+================
+FC_EncryptUpdate
+================
 --- title: FC_EncryptUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_EncryptUpdate tags: - NSS ---
 
@@ -29,17 +32,17 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pPart``
-   {{ mediawiki.external('in') }} pointer to the next block of data to
+   [in] pointer to the next block of data to
    be encrypted.
 ``usPartLen``
-   {{ mediawiki.external('in') }} length of data block in bytes.
+   [in] length of data block in bytes.
 ``pEncryptedPart``
-   {{ mediawiki.external('out') }} pointer to location where encrypted
+   [out] pointer to location where encrypted
    block is to be stored.
 ``pusEncryptedPartaLen``
-   {{ mediawiki.external('out') }} pointer the location where the number
+   [out] pointer the location where the number
    of bytes of encrypted data is to be stored.
 
 .. _Description:

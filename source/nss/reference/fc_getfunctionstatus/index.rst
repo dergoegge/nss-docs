@@ -1,3 +1,6 @@
+====================
+FC_GetFunctionStatus
+====================
 --- title: FC_GetFunctionStatus slug:
 Mozilla/Projects/NSS/Reference/FC_GetFunctionStatus tags: - NSS ---
 
@@ -25,7 +28,7 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 
 .. _Description:
 

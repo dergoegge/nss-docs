@@ -1,3 +1,6 @@
+=========================================
+Notes on TLS - SSL 3.0 Intolerant Servers
+=========================================
 --- title: Notes on TLS - SSL 3.0 Intolerant Servers slug:
 Mozilla/Projects/NSS/Notes_on_TLS_-_SSL_3.0_Intolerant_Servers tags: -
 Gecko - NSS - Security ---
@@ -73,7 +76,7 @@ it is indicated by an asterisked remark in the parentheses. )
 
 N.B. There might be servers other than those listed above which exhibit
 this problem. If you find such a server, feel free to add it to this
-page. For up-to-date information, you can read this {{bug(59321)}} which
+page. For up-to-date information, you can read this `Bug 59321 <https://bugzilla.mozilla.org/show_bug.cgi?id=59321>`__ which
 keeps a list of TLS/SSL 3.0 intolerant servers.
 
 .. _Users:_How_to_avoid_this_problem.3F:
@@ -172,7 +175,7 @@ How to report an intolerant server
    For instance, to check ``https://bugzilla.mozilla.org/``, then visit
    `http://toolbar.netcraft.com/site_rep...a.mozilla.org/ <http://toolbar.netcraft.com/site_report?url=https://bugzilla.mozilla.org/>`__.
 -  Add the information on such a server (software, URL) to
-   {{bug(59321)}} at Bugzilla. (Note: You will be asked to provide your
+   `Bug 59321 <https://bugzilla.mozilla.org/show_bug.cgi?id=59321>`__ at Bugzilla. (Note: You will be asked to provide your
    email address before you can file a bug at Bugzilla.)
 
 .. container:: originaldocinfo

@@ -1,3 +1,6 @@
+====================
+FC_SetOperationState
+====================
 --- title: FC_SetOperationState slug:
 Mozilla/Projects/NSS/Reference/FC_SetOperationState tags: - NSS ---
 
@@ -30,18 +33,18 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} handle of the open session.
+   [in] handle of the open session.
 ``pOperationState``
-   {{ mediawiki.external('in') }} pointer to a byte array containing the
+   [in] pointer to a byte array containing the
    operation state.
 ``ulOperationStateLen``
-   {{ mediawiki.external('in') }} contains the total length (in bytes)
+   [in] contains the total length (in bytes)
    of the operation state.
 ``hEncryptionKey``
-   {{ mediawiki.external('in') }} handle of the encryption or decryption
+   [in] handle of the encryption or decryption
    key to be used in a stored session or zero if no key is needed.
 ``hAuthenticationKey``
-   {{ mediawiki.external('in') }} handle of the authentication key to be
+   [in] handle of the authentication key to be
    used in the stored session or zero if none is needed.
 
 .. _Description:

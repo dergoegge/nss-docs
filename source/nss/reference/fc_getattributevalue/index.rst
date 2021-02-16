@@ -1,3 +1,6 @@
+====================
+FC_GetAttributeValue
+====================
 --- title: FC_GetAttributeValue slug:
 Mozilla/Projects/NSS/Reference/FC_GetAttributeValue tags: - NSS ---
 
@@ -28,13 +31,13 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``hObject``
-   {{ mediawiki.external('in') }} object handle.
+   [in] object handle.
 ``pTemplate``
-   {{ mediawiki.external('in, out') }} pointer to template.
+   [in, out] pointer to template.
 ``usCount``
-   {{ mediawiki.external('in') }} number of attributes in the template.
+   [in] number of attributes in the template.
 
 .. _Description:
 

@@ -1,3 +1,6 @@
+============
+troubleshoot
+============
 --- title: troubleshoot slug:
 Mozilla/Projects/NSS/Reference/troubleshoot ---
 

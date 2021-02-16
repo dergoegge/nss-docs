@@ -1,3 +1,6 @@
+===================================
+Encrypt and decrypt MAC using token
+===================================
 --- title: Encrypt and decrypt MAC using token slug:
 Mozilla/Projects/NSS/Encrypt_Decrypt_MAC_Using_Token tags: - Example -
 Intermediate - Mozilla - NSS ---
@@ -443,7 +446,7 @@ Usage:  %s -c  -d  [-z ] "
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = ' ';
+               *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
 ");

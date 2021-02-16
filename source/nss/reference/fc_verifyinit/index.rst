@@ -1,3 +1,6 @@
+=============
+FC_VerifyInit
+=============
 --- title: FC_VerifyInit slug:
 Mozilla/Projects/NSS/Reference/FC_VerifyInit tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} mechanism to be used for the
+   [in] mechanism to be used for the
    verification operation.
 ``hKey``
-   {{ mediawiki.external('in') }} handle of the key to be used.
+   [in] handle of the key to be used.
 
 .. _Description:
 

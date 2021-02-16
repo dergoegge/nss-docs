@@ -1,3 +1,6 @@
+===============
+HTTP delegation
+===============
 --- title: HTTP delegation slug: Mozilla/Projects/NSS/HTTP_delegation
 tags: - Advanced - Guide - NSS ---
 
@@ -20,7 +23,7 @@ provided by the application, NSS will use the registered HTTP client for
 querying an OSCP responder.
 
 This NSS feature is currently targeted to first appear in NSS version
-3.11.1. More details can be found in {{ Bug(152426) }}.
+3.11.1. More details can be found in `Bug 152426 <https://bugzilla.mozilla.org/show_bug.cgi?id=152426>`__.
 
 In order to use the HTTP Delegation feature in your NSS-based
 application, you need to implement several callback functions. Your
@@ -34,7 +37,7 @@ in the NSS C header files. Look for function
 SEC_RegisterDefaultHttpClient and all functions having names that start
 with SEC_Http.
 
-To find an example implementation, you may look at {{ Bug(111384) }},
+To find an example implementation, you may look at `Bug 111384 <https://bugzilla.mozilla.org/show_bug.cgi?id=111384>`__,
 which tracks the implementation in Mozilla client applications.
 
 .. _Instructions_for_Specifying_an_OCSP_Proxy:

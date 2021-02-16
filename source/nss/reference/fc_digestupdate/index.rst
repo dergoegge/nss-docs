@@ -1,3 +1,6 @@
+===============
+FC_DigestUpdate
+===============
 --- title: FC_DigestUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_DigestUpdate tags: - NSS ---
 
@@ -28,12 +31,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pPart``
-   {{ mediawiki.external('in') }} pointer to the next block of data to
+   [in] pointer to the next block of data to
    be digested.
 ``usPartLen``
-   {{ mediawiki.external('in') }} length of data block in bytes.
+   [in] length of data block in bytes.
 
 .. _Description:
 

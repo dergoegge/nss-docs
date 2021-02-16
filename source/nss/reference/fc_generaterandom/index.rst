@@ -1,3 +1,6 @@
+=================
+FC_GenerateRandom
+=================
 --- title: FC_GenerateRandom slug:
 Mozilla/Projects/NSS/Reference/FC_GenerateRandom tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pRandomData``
-   {{ mediawiki.external('out') }} pointer to the location to receive
+   [out] pointer to the location to receive
    the random data.
 ``ulRandomLen``
-   {{ mediawiki.external('in') }} length of the buffer in bytes.
+   [in] length of the buffer in bytes.
 
 .. _Description:
 

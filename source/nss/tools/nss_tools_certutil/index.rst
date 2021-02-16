@@ -1,3 +1,6 @@
+==================
+NSS Tools certutil
+==================
 --- title: NSS Tools certutil slug:
 Mozilla/Projects/NSS/tools/NSS_Tools_certutil tags: - certificates -
 x509v3 ---
@@ -181,7 +184,7 @@ their arguments are defined as follows:
 | ``-a``                            | Use ASCII format or allow the use |
 |                                   | of ASCII format for input or      |
 |                                   | output. This formatting follows   |
-|                                   | {{rfc(1113)}}. For certificate    |
+|                                   | `RFC 1113 <https://tools.ietf.org/html/rfc1113>`__. For certificate    |
 |                                   | requests, ASCII output defaults   |
 |                                   | to standard output unless         |
 |                                   | redirected.                       |
@@ -337,7 +340,7 @@ their arguments are defined as follows:
 |                                   | this string with quotation marks  |
 |                                   | if it contains spaces. The        |
 |                                   | subject identification format     |
-|                                   | follows {{rfc(1485)}}.            |
+|                                   | follows `RFC 1485 <https://tools.ietf.org/html/rfc1485>`__.            |
 +-----------------------------------+-----------------------------------+
 | ``-t``\ *trustargs*               | Specify the trust attributes to   |
 |                                   | modify in an existing certificate |
@@ -582,7 +585,7 @@ their arguments are defined as follows:
 |                                   | added to the database. Subject    |
 |                                   | alternative name extensions are   |
 |                                   | described in Section 4.2.1.7 of   |
-|                                   | {{rfc(32800)}}.                   |
+|                                   | `RFC 32800 <https://tools.ietf.org/html/rfc32800>`__.                   |
 +-----------------------------------+-----------------------------------+
 | ``-8``\ *dns-names*               | Add a comma-separated list of DNS |
 |                                   | names to the subject alternative  |
@@ -591,7 +594,7 @@ their arguments are defined as follows:
 |                                   | being created or added to the     |
 |                                   | database. Subject alternative     |
 |                                   | name extensions are described in  |
-|                                   | Section 4.2.1.7 of {{rfc(32800)}} |
+|                                   | Section 4.2.1.7 of `RFC 32800 <https://tools.ietf.org/html/rfc32800>`__ |
 +-----------------------------------+-----------------------------------+
 
 .. _Usage:

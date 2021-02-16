@@ -1,3 +1,6 @@
+===============
+Migration to HG
+===============
 --- title: Migration to HG slug:
 Mozilla/Projects/NSS/Reference/Building_and_installing_NSS/Migration_to_HG
 ---

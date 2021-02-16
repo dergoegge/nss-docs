@@ -1,3 +1,6 @@
+===================
+FC_CloseAllSessions
+===================
 --- title: FC_CloseAllSessions slug:
 Mozilla/Projects/NSS/Reference/FC_CloseAllSessions tags: - NSS ---
 
@@ -26,7 +29,7 @@ Parameters
 ~~~~~~~~~~
 
 ``slotID``
-   {{ mediawiki.external('in') }} the ID of the token's slot.
+   [in] the ID of the token's slot.
 
 .. _Description:
 

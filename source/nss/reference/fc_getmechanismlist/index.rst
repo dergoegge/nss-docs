@@ -1,3 +1,6 @@
+===================
+FC_GetMechanismList
+===================
 --- title: FC_GetMechanismList slug:
 Mozilla/Projects/NSS/Reference/FC_GetMechanismList tags: - NSS ---
 
@@ -30,9 +33,9 @@ Parameters
 ``FC_GetMechanismList`` takes three parameters:
 
 ``slotID``
-   {{ mediawiki.external('Input') }}
+   [Input]
 ``pInfo``
-   {{ mediawiki.external('Output') }} The address of a variable that
+   [Output] The address of a variable that
    will receive a pointer to the list of function pointers.
 
 .. _Description:

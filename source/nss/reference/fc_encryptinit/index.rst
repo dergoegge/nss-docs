@@ -1,3 +1,6 @@
+==============
+FC_EncryptInit
+==============
 --- title: FC_EncryptInit slug:
 Mozilla/Projects/NSS/Reference/FC_EncryptInit tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} handle to the session.
+   [in] handle to the session.
 ``pMechanism``
-   {{ mediawiki.external('in') }} pointer to the mechanism to be used
+   [in] pointer to the mechanism to be used
    for subsequent encryption.
 ``hKey``
-   {{ mediawiki.external('in') }} handle of the encryption key.
+   [in] handle of the encryption key.
 
 .. _Description:
 

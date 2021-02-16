@@ -1,3 +1,6 @@
+=============
+FC_CopyObject
+=============
 --- title: FC_CopyObject slug:
 Mozilla/Projects/NSS/Reference/FC_CopyObject tags: - NSS ---
 
@@ -29,15 +32,15 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``hObject``
-   {{ mediawiki.external('in') }} object handle.
+   [in] object handle.
 ``pTemplate``
-   {{ mediawiki.external('in') }} object template.
+   [in] object template.
 ``usCount``
-   {{ mediawiki.external('in') }} number of attributes in the template.
+   [in] number of attributes in the template.
 ``phnewObject``
-   {{ mediawiki.external('out') }} pointer to location to receive the
+   [out] pointer to location to receive the
    new object's handle.
 
 .. _Description:

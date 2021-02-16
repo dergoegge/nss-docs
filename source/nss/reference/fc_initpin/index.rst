@@ -1,3 +1,6 @@
+==========
+FC_InitPIN
+==========
 --- title: FC_InitPIN slug: Mozilla/Projects/NSS/Reference/FC_InitPIN
 tags: - NSS ---
 
@@ -29,11 +32,11 @@ Parameters
 ``FC_InitPIN()`` takes three parameters:
 
 ``hSession``
-   {{ mediawiki.external('Input') }} Session handle.
+   [Input] Session handle.
 ``pPin``
-   {{ mediawiki.external('Input') }} Pointer to the PIN being set.
+   [Input] Pointer to the PIN being set.
 ``ulPinLen``
-   {{ mediawiki.external('Input') }} Length of the PIN.
+   [Input] Length of the PIN.
 
 .. _Description:
 

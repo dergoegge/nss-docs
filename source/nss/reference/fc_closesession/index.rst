@@ -1,3 +1,6 @@
+===============
+FC_CloseSession
+===============
 --- title: FC_CloseSession slug:
 Mozilla/Projects/NSS/Reference/FC_CloseSession tags: - NSS ---
 
@@ -26,7 +29,7 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} the session handle to be closed.
+   [in] the session handle to be closed.
 
 .. _Description:
 

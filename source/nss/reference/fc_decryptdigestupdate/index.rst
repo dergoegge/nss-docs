@@ -1,3 +1,6 @@
+======================
+FC_DecryptDigestUpdate
+======================
 --- title: FC_DecryptDigestUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_DecryptDigestUpdate tags: - NSS ---
 
@@ -30,16 +33,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pEncryptedPart``
-   {{ mediawiki.external('in') }} pointer to the encrypted data part.
+   [in] pointer to the encrypted data part.
 ``ulEncryptedPartLen``
-   {{ mediawiki.external('in') }} length of encrypted data in bytes.
+   [in] length of encrypted data in bytes.
 ``pPart``
-   {{ mediawiki.external('in') }} pointer to the location which receives
+   [in] pointer to the location which receives
    the recovered data part or NULL.
 ``pulPartLen``
-   {{ mediawiki.external('in') }} pointer to the length of the recovered
+   [in] pointer to the length of the recovered
    part buffer.
 
 .. _Description:

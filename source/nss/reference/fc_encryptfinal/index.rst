@@ -1,3 +1,6 @@
+===============
+FC_EncryptFinal
+===============
 --- title: FC_EncryptFinal slug:
 Mozilla/Projects/NSS/Reference/FC_EncryptFinal tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pLastEncryptedPart``
-   {{ mediawiki.external('out') }} pointer to the location that receives
+   [out] pointer to the location that receives
    the last encrypted data part, if any
 ``pusLastEncryptedPartLen``
-   {{ mediawiki.external('in,out') }} pointer to location where the
+   [in,out] pointer to location where the
    number of bytes of the last encrypted data part is to be stored.
 
 .. _Description:

@@ -1,3 +1,6 @@
+===================
+FC_WaitForSlotEvent
+===================
 --- title: FC_WaitForSlotEvent slug:
 Mozilla/Projects/NSS/Reference/FC_WaitForSlotEvent tags: - NSS ---
 

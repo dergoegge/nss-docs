@@ -1,3 +1,6 @@
+===========================================
+Encrypt Decrypt MAC Keys As Session Objects
+===========================================
 --- title: Encrypt Decrypt MAC Keys As Session Objects slug:
 Mozilla/Projects/NSS/Encrypt_Decrypt_MAC_Keys_As_Session_Objects tags: -
 Decrypt - Encryption - Example - NSS - Sample code ---
@@ -443,7 +446,7 @@ Usage:  %s -c  -d  [-z ] "
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = ' ';
+               *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
 ");

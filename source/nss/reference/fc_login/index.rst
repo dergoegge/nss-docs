@@ -1,3 +1,6 @@
+========
+FC_Login
+========
 --- title: FC_Login slug: Mozilla/Projects/NSS/Reference/FC_Login tags:
 - NSS ---
 
@@ -30,15 +33,15 @@ Parameters
 ``FC_Login()`` takes four parameters:
 
 ``hSession``
-   {{ mediawiki.external('in') }} a session handle
+   [in] a session handle
 ``userType``
-   {{ mediawiki.external('in') }} the user type (``CKU_SO`` or
+   [in] the user type (``CKU_SO`` or
    ``CKU_USER``)
 ``pPin``
-   {{ mediawiki.external('in') }} a pointer that points to the user's
+   [in] a pointer that points to the user's
    PIN
 ``ulPinLen``
-   {{ mediawiki.external('in') }} the length of the PIN
+   [in] the length of the PIN
 
 .. _Description:
 

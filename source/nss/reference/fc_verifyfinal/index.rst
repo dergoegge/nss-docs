@@ -1,3 +1,6 @@
+==============
+FC_VerifyFinal
+==============
 --- title: FC_VerifyFinal slug:
 Mozilla/Projects/NSS/Reference/FC_VerifyFinal tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pSignature``
-   {{ mediawiki.external('in') }} pointer to the buffer which will
+   [in] pointer to the buffer which will
    receive the digest or NULL.
 ``usSignatureLen``
-   {{ mediawiki.external('in') }} length of the signature in bytes.
+   [in] length of the signature in bytes.
 
 .. _Description:
 

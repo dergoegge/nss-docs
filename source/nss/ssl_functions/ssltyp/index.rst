@@ -1,3 +1,6 @@
+======
+ssltyp
+======
 --- title: ssltyp slug: Mozilla/Projects/NSS/SSL_functions/ssltyp ---
 
 .. note::

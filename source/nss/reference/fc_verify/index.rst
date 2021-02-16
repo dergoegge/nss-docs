@@ -1,3 +1,6 @@
+=========
+FC_Verify
+=========
 --- title: FC_Verify slug: Mozilla/Projects/NSS/Reference/FC_Verify
 tags: - NSS ---
 
@@ -29,15 +32,15 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pData``
-   {{ mediawiki.external('in') }} pointer to data block.
+   [in] pointer to data block.
 ``usDataLen``
-   {{ mediawiki.external('in') }} length of the data in bytes.
+   [in] length of the data in bytes.
 ``pSignature``
-   {{ mediawiki.external('in') }} pointer to the signature.
+   [in] pointer to the signature.
 ``usSignatureLen``
-   {{ mediawiki.external('in') }} length of the signature in bytes.
+   [in] length of the signature in bytes.
 
 .. _Description:
 

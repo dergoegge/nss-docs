@@ -1,3 +1,6 @@
+=================
+FC_CancelFunction
+=================
 --- title: FC_CancelFunction slug:
 Mozilla/Projects/NSS/Reference/FC_CancelFunction tags: - NSS ---
 
@@ -25,7 +28,7 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 
 .. _Description:
 

@@ -1,3 +1,6 @@
+====================================================
+NSS Sample Code Sample_3_Basic Encryption and MACing
+====================================================
 --- title: NSS Sample Code Sample_3_Basic Encryption and MACing slug: >-
 Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_Sample_3_Basic_Encryption_and_MACi
 tags: - Examples - NSS - Security ---
@@ -454,7 +457,7 @@ Usage:  %s -c <a|b> -d <dbdirpath> [-z <noisefilename>] "
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = ' ';
+               *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
 ");

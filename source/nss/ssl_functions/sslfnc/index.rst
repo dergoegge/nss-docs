@@ -1,3 +1,6 @@
+======
+sslfnc
+======
 --- title: sslfnc slug: Mozilla/Projects/NSS/SSL_functions/sslfnc ---
 
 .. note::
@@ -978,7 +981,7 @@ This function has the parameters listed below.
 |                     | of the directory that will contain the        |
 |                     | session cache. If a ``NULL`` value is passed, |
 |                     | the server default value is used: ``/tmp``    |
-|                     | (Unix) or ``\temp`` (NT).                    |
+|                     | (Unix) or ``	emp`` (NT).                    |
 +---------------------+-----------------------------------------------+
 
 .. _Returns_8:
@@ -1112,7 +1115,7 @@ This function has the parameters listed below.
 |                     | of the directory that will contain the        |
 |                     | session cache. If a ``NULL`` value is passed, |
 |                     | the server default value is used: ``/tmp``    |
-|                     | (Unix) or ``\temp`` (NT).                    |
+|                     | (Unix) or ``	emp`` (NT).                    |
 +---------------------+-----------------------------------------------+
 
 .. _Returns_9:

@@ -1,3 +1,6 @@
+===============
+FC_CreateObject
+===============
 --- title: FC_CreateObject slug:
 Mozilla/Projects/NSS/Reference/FC_CreateObject tags: - NSS ---
 
@@ -28,13 +31,13 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pTemplate``
-   {{ mediawiki.external('in') }} object template.
+   [in] object template.
 ``ulCount``
-   {{ mediawiki.external('in') }} number of attributes in the template.
+   [in] number of attributes in the template.
 ``phObject``
-   {{ mediawiki.external('out') }} pointer to location to receive the
+   [out] pointer to location to receive the
    new objects handle.
 
 .. _Description:

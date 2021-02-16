@@ -1,3 +1,6 @@
+==============
+FC_GenerateKey
+==============
 --- title: FC_GenerateKey slug:
 Mozilla/Projects/NSS/Reference/FC_GenerateKey tags: - NSS ---
 
@@ -29,16 +32,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} pointer to the mechanism to use.
+   [in] pointer to the mechanism to use.
 ``pTemplate``
-   {{ mediawiki.external('in') }} pointer to the template for the new
+   [in] pointer to the template for the new
    key.
 ``ulCount``
-   {{ mediawiki.external('in') }} number of attributes in the template.
+   [in] number of attributes in the template.
 ``phKey``
-   {{ mediawiki.external('out') }} pointer to the location to receive
+   [out] pointer to the location to receive
    the handle of the new key.
 
 .. _Description:

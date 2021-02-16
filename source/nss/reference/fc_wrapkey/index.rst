@@ -1,3 +1,6 @@
+==========
+FC_WrapKey
+==========
 --- title: FC_WrapKey slug: Mozilla/Projects/NSS/Reference/FC_WrapKey
 tags: - NSS ---
 
@@ -30,19 +33,19 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} pointer to the mechanism to use.
+   [in] pointer to the mechanism to use.
 ``hWrappingKey``
-   {{ mediawiki.external('in') }} pointer to the public key template.
+   [in] pointer to the public key template.
 ``hKey``
-   {{ mediawiki.external('in') }} number of attributes in the public key
+   [in] number of attributes in the public key
    template.
 ``pWrappedKey``
-   {{ mediawiki.external('out') }} pointer to the location to receive
+   [out] pointer to the location to receive
    the wrapped key or NULL.
 ``pusWrappedKeyLen``
-   {{ mediawiki.external('in, out') }} pointer to length of wrapped key
+   [in, out] pointer to length of wrapped key
    buffer.
 
 .. _Description:

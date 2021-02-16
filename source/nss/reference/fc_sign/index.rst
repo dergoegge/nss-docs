@@ -1,3 +1,6 @@
+=======
+FC_Sign
+=======
 --- title: FC_Sign slug: Mozilla/Projects/NSS/Reference/FC_Sign tags: -
 NSS ---
 
@@ -29,16 +32,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pData``
-   {{ mediawiki.external('in') }} pointer to data block.
+   [in] pointer to data block.
 ``usDataLen``
-   {{ mediawiki.external('in') }} length of the data in bytes.
+   [in] length of the data in bytes.
 ``pSignature``
-   {{ mediawiki.external('out') }} pointer to location where recovered
+   [out] pointer to location where recovered
    data is to be stored.
 ``pusSignatureLen``
-   {{ mediawiki.external('in, out') }} pointer to the maximum size of
+   [in, out] pointer to the maximum size of
    the output buffer, replaced by the length of the signature if the
    operation is successful.
 

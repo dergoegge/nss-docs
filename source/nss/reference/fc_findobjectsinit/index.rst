@@ -1,3 +1,6 @@
+==================
+FC_FindObjectsInit
+==================
 --- title: FC_FindObjectsInit slug:
 Mozilla/Projects/NSS/Reference/FC_FindObjectsInit tags: - NSS ---
 
@@ -27,11 +30,11 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pTemplate``
-   {{ mediawiki.external('in') }} pointer to template.
+   [in] pointer to template.
 ``usCount``
-   {{ mediawiki.external('in') }} number of attributes in the template.
+   [in] number of attributes in the template.
 
 .. _Description:
 

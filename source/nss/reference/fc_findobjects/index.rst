@@ -1,3 +1,6 @@
+==============
+FC_FindObjects
+==============
 --- title: FC_FindObjects slug:
 Mozilla/Projects/NSS/Reference/FC_FindObjects tags: - NSS ---
 
@@ -28,14 +31,14 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pTemplate``
-   {{ mediawiki.external('out') }} pointer to location to receive the
+   [out] pointer to location to receive the
    object handles.
 ``usMaxObjectCount``
-   {{ mediawiki.external('in') }} maximum number of handles to retrieve.
+   [in] maximum number of handles to retrieve.
 ``pusObjectCount``
-   {{ mediawiki.external('out') }} pointer to location to receive the
+   [out] pointer to location to receive the
    number of returned handles.
 
 .. _Description:

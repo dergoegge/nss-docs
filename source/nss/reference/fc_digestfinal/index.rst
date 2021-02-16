@@ -1,3 +1,6 @@
+==============
+FC_DigestFinal
+==============
 --- title: FC_DigestFinal slug:
 Mozilla/Projects/NSS/Reference/FC_DigestFinal tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pDigest``
-   {{ mediawiki.external('out') }} pointer to the buffer which will
+   [out] pointer to the buffer which will
    receive the digest or NULL.
 ``pulDigestLen``
-   {{ mediawiki.external('in, out') }} pointer to location containing
+   [in, out] pointer to location containing
    the maximum buffer size.
 
 .. _Description:

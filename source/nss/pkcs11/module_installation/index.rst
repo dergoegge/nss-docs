@@ -1,3 +1,6 @@
+==========================
+PKCS11 module installation
+==========================
 --- title: PKCS11 module installation slug:
 Mozilla/Projects/NSS/PKCS11/Module_Installation tags: - Authentication -
 Biometric - Mozilla - NSS - 'PKCS #11' - Projects - Security - Smart

@@ -1,3 +1,6 @@
+=============
+FC_DigestInit
+=============
 --- title: FC_DigestInit slug:
 Mozilla/Projects/NSS/Reference/FC_DigestInit tags: - NSS ---
 
@@ -26,9 +29,9 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} mechanism to be used for the
+   [in] mechanism to be used for the
    subsequent digest operation.
 
 .. _Description:

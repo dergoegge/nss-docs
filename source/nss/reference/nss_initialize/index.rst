@@ -1,3 +1,6 @@
+==============
+NSS_Initialize
+==============
 --- title: NSS_Initialize slug:
 Mozilla/Projects/NSS/Reference/NSS_Initialize ---
 
@@ -29,19 +32,19 @@ Parameters
 ``NSS_Initialize`` has five parameters:
 
 ``configdir``
-   {{ mediawiki.external('in') }} the directory where the certificate,
+   [in] the directory where the certificate,
    key, and module databases live. To-do: document the "sql:" prefix.
 ``certPrefix``
-   {{ mediawiki.external('in') }} prefix added to the beginning of the
+   [in] prefix added to the beginning of the
    certificate database, for example, "https-server1-".
 ``keyPrefix``
-   {{ mediawiki.external('in') }} prefix added to the beginning of the
+   [in] prefix added to the beginning of the
    key database, for example, "https-server1-".
 ``secmodName``
-   {{ mediawiki.external('in') }} name of the security module database,
+   [in] name of the security module database,
    usually "secmod.db".
 ``flags``
-   {{ mediawiki.external('in') }} bit flags that specify how NSS should
+   [in] bit flags that specify how NSS should
    be initialized.
 
 .. _Description:

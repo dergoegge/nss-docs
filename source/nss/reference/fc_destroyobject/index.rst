@@ -1,3 +1,6 @@
+================
+FC_DestroyObject
+================
 --- title: FC_DestroyObject slug:
 Mozilla/Projects/NSS/Reference/FC_DestroyObject tags: - NSS ---
 
@@ -26,9 +29,9 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``hObject``
-   {{ mediawiki.external('in') }} object handle.
+   [in] object handle.
 
 .. _Description:
 

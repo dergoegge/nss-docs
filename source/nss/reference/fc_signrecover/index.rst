@@ -1,3 +1,6 @@
+==============
+FC_SignRecover
+==============
 --- title: FC_SignRecover slug:
 Mozilla/Projects/NSS/Reference/FC_SignRecover tags: - NSS ---
 
@@ -29,16 +32,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pData``
-   {{ mediawiki.external('in') }} mechanism to be used for the signing
+   [in] mechanism to be used for the signing
    operation.
 ``usDataLen``
-   {{ mediawiki.external('in') }} handle of the key to be usedn.
+   [in] handle of the key to be usedn.
 ``pSignature``
-   {{ mediawiki.external('out') }} pointer to the buffer or NULL.
+   [out] pointer to the buffer or NULL.
 ``pusSignatureLen``
-   {{ mediawiki.external('in, out') }} pointer to the size of the output
+   [in, out] pointer to the size of the output
    buffer, replaced by the length of the signature if the operation is
    successful.
 

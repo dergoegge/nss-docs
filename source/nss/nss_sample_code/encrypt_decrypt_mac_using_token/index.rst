@@ -1,3 +1,6 @@
+===============================
+Encrypt Decrypt_MAC_Using Token
+===============================
 --- title: Encrypt Decrypt_MAC_Using Token slug:
 Mozilla/Projects/NSS/nss_sample_code/Encrypt_Decrypt_MAC_Using_Token ---
 
@@ -442,7 +445,7 @@ Usage:  %s -c  -d  [-z ] "
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = ' ';
+               *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
 ");

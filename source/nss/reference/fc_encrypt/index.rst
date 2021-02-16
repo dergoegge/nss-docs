@@ -1,3 +1,6 @@
+==========
+FC_Encrypt
+==========
 --- title: FC_Encrypt slug: Mozilla/Projects/NSS/Reference/FC_Encrypt
 tags: - NSS ---
 
@@ -29,16 +32,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pData``
-   {{ mediawiki.external('in') }} pointer to the data buffer
+   [in] pointer to the data buffer
 ``usDataLen``
-   {{ mediawiki.external('in') }} length of the data buffer in bytes.
+   [in] length of the data buffer in bytes.
 ``pEncryptedData``
-   {{ mediawiki.external('out') }} pointer to location where encrypted
+   [out] pointer to location where encrypted
    data is to be stored.
 ``pusEncryptedDataLen``
-   {{ mediawiki.external('in/out') }} number of bytes.
+   [in/out] number of bytes.
 
 .. _Description:
 

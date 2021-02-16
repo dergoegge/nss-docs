@@ -1,3 +1,6 @@
+================
+FC_VerifyRecover
+================
 --- title: FC_VerifyRecover slug:
 Mozilla/Projects/NSS/Reference/FC_VerifyRecover tags: - NSS ---
 
@@ -29,16 +32,16 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pSignature``
-   {{ mediawiki.external('in') }} mechanism to be used for the signing
+   [in] mechanism to be used for the signing
    operation.
 ``usSignatureLen``
-   {{ mediawiki.external('in') }} handle of the key to be usedn.
+   [in] handle of the key to be usedn.
 ``pData``
-   {{ mediawiki.external('out') }} pointer to the buffer or NULL.
+   [out] pointer to the buffer or NULL.
 ``pusDataLen``
-   {{ mediawiki.external('in, out') }} pointer to the size of the output
+   [in, out] pointer to the size of the output
    buffer, replaced by the length of the signature if the operation is
    successful.
 

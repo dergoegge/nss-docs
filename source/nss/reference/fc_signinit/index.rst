@@ -1,3 +1,6 @@
+===========
+FC_SignInit
+===========
 --- title: FC_SignInit slug: Mozilla/Projects/NSS/Reference/FC_SignInit
 tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} mechanism to be used for the
+   [in] mechanism to be used for the
    subsequent signing operation.
 ``hKey``
-   {{ mediawiki.external('in') }} handle of the key to be used .
+   [in] handle of the key to be used .
 
 .. _Description:
 

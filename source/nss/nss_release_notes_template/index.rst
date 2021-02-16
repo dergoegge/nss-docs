@@ -1,3 +1,6 @@
+==========================
+NSS release notes template
+==========================
 --- title: NSS release notes template slug:
 Mozilla/Projects/NSS/NSS_release_notes_template ---
 

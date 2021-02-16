@@ -1,3 +1,6 @@
+===================
+FC_FindObjectsFinal
+===================
 --- title: FC_FindObjectsFinal slug:
 Mozilla/Projects/NSS/Reference/FC_FindObjectsFinal tags: - NSS ---
 
@@ -25,7 +28,7 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 
 .. _Description:
 

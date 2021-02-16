@@ -1,3 +1,6 @@
+====================
+FC_VerifyRecoverInit
+====================
 --- title: FC_VerifyRecoverInit slug:
 Mozilla/Projects/NSS/Reference/FC_VerifyRecoverInit tags: - NSS ---
 
@@ -28,11 +31,11 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} mechanism to be used for verification.
+   [in] mechanism to be used for verification.
 ``hKey``
-   {{ mediawiki.external('in') }} handle of the key to be used.
+   [in] handle of the key to be used.
 
 .. _Description:
 

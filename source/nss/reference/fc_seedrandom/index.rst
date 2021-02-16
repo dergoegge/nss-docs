@@ -1,3 +1,6 @@
+=============
+FC_SeedRandom
+=============
 --- title: FC_SeedRandom slug:
 Mozilla/Projects/NSS/Reference/FC_SeedRandom tags: - NSS ---
 
@@ -28,11 +31,11 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pSeed``
-   {{ mediawiki.external('in') }} pointer to the seed material
+   [in] pointer to the seed material
 ``usSeedLen``
-   {{ mediawiki.external('in') }} length of the seed material in bytes.
+   [in] length of the seed material in bytes.
 
 .. _Description:
 

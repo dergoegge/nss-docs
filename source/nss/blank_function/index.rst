@@ -1,3 +1,6 @@
+=============
+Function_Name
+=============
 --- title: Function_Name slug: Mozilla/Projects/NSS/Blank_Function tags:
 - NSS ---
 

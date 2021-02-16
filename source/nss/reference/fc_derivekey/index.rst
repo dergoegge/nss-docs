@@ -1,3 +1,6 @@
+============
+FC_DeriveKey
+============
 --- title: FC_DeriveKey slug:
 Mozilla/Projects/NSS/Reference/FC_DeriveKey tags: - NSS ---
 
@@ -30,20 +33,20 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pMechanism``
-   {{ mediawiki.external('in') }} pointer to the mechanism to use.
+   [in] pointer to the mechanism to use.
 ``hBaseKey``
-   {{ mediawiki.external('in') }} handle of the base key.
+   [in] handle of the base key.
 ``pWrappedKey``
-   {{ mediawiki.external('in') }} pointer to the wrapped key.
+   [in] pointer to the wrapped key.
 ``pTemplate``
-   {{ mediawiki.external('in') }} pointer to the list of attributes for
+   [in] pointer to the list of attributes for
    the new key.
 ``usAttributeCount``
-   {{ mediawiki.external('in') }} number of attributes in the template.
+   [in] number of attributes in the template.
 ``phKey``
-   {{ mediawiki.external('out') }} pointer to the location to receive
+   [out] pointer to the location to receive
    the handle of the new key.
 
 .. _Description:

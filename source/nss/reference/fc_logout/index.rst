@@ -1,3 +1,6 @@
+=========
+FC_Logout
+=========
 --- title: FC_Logout slug: Mozilla/Projects/NSS/Reference/FC_Logout
 tags: - NSS ---
 
@@ -25,7 +28,7 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 
 .. _Description:
 

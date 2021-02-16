@@ -1,3 +1,6 @@
+======================
+NSS 3.52 release notes
+======================
 --- title: NSS 3.52 release notes slug:
 Mozilla/Projects/NSS/NSS_3.52_release_notes ---
 

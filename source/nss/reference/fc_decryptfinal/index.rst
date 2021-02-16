@@ -1,3 +1,6 @@
+===============
+FC_DecryptFinal
+===============
 --- title: FC_DecryptFinal slug:
 Mozilla/Projects/NSS/Reference/FC_DecryptFinal tags: - NSS ---
 
@@ -27,12 +30,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pLastPart``
-   {{ mediawiki.external('out') }} pointer to the location where the
+   [out] pointer to the location where the
    last block of recovered data, if any, is to be stored.
 ``pusLastPartLen``
-   {{ mediawiki.external('in,out') }} pointer to location where the
+   [in,out] pointer to location where the
    number of bytes of recovered data is to be stored.
 
 .. _Description:

@@ -1,3 +1,6 @@
+====================================
+Enc Dec MAC Output Public Key as CSR
+====================================
 --- title: Enc Dec MAC Output Public Key as CSR slug:
 Mozilla/Projects/NSS/NSS_Sample_Code/Enc_Dec_MAC_Output_Plblic_Key_as_CSR
 ---
@@ -545,7 +548,7 @@ Usage:  %s -c  -d  [-z ] "
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = ' ';
+               *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
 ");

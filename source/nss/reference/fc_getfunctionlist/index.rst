@@ -1,3 +1,6 @@
+==================
+FC_GetFunctionList
+==================
 --- title: FC_GetFunctionList slug:
 Mozilla/Projects/NSS/Reference/FC_GetFunctionList tags: - NSS ---
 
@@ -26,7 +29,7 @@ Parameters
 ``FC_GetFunctionList`` has one parameter:
 
 ``ppFunctionList``
-   {{ mediawiki.external('Output') }} The address of a variable that
+   [Output] The address of a variable that
    will receive a pointer to the list of function pointers.
 
 .. _Description:

@@ -1,3 +1,6 @@
+=================
+FC_GetSessionInfo
+=================
 --- title: FC_GetSessionInfo slug:
 Mozilla/Projects/NSS/Reference/FC_GetSessionInfo tags: - NSS ---
 
@@ -26,9 +29,9 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} the open session handle.
+   [in] the open session handle.
 ``pInfo``
-   {{ mediawiki.external('out') }} pointer to the
+   [out] pointer to the
    `CK_SESSION_INFO </en-US/CK_SESSION_INFO>`__ structure to be
    returned.
 

@@ -1,3 +1,6 @@
+======================
+NSS Developer Tutorial
+======================
 --- title: NSS Developer Tutorial slug:
 Mozilla/Projects/NSS/NSS_Developer_Tutorial tags: - NSS - Tutorial ---
 
@@ -161,7 +164,8 @@ available.
 -  Universal character names are not permitted, as are wide character
    types (``char16_t`` and ``char32_t``).  NSS source should only
    include ASCII text.  Escape non-printing characters (with ``\x`` if
-   there is no special escape such as \r, \n, and \t) and avoid
+   there is no special escape such as , 
+, and 	) and avoid
    defining string literals that use non-ASCII characters.
 -  One line comments starting with ``//`` are permitted.
 

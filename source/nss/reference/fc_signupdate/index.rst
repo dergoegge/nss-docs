@@ -1,3 +1,6 @@
+=============
+FC_SignUpdate
+=============
 --- title: FC_SignUpdate slug:
 Mozilla/Projects/NSS/Reference/FC_SignUpdate tags: - NSS ---
 
@@ -28,12 +31,12 @@ Parameters
 ~~~~~~~~~~
 
 ``hSession``
-   {{ mediawiki.external('in') }} session handle.
+   [in] session handle.
 ``pPart``
-   {{ mediawiki.external('in') }} pointer to the next block of the data
+   [in] pointer to the next block of the data
    to be signed.
 ``usPartLen``
-   {{ mediawiki.external('in') }} length of data block in bytes.
+   [in] length of data block in bytes.
 
 .. _Description:
 

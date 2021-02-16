@@ -1,3 +1,6 @@
+=====================
+'NSS tools : modutil'
+=====================
 --- title: 'NSS tools : modutil' slug:
 'Mozilla/Projects/NSS/Reference/NSS_tools_:_modutil' tags: - Mozilla -
 NSS - Reference - Security - Tools - Utilities - modutil ---
@@ -649,11 +652,11 @@ key --> string
 | string --> simple_string
 | "complex_string"
 
-simple_string --> [^ \t
+simple_string --> [^ 	
 \""{""}"]+
 
 complex_string --> ([^\"\
-]|(\\")|(\\))+
+]|(\")|(\))+
 
 | Quotes and backslashes must be escaped with a backslash. A complex
   string

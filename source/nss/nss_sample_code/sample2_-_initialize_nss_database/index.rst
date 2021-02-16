@@ -1,3 +1,6 @@
+==================================
+Initialize NSS database - sample 2
+==================================
 --- title: Initialize NSS database - sample 2 slug:
 Mozilla/Projects/NSS/NSS_Sample_Code/Sample2_-_Initialize_NSS_Database
 tags: - HTML - JavaScript - NSS - NSS Article - NSS Initialization - Web
