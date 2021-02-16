@@ -9,6 +9,9 @@ if [ -z $MDN_DIR ] ; then
     exit
 fi
 
+echo "Removing source/nss"
+rm -r $DST_DIR/nss
+
 convert_file() {
     local html_file=$1
     local html_file_name="$(echo $html_file | sed 's/.*\/projects\///g')"
