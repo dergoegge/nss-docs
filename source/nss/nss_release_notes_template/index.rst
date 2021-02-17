@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_release_notes_template:
+
 ==========================
 NSS release notes template
 ==========================

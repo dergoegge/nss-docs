@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_FC_SeedRandom:
+
 =============
 FC_SeedRandom
 =============

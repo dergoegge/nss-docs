@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_JSS_JSS_Provider_Notes:
+
 ==================
 JSS Provider Notes
 ==================

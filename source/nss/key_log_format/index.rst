@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Key_Log_Format:
+
 ==================
 NSS Key Log Format
 ==================

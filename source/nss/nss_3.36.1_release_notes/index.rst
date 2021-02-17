@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_3.36.1_release_notes:
+
 ========================
 NSS 3.36.1 release notes
 ========================

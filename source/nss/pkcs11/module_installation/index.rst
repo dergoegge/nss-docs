@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_PKCS11_Module_Installation:
+
 ==========================
 PKCS11 module installation
 ==========================

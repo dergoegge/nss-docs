@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_NSS_cryptographic_module_FIPS_mode_of_operation:
+
 ======================
 FIPS mode of operation
 ======================

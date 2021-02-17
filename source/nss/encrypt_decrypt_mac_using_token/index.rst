@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Encrypt_Decrypt_MAC_Using_Token:
+
 ===================================
 Encrypt and decrypt MAC using token
 ===================================

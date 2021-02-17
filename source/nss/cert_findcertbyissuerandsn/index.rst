@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_CERT_FindCertByIssuerAndSN:
+
 ==========================
 CERT_FindCertByIssuerAndSN
 ==========================

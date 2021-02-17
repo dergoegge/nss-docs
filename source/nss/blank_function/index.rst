@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Blank_Function:
+
 =============
 Function_Name
 =============

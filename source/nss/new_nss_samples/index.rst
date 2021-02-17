@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_New_NSS_Samples:
+
 ===============
 New NSS Samples
 ===============

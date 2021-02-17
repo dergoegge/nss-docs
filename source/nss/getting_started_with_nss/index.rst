@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Getting_started_with_NSS:
+
 ========================
 Getting Started With NSS
 ========================

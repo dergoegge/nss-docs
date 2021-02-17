@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_nss_sample_code_Encrypt_Decrypt_MAC_Using_Token:
+
 ===============================
 Encrypt Decrypt_MAC_Using Token
 ===============================

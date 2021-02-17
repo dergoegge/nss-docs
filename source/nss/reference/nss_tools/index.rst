@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_NSS_tools:
+
 ======================================
 NSS Tools Man Pages - work in progress
 ======================================

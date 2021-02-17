@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_PKCS11_Functions:
+
 ====================
 NSS PKCS11 Functions
 ====================

@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_FC_GetMechanismInfo:
+
 ===================
 FC_GetMechanismInfo
 ===================

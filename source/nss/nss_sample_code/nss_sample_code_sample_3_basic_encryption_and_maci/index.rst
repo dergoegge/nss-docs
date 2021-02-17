@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_NSS_Sample_Code_Sample_3_Basic_Encryption_and_MACi:
+
 ====================================================
 NSS Sample Code Sample_3_Basic Encryption and MACing
 ====================================================

@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_PKCS11_FAQ:
+
 ==========
 PKCS11 FAQ
 ==========

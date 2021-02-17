@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_sample2:
+
 =======
 sample2
 =======

@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_Sample3_-_EncDecMAC_using_token_object:
+
 =======================================
 EncDecMAC using token object - sample 3
 =======================================

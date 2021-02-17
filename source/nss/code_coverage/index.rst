@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Code_Coverage:
+
 =================
 NSS Code Coverage
 =================

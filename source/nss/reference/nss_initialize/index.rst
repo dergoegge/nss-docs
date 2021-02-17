@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_NSS_Initialize:
+
 ==============
 NSS_Initialize
 ==============

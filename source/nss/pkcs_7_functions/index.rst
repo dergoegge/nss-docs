@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_PKCS_7_functions:
+
 ================
 PKCS 7 functions
 ================

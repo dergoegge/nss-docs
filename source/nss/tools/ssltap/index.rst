@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Tools_ssltap:
+
 ==================
 NSS tools : ssltap
 ==================

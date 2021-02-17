@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_release_notes:
+
 =======================
 Older NSS release notes
 =======================

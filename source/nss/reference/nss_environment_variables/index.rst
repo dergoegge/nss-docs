@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_NSS_environment_variables:
+
 =========================
 NSS environment variables
 =========================

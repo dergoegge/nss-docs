@@ -26,11 +26,21 @@ replace_mediawiki() {
     printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/{{( )*mediawiki.external\('\''(.*)'\''\)( )*}}/\[\2\]/g'
 }
 
+replace_internal_links() {
+    printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/ <\/en-US.*>//g'
+}
+
 #replace_interwiki() {}
 #replace_discussionlist() {}
 
 get_file_title() {
     printf "%s" "$1" | head -n 1 | sed -n -E 's/--- title: (.*) slug:.*/\1/p'
+}
+
+print_rst_title_label() {
+    local title=$1
+    # replace space or . with _
+    printf ".. _%s:" "$(echo "$title" | sed 's/\//_/g')"
 }
 
 print_rst_title() {
@@ -58,10 +68,14 @@ convert_file() {
     rst_content="$(replace_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
+    #rst_content="$(replace_internal_links "$rst_content")"
     local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
+    local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug)"
+
+    local title_label="$(print_rst_title_label "$slug")"
     title="$(print_rst_title "$title")"
     mkdir -p "$(dirname $rst_file)"
-    printf "%s\n%s" "$title" "$rst_content" > $rst_file
+    printf "%s\n\n%s\n%s" "$title_label" "$title" "$rst_content" > $rst_file
 }
 
 echo "Converting files in $MDN_DIR"

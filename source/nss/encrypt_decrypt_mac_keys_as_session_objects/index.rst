@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Encrypt_Decrypt_MAC_Keys_As_Session_Objects:
+
 ===========================================
 Encrypt Decrypt MAC Keys As Session Objects
 ===========================================

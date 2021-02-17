@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_NSS_Sample_Code_Sample_2_Initialization_of_NSS:
+
 ==============================================
 NSS Sample Code Sample_2_Initialization of NSS
 ==============================================

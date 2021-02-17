@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_NSC_InitToken:
+
 =============
 NSC_InitToken
 =============

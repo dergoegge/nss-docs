@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_HTTP_delegation:
+
 ===============
 HTTP delegation
 ===============

@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_An_overview_of_NSS_Internals:
+
 ============================
 An overview of NSS Internals
 ============================

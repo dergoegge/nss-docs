@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_JSS_Using_JSS:
+
 =========
 Using JSS
 =========

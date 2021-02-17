@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_FC_CloseAllSessions:
+
 ===================
 FC_CloseAllSessions
 ===================

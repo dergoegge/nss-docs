@@ -1,3 +1,5 @@
+.. _:
+
 
 *Newsgroup:*\ `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 

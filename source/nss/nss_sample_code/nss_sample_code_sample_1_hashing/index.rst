@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_NSS_Sample_Code_Sample_1_Hashing:
+
 ================================
 NSS Sample Code Sample_1_Hashing
 ================================

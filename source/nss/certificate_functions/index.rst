@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Certificate_functions:
+
 =====================
 Certificate functions
 =====================

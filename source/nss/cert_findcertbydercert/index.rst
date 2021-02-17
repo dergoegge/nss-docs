@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_CERT_FindCertByDERCert:
+
 ======================
 CERT_FindCertByDERCert
 ======================

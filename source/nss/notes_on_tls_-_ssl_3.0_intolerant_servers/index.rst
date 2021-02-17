@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Notes_on_TLS_-_SSL_3.0_Intolerant_Servers:
+
 =========================================
 Notes on TLS - SSL 3.0 Intolerant Servers
 =========================================

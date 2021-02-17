@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_API_Guidelines:
+
 ==================
 NSS API Guidelines
 ==================

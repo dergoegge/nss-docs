@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Memory_allocation:
+
 =====================
 NSS Memory allocation
 =====================

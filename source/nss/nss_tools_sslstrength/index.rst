@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Tools_sslstrength:
+
 =====================
 NSS Tools sslstrength
 =====================

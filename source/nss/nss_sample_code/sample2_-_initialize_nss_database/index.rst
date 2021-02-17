@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_Sample2_-_Initialize_NSS_Database:
+
 ==================================
 Initialize NSS database - sample 2
 ==================================

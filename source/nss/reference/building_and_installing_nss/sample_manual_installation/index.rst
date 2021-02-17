@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_Building_and_installing_NSS_Sample_manual_installation:
+
 ==========================
 Sample manual installation
 ==========================

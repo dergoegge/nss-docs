@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_Utiltiies_for_nss_samples:
+
 =========================
 Utilities for nss samples
 =========================

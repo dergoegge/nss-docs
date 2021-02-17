@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_FIPS_Mode_-_an_explanation:
+
 ==========================
 FIPS Mode - an explanation
 ==========================

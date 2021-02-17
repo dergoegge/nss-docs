@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_NSS_tools_:_vfychain:
+
 ====================
 NSS tools : vfychain
 ====================

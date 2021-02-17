@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Deprecated_SSL_functions:
+
 ========================
 Deprecated SSL functions
 ========================

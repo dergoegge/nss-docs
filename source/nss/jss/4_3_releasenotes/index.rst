@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_JSS_4_3_ReleaseNotes:
+
 =================
 4.3 Release Notes
 =================

@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_S_MIME_functions:
+
 ================
 S/MIME functions
 ================

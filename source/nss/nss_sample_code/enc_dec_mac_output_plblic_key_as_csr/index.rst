@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_NSS_Sample_Code_Enc_Dec_MAC_Output_Plblic_Key_as_CSR:
+
 ====================================
 Enc Dec MAC Output Public Key as CSR
 ====================================

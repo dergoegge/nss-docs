@@ -1,3 +1,5 @@
+.. _Mozilla_Projects_NSS_Reference_FC_EncryptInit:
+
 ==============
 FC_EncryptInit
 ==============
