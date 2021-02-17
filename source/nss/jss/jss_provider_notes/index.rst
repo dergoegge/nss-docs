@@ -77,7 +77,7 @@ Installing the Provider
    provider will be installed in the list of providers maintained by the
    ``java.security.Security`` class. If you do not wish the provider to
    be installed, create a
-   ```CryptoManager.InitializationValues`` </en-US/docs/Mozilla/Projects/NSS/JSS/CryptoManager/CryptoManager.InitializationValues>`__
+   :ref:`Mozilla_Projects_NSS_JSS_CryptoManager_CryptoManager_InitializationValues`
    object, set its ``installJSSProvider`` field to ``false``, and pass
    the ``InitializationValues`` object to
    ``CryptoManager.initialize()``.

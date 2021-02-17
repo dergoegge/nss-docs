@@ -49,8 +49,8 @@ See also
 --------
 
 -  `Web security </en-US/docs/Web/Security>`__
--  `PKCS11 </en-US/docs/Mozilla/Projects/NSS/PKCS11>`__
--  The `pkcs11 </en-US/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11>`__
+-  :ref:`Mozilla_Projects_NSS_PKCS11`
+-  The :ref:`Mozilla_Add-ons_WebExtensions_API_pkcs11`
    `WebExtensions </en-US/docs/User:bram/Add-ons/WebExtensions>`__ API
 -  ``pkcs11.installModule()``
 -  ``pkcs11.isModuleInstalled()``

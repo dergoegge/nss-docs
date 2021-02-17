@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_NSS_3.59_release_notes:
+.. _Mozilla_Projects_NSS_NSS_3_59_release_notes:
 
 ======================
 NSS 3.59 release notes

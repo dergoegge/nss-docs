@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_NSS_3.44.3_release_notes:
+.. _Mozilla_Projects_NSS_NSS_3_44_3_release_notes:
 
 ========================
 NSS 3.44.3 release notes

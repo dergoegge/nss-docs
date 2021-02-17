@@ -283,7 +283,7 @@ Update NSS in mozilla-inbound and mozilla-central
 -------------------------------------------------
 
 The procedure is documented at
-`https://developer.mozilla.org//en-US/docs/Mozilla/Developer_guide/Build_Instructions/Updating_NSPR_or_NSS_in_mozilla-central </en-US/docs/Mozilla/Developer_guide/Build_Instructions/Updating_NSPR_or_NSS_in_mozilla-central>`__.
+:ref:`Mozilla_Developer_guide_Build_Instructions_Updating_NSPR_or_NSS_in_mozilla-central`.
 
 If it is necessary to apply private patches, please document them in
 ``<tree>/security/patches/README``.

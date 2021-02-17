@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_modutil-tasks.html:
+.. _Mozilla_Projects_NSS_modutil-tasks_html:
 
 ==================
 modutil-tasks.html

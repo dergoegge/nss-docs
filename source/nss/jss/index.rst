@@ -35,7 +35,7 @@ JSS
    -  SOURCE: https://hg.mozilla.org/projects/jss
    -  ISSUES:   https://bugzilla.mozilla.org/buglist.cgi?product=JSS
    -  WIKI:       
-      `https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/JSS </en-US/docs/Mozilla/Projects/NSS/JSS>`__
+      :ref:`Mozilla_Projects_NSS_JSS`
 
 Network Security Services for Java (JSS) is a Java interface to
 `NSS </en-US/docs/NSS>`__. JSS supports most of the security standards

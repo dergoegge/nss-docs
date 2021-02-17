@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_NSS_3.28.1_release_notes:
+.. _Mozilla_Projects_NSS_NSS_3_28_1_release_notes:
 
 ========================
 NSS 3.28.1 release notes

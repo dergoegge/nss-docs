@@ -471,7 +471,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_4:
@@ -505,9 +505,9 @@ for a certificate.
    ``SSL_Enable`` can set ``SSL_HANDSHAKE_AS_CLIENT`` or
    ``SSL_HANDSHAKE_AS_SERVER``. However, these settings control the
    behavior of
-   ```PR_Connect`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Connect>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_Connect`
    and
-   ```PR_Accept`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_Accept`
    only; if you don't call one of those functions after importing a
    non-SSL socket with ``SSL_Import`` (as in the case of an already
    established TCP connection), SSL still needs to know whether the
@@ -617,7 +617,7 @@ The function returns one of these value\ ``s``:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain error code.
 
 .. _Description_5:
@@ -755,7 +755,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_6:
@@ -868,7 +868,7 @@ The function returns one of these value\ ``s``:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain error code.
 
 .. _Description_7:
@@ -993,7 +993,7 @@ The function returns one of these value\ ``s``:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain error code.
 
 .. _Description_9:
@@ -1127,7 +1127,7 @@ The function returns one of these value\ ``s``:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain error code.
 
 .. _Description_10:
@@ -1218,7 +1218,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_11:
@@ -1323,7 +1323,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, returns ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_12:
@@ -1399,7 +1399,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, returns ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_13:
@@ -1483,7 +1483,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, returns ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_14:
@@ -1654,7 +1654,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_15:
@@ -2075,7 +2075,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, returns ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_18:
@@ -2132,9 +2132,9 @@ a client or server. At first glance this may seem unnecessary, since
 ``SSL_OptionSet`` can set ``SSL_HANDSHAKE_AS_CLIENT`` or
 ``SSL_HANDSHAKE_AS_SERVER``. However, these settings control the
 behavior of
-```PR_Connect`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Connect>`__
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Connect`
 and
-```PR_Accept`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Accept`
 only; if you don't call one of those functions after importing a non-SSL
 socket with ``SSL_Import`` (as in the case of an already established TCP
 connection), SSL still needs to know whether the application is
@@ -2239,7 +2239,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, returns ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_19:
@@ -2505,7 +2505,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_22:
@@ -2516,7 +2516,7 @@ Description
 Before SSL can handshake as a server on a socket, it must be configured
 to do so with a call to SSL_ConfigSecureServer (among other things).
 This function configures a listen socket. Child sockets created by
-```PR_Accept`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Accept`
 inherit the configuration.
 
 Servers can be configured with more than one certificate for a given
@@ -2586,7 +2586,7 @@ The function returns one of the following values:
 
 -  If successful, zero.
 -  If unsuccessful, ``-1``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_23:
@@ -2651,7 +2651,7 @@ The function returns one of the following values:
 
 -  If successful, zero.
 -  If unsuccessful, ``-1``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_24:
@@ -2757,7 +2757,7 @@ The function returns one of the following values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_25:
@@ -2811,7 +2811,7 @@ The callback function returns one of these values:
 -  If authentication is not successful, ``SECFailure``. If the callback
    returns ``SECFailure``, the callback should indicate the reason for
    the failure (if possible) by calling
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    with the appropriate error code.
 
 The callback function obtains the certificate to be authenticated by
@@ -2982,7 +2982,7 @@ The function returns one of these value\ ``s``:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_27:
@@ -3029,7 +3029,7 @@ authentication callback, the bad-certificate callback function calls
 after the certificate authentication callback returns, the
 bad-certificate callback function can obtain the error code set by the
 certificate authentication callback by calling
-```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+:ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
 immediately, as the first operation it performs. Note: once the
 bad-certificate callback function returns, the peer certificate is
 destroyed, and SSL_PeerCertificate will fail.
@@ -3094,7 +3094,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_28:
@@ -3213,7 +3213,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_29:
@@ -3280,7 +3280,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_30:
@@ -3369,7 +3369,7 @@ The function returns one of these values:
 
 -  If successful, zero.
 -  If unsuccessful, -1. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_31:
@@ -3437,7 +3437,7 @@ receive buffers after a prior read operation. This function does not
 reveal any information about data that has been received but has not yet
 been decrypted. Hence, if this function returns zero, that does not
 necessarily mean that a subsequent call to
-```PR_Read`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Read>`__
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Read`
 would block.
 
 .. _SSL_SecurityStatus:
@@ -3567,7 +3567,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_33:
@@ -3579,7 +3579,7 @@ The ``SSL_SecurityStatus`` function fills in values only if you supply
 pointers to values of the appropriate type. Pointers passed can be
 ``NULL``, in which case the function does not supply values. When you
 are finished with them, you should free all the returned values using
-```PR_Free`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Free>`__.
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Free`.
 
 .. _SSL_GetSessionID:
 
@@ -3677,7 +3677,7 @@ The function returns one of these values:
 
 -  If successful, zero.
 -  If unsuccessful, -1. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_35:
@@ -3856,7 +3856,7 @@ for the purpose of comparing it with the domain name in the certificate
 presented by the server actually contacted. When the callback function
 is finished with the string returned, the string should be freed with a
 call to
-```PR_Free`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Free>`__.
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Free`.
 
 .. _SSL_RevealPinArg:
 
@@ -3962,7 +3962,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_39:
@@ -4137,7 +4137,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_41:
@@ -4157,9 +4157,9 @@ SSL client or an SSL server. Note that this step would not be necessary
 if the socket weren't already connected. For an SSL socket that is
 configured before it is connected, SSL figures this out when the
 application calls
-```PR_Connect`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Connect>`__
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Connect`
 or
-```PR_Accept`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__.
+:ref:`Mozilla_Projects_NSPR_Reference_PR_Accept`.
 If the socket is already connected before SSL gets involved, you must
 provide this extra hint.
 
@@ -4261,7 +4261,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_43:
@@ -4327,7 +4327,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, returns ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_44:
@@ -4391,7 +4391,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_45:
@@ -4463,7 +4463,7 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_46:
@@ -4515,7 +4515,7 @@ The function returns one of these values:
 
 -  If successful, zero.
 -  If unsuccessful, -1. Use
-   ```PR_GetError`` </en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   :ref:`Mozilla_Projects_NSPR_Reference_PR_GetError`
    to obtain the error code.
 
 .. _Description_47:

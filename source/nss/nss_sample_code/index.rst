@@ -38,4 +38,4 @@ You are welcome to download the new samples via:
    hg clone https://hg.mozilla.org/projects/nss; cd nss; hg update SAMPLES_BRANCH
 
 The new samples:
-`https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/New_NSS_Samples </en-US/docs/Mozilla/Projects/NSS/New_NSS_Samples>`__
+:ref:`Mozilla_Projects_NSS_New_NSS_Samples`

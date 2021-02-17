@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_NSS_3.11.10_release_notes.html:
+.. _Mozilla_Projects_NSS_NSS_3_11_10_release_notes_html:
 
 ==============================
 NSS_3.11.10_release_notes.html

@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_NSS_3.19.2.2_release_notes:
+.. _Mozilla_Projects_NSS_NSS_3_19_2_2_release_notes:
 
 ==========================
 NSS 3.19.2.2 release notes
@@ -14,7 +14,7 @@ Fixes" section below.
 
 (Current users of NSS 3.19.3 or NSS 3.19.4 are advised to update to `NSS
 3.20.2 </en-US/docs/Mozilla/Projects/NSS/NSS_3.20.2_release_notes>`__,
-`NSS 3.21 </en-US/docs/Mozilla/Projects/NSS/NSS_3.21_release_notes>`__,
+:ref:`Mozilla_Projects_NSS_NSS_3_21_release_notes`,
 or a later release.)
 
 .. _Distribution_Information:

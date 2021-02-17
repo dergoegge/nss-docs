@@ -52,7 +52,7 @@ These variables should be either undefined, or set to "1". Results are
 undefined for variables set to "0".
 
 For Windows, install
-the `MozillaBuild </en-US/docs/Mozilla/Developer_guide/Build_Instructions/Windows_Prerequisites#mozillabuild>`__ environment
+the :ref:`Mozilla_Developer_guide_Build_Instructions_Windows_Prerequisites#mozillabuild` environment
 and Microsoft Visual Studio 2010. (The free edition works, and other
 versions like Visual Studio 2008 and Visual Studio 2012 may also work.)
 Use start-shell-msvc2010.bat from MozillaBuild to get a bash shell with

@@ -10,7 +10,7 @@ if [ -z $MDN_DIR ] ; then
 fi
 
 echo "Removing source/nss"
-rm -r $DST_DIR/nss || true
+#rm -r $DST_DIR/nss || true
 
 # replaces bug macros
 replace_bug() {
@@ -27,7 +27,17 @@ replace_mediawiki() {
 }
 
 replace_internal_links() {
-    printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/ <\/en-US.*>//g'
+    # find links with pattern /.../Mozilla/... and convert it to the slug label.
+    local slugs="$(printf "%s" "$1" | iconv -t UTF-8 | sed -n -E 's/[^\`]*\`[^<]*<\/.*\/(Mozilla\/[^>]*)>\`__.*/\1/p')"
+    # replace the links with the slug
+    local content="$1"
+    for slug in $(echo "$slugs"); do
+        local label="$(printf "%s" "$slug" | sed 's/[\/.]/_/g' | tr -d '\n')"
+        [ -z "$label" ] && continue
+        slug="$(echo "$slug" | tr -d '\n')"
+        content="$(printf "%s" "$content" | iconv -t UTF-8 | sed -E 's,\`[^<]*<\/.*\/'"$slug"'>\`__,':ref:\`"$label"'\`,g')"
+    done
+    printf "%s" "$content"
 }
 
 #replace_interwiki() {}
@@ -40,7 +50,7 @@ get_file_title() {
 print_rst_title_label() {
     local title=$1
     # replace space or . with _
-    printf ".. _%s:" "$(echo "$title" | sed 's/\//_/g')"
+    printf ".. _%s:" "$(echo "$title" | sed 's/[\/.]/_/g')"
 }
 
 print_rst_title() {
@@ -68,7 +78,8 @@ convert_file() {
     rst_content="$(replace_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
-    #rst_content="$(replace_internal_links "$rst_content")"
+    rst_content="$(replace_internal_links "$rst_content")"
+    #replace_internal_links "$rst_content"
     local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
     local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug)"
 
@@ -86,9 +97,11 @@ done
 
 wait
 
-echo "Checking rst syntax"
-for rst_file in $(find $DST_DIR -type f -name '*.rst'); do
-    [ -e "$html_file" ] || continue
-    rstcheck --report warning $rst_file
-done
+#echo "Checking rst syntax"
+#
+#for rst_file in $(find $DST_DIR -type f -name '*.rst'); do
+#    [ -e "$html_file" ] || continue
+#    rstcheck --report warning $rst_file
+#done
 #convert_file "$MDN_DIR/http_delegation_clone/index.html"
+#convert_file "$MDN_DIR/reference/nss_cryptographic_module/fips_mode_of_operation/index.html"

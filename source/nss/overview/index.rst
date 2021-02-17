@@ -62,7 +62,7 @@ Source code for a Java interface to NSS is available in the Mozilla CVS
 tree. For details, see `Network Security Services for Java <JSS>`__.
 
 NSS makes use of Netscape Portable Runtime
-(`NSPR </en-US/docs/Mozilla/Projects/NSPR>`__), a platform-neutral
+(:ref:`Mozilla_Projects_NSPR`), a platform-neutral
 open-source API for system functions designed to facilitate
 cross-platform development. Like NSS, NSPR has been battle-tested in
 multiple products. For more information, see the `NSPR Project
@@ -125,7 +125,7 @@ application, including the following:
    message specification (based on the popular Internet MIME standard)
    that provides a consistent way to send and receive signed and
    encrypted MIME data.
--  `X.509 v3 </en-US/docs/Mozilla/Security/x509_Certificates>`__. ITU
+-  :ref:`Mozilla_Security_x509_Certificates`. ITU
    standard that governs the format of certificates used for
    authentication in public-key cryptography.
 -  `OCSP (RFC 2560) </en-US/Glossary#OCSP>`__. The Online Certificate
@@ -174,7 +174,7 @@ certificate and key management, cryptography module management, and
 other development tasks.
 
 NSS comes with an extensive and growing set of
-`documentation </en-US/docs/Mozilla/Projects/NSS#documentation>`__,
+:ref:`Mozilla_Projects_NSS#documentation`,
 including introductory material, API references, man pages for
 command-line tools, and `sample
 code </en-US/docs/NSS/NSS_Sample_Code>`__.

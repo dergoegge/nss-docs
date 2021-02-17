@@ -1,4 +1,4 @@
-.. _Mozilla_Projects_NSS_JSS_Build_instructions_for_JSS_4.3.x:
+.. _Mozilla_Projects_NSS_JSS_Build_instructions_for_JSS_4_3_x:
 
 ================================
 Build instructions for JSS 4.3.x
