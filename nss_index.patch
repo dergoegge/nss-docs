@@ -1,0 +1,25 @@
+diff --git a/files/en-us/mozilla/projects/nss/index.html b/files/en-us/mozilla/projects/nss/index.html
+index 495bbbfc5..5f135b80d 100644
+--- a/files/en-us/mozilla/projects/nss/index.html
++++ b/files/en-us/mozilla/projects/nss/index.html
+@@ -14,10 +14,7 @@ tags:
+ 
+ <p>If you're a developer and would like to contribute to NSS, you might want to read the documents <a href="/en-US/docs/An_overview_of_NSS_Internals">highlevel overview of internal details of NSS</a> and <a href="/en-US/docs/Getting_Started_With_NSS">getting started with NSS</a>.</p>
+ 
+-<table class="topicpage-table">
+- <tbody>
+-  <tr>
+-   <td>
++<div class="topicpage-table">
+     <h2 id="Documentation">Documentation</h2>
+ 
+     <h3 id="Background_Information">Background Information</h3>
+@@ -164,7 +161,4 @@ tags:
+     <ul>
+      <li><a href="/en-US/docs/Security">Security</a></li>
+     </ul>
+-   </td>
+-  </tr>
+- </tbody>
+-</table>
++</div>
