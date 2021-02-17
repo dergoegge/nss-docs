@@ -30,12 +30,12 @@ Other releases are available :ref:`Mozilla_Projects_NSS_NSS_Releases`.
 Bugs fixed in NSS 3.61
 ----------------------
 
--  Bug 1682071 - Fix issue with IKE Quick mode deriving incorrect key values under certain
+- `Bug 1682071 <https://bugzilla.mozilla.org/show_bug.cgi?id=1682071>`__ - Fix issue with IKE Quick mode deriving incorrect key values under certain
    conditions.
--  Bug 1684300 - Fix default PBE iteration count when NSS is compiled with NSS_DISABLE_DBM.
--  Bug 1651411 - Improve constant-timeness in RSA operations.
--  Bug 1677207 - Upgrade Google Test version to latest release.
--  Bug 1654332 - Add aarch64-make target to nss-try.
+- `Bug 1684300 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684300>`__ - Fix default PBE iteration count when NSS is compiled with NSS_DISABLE_DBM.
+- `Bug 1651411 <https://bugzilla.mozilla.org/show_bug.cgi?id=1651411>`__ - Improve constant-timeness in RSA operations.
+- `Bug 1677207 <https://bugzilla.mozilla.org/show_bug.cgi?id=1677207>`__ - Upgrade Google Test version to latest release.
+- `Bug 1654332 <https://bugzilla.mozilla.org/show_bug.cgi?id=1654332>`__ - Add aarch64-make target to nss-try.
 
 This Bugzilla query returns all the bugs fixed in NSS 3.61:
 

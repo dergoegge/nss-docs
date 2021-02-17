@@ -39,10 +39,10 @@ No new functionality is introduced in this release. This is a patch release to f
 Bugs fixed in NSS 3.36.2
 ------------------------
 
--  Bug 1462303 - Connecting to a server that was recently upgraded to TLS 1.3 would result in a
+- `Bug 1462303 <https://bugzilla.mozilla.org/show_bug.cgi?id=1462303>`__ - Connecting to a server that was recently upgraded to TLS 1.3 would result in a
    SSL_RX_MALFORMED_SERVER_HELLO error.
 
--  Bug 1460673 - Fix a rare bug with PKCS#12 files.
+- `Bug 1460673 <https://bugzilla.mozilla.org/show_bug.cgi?id=1460673>`__ - Fix a rare bug with PKCS#12 files.
 
 This Bugzilla query returns all the bugs fixed in NSS 3.36.2:
 

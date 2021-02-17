@@ -99,18 +99,18 @@ Certificate Authority Changes
 Bugs fixed in NSS 3.60
 ----------------------
 
--  Bug 1654332 - Implement Encrypted Client Hello (draft-ietf-tls-esni-08) in NSS.
--  Bug 1678189 - Update CA list version to 2.46.
--  Bug 1670769 - Remove 10 GeoTrust, thawte, and VeriSign root certs from NSS.
--  Bug 1678166 - Add NAVER Global Root Certification Authority root cert to NSS.
--  Bug 1678384 - Add a build flag to allow building nssckbi-testlib in m-c.
--  Bug 1570539 - Remove -X alt-server-hello option from tstclnt.
--  Bug 1675523 - Fix incorrect pkcs11t.h value CKR_PUBLIC_KEY_INVALID.
--  Bug 1642174 - Fix PowerPC ABI version 1 build failure.
--  Bug 1674819 - Fix undefined shift in fuzzer mode.
--  Bug 1678990 - Fix ARM crypto extensions detection on macOS.
--  Bug 1679290 - Fix lock order inversion and potential deadlock with libnsspem.
--  Bug 1680400 - Fix memory leak in PK11_UnwrapPrivKey.
+- `Bug 1654332 <https://bugzilla.mozilla.org/show_bug.cgi?id=1654332>`__ - Implement Encrypted Client Hello (draft-ietf-tls-esni-08) in NSS.
+- `Bug 1678189 <https://bugzilla.mozilla.org/show_bug.cgi?id=1678189>`__ - Update CA list version to 2.46.
+- `Bug 1670769 <https://bugzilla.mozilla.org/show_bug.cgi?id=1670769>`__ - Remove 10 GeoTrust, thawte, and VeriSign root certs from NSS.
+- `Bug 1678166 <https://bugzilla.mozilla.org/show_bug.cgi?id=1678166>`__ - Add NAVER Global Root Certification Authority root cert to NSS.
+- `Bug 1678384 <https://bugzilla.mozilla.org/show_bug.cgi?id=1678384>`__ - Add a build flag to allow building nssckbi-testlib in m-c.
+- `Bug 1570539 <https://bugzilla.mozilla.org/show_bug.cgi?id=1570539>`__ - Remove -X alt-server-hello option from tstclnt.
+- `Bug 1675523 <https://bugzilla.mozilla.org/show_bug.cgi?id=1675523>`__ - Fix incorrect pkcs11t.h value CKR_PUBLIC_KEY_INVALID.
+- `Bug 1642174 <https://bugzilla.mozilla.org/show_bug.cgi?id=1642174>`__ - Fix PowerPC ABI version 1 build failure.
+- `Bug 1674819 <https://bugzilla.mozilla.org/show_bug.cgi?id=1674819>`__ - Fix undefined shift in fuzzer mode.
+- `Bug 1678990 <https://bugzilla.mozilla.org/show_bug.cgi?id=1678990>`__ - Fix ARM crypto extensions detection on macOS.
+- `Bug 1679290 <https://bugzilla.mozilla.org/show_bug.cgi?id=1679290>`__ - Fix lock order inversion and potential deadlock with libnsspem.
+- `Bug 1680400 <https://bugzilla.mozilla.org/show_bug.cgi?id=1680400>`__ - Fix memory leak in PK11_UnwrapPrivKey.
 
 This Bugzilla query returns all the bugs fixed in NSS 3.60:
 

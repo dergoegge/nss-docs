@@ -43,7 +43,7 @@ New Types:
 Notable Changes in NSS 3.14.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Bug 805604 - Support for AES-NI and AVX accelerated AES-GCM was contributed by Shay Gueron of
+- `Bug 805604 <https://bugzilla.mozilla.org/show_bug.cgi?id=805604>`__ - Support for AES-NI and AVX accelerated AES-GCM was contributed by Shay Gueron of
    Intel. If compiled on Linux systems in 64-bit mode, NSS will include runtime detection to check
    if the platform supports AES-NI and PCLMULQDQ. If so, NSS uses the optimized code path, reducing
    the CPU cycles per byte to 1/20 of what was required before the patch
@@ -54,20 +54,20 @@ Notable Changes in NSS 3.14.2
 -  SQLite has been updated to 3.7.15. Note: please apply the patch in
    https://bugzilla.mozilla.org/show_bug.cgi?id=837799 if you build NSS with the system SQLite
    library and your system SQLite library is older than 3.7.15.
--  Bug 816853 - When using libpkix for certificate validation, applications may now supply
+- `Bug 816853 <https://bugzilla.mozilla.org/show_bug.cgi?id=816853>`__ - When using libpkix for certificate validation, applications may now supply
    additional application-defined trust anchors to be used in addition to those from loaded security
    tokens, rather than as an alternative to. (https://bugzilla.mozilla.org/show_bug.cgi?id=816853)
--  Bug 772144 - Basic support for running NSS test suites on Android devices.This is currently
+- `Bug 772144 <https://bugzilla.mozilla.org/show_bug.cgi?id=772144>`__ - Basic support for running NSS test suites on Android devices.This is currently
    limited to running tests from a Linux host machine using an SSH connection. Only the SSHDroid app
    has been tested.
--  Bug 373108 - Fixed a bug where, under certain circumstances, when applications supplied
+- `Bug 373108 <https://bugzilla.mozilla.org/show_bug.cgi?id=373108>`__ - Fixed a bug where, under certain circumstances, when applications supplied
    invalid/out-of-bounds parameters for AES encryption, a double free may occur.
--  Bug 813857 - Modification of certificate trust flags from multiple threads is now a thread-safe
+- `Bug 813857 <https://bugzilla.mozilla.org/show_bug.cgi?id=813857>`__ - Modification of certificate trust flags from multiple threads is now a thread-safe
    operation.
--  Bug 618418 - C_Decrypt/C_DecryptFinal now correctly validate the PKCS #7 padding when present.
--  Bug 807890 - Added support for Microsoft Trust List Signing EKU.
--  Bug 822433 - Fixed a crash in dtls_FreeHandshakeMessages.
--  Bug 823336 - Reject invalid LDAP AIA URIs sooner.
+- `Bug 618418 <https://bugzilla.mozilla.org/show_bug.cgi?id=618418>`__ - C_Decrypt/C_DecryptFinal now correctly validate the PKCS #7 padding when present.
+- `Bug 807890 <https://bugzilla.mozilla.org/show_bug.cgi?id=807890>`__ - Added support for Microsoft Trust List Signing EKU.
+- `Bug 822433 <https://bugzilla.mozilla.org/show_bug.cgi?id=822433>`__ - Fixed a crash in dtls_FreeHandshakeMessages.
+- `Bug 823336 <https://bugzilla.mozilla.org/show_bug.cgi?id=823336>`__ - Reject invalid LDAP AIA URIs sooner.
 
 .. _Bugs_Fixed_in_NSS_3.14.2:
 

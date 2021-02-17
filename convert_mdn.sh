@@ -17,6 +17,10 @@ replace_bug() {
     printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/{{( )*[bB]ug\(([0-9]*)\)( )*}}/\`Bug \2 <https:\/\/bugzilla.mozilla.org\/show_bug.cgi\?id\=\2>\`__/g'
 }
 
+replace_plain_bug() {
+	printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/[^\`]Bug ([0-9]*)/\`Bug \1 <https:\/\/bugzilla.mozilla.org\/show_bug.cgi\?id\=\1>\`__/g'
+}
+
 # replaces rfc macros
 replace_rfc() {
     printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/{{( )*rfc\(([0-9]*)\)( )*}}/\`RFC \2 <https:\/\/tools.ietf.org\/html\/rfc\2>\`__/g'
@@ -76,6 +80,7 @@ convert_file() {
     local rst_content=$(printf "%s" "$html_content" | pandoc --columns 100 --from html --to rst)
 
     rst_content="$(replace_bug "$rst_content")"
+    rst_content="$(replace_plain_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
     rst_content="$(replace_internal_links "$rst_content")"

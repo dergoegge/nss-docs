@@ -42,7 +42,7 @@ No new functionality is introduced in this release. This is a patch release to f
 Bugs fixed in NSS 3.41.1
 ------------------------
 
--  Bug 1507135 and Bug 1507174 - Add additional null checks to several CMS functions to fix a rare
+- `Bug 1507135 <https://bugzilla.mozilla.org/show_bug.cgi?id=1507135>`__ and`Bug 1507174 <https://bugzilla.mozilla.org/show_bug.cgi?id=1507174>`__ - Add additional null checks to several CMS functions to fix a rare
    CMS crash. Thanks to Hanno Böck and Damian Poddebniak for the discovery and fixes.
    (CVE-2018-18508)
 

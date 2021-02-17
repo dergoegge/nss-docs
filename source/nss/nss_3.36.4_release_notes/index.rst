@@ -39,7 +39,7 @@ No new functionality is introduced in this release. This is a patch release to f
 Bugs fixed in NSS 3.36.4
 ------------------------
 
--  Bug 1461731 - Fix crash on macOS related to authentication tokens, e.g. PK11or WebAuthn.
+- `Bug 1461731 <https://bugzilla.mozilla.org/show_bug.cgi?id=1461731>`__ - Fix crash on macOS related to authentication tokens, e.g. PK11or WebAuthn.
 
 .. _Compatibility:
 

@@ -8,10 +8,6 @@
 
 - The table in index.html is not converted correctly. The rst version has weird line breaks and is not very readable in a text editor.
 
-- Turn Bug {num} in to links.
-
 - Links to other parts of the docs are broken
-
-- Some files are not UTF-8 and sed is complaining.
 
 - Line wrapping messes up a lot. See index.html/index.rst.
