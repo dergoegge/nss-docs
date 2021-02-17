@@ -8,9 +8,8 @@ NSS 3.30.2 release notes
 Introduction
 ------------
 
-Network Security Services (NSS) 3.30.2 is a patch release for NSS 3.30.
-The bug fixes in NSS 3.30.2 are described in the "Bugs Fixed" section
-below.
+Network Security Services (NSS) 3.30.2 is a patch release for NSS 3.30. The bug fixes in NSS 3.30.2
+are described in the "Bugs Fixed" section below.
 
 .. _Distribution_Information:
 
@@ -19,8 +18,7 @@ Distribution Information
 
 The HG tag is NSS_3_30_2_RTM. NSS 3.30.2 requires NSPR 4.14 or newer.
 
-NSS 3.30.2 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+NSS 3.30.2 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_30_2_RTM/src/
@@ -30,8 +28,8 @@ secure HTTPS download:
 New in NSS 3.30.2
 -----------------
 
-No new functionality is introduced in this release. This is a patch
-release to update the list of root CA certificates.
+No new functionality is introduced in this release. This is a patch release to update the list of
+root CA certificates.
 
 .. _Notable_Changes_in_NSS_3.30.2:
 
@@ -73,37 +71,32 @@ Notable Changes in NSS 3.30.2
       -  SHA-256 Fingerprint:
          46:ED:C3:68:90:46:D5:3A:45:3F:B3:10:4A:B8:0D:CA:EC:65:8B:26:60:EA:16:29:DD:7E:86:79:90:64:87:16
       -  Trust Flags: Websites
-      -  Technically constrained to: gov.tr, k12.tr, pol.tr, mil.tr,
-         tsk.tr, kep.tr, bel.tr, edu.tr, org.tr
+      -  Technically constrained to: gov.tr, k12.tr, pol.tr, mil.tr, tsk.tr, kep.tr, bel.tr, edu.tr,
+         org.tr
 
 -  The version number of the updated root CA list has been set to 2.14
-   (The version numbers 2.12 and 2.13 for the root CA list have been
-   skipped.)
+   (The version numbers 2.12 and 2.13 for the root CA list have been skipped.)
 
 .. _Bugs_fixed_in_NSS_3.30.2:
 
 Bugs fixed in NSS 3.30.2
 ------------------------
 
--  `Bug
-   1350859 <https://bugzilla.mozilla.org/show_bug.cgi?id=1350859>`__ -
-   March 2017 batch of root CA changes
--  `Bug
-   1349705 <https://bugzilla.mozilla.org/show_bug.cgi?id=1349705>`__ -
-   Implemented domain name constraints for CA: TUBITAK Kamu SM SSL Kok
-   Sertifikasi - Surum 1
+-  `Bug 1350859 <https://bugzilla.mozilla.org/show_bug.cgi?id=1350859>`__ - March 2017 batch of root
+   CA changes
+-  `Bug 1349705 <https://bugzilla.mozilla.org/show_bug.cgi?id=1349705>`__ - Implemented domain name
+   constraints for CA: TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1
 
 .. _Compatibility:
 
 Compatibility
 -------------
 
-NSS 3.30.2 shared libraries are backward compatible with all older NSS
-3.x shared libraries. A program linked with older NSS 3.x shared
-libraries will work with NSS 3.30.2 shared libraries without recompiling
-or relinking. Furthermore, applications that restrict their use of NSS
-APIs to the functions listed in NSS Public Functions will remain
-compatible with future versions of the NSS shared libraries.
+NSS 3.30.2 shared libraries are backward compatible with all older NSS 3.x shared libraries. A
+program linked with older NSS 3.x shared libraries will work with NSS 3.30.2 shared libraries
+without recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs to
+the functions listed in NSS Public Functions will remain compatible with future versions of the NSS
+shared libraries.
 
 .. _Feedback:
 
@@ -111,5 +104,4 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
-(product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).

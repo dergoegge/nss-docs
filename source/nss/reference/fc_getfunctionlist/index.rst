@@ -8,8 +8,7 @@ FC_GetFunctionList
 Name
 ~~~~
 
-FC_GetFunctionList - get a pointer to the list of function pointers in
-the FIPS mode of operation.
+FC_GetFunctionList - get a pointer to the list of function pointers in the FIPS mode of operation.
 
 .. _Syntax:
 
@@ -28,22 +27,19 @@ Parameters
 ``FC_GetFunctionList`` has one parameter:
 
 ``ppFunctionList``
-   [Output] The address of a variable that
-   will receive a pointer to the list of function pointers.
+   [Output] The address of a variable that will receive a pointer to the
+   list of function pointers.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_GetFunctionList`` stores in ``*ppFunctionList`` a pointer to the
-`NSS cryptographic
-module </en-US/NSS_reference/NSS_cryptographic_module>`__'s list of
-function pointers in the `FIPS mode of
-operation </en-US/NSS_reference/NSS_cryptographic_module/FIPS_mode_of_operation>`__.
+``FC_GetFunctionList`` stores in ``*ppFunctionList`` a pointer to the `NSS cryptographic
+module </en-US/NSS_reference/NSS_cryptographic_module>`__'s list of function pointers in the `FIPS
+mode of operation </en-US/NSS_reference/NSS_cryptographic_module/FIPS_mode_of_operation>`__.
 
-A user may call ``FC_GetFunctionList`` without logging into the token
-(to assume the NSS User role).
+A user may call ``FC_GetFunctionList`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 

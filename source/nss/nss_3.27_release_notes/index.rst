@@ -8,19 +8,16 @@ NSS 3.27 release notes
 Introduction
 ------------
 
-The Network Security Services (NSS) team has released NSS 3.27, which is
-a minor release.
+The Network Security Services (NSS) team has released NSS 3.27, which is a minor release.
 
 .. _Distribution_information:
 
 Distribution information
 ------------------------
 
-The hg tag is NSS_3_27_RTM. NSS 3.27 requires Netscape Portable
-Runtime(NSPR) 4.13 or newer.
+The hg tag is NSS_3_27_RTM. NSS 3.27 requires Netscape Portable Runtime(NSPR) 4.13 or newer.
 
-NSS 3.27 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+NSS 3.27 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_27_RTM/src/
@@ -35,8 +32,7 @@ New in NSS 3.27
 New Functionality
 ~~~~~~~~~~~~~~~~~
 
--  Allow custom named group priorities for TLS key exchange handshake
-   (SSL_NamedGroupConfig).
+-  Allow custom named group priorities for TLS key exchange handshake (SSL_NamedGroupConfig).
 -  Added support for RSA-PSS signatures in TLS 1.2 and TLS 1.3
 
 .. _New_Functions:
@@ -55,19 +51,16 @@ Notable Changes in NSS 3.27
 
 -  *UPDATE 2016-10-02:*
 
-   -  The maximum TLS version supported has been increased to TLS 1.3
-      (draft).
-   -  Although the maximum TLS version enabled by default is still TLS
-      1.2, there are applications that query the list of TLS protocol
-      versions supported by NSS, and enable all supported versions. For
-      those applications, updating to NSS 3.27 may result in TLS 1.3
-      (draft) to be enabled.
-   -  The TLS 1.3 (draft) protocol can be disabled, by defining symbol
-      NSS_DISABLE_TLS_1_3 when building NSS.
+   -  The maximum TLS version supported has been increased to TLS 1.3 (draft).
+   -  Although the maximum TLS version enabled by default is still TLS 1.2, there are applications
+      that query the list of TLS protocol versions supported by NSS, and enable all supported
+      versions. For those applications, updating to NSS 3.27 may result in TLS 1.3 (draft) to be
+      enabled.
+   -  The TLS 1.3 (draft) protocol can be disabled, by defining symbol NSS_DISABLE_TLS_1_3 when
+      building NSS.
 
 -  NPN can not be enabled anymore.
--  Hard limits on the maximum number of TLS records encrypted with the
-   same key are enforced.
+-  Hard limits on the maximum number of TLS records encrypted with the same key are enforced.
 -  Disabled renegotiation in DTLS.
 -  The following CA certificates were **Removed**
 
@@ -91,20 +84,17 @@ Notable Changes in NSS 3.27
       -  SHA-256 Fingerprint:
          37:D8:DC:8A:F7:86:78:45:DA:33:44:A6:B1:BA:DE:44:8D:8A:80:E4:7B:55:79:F9:6B:F6:31:76:8F:9F:30:F6
 
-   -  O = VeriSign, Inc., OU = Class 1 Public Primary Certification
-      Authority
+   -  O = VeriSign, Inc., OU = Class 1 Public Primary Certification Authority
 
       -  SHA-256 Fingerprint:
          51:84:7C:8C:BD:2E:9A:72:C9:1E:29:2D:2A:E2:47:D7:DE:1E:3F:D2:70:54:7A:20:EF:7D:61:0F:38:B8:84:2C
 
-   -  O = VeriSign, Inc., OU = Class 2 Public Primary Certification
-      Authority - G2
+   -  O = VeriSign, Inc., OU = Class 2 Public Primary Certification Authority - G2
 
       -  SHA-256 Fingerprint:
          3A:43:E2:20:FE:7F:3E:A9:65:3D:1E:21:74:2E:AC:2B:75:C2:0F:D8:98:03:05:BC:50:2C:AF:8C:2D:9B:41:A1
 
-   -  O = VeriSign, Inc., OU = Class 3 Public Primary Certification
-      Authority
+   -  O = VeriSign, Inc., OU = Class 3 Public Primary Certification Authority
 
       -  SHA-256 Fingerprint:
          E7:68:56:34:EF:AC:F6:9A:CE:93:9A:6B:25:5B:7B:4F:AB:EF:42:93:5B:50:A2:65:AC:B5:CB:60:27:E4:4E:70
@@ -138,12 +128,10 @@ https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Compone
 Compatibility
 -------------
 
-NSS 3.27 shared libraries are backwards compatible with all older NSS
-3.x shared libraries. A program linked with older NSS 3.x shared
-libraries will work with NSS 3.27 shared libraries without recompiling
-or relinking. Applications that restrict their use of NSS APIs to the
-functions listed in NSS Public Functions will remain compatible with
-future versions of the NSS shared libraries.
+NSS 3.27 shared libraries are backwards compatible with all older NSS 3.x shared libraries. A
+program linked with older NSS 3.x shared libraries will work with NSS 3.27 shared libraries without
+recompiling or relinking. Applications that restrict their use of NSS APIs to the functions listed
+in NSS Public Functions will remain compatible with future versions of the NSS shared libraries.
 
 .. _Feedback:
 
@@ -151,5 +139,4 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
-(product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).

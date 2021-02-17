@@ -8,8 +8,8 @@ NSS Config Options
  NSS Config Options Format
 --------------------------
 
-The specified ciphers will be allowed by policy, but an application may
-allow more by policy explicitly:
+The specified ciphers will be allowed by policy, but an application may allow more by policy
+explicitly:
 
 ::
 
@@ -21,9 +21,8 @@ Only the specified hashes and curves will be allowed:
 
    config="disallow=all allow=sha1:sha256:secp256r1:secp384r1"
 
-Only the specified hashes and curves will be allowed, and RSA keys of
-2048 or more will be accepted, and DH key exchange with 1024-bit primes
-or more:
+Only the specified hashes and curves will be allowed, and RSA keys of 2048 or more will be accepted,
+and DH key exchange with 1024-bit primes or more:
 
 ::
 
@@ -47,8 +46,8 @@ Turn off md5 and sha1 only for SSL
 
    config="disallow=MD5(SSL):SHA1(SSL)"
 
-Disallow values are parsed first, and then allow values, independent of
-the order in which they appear.
+Disallow values are parsed first, and then allow values, independent of the order in which they
+appear.
 
 ::
 

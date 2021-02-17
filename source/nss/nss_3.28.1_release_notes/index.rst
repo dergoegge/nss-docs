@@ -8,9 +8,8 @@ NSS 3.28.1 release notes
 Introduction
 ------------
 
-Network Security Services (NSS) 3.28.1 is a patch release for NSS 3.28.
-The bug fixes in NSS 3.28.1 are described in the "Bugs Fixed" section
-below.
+Network Security Services (NSS) 3.28.1 is a patch release for NSS 3.28. The bug fixes in NSS 3.28.1
+are described in the "Bugs Fixed" section below.
 
 .. _Distribution_Information:
 
@@ -19,8 +18,7 @@ Distribution Information
 
 The HG tag is NSS_3_28_1_RTM. NSS 3.28.1 requires NSPR 4.13.1 or newer.
 
-NSS 3.28.1 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+NSS 3.28.1 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_28_1_RTM/src/
@@ -30,10 +28,9 @@ secure HTTPS download:
 New in NSS 3.28.1
 -----------------
 
-No new functionality is introduced in this release. This is a patch
-release to update the list of root CA certificates, and address a minor
-TLS compatibility issue, that some applications experienced with NSS
-3.28.
+No new functionality is introduced in this release. This is a patch release to update the list of
+root CA certificates, and address a minor TLS compatibility issue, that some applications
+experienced with NSS 3.28.
 
 .. _Notable_Changes_in_NSS_3.28.1:
 
@@ -110,8 +107,8 @@ Notable Changes in NSS 3.28.1
          CB:62:7D:18:B5:8A:D5:6D:DE:33:1A:30:45:6B:C6:5C:60:1A:4E:9B:18:DE:DC:EA:08:E7:DA:AA:07:81:5F:F0
 
 -  The version number of the updated root CA list has been set to 2.11
--  A misleading assertion/alert has been removed, when NSS tries to
-   flush data to the peer but the connection was already reset.
+-  A misleading assertion/alert has been removed, when NSS tries to flush data to the peer but the
+   connection was already reset.
 
 .. _Bugs_fixed_in_NSS_3.28.1:
 
@@ -120,8 +117,7 @@ Bugs fixed in NSS 3.28.1
 
 | `Bug 1296697 - December 2016 batch of root CA
   changes <https://bugzilla.mozilla.org/show_bug.cgi?id=1296697>`__
-| `Bug 1322496 - Internal error assert when the other side closes
-  connection before reading
+| `Bug 1322496 - Internal error assert when the other side closes connection before reading
   EOED <https://bugzilla.mozilla.org/show_bug.cgi?id=1322496>`__
 
 .. _Compatibility:
@@ -129,12 +125,11 @@ Bugs fixed in NSS 3.28.1
 Compatibility
 -------------
 
-NSS 3.28.1 shared libraries are backward compatible with all older NSS
-3.x shared libraries. A program linked with older NSS 3.x shared
-libraries will work with NSS 3.28.1 shared libraries without recompiling
-or relinking. Furthermore, applications that restrict their use of NSS
-APIs to the functions listed in NSS Public Functions will remain
-compatible with future versions of the NSS shared libraries.
+NSS 3.28.1 shared libraries are backward compatible with all older NSS 3.x shared libraries. A
+program linked with older NSS 3.x shared libraries will work with NSS 3.28.1 shared libraries
+without recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs to
+the functions listed in NSS Public Functions will remain compatible with future versions of the NSS
+shared libraries.
 
 .. _Feedback:
 
@@ -142,5 +137,4 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
-(product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).

@@ -73,7 +73,7 @@ convert_file() {
     local top_yaml="$(cat $html_file | awk '/</ {exit} {print}' | sed 's/---//g')"
     local html_content="$(cat $html_file | awk '/</,EOF')"
     # Convert the html file to rst.
-    local rst_content=$(printf "%s" "$html_content" | pandoc --from html --to rst)
+    local rst_content=$(printf "%s" "$html_content" | pandoc --columns 100 --from html --to rst)
 
     rst_content="$(replace_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"

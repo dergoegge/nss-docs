@@ -4,38 +4,29 @@
 NSS tools : certutil
 ====================
 | Name
-|    certutil — Manage keys and certificate in both NSS databases and
-  other NSS tokens
+|    certutil — Manage keys and certificate in both NSS databases and other NSS tokens
 | Synopsis
 |    certutil [options] [[arguments]]
 | Description
 |    The Certificate Database Tool, certutil, is a command-line utility
 |    that can create and modify certificate and key databases.
-|    It can specifically list, generate, modify, or delete certificates,
-  create or
+|    It can specifically list, generate, modify, or delete certificates, create or
 |    change the password, generate new public and private key pairs,
-|    display the contents of the key database, or delete key pairs
-  within  the key database.
-|    Certificate issuance, part of the key and certificate management
-  process, requires that
-|    keys and certificates be created in the key database. This document
-  discusses certificate
-|    and key database management. For information on the  security
-  module database management,
+|    display the contents of the key database, or delete key pairs within  the key database.
+|    Certificate issuance, part of the key and certificate management process, requires that
+|    keys and certificates be created in the key database. This document discusses certificate
+|    and key database management. For information on the  security module database management,
 |    see the modutil manpage.
 | Options and Arguments
 |    Running certutil always requires one and only one command option to
-|    specify the type of certificate operation. Each option may take
-  arguments,
-|    anywhere from none to multiple arguments. The command option -H
-  will list
+|    specify the type of certificate operation. Each option may take arguments,
+|    anywhere from none to multiple arguments. The command option -H will list
 |    all the command options available and their relevant arguments.
 |    Command Options
 |    -A
 |           Add an existing certificate to a certificate database.
 |           The certificate database should already exist; if one is
-|           not present, this command option will initialize one by
-  default.
+|           not present, this command option will initialize one by default.
 |    -B
 |           Run a series of commands from the specified batch file.
 |           This requires the -i argument.
@@ -123,8 +114,7 @@ NSS tools : certutil
 |           (cert8.db and key3.db) into the newer SQLite databases
 |           (cert9.db and key4.db).
 |    Arguments
-|    Arguments modify a command option and are usually lower case,
-  numbers, or symbols.
+|    Arguments modify a command option and are usually lower case, numbers, or symbols.
 |    -a
 |           Use ASCII format or allow the use of ASCII format for
 |           input or output. This formatting follows RFC 1113. For
@@ -163,32 +153,28 @@ NSS tools : certutil
 
            ·   dbm: requests the legacy database
 
-|            If no prefix is specified the default type is retrieved
-  from NSS_DEFAULT_DB_TYPE. If NSS_DEFAULT_DB_TYPE is not set
+|            If no prefix is specified the default type is retrieved from NSS_DEFAULT_DB_TYPE. If
+  NSS_DEFAULT_DB_TYPE is not set
 |            then dbm: is the default.
 
 |     --dump-ext-val OID
-|            For single cert, print binary DER encoding of extension
-  OID.
+|            For single cert, print binary DER encoding of extension OID.
 |    -e
 |           Check a certificate's signature during the process of
 |           validating a certificate.
 
 |        --email email-address
-|            Specify the email address of a certificate to list. Used
-  with the -L command option.
+|            Specify the email address of a certificate to list. Used with the -L command option.
 
-|        --extGeneric
-  OID:critical-flag:filename[,OID:critical-flag:filename]...
-|            Add one or multiple extensions that certutil cannot encode
-  yet, by loading their encodings from external files.
+|        --extGeneric OID:critical-flag:filename[,OID:critical-flag:filename]...
+|            Add one or multiple extensions that certutil cannot encode yet, by loading their
+  encodings from external files.
 
            ·   OID (example): 1.2.3.4
 
            ·   critical-flag: critical or not-critical
 
-           ·   filename: full path to a file containing an encoded
-extension
+           ·   filename: full path to a file containing an encoded extension
 
 | 
 |    -f password-file
@@ -219,20 +205,19 @@ extension
 |    -k key-type-or-id
 |            Specify the type or specific ID of a key.
 
-|            The valid key type options are rsa, dsa, ec, or all. The
-  default value is rsa. Specifying the type of key can avoid
-|            mistakes caused by duplicate nicknames. Giving a key type
-  generates a new key pair; giving the ID of an existing key
-|            reuses that key pair (which is required to renew
-  certificates).
+|            The valid key type options are rsa, dsa, ec, or all. The default value is rsa.
+  Specifying the type of key can avoid
+|            mistakes caused by duplicate nicknames. Giving a key type generates a new key pair;
+  giving the ID of an existing key
+|            reuses that key pair (which is required to renew certificates).
 |    -l
 |           Display detailed information when validating a
 |           certificate with the -V option.
 |    -m serial-number
-|           Assign a unique serial number to a certificate being
-  created. This operation should be performed by a CA. If no
-|            serial number is provided a default serial number is made
-  from the current time. Serial numbers are limited to
+|           Assign a unique serial number to a certificate being created. This operation should be
+  performed by a CA. If no
+|            serial number is provided a default serial number is made from the current time. Serial
+  numbers are limited to
 |            integers.
 |    -n nickname
 |           Specify the nickname of a certificate or key to list,
@@ -248,35 +233,32 @@ extension
 |    -P dbPrefix
 |           Specify the prefix used on the certificate and key
 |           database file. This argument is provided to support
-|           legacy servers. Most applications do not use a database
-  prefix.
+|           legacy servers. Most applications do not use a database prefix.
 |    -p phone
 |           Specify a contact telephone number to include in new
 |           certificates or certificate requests. Bracket this
 |           string with quotation marks if it contains spaces.
 |    -q pqgfile or curve-name
-|            Read an alternate PQG value from the specified file when
-  generating DSA key pairs.
-|            If this argument is not used,certutil generates its own PQG
-  value. PQG files are created with a separate DSA utility.
+|            Read an alternate PQG value from the specified file when generating DSA key pairs.
+|            If this argument is not used,certutil generates its own PQG value. PQG files are
+  created with a separate DSA utility.
 
-           Elliptic curve name is one of the ones from SUITE B:
-nistp256, nistp384, nistp521
+           Elliptic curve name is one of the ones from SUITE B: nistp256, nistp384, nistp521
 
-|            If NSS has been compiled with support curves outside of
-  SUITE B: sect163k1, nistk163, sect163r1, sect163r2, nistb163,
-|            sect193r1, sect193r2, sect233k1, nistk233, sect233r1,
-  nistb233, sect239k1, sect283k1, nistk283, sect283r1, nistb283,
-|            sect409k1, nistk409, sect409r1, nistb409, sect571k1,
-  nistk571, sect571r1, nistb571, secp160k1, secp160r1, secp160r2,
-|            secp192k1, secp192r1, nistp192, secp224k1, secp224r1,
-  nistp224, secp256k1, secp256r1, secp384r1, secp521r1,
-|            prime192v1, prime192v2, prime192v3, prime239v1, prime239v2,
-  prime239v3, c2pnb163v1, c2pnb163v2, c2pnb163v3,
-|            c2pnb176v1, c2tnb191v1, c2tnb191v2, c2tnb191v3, c2pnb208w1,
-  c2tnb239v1, c2tnb239v2, c2tnb239v3, c2pnb272w1,
-|            c2pnb304w1, c2tnb359w1, c2pnb368w1, c2tnb431r1, secp112r1,
-  secp112r2, secp128r1, secp128r2, sect113r1, sect113r2
+|            If NSS has been compiled with support curves outside of SUITE B: sect163k1, nistk163,
+  sect163r1, sect163r2, nistb163,
+|            sect193r1, sect193r2, sect233k1, nistk233, sect233r1, nistb233, sect239k1, sect283k1,
+  nistk283, sect283r1, nistb283,
+|            sect409k1, nistk409, sect409r1, nistb409, sect571k1, nistk571, sect571r1, nistb571,
+  secp160k1, secp160r1, secp160r2,
+|            secp192k1, secp192r1, nistp192, secp224k1, secp224r1, nistp224, secp256k1, secp256r1,
+  secp384r1, secp521r1,
+|            prime192v1, prime192v2, prime192v3, prime239v1, prime239v2, prime239v3, c2pnb163v1,
+  c2pnb163v2, c2pnb163v3,
+|            c2pnb176v1, c2tnb191v1, c2tnb191v2, c2tnb191v3, c2pnb208w1, c2tnb239v1, c2tnb239v2,
+  c2tnb239v3, c2pnb272w1,
+|            c2pnb304w1, c2tnb359w1, c2pnb368w1, c2tnb431r1, secp112r1, secp112r2, secp128r1,
+  secp128r2, sect113r1, sect113r2
 |            sect131r1, sect131r2
 
 | 
@@ -316,10 +298,9 @@ nistp256, nistp384, nistp521
 |           certificates and trust attributes in a certificate
 |           database.
 
-|            Note that the output of the -L option may include "u" flag,
-  which means that there is a private key associated with
-|            the certificate. It is a dynamic flag and you cannot set it
-  with certutil.
+|            Note that the output of the -L option may include "u" flag, which means that there is a
+  private key associated with
+|            the certificate. It is a dynamic flag and you cannot set it with certutil.
 |    -u certusage
 |           Specify a usage context to apply when validating a
 |           certificate with the -V option.
@@ -520,10 +501,8 @@ nistp256, nistp384, nistp521
 |    approved by some mechanism (automatically or by human review).
 |    Once the request is approved, then the certificate is
 |    generated.
-| $ certutil -R -k key-type-or-id [-q pqgfile|curve-name] -g key-size -s
-  s
-| ubject [-h tokenname] -d [sql:]directory [-p phone] [-o output-file]
-  [-a
+| $ certutil -R -k key-type-or-id [-q pqgfile|curve-name] -g key-size -s s
+| ubject [-h tokenname] -d [sql:]directory [-p phone] [-o output-file] [-a
 | ]
 |    The -R command options requires four arguments:
 |      \* -k to specify either the key type to generate or, when
@@ -534,10 +513,8 @@ nistp256, nistp384, nistp521
 |    The new certificate request can be output in ASCII format (-a)
 |    or can be written to a specified file (-o).
 |    For example:
-| $ certutil -R -k ec -q nistb409 -g 512 -s "CN=John Smith,O=Example
-  Corp,
-| L=Mountain View,ST=California,C=US" -d sql:/home/my/sharednssdb -p
-  650-5
+| $ certutil -R -k ec -q nistb409 -g 512 -s "CN=John Smith,O=Example Corp,
+| L=Mountain View,ST=California,C=US" -d sql:/home/my/sharednssdb -p 650-5
 | 55-0123 -a -o cert.cer
 | Generating key.  This may take a few moments...
 | Certificate request generated by Netscape
@@ -562,26 +539,20 @@ nistp256, nistp384, nistp521
 |    certificate database. If a CA key pair is not available, you
 |    can create a self-signed certificate using the -x argument with
 |    the -S command option.
-| $ certutil -S -k rsa|dsa|ec -n certname -s subject [-c issuer \|-x] -t
-  tr
-| ustargs -d [sql:]directory [-m serial-number] [-v valid-months] [-w
-  offs
-| et-months] [-p phone] [-1] [-2] [-3] [-4] [-5 keyword] [-6 keyword]
-  [-7
-| emailAddress] [-8 dns-names] [--extAIA] [--extSIA] [--extCP] [--extPM]
-  [
+| $ certutil -S -k rsa|dsa|ec -n certname -s subject [-c issuer \|-x] -t tr
+| ustargs -d [sql:]directory [-m serial-number] [-v valid-months] [-w offs
+| et-months] [-p phone] [-1] [-2] [-3] [-4] [-5 keyword] [-6 keyword] [-7
+| emailAddress] [-8 dns-names] [--extAIA] [--extSIA] [--extCP] [--extPM] [
 | --extPC] [--extIA] [--extSKID]
 |    The series of numbers and --ext\* options set certificate
 |    extensions that can be added to the certificate when it is
 |    generated by the CA.
 |    For example, this creates a self-signed certificate:
-| $ certutil -S -s "CN=Example CA" -n my-ca-cert -x -t "C,C,C" -1 -2 -5
-  -m
+| $ certutil -S -s "CN=Example CA" -n my-ca-cert -x -t "C,C,C" -1 -2 -5 -m
 |  3650
 |    From there, new certificates can reference the self-signed
 |    certificate:
-| $ certutil -S -s "CN=My Server Cert" -n my-server-cert -c "my-ca-cert"
-  -
+| $ certutil -S -s "CN=My Server Cert" -n my-server-cert -c "my-ca-cert" -
 | t "u,u,u" -1 -5 -6 -8 -m 730
 |    Generating a Certificate from a Certificate Request
 |    When a certificate request is created, a certificate can be
@@ -589,23 +560,18 @@ nistp256, nistp384, nistp521
 |    certificate authority signing certificate (the issuer specified
 |    in the -c argument). The issuing certificate must be in the
 |    certificate database in the specified directory.
-| certutil -C -c issuer -i cert-request-file -o output-file [-m
-  serial-num
-| ber] [-v valid-months] [-w offset-months] -d [sql:]directory [-1] [-2]
-  [
+| certutil -C -c issuer -i cert-request-file -o output-file [-m serial-num
+| ber] [-v valid-months] [-w offset-months] -d [sql:]directory [-1] [-2] [
 | -3] [-4] [-5 keyword] [-6 keyword] [-7 emailAddress] [-8 dns-names]
 |    For example:
-| $ certutil -C -c "my-ca-cert" -i /home/certs/cert.req -o cert.cer -m
-  010
-|  -v 12 -w 1 -d sql:/home/my/sharednssdb -1
-  nonRepudiation,dataEncipherme
+| $ certutil -C -c "my-ca-cert" -i /home/certs/cert.req -o cert.cer -m 010
+|  -v 12 -w 1 -d sql:/home/my/sharednssdb -1 nonRepudiation,dataEncipherme
 | nt -5 sslClient -6 clientAuth -7 jsmith@example.com
 |    Generating Key Pairs
 |    Key pairs are generated automatically with a certificate
 |    request or certificate, but they can also be generated
 |    independently using the -G command option.
-| certutil -G -d [sql:]directory \| -h tokenname -k key-type -g key-size
-  [-
+| certutil -G -d [sql:]directory \| -h tokenname -k key-type -g key-size [-
 | y exponent-value] -q pqgfile|curve-name
 |    For example:
 | $ certutil -G -h lunasa -k ec -g 256 -q sect193r2
@@ -614,11 +580,9 @@ nistp256, nistp384, nistp521
 |    the certificate database. The path to the directory (-d) is
 |    required.
 | $ certutil -L -d sql:/home/my/sharednssdb
-| Certificate Nickname                                         Trust
-  Attri
+| Certificate Nickname                                         Trust Attri
 | butes
-|                                                             
-  SSL,S/MIME,
+|                                                              SSL,S/MIME,
 | JAR/XPI
 | CA Administrator of Instance pki-ca1's Example Domain ID     u,u,u
 | TPS Administrator's Example Domain ID                        u,u,u
@@ -628,8 +592,7 @@ nistp256, nistp384, nistp521
 |    information for a single, specific certificate. For example,
 |    the -n argument passes the certificate name, while the -a
 |    argument prints the certificate in ASCII format:
-| $ certutil -L -d sql:/home/my/sharednssdb -a -n "Certificate Authority
-  -
+| $ certutil -L -d sql:/home/my/sharednssdb -a -n "Certificate Authority -
 |  Example Domain"
 | -----BEGIN CERTIFICATE-----
 | MIIDmTCCAoGgAwIBAgIBATANBgkqhkiG9w0BAQUFADA5MRcwFQYDVQQKEw5FeGFt
@@ -660,17 +623,13 @@ nistp256, nistp384, nistp521
 |    To list all keys in the database, use the -K command option and
 |    the (required) -d argument to give the path to the directory.
 | $ certutil -K -d sql:/home/my/sharednssdb
-| certutil: Checking token "NSS Certificate DB" in slot "NSS User
-  Private
+| certutil: Checking token "NSS Certificate DB" in slot "NSS User Private
 | Key and Certificate Services                  "
-| < 0> rsa      455a6673bde9375c2887ec8bf8016b3f9f35861d   Thawte
-  Freemail
+| < 0> rsa      455a6673bde9375c2887ec8bf8016b3f9f35861d   Thawte Freemail
 |  Member's Thawte Consulting (Pty) Ltd. ID
-| < 1> rsa      40defeeb522ade11090eacebaaf1196a172127df   Example
-  Domain
+| < 1> rsa      40defeeb522ade11090eacebaaf1196a172127df   Example Domain
 | Administrator Cert
-| < 2> rsa      1d0b06f44f6c03842f7d4f4a1dc78b3bcd1b85a5   John Smith
-  user
+| < 2> rsa      1d0b06f44f6c03842f7d4f4a1dc78b3bcd1b85a5   John Smith user
 |  cert
 |    There are ways to narrow the keys listed in the search results:
 |      \* To return a specific key, use the -n name argument with the
@@ -696,12 +655,10 @@ nistp256, nistp384, nistp521
 |    Existing certificates or certificate requests can be added
 |    manually to the certificate database, even if they were
 |    generated elsewhere. This uses the -A command option.
-| certutil -A -n certname -t trustargs -d [sql:]directory [-a] [-i
-  input-f
+| certutil -A -n certname -t trustargs -d [sql:]directory [-a] [-i input-f
 | ile]
 |    For example:
-| $ certutil -A -n "CN=My SSL Certificate" -t "u,u,u" -d
-  sql:/home/my/shar
+| $ certutil -A -n "CN=My SSL Certificate" -t "u,u,u" -d sql:/home/my/shar
 | ednssdb -i /home/example-certs/cert.cer
 |    A related command option, -E, is used specifically to add email
 |    certificates to the certificate database. The -E command has
@@ -709,8 +666,7 @@ nistp256, nistp384, nistp521
 |    certificates have the format SSL,S/MIME,Code-signing, so the
 |    middle trust settings relate most to email certificates (though
 |    the others can be set). For example:
-| $ certutil -E -n "CN=John Smith Email Cert" -t ",Pu," -d
-  sql:/home/my/sh
+| $ certutil -E -n "CN=John Smith Email Cert" -t ",Pu," -d sql:/home/my/sh
 | arednssdb -i /home/example-certs/email.cer
 |    Deleting Certificates to the Database
 |    Certificates can be deleted from a database using the -D
@@ -728,12 +684,10 @@ nistp256, nistp384, nistp521
 |    ensure that the certificate is only used for the purposes it
 |    was initially issued for. Validation is carried out by the -V
 |    command option.
-| certutil -V -n certificate-name [-b time] [-e] [-u cert-usage] -d
-  [sql:]
+| certutil -V -n certificate-name [-b time] [-e] [-u cert-usage] -d [sql:]
 | directory
 |    For example, to validate an email certificate:
-| $ certutil -V -n "John Smith's Email Cert" -e -u S,R -d
-  sql:/home/my/sha
+| $ certutil -V -n "John Smith's Email Cert" -e -u S,R -d sql:/home/my/sha
 | rednssdb
 |    Modifying Certificate Trust Settings
 |    The trust settings (which relate to the operations that a
@@ -743,8 +697,7 @@ nistp256, nistp384, nistp521
 |    for any type of certificate.
 | certutil -M -n certificate-name -t trust-args -d [sql:]directory
 |    For example:
-| $ certutil -M -n "My CA Certificate" -d sql:/home/my/sharednssdb -t
-  "CTu
+| $ certutil -M -n "My CA Certificate" -d sql:/home/my/sharednssdb -t "CTu
 | ,CTu,CTu"
 |    Printing the Certificate Chain
 |    Certificates can be issued in chains because every certificate
@@ -755,13 +708,10 @@ nistp256, nistp384, nistp521
 |    intermediary CA to the actual certificate. For example, for an
 |    email certificate with two CAs in the chain:
 | $ certutil -d sql:/home/my/sharednssdb -O -n "jsmith@example.com"
-| "Builtin Object Token:Thawte Personal Freemail CA"
-  [E=personal-freemail@
-| thawte.com,CN=Thawte Personal Freemail CA,OU=Certification Services
-  Divi
+| "Builtin Object Token:Thawte Personal Freemail CA" [E=personal-freemail@
+| thawte.com,CN=Thawte Personal Freemail CA,OU=Certification Services Divi
 | sion,O=Thawte Consulting,L=Cape Town,ST=Western Cape,C=ZA]
-|   "Thawte Personal Freemail Issuing CA - Thawte Consulting" [CN=Thawte
-  P
+|   "Thawte Personal Freemail Issuing CA - Thawte Consulting" [CN=Thawte P
 | ersonal Freemail Issuing CA,O=Thawte Consulting (Pty) Ltd.,C=ZA]
 |     "(null)" [E=jsmith@example.com,CN=Thawte Freemail Member]
 |    Resetting a Token
@@ -772,8 +722,7 @@ nistp256, nistp384, nistp521
 |    location must be referenced through the token name (-h) as well
 |    as any directory path. If there is no external token used, the
 |    default value is internal.
-| certutil -T -d [sql:]directory -h token-name -0
-  security-officer-passwor
+| certutil -T -d [sql:]directory -h token-name -0 security-officer-passwor
 | d
 |    Many networks have dedicated personnel who handle changes to
 |    security tokens (the security officer). This person must supply
@@ -791,27 +740,21 @@ nistp256, nistp384, nistp521
 |    to give the information about the new databases. The command
 |    also requires information that the tool uses for the process to
 |    upgrade and write over the original database.
-| certutil --upgrade-merge -d [sql:]directory [-P dbprefix] --source-dir
-  d
-| irectory --source-prefix dbprefix --upgrade-id id --upgrade-token-name
-  n
+| certutil --upgrade-merge -d [sql:]directory [-P dbprefix] --source-dir d
+| irectory --source-prefix dbprefix --upgrade-id id --upgrade-token-name n
 | ame [-@ password-file]
 |    For example:
-| $ certutil --upgrade-merge -d sql:/home/my/sharednssdb --source-dir
-  /opt
-| /my-app/alias/ --source-prefix serverapp- --upgrade-id 1
-  --upgrade-token
+| $ certutil --upgrade-merge -d sql:/home/my/sharednssdb --source-dir /opt
+| /my-app/alias/ --source-prefix serverapp- --upgrade-id 1 --upgrade-token
 | -name internal
 |    The --merge command only requires information about the
 |    location of the original database; since it doesn't change the
 |    format of the database, it can write over information without
 |    performing interim step.
-| certutil --merge -d [sql:]directory [-P dbprefix] --source-dir
-  directory
+| certutil --merge -d [sql:]directory [-P dbprefix] --source-dir directory
 |  --source-prefix dbprefix [-@ password-file]
 |    For example:
-| $ certutil --merge -d sql:/home/my/sharednssdb --source-dir
-  /opt/my-app/
+| $ certutil --merge -d sql:/home/my/sharednssdb --source-dir /opt/my-app/
 | alias/ --source-prefix serverapp-
 |    Running certutil Commands from a Batch File
 |    A series of commands can be run sequentially from a text file
@@ -867,12 +810,9 @@ nistp256, nistp384, nistp521
 |    modutil (1)
 |    certutil has arguments or operations that use features defined
 |    in several IETF RFCs.
-|      \*
-  `http://tools.ietf.org/html/rfc5280 <https://tools.ietf.org/html/rfc5280>`__
-|      \*
-  `http://tools.ietf.org/html/rfc1113 <https://tools.ietf.org/html/rfc1113>`__
-|      \*
-  `http://tools.ietf.org/html/rfc1485 <https://tools.ietf.org/html/rfc1485>`__
+|      \* `http://tools.ietf.org/html/rfc5280 <https://tools.ietf.org/html/rfc5280>`__
+|      \* `http://tools.ietf.org/html/rfc1113 <https://tools.ietf.org/html/rfc1113>`__
+|      \* `http://tools.ietf.org/html/rfc1485 <https://tools.ietf.org/html/rfc1485>`__
 |    The NSS wiki has information on the new database design and how
 |    to configure applications to use it.
 |      \* https://wiki.mozilla.org/NSS_Shared_DB_Howto
@@ -894,8 +834,8 @@ nistp256, nistp384, nistp521
 |    <dlackey@redhat.com>.
 
 | LICENSE
-|        Licensed under the Mozilla Public License, v. 2.0. If a copy of
-  the MPL was not distributed with this file, You can
+|        Licensed under the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
+  with this file, You can
 |        obtain one at https://mozilla.org/MPL/2.0/.
 
 | NOTES

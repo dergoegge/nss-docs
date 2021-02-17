@@ -38,8 +38,8 @@ Parameters
    [in]
 ``pApplication``
 ``Notify``
-   [in] pointer to a notification callback
-   function. Not currently supported.
+   [in] pointer to a notification callback function. Not currently
+   supported.
 ``phSession``
    [out] pointer to a session handle.
 
@@ -48,14 +48,13 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_OpenSession`` opens a session between an application and the token
-in the slot with the ID ``slotID``.
+``FC_OpenSession`` opens a session between an application and the token in the slot with the ID
+``slotID``.
 
-The NSS cryptographic module currently doesn't call the surrender
-callback function ``Notify``. (See PKCS #11 v2.20 section 11.17.1.)
+The NSS cryptographic module currently doesn't call the surrender callback function ``Notify``. (See
+PKCS #11 v2.20 section 11.17.1.)
 
-A user may call ``FC_OpenSession`` without logging into the token (to
-assume the NSS User role).
+A user may call ``FC_OpenSession`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 
@@ -72,5 +71,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_CloseSession </en-US/FC_CloseSession>`__,
-   `NSC_OpenSession </en-US/NSC_OpenSession>`__
+-  `FC_CloseSession </en-US/FC_CloseSession>`__, `NSC_OpenSession </en-US/NSC_OpenSession>`__

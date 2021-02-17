@@ -8,8 +8,7 @@ Enc Dec MAC Using Key Wrap CertReq PKCS10 CSR
 NSS Sample Code 6: Encryption/Decryption and MAC and output Public as a PKCS 11 CSR.
 ------------------------------------------------------------------------------------
 
-Generates encryption/mac keys and outputs public key as pkcs11
-certificate signing request
+Generates encryption/mac keys and outputs public key as pkcs11 certificate signing request
 
 .. code:: brush:
 

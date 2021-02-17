@@ -42,11 +42,11 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_GetMechanismInfo`` obtains information about a particular mechanism
-possibly supported by a token.
+``FC_GetMechanismInfo`` obtains information about a particular mechanism possibly supported by a
+token.
 
-A user may call ``FC_GetMechanismInfo`` without logging into the token
-(to assume the NSS User role).
+A user may call ``FC_GetMechanismInfo`` without logging into the token (to assume the NSS User
+role).
 
 .. _Return_value:
 

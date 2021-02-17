@@ -3,24 +3,20 @@
 ===============
 Migration to HG
 ===============
-| The NSPR, NSS and related projects have stopped using Mozilla'a CVS
-  server, but have migrated to
+| The NSPR, NSS and related projects have stopped using Mozilla'a CVS server, but have migrated to
 | Mozilla's HG (Mercurial) server.
-| Each project now lives in its own separate space, they can be found
-  at:
+| Each project now lives in its own separate space, they can be found at:
 |    https://hg.mozilla.org/projects/nspr/
 |    https://hg.mozilla.org/projects/nss/
 |    https://hg.mozilla.org/projects/jss/
 |   https://hg.mozilla.org/projects/python-nss/
 
-| This migration has been used as an opportunity to change the layout of
-  the
+| This migration has been used as an opportunity to change the layout of the
 | source directories.
 | For NSPR, "mozilla/nsprpub" has been removed from the directory
 | hierarchy, all files now live in the top directory of the NSPR
 | repository.
-| Likewise for NSS and JSS, "mozilla/security" has been removed and
-  files
+| Likewise for NSS and JSS, "mozilla/security" has been removed and files
 | now live at the top level. In addition for NSS, we have merged the
 | contents of directories mozilla/dbm and mozilla/security/dbm into the
 | new directory lib/dbm.
@@ -46,6 +42,5 @@ Migration to HG
 | mozilla/security/coreconf directory, allowing it to remain stable,
 | and only update its build system as necessary.
 | Because of the changes described above, we have decided to use a new
-| series of (minor) version numbers. The first releases using the new
-  code
+| series of (minor) version numbers. The first releases using the new code
 | layout will be NSPR 4.10 and NSS 3.15

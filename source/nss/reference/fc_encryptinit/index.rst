@@ -31,8 +31,7 @@ Parameters
 ``hSession``
    [in] handle to the session.
 ``pMechanism``
-   [in] pointer to the mechanism to be used
-   for subsequent encryption.
+   [in] pointer to the mechanism to be used for subsequent encryption.
 ``hKey``
    [in] handle of the encryption key.
 
@@ -41,11 +40,9 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_EncryptInit`` initializes an encryption operation with the
-mechanism and key to be used.
+``FC_EncryptInit`` initializes an encryption operation with the mechanism and key to be used.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_EncryptInit``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_EncryptInit``.
 
 .. _Return_value:
 

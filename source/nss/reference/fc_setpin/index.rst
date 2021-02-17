@@ -48,8 +48,8 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_SetPIN`` modifies the PIN of the user. The user must log into the
-token (to assume the NSS User role) before calling ``FC_SetPIN``.
+``FC_SetPIN`` modifies the PIN of the user. The user must log into the token (to assume the NSS User
+role) before calling ``FC_SetPIN``.
 
 .. _Return_value:
 

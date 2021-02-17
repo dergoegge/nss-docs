@@ -6,16 +6,13 @@ NSS functions
 This page lists all exported functions in NSS 3.11.7 It was ported from
 `here <http://www-archive.mozilla.org/projects/security/pki/nss/ref/nssfunctions.html>`__.
 
-This is a `composite
-page <http://meta.wikimedia.org/wiki/Help:Template#Composite_pages>`__.
-Section headings are links to the individual pages where you can edit
-them.
+This is a `composite page <http://meta.wikimedia.org/wiki/Help:Template#Composite_pages>`__. Section
+headings are links to the individual pages where you can edit them.
 
 Keywords:
 
 -  Deprecated - function should no longer be used.
--  Updated - function has new arguments such as new flag or addition to
-   structure.
+-  Updated - function has new arguments such as new flag or addition to structure.
 
 .. _SSL_functions:
 

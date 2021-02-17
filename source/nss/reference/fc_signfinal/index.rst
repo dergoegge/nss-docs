@@ -31,25 +31,20 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pSignature``
-   [out] pointer to the buffer which will
-   receive the digest or NULL.
+   [out] pointer to the buffer which will receive the digest or NULL.
 ``pusSignatureLen``
-   [in, out] pointer to location containing
-   the maximum buffer size.
+   [in, out] pointer to location containing the maximum buffer size.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_SignFinal`` finishes a multi-part signing operation by returning
-the complete signature and clearing the operation context. If
-``pSignature`` is NULL the length of the signature is returned and
-``FC_SignFinal`` may be called again with ``pSignature`` set to retrieve
-the signature.
+``FC_SignFinal`` finishes a multi-part signing operation by returning the complete signature and
+clearing the operation context. If ``pSignature`` is NULL the length of the signature is returned
+and ``FC_SignFinal`` may be called again with ``pSignature`` set to retrieve the signature.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignFinal``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_SignFinal``.
 
 .. _Return_value:
 
@@ -66,5 +61,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_SignUpdate </en-US/FC_SignUpdate>`__,
-   `NSC_SignFinal </en-US/NSC_SignFinal>`__
+-  `FC_SignUpdate </en-US/FC_SignUpdate>`__, `NSC_SignFinal </en-US/NSC_SignFinal>`__

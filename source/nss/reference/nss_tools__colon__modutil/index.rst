@@ -5,8 +5,7 @@ NSS tools : modutil
 ===================
 Name
 
-| modutil - Manage PKCS #11 module information within the security
-  module
+| modutil - Manage PKCS #11 module information within the security module
 | database.
 
 Synopsis
@@ -15,33 +14,28 @@ modutil [options] [[arguments]]
 
 STATUS
 
-This documentation is still work in progress. Please contribute to the
-initial review in Mozilla NSS bug 836477[1]
+This documentation is still work in progress. Please contribute to the initial review in Mozilla NSS
+bug 836477[1]
 
 Description
 
 | The Security Module Database Tool, modutil, is a command-line utility
-| for managing PKCS #11 module information both within secmod.db files
-  and
+| for managing PKCS #11 module information both within secmod.db files and
 | within hardware tokens. modutil can add and delete PKCS #11 modules,
 | change passwords on security databases, set defaults, list module
 | contents, enable or disable slots, enable or disable FIPS 140-2
 | compliance, and assign default providers for cryptographic operations.
-| This tool can also create certificate, key, and module security
-  database
+| This tool can also create certificate, key, and module security database
 | files.
 
-| The tasks associated with security module database management are part
-  of
+| The tasks associated with security module database management are part of
 | a process that typically also involves managing key databases and
 | certificate databases.
 
 Options
 
-| Running modutil always requires one (and only one) option to specify
-  the
-| type of module operation. Each option may take arguments, anywhere
-  from
+| Running modutil always requires one (and only one) option to specify the
+| type of module operation. Each option may take arguments, anywhere from
 | none to multiple arguments.
 
 Options
@@ -256,10 +250,8 @@ Usage and Examples
 
 Creating Database Files
 
-| Before any operations can be performed, there must be a set of
-  security
-| databases available. modutil can be used to create these files. The
-  only
+| Before any operations can be performed, there must be a set of security
+| databases available. modutil can be used to create these files. The only
 | required argument is the database that where the databases will be
 | located.
 
@@ -269,31 +261,26 @@ Adding a Cryptographic Module
 
 | Adding a PKCS #11 module means submitting a supporting library file,
 | enabling its ciphers, and setting default provider status for various
-| security mechanisms. This can be done by supplying all of the
-  information
-| through modutil directly or by running a JAR file and install script.
-  For
+| security mechanisms. This can be done by supplying all of the information
+| through modutil directly or by running a JAR file and install script. For
 | the most basic case, simply upload the library:
 
-modutil -add modulename -libfile library-file [-ciphers
-cipher-enable-list] [-mechanisms mechanism-list]
+modutil -add modulename -libfile library-file [-ciphers cipher-enable-list] [-mechanisms
+mechanism-list]
 
 For example:
 
-modutil -dbdir sql:/home/my/sharednssdb -add "Example PKCS #11 Module"
--libfile "/tmp/crypto.so" -mechanisms RSA:DSA:RC2:RANDOM
+modutil -dbdir sql:/home/my/sharednssdb -add "Example PKCS #11 Module" -libfile "/tmp/crypto.so"
+-mechanisms RSA:DSA:RC2:RANDOM
 
 | Using database directory ...
 | Module "Example PKCS #11 Module" added to database.
 
 Installing a Cryptographic Module from a JAR File
 
-| PKCS #11 modules can also be loaded using a JAR file, which contains
-  all
-| of the required libraries and an installation script that describes
-  how to
-| install the module. The JAR install script is described in more detail
-  in
+| PKCS #11 modules can also be loaded using a JAR file, which contains all
+| of the required libraries and an installation script that describes how to
+| install the module. The JAR install script is described in more detail in
 | [1]the section called “JAR Installation File Format”.
 
 | The JAR installation script defines the setup information for each
@@ -320,24 +307,21 @@ Installing a Cryptographic Module from a JAR File
 | }
 | }
 
-| Both the install script and the required libraries must be bundled in
-  a
+| Both the install script and the required libraries must be bundled in a
 | JAR file, which is specified with the -jar argument.
 
-modutil -dbdir sql:/home/mt"jar-install-filey/sharednssdb -jar
-install.jar -installdir sql:/home/my/sharednssdb
+modutil -dbdir sql:/home/mt"jar-install-filey/sharednssdb -jar install.jar -installdir
+sql:/home/my/sharednssdb
 
 | This installation JAR file was signed by:
 | ----------------------------------------------
 
 \**SUBJECT NAME*\*
 
-| C=US, ST=California, L=Mountain View, CN=Cryptorific Inc., OU=Digital
-  ID
+| C=US, ST=California, L=Mountain View, CN=Cryptorific Inc., OU=Digital ID
 | Class 3 - Netscape Object Signing, OU="www.verisign.com/repository/CPS
 | Incorp. by Ref.,LIAB.LTD(c)9 6", OU=www.verisign.com/CPS Incorp.by Ref
-| . LIABILITY LTD.(c)97 VeriSign, OU=VeriSign Object Signing CA - Class
-  3
+| . LIABILITY LTD.(c)97 VeriSign, OU=VeriSign Object Signing CA - Class 3
 | Organization, OU="VeriSign, Inc.", O=VeriSign Trust Network \**ISSUER
 | NAME**, OU=www.verisign.com/CPS Incorp.by Ref. LIABILITY LTD.(c)97
 | VeriSign, OU=VeriSign Object Signing CA - Class 3 Organization,
@@ -376,8 +360,7 @@ Displaying Module Information
 
 | The secmod.db database contains information about the PKCS #11 modules
 | that are available to an application or server to use. The list of all
-| modules, information about specific modules, and database
-  configuration
+| modules, information about specific modules, and database configuration
 | specs for modules can all be viewed.
 
 To simply get a list of modules in the database, use the -list command.
@@ -402,15 +385,12 @@ modutil -list -dbdir sql:/home/my/sharednssdb
 | token: NSS Certificate DB
 | -----------------------------------------------------------
 
-| Passing a specific module name with the -list returns details
-  information
+| Passing a specific module name with the -list returns details information
 | about the module itself, like supported cipher mechanisms, version
-| numbers, serial numbers, and other information about the module and
-  the
+| numbers, serial numbers, and other information about the module and the
 | token it is loaded on. For example:
 
-modutil -list "NSS Internal PKCS #11 Module" -dbdir
-sql:/home/my/sharednssdb
+modutil -list "NSS Internal PKCS #11 Module" -dbdir sql:/home/my/sharednssdb
 
 | -----------------------------------------------------------
 | Name: NSS Internal PKCS #11 Module
@@ -457,16 +437,14 @@ sql:/home/my/sharednssdb
 | User Pin: Initialized
 
 | A related command, -rawlist returns information about the database
-| configuration for the modules. (This information can be edited by
-  loading
+| configuration for the modules. (This information can be edited by loading
 | new specs using the -rawadd command.)
 
 | modutil -rawlist -dbdir sql:/home/my/sharednssdb
-| name="NSS Internal PKCS #11 Module" parameters="configdir=.
-  certPrefix= keyPrefix= secmod=secmod.db flags=readOnly "
-  NSS="trustOrder=75 cipherOrder=100
-  slotParams={0x00000001=[slotFlags=RSA,RC4,RC2,DES,DH,SHA1,MD5,MD2,SSL,TLS,AES,RANDOM
-  askpw=any timeout=30 ] } Flags=internal,critical"
+| name="NSS Internal PKCS #11 Module" parameters="configdir=. certPrefix= keyPrefix=
+  secmod=secmod.db flags=readOnly " NSS="trustOrder=75 cipherOrder=100
+  slotParams={0x00000001=[slotFlags=RSA,RC4,RC2,DES,DH,SHA1,MD5,MD2,SSL,TLS,AES,RANDOM askpw=any
+  timeout=30 ] } Flags=internal,critical"
 
 Setting a Default Provider for Security Mechanisms
 
@@ -477,14 +455,12 @@ Setting a Default Provider for Security Mechanisms
 
 modutil -default modulename -mechanisms mechanism-list
 
-| To set a module as the default provider for mechanisms, use the
-  -default
+| To set a module as the default provider for mechanisms, use the -default
 | command with a colon-separated list of mechanisms. The available
 | mechanisms depend on the module; NSS supplies almost all common
 | mechanisms. For example:
 
-modutil -default "NSS Internal PKCS #11 Module" -dbdir -mechanisms
-RSA:DSA:RC2
+modutil -default "NSS Internal PKCS #11 Module" -dbdir -mechanisms RSA:DSA:RC2
 
 Using database directory c:\databases...
 
@@ -492,8 +468,7 @@ Successfully changed defaults.
 
 Clearing the default provider has the same format:
 
-modutil -undefault "NSS Internal PKCS #11 Module" -dbdir -mechanisms
-MD2:MD5
+modutil -undefault "NSS Internal PKCS #11 Module" -dbdir -mechanisms MD2:MD5
 
 Enabling and Disabling Modules and Slots
 
@@ -504,31 +479,25 @@ modutil -enable|-disable modulename [-slot slotname]
 
 For example:
 
-modutil -enable "NSS Internal PKCS #11 Module" -slot "NSS Internal
-Cryptographic Services " -dbdir .
+modutil -enable "NSS Internal PKCS #11 Module" -slot "NSS Internal Cryptographic Services " -dbdir .
 
 Slot "NSS Internal Cryptographic Services " enabled.
 
-| Be sure that the appropriate amount of trailing whitespace is after
-  the
-| slot name. Some slot names have a significant amount of whitespace
-  that
+| Be sure that the appropriate amount of trailing whitespace is after the
+| slot name. Some slot names have a significant amount of whitespace that
 | must be included, or the operation will fail.
 
 Enabling and Verifying FIPS Compliance
 
-| The NSS modules can have FIPS 140-2 compliance enabled or disabled
-  using
+| The NSS modules can have FIPS 140-2 compliance enabled or disabled using
 | modutil with the -fips option. For example:
 
 modutil -fips true -dbdir sql:/home/my/sharednssdb/
 
 FIPS mode enabled.
 
-| To verify that status of FIPS mode, run the -chkfips command with
-  either a
-| true or false flag (it doesn't matter which). The tool returns the
-  current
+| To verify that status of FIPS mode, run the -chkfips command with either a
+| true or false flag (it doesn't matter which). The tool returns the current
 | FIPS setting.
 
 modutil -chkfips false -dbdir sql:/home/my/sharednssdb/
@@ -539,8 +508,7 @@ Changing the Password on a Token
 
 Initializing or changing a token's password:
 
-modutil -changepw tokenname [-pwfile old-password-file] [-newpwfile
-new-password-file]
+modutil -changepw tokenname [-pwfile old-password-file] [-newpwfile new-password-file]
 
 modutil -dbdir sql:/home/my/sharednssdb -changepw "NSS Certificate DB"
 
@@ -554,10 +522,8 @@ modutil -dbdir sql:/home/my/sharednssdb -changepw "NSS Certificate DB"
 JAR Installation File Format
 
 | When a JAR file is run by a server, by modutil, or by any program that
-| does not interpret JavaScript, a special information file must be
-  included
-| to install the libraries. There are several things to keep in mind
-  with
+| does not interpret JavaScript, a special information file must be included
+| to install the libraries. There are several things to keep in mind with
 | this file:
 
 o It must be declared in the JAR archive's manifest file.
@@ -571,17 +537,14 @@ o The script can have any name.
 Sample Script
 
 | For example, the PKCS #11 installer script could be in the file
-| pk11install. If so, the metainfo file for signtool includes a line
-  such as
+| pk11install. If so, the metainfo file for signtool includes a line such as
 | this:
 
 + Pkcs11_install_script: pk11install
 
-| The script must define the platform and version number, the module
-  name
+| The script must define the platform and version number, the module name
 | and file, and any optional information like supported ciphers and
-| mechanisms. Multiple platforms can be defined in a single install
-  file.
+| mechanisms. Multiple platforms can be defined in a single install file.
 
 | ForwardCompatible { IRIX:6.2:mips SUNOS:5.5.1:sparc }
 | Platforms {
@@ -631,8 +594,7 @@ Sample Script
 
 Script Grammar
 
-| The script is basic Java, allowing lists, key-value pairs, strings,
-  and
+| The script is basic Java, allowing lists, key-value pairs, strings, and
 | combinations of all of them.
 
 --> valuelist
@@ -654,10 +616,8 @@ simple_string --> [^ \\t\n\""{""}"]+
 
 complex_string --> ([^\"\\\r\n]|(\\\")|(\\\\))+
 
-| Quotes and backslashes must be escaped with a backslash. A complex
-  string
-| must not include newlines or carriage returns.Outside of complex
-  strings,
+| Quotes and backslashes must be escaped with a backslash. A complex string
+| must not include newlines or carriage returns.Outside of complex strings,
 | all white space (for example, spaces, tabs, and carriage returns) is
 | considered equal and is used only to delimit tokens.
 
@@ -666,23 +626,16 @@ Keys
 | The Java install file uses keys to define the platform and module
 | information.
 
-| ForwardCompatible gives a list of platforms that are forward
-  compatible.
+| ForwardCompatible gives a list of platforms that are forward compatible.
 | If the current platform cannot be found in the list of supported
-| platforms, then the ForwardCompatible list is checked for any
-  platforms
-| that have the same OS and architecture in an earlier version. If one
-  is
+| platforms, then the ForwardCompatible list is checked for any platforms
+| that have the same OS and architecture in an earlier version. If one is
 | found, its attributes are used for the current platform.
 
-| Platforms (required) Gives a list of platforms. Each entry in the list
-  is
-| itself a key-value pair: the key is the name of the platform and the
-  value
-| list contains various attributes of the platform. The platform string
-  is
-| in the format system name:OS release:architecture. The installer
-  obtains
+| Platforms (required) Gives a list of platforms. Each entry in the list is
+| itself a key-value pair: the key is the name of the platform and the value
+| list contains various attributes of the platform. The platform string is
+| in the format system name:OS release:architecture. The installer obtains
 | these values from NSPR. OS release is an empty string on non-Unix
 | operating systems. NSPR supports these platforms:
 
@@ -733,38 +686,30 @@ For example:
 | Linux:2.0.32:x86
 | WIN95::x86
 
-| The module information is defined independently for each platform in
-  the
+| The module information is defined independently for each platform in the
 | ModuleName, ModuleFile, and Files attributes. These attributes must be
 | given unless an EquivalentPlatform attribute is specified.
 
 Per-Platform Keys
 
-| Per-platform keys have meaning only within the value list of an entry
-  in
+| Per-platform keys have meaning only within the value list of an entry in
 | the Platforms list.
 
-| ModuleName (required) gives the common name for the module. This name
-  is
+| ModuleName (required) gives the common name for the module. This name is
 | used to reference the module by servers and by the modutil tool.
 
-| ModuleFile (required) names the PKCS #11 module file for this
-  platform.
-| The name is given as the relative path of the file within the JAR
-  archive.
+| ModuleFile (required) names the PKCS #11 module file for this platform.
+| The name is given as the relative path of the file within the JAR archive.
 
 | Files (required) lists the files that need to be installed for this
-| module. Each entry in the file list is a key-value pair. The key is
-  the
+| module. Each entry in the file list is a key-value pair. The key is the
 | path of the file in the JAR archive, and the value list contains
 | attributes of the file. At least RelativePath or AbsolutePath must be
 | specified for each file.
 
-| DefaultMechanismFlags specifies mechanisms for which this module is
-  the
+| DefaultMechanismFlags specifies mechanisms for which this module is the
 | default provider; this is equivalent to the -mechanism option with the
-| -add command. This key-value pair is a bitstring specified in
-  hexadecimal
+| -add command. This key-value pair is a bitstring specified in hexadecimal
 | (0x) format. It is constructed as a bitwise OR. If the
 | DefaultMechanismFlags entry is omitted, the value defaults to 0x0.
 
@@ -785,64 +730,47 @@ Per-Platform Keys
 | DISABLE: 0x40000000
 
 | CipherEnableFlags specifies ciphers that this module provides that NSS
-| does not provide (so that the module enables those ciphers for NSS).
-  This
-| is equivalent to the -cipher argument with the -add command. This key
-  is a
+| does not provide (so that the module enables those ciphers for NSS). This
+| is equivalent to the -cipher argument with the -add command. This key is a
 | bitstring specified in hexadecimal (0x) format. It is constructed as a
-| bitwise OR. If the CipherEnableFlags entry is omitted, the value
-  defaults
+| bitwise OR. If the CipherEnableFlags entry is omitted, the value defaults
 | to 0x0.
 
 | EquivalentPlatform specifies that the attributes of the named platform
-| should also be used for the current platform. This makes it easier
-  when
+| should also be used for the current platform. This makes it easier when
 | more than one platform uses the same settings.
 
 Per-File Keys
 
-| Some keys have meaning only within the value list of an entry in a
-  Files
+| Some keys have meaning only within the value list of an entry in a Files
 | list.
 
 | Each file requires a path key the identifies where the file is. Either
-| RelativePath or AbsolutePath must be specified. If both are specified,
-  the
+| RelativePath or AbsolutePath must be specified. If both are specified, the
 | relative path is tried first, and the absolute path is used only if no
 | relative root directory is provided by the installer program.
 
-| RelativePath specifies the destination directory of the file, relative
-  to
-| some directory decided at install time. Two variables can be used in
-  the
-| relative path: %root% and %temp%. %root% is replaced at run time with
-  the
-| directory relative to which files should be installed; for example, it
-  may
+| RelativePath specifies the destination directory of the file, relative to
+| some directory decided at install time. Two variables can be used in the
+| relative path: %root% and %temp%. %root% is replaced at run time with the
+| directory relative to which files should be installed; for example, it may
 | be the server's root directory. The %temp% directory is created at the
 | beginning of the installation and destroyed at the end. The purpose of
-| %temp% is to hold executable files (such as setup programs) or files
-  that
-| are used by these programs. Files destined for the temporary directory
-  are
-| guaranteed to be in place before any executable file is run; they are
-  not
+| %temp% is to hold executable files (such as setup programs) or files that
+| are used by these programs. Files destined for the temporary directory are
+| guaranteed to be in place before any executable file is run; they are not
 | deleted until all executable files have finished.
 
 | AbsolutePath specifies the destination directory of the file as an
 | absolute path.
 
-| Executable specifies that the file is to be executed during the course
-  of
+| Executable specifies that the file is to be executed during the course of
 | the installation. Typically, this string is used for a setup program
-| provided by a module vendor, such as a self-extracting setup
-  executable.
-| More than one file can be specified as executable, in which case the
-  files
+| provided by a module vendor, such as a self-extracting setup executable.
+| More than one file can be specified as executable, in which case the files
 | are run in the order in which they are specified in the script file.
 
-| FilePermissions sets permissions on any referenced files in a string
-  of
+| FilePermissions sets permissions on any referenced files in a string of
 | octal digits, according to the standard Unix format. This string is a
 | bitwise OR.
 
@@ -856,16 +784,13 @@ Per-File Keys
 | other write: 0002
 | other execute: 0001
 
-| Some platforms may not understand these permissions. They are applied
-  only
-| insofar as they make sense for the current platform. If this attribute
-  is
+| Some platforms may not understand these permissions. They are applied only
+| insofar as they make sense for the current platform. If this attribute is
 | omitted, a default of 777 is assumed.
 
 NSS Database Types
 
-| NSS originally used BerkeleyDB databases to store security
-  information.
+| NSS originally used BerkeleyDB databases to store security information.
 | The last versions of these legacy databases are:
 
 o cert8.db for certificates
@@ -875,43 +800,35 @@ o key3.db for keys
 o secmod.db for PKCS #11 module information
 
 | BerkeleyDB has performance limitations, though, which prevent it from
-| being easily used by multiple applications simultaneously. NSS has
-  some
+| being easily used by multiple applications simultaneously. NSS has some
 | flexibility that allows applications to use their own, independent
 | database engine while keeping a shared database and working around the
 | access issues. Still, NSS requires more flexibility to provide a truly
 | shared security database.
 
-| In 2009, NSS introduced a new set of databases that are SQLite
-  databases
-| rather than BerkleyDB. These new databases provide more accessibility
-  and
+| In 2009, NSS introduced a new set of databases that are SQLite databases
+| rather than BerkleyDB. These new databases provide more accessibility and
 | performance:
 
 o cert9.db for certificates
 
 o key4.db for keys
 
-| o pkcs11.txt, which is listing of all of the PKCS #11 modules
-  contained
+| o pkcs11.txt, which is listing of all of the PKCS #11 modules contained
 | in a new subdirectory in the security databases directory
 
 | Because the SQLite databases are designed to be shared, these are the
-| shared database type. The shared database type is preferred; the
-  legacy
+| shared database type. The shared database type is preferred; the legacy
 | format is included for backward compatibility.
 
-| By default, the tools (certutil, pk12util, modutil) assume that the
-  given
-| security databases follow the more common legacy type. Using the
-  SQLite
+| By default, the tools (certutil, pk12util, modutil) assume that the given
+| security databases follow the more common legacy type. Using the SQLite
 | databases must be manually specified by using the sql: prefix with the
 | given security directory. For example:
 
 modutil -create -dbdir sql:/home/my/sharednssdb
 
-| To set the shared database type as the default type for the tools, set
-  the
+| To set the shared database type as the default type for the tools, set the
 | NSS_DEFAULT_DB_TYPE environment variable to sql:
 
 export NSS_DEFAULT_DB_TYPE="sql"
@@ -919,16 +836,13 @@ export NSS_DEFAULT_DB_TYPE="sql"
 | This line can be added to the ~/.bashrc file to make the change
 | permanent.
 
-| Most applications do not use the shared database by default, but they
-  can
-| be configured to use them. For example, this how-to article covers how
-  to
+| Most applications do not use the shared database by default, but they can
+| be configured to use them. For example, this how-to article covers how to
 | configure Firefox and Thunderbird to use the new shared NSS databases:
 
 o https://wiki.mozilla.org/NSS_Shared_DB_Howto
 
-| For an engineering draft on the changes in the shared NSS databases,
-  see
+| For an engineering draft on the changes in the shared NSS databases, see
 | the NSS project wiki:
 
 o https://wiki.mozilla.org/NSS_Shared_DB
@@ -950,11 +864,9 @@ o https://wiki.mozilla.org/NSS_Shared_DB
 
 Additional Resources
 
-| For information about NSS and other tools related to NSS (like JSS),
-  check
+| For information about NSS and other tools related to NSS (like JSS), check
 | out the NSS project wiki at
-| [2]http://www.mozilla.org/projects/security/pki/nss/. The NSS site
-  relates
+| [2]http://www.mozilla.org/projects/security/pki/nss/. The NSS site relates
 | directly to NSS code changes and releases.
 
 Mailing lists: https://lists.mozilla.org/listinfo/dev-tech-crypto
@@ -963,8 +875,7 @@ IRC: Freenode at #dogtag-pki
 
 Authors
 
-| The NSS tools were written and maintained by developers with Netscape,
-  Red
+| The NSS tools were written and maintained by developers with Netscape, Red
 | Hat, Sun, Oracle, Mozilla, and Google.
 
 | Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey

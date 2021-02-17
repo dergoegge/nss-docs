@@ -139,16 +139,14 @@ Dual-function cryptographic functions
 Key management functions
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :ref:`Mozilla_Projects_NSS_Reference_FC_GenerateKey`:
-   DSA domain parameters (PQG)
--  :ref:`Mozilla_Projects_NSS_Reference_FC_GenerateKeyPair`:
-   DSA, RSA, and ECDSA. Performs pair-wise consistency test.
--  :ref:`Mozilla_Projects_NSS_Reference_FC_WrapKey`:
-   RSA Key Wrapping
--  :ref:`Mozilla_Projects_NSS_Reference_FC_UnwrapKey`:
-   RSA Key Wrapping
--  :ref:`Mozilla_Projects_NSS_Reference_FC_DeriveKey`:
-   Diffie-Hellman, EC Diffie-Hellman
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_GenerateKey`: DSA domain
+   parameters (PQG)
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_GenerateKeyPair`: DSA, RSA,
+   and ECDSA. Performs pair-wise consistency test.
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_WrapKey`: RSA Key Wrapping
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_UnwrapKey`: RSA Key Wrapping
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_DeriveKey`: Diffie-Hellman, EC
+   Diffie-Hellman
 
 .. _Random_number_generation_functions:
 
@@ -156,8 +154,8 @@ Random number generation functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :ref:`Mozilla_Projects_NSS_Reference_FC_SeedRandom`
--  :ref:`Mozilla_Projects_NSS_Reference_FC_GenerateRandom`:
-   Performs continuous random number generator test.
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_GenerateRandom`: Performs
+   continuous random number generator test.
 
 .. _Parallel_function_management_functions:
 

@@ -30,8 +30,7 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pMechanism``
-   [in] mechanism to be used for the
-   subsequent digest operation.
+   [in] mechanism to be used for the subsequent digest operation.
 
 .. _Description:
 
@@ -40,8 +39,7 @@ Description
 
 ``FC_DigestInit`` initializes a message-digest operation.
 
-A user may call ``FC_DigestInit`` without logging into the token (to
-assume the NSS User role).
+A user may call ``FC_DigestInit`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 

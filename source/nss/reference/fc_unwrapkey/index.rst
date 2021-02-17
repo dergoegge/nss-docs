@@ -38,33 +38,29 @@ Parameters
 ``pMechanism``
    [in] pointer to the mechanism to use.
 ``hUnwrappingKey``
-   [in] handle of the ket to use for
-   unwrapping.
+   [in] handle of the ket to use for unwrapping.
 ``pWrappedKey``
    [in] pointer to the wrapped key.
 ``usWrappedKeyLen``
    [in] length of the wrapped key.
 ``pTemplate``
-   [in] pointer to the list of attributes for
-   the unwrapped key.
+   [in] pointer to the list of attributes for the unwrapped key.
 ``usAttributeCount``
    [in] number of attributes in the template.
 ``phKey``
-   [out] pointer to the location to receive
-   the handle of the unwrapped key.
+   [out] pointer to the location to receive the handle of the unwrapped
+   key.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_UnwrapKey`` unwraps (decrypts) a key and creates a new key opbject.
-If ``pWrappedKey`` is NULL the length of the wrapped key is returned in
-``pusWrappedKeyLen`` and FC_UnwrapKey may be called again with
-``pWrappedKey`` set to retrieve the wrapped key.
+``FC_UnwrapKey`` unwraps (decrypts) a key and creates a new key opbject. If ``pWrappedKey`` is NULL
+the length of the wrapped key is returned in ``pusWrappedKeyLen`` and FC_UnwrapKey may be called
+again with ``pWrappedKey`` set to retrieve the wrapped key.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_UnwrapKey``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_UnwrapKey``.
 
 .. _Return_value:
 

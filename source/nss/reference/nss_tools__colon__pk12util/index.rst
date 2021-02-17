@@ -7,23 +7,19 @@ NSS tools : pk12util
 
 Name
 
-| pk12util — Export and import keys and certificate to or from a PKCS
-  #12
+| pk12util — Export and import keys and certificate to or from a PKCS #12
 | file and the NSS database
 
 Synopsis
 
-pk12util [-i p12File|-l p12File|-o p12File] [-d [sql:]directory] [-h
-tokenname] [-P dbprefix] [-r] [-v] [-k slotPasswordFile|-K slotPassword]
-[-w p12filePasswordFile|-W p12filePassword]
+pk12util [-i p12File|-l p12File|-o p12File] [-d [sql:]directory] [-h tokenname] [-P dbprefix] [-r]
+[-v] [-k slotPasswordFile|-K slotPassword] [-w p12filePasswordFile|-W p12filePassword]
 
 Description
 
 | The PKCS #12 utility, pk12util, enables sharing certificates among any
-| server that supports PKCS#12. The tool can import certificates and
-  keys
-| from PKCS#12 files into security databases, export certificates, and
-  list
+| server that supports PKCS#12. The tool can import certificates and keys
+| from PKCS#12 files into security databases, export certificates, and list
 | certificates and keys.
 
 Options and Arguments
@@ -175,14 +171,12 @@ Examples
 
 Importing Keys and Certificates
 
-| The most basic usage of pk12util for importing a certificate or key is
-  the
+| The most basic usage of pk12util for importing a certificate or key is the
 | PKCS#12 input file (-i) and some way to specify the security database
 | being accessed (either -d for a directory or -h for a token).
 
-pk12util -i p12File [-h tokenname] [-v] [-d [sql:]directory] [-P
-dbprefix] [-k slotPasswordFile|-K slotPassword] [-w
-p12filePasswordFile|-W p12filePassword]
+pk12util -i p12File [-h tokenname] [-v] [-d [sql:]directory] [-P dbprefix] [-k slotPasswordFile|-K
+slotPassword] [-w p12filePasswordFile|-W p12filePassword]
 
 For example:
 
@@ -199,18 +193,14 @@ For example:
 
 Exporting Keys and Certificates
 
-| Using the pk12util command to export certificates and keys requires
-  both
+| Using the pk12util command to export certificates and keys requires both
 | the name of the certificate to extract from the database (-n) and the
-| PKCS#12-formatted output file to write to. There are optional
-  parameters
-| that can be used to encrypt the file to protect the certificate
-  material.
+| PKCS#12-formatted output file to write to. There are optional parameters
+| that can be used to encrypt the file to protect the certificate material.
 
-pk12util -o p12File -n certname [-c keyCipher] [-C certCipher]
-[-m|--key_len keyLen] [-n|--cert_key_len certKeyLen] [-d
-[sql:]directory] [-P dbprefix] [-k slotPasswordFile|-K slotPassword] [-w
-p12filePasswordFile|-W p12filePassword]
+pk12util -o p12File -n certname [-c keyCipher] [-C certCipher] [-m|--key_len keyLen]
+[-n|--cert_key_len certKeyLen] [-d [sql:]directory] [-P dbprefix] [-k slotPasswordFile|-K
+slotPassword] [-w p12filePasswordFile|-W p12filePassword]
 
 For example:
 
@@ -220,16 +210,13 @@ For example:
 
 Listing Keys and Certificates
 
-| The information in a .p12 file are not human-readable. The
-  certificates
+| The information in a .p12 file are not human-readable. The certificates
 | and keys in the file can be printed (listed) in a human-readable
-| pretty-print format that shows information for every certificate and
-  any
+| pretty-print format that shows information for every certificate and any
 | public keys in the .p12 file.
 
-pk12util -l p12File [-h tokenname] [-r] [-d [sql:]directory] [-P
-dbprefix] [-k slotPasswordFile|-K slotPassword] [-w
-p12filePasswordFile|-W p12filePassword]
+pk12util -l p12File [-h tokenname] [-r] [-d [sql:]directory] [-P dbprefix] [-k slotPasswordFile|-K
+slotPassword] [-w p12filePasswordFile|-W p12filePassword]
 
 For example, this prints the default ASCII output:
 
@@ -237,11 +224,9 @@ For example, this prints the default ASCII output:
 
 | Enter password for PKCS12 file:
 | Key(shrouded):
-| Friendly Name: Thawte Freemail Member's Thawte Consulting (Pty) Ltd.
-  ID
+| Friendly Name: Thawte Freemail Member's Thawte Consulting (Pty) Ltd. ID
 
-| Encryption algorithm: PKCS #12 V2 PBE With SHA-1 And 3KEY Triple
-  DES-CBC
+| Encryption algorithm: PKCS #12 V2 PBE With SHA-1 And 3KEY Triple DES-CBC
 | Parameters:
 | Salt:
 | 45:2e:6a:a0:03:4d:7b:a1:63:3c:15:ea:67:37:62:1f
@@ -255,45 +240,35 @@ For example, this prints the default ASCII output:
 | A,OU=Certification Services Division,O=Thawte Consulting,L=Cape T
 | own,ST=Western Cape,C=ZA"
 
-| Alternatively, the -r prints the certificates and then exports them
-  into
+| Alternatively, the -r prints the certificates and then exports them into
 | separate DER binary files. This allows the certificates to be fed to
-| another application that supports .p12 files. Each certificate is
-  written
-| to a sequentially-number file, beginning with file0001.der and
-  continuing
+| another application that supports .p12 files. Each certificate is written
+| to a sequentially-number file, beginning with file0001.der and continuing
 | through file000N.der, incrementing the number for every certificate:
 
 | # pk12util -l test.p12 -r
 | Enter password for PKCS12 file:
 | Key(shrouded):
-| Friendly Name: Thawte Freemail Member's Thawte Consulting (Pty) Ltd.
-  ID
+| Friendly Name: Thawte Freemail Member's Thawte Consulting (Pty) Ltd. ID
 
-| Encryption algorithm: PKCS #12 V2 PBE With SHA-1 And 3KEY Triple
-  DES-CBC
+| Encryption algorithm: PKCS #12 V2 PBE With SHA-1 And 3KEY Triple DES-CBC
 | Parameters:
 | Salt:
 | 45:2e:6a:a0:03:4d:7b:a1:63:3c:15:ea:67:37:62:1f
 | Iteration Count: 1 (0x1)
-| Certificate Friendly Name: Thawte Personal Freemail Issuing CA -
-  Thawte Consulting
+| Certificate Friendly Name: Thawte Personal Freemail Issuing CA - Thawte Consulting
 
-Certificate Friendly Name: Thawte Freemail Member's Thawte Consulting
-(Pty) Ltd. ID
+Certificate Friendly Name: Thawte Freemail Member's Thawte Consulting (Pty) Ltd. ID
 
 Password Encryption
 
-| PKCS#12 provides for not only the protection of the private keys but
-  also
+| PKCS#12 provides for not only the protection of the private keys but also
 | the certificate and meta-data associated with the keys. Password-based
 | encryption is used to protect private keys on export to a PKCS#12 file
 | and, optionally, the entire package. If no algorithm is specified, the
-| tool defaults to using PKCS12 V2 PBE with SHA1 and 3KEY Triple DES-cbc
-  for
+| tool defaults to using PKCS12 V2 PBE with SHA1 and 3KEY Triple DES-cbc for
 | private key encryption. PKCS12 V2 PBE with SHA1 and 40 Bit RC4 is the
-| default for the overall package encryption when not in FIPS mode. When
-  in
+| default for the overall package encryption when not in FIPS mode. When in
 | FIPS mode, there is no package encryption.
 
 The private key is always protected with strong encryption by default.
@@ -356,18 +331,15 @@ o PKCS #5 Password Based Encryption with MD5 and DES CBC
 o PKCS #5 Password Based Encryption with SHA1 and DES CBC
 
 | With PKCS#12, the crypto provider may be the soft token module or an
-| external hardware module. If the cryptographic module does not support
-  the
-| requested algorithm, then the next best fit will be selected (usually
-  the
+| external hardware module. If the cryptographic module does not support the
+| requested algorithm, then the next best fit will be selected (usually the
 | default). If no suitable replacement for the desired algorithm can be
 | found, the tool returns the error no security module can perform the
 | requested operation.
 
 NSS Database Types
 
-| NSS originally used BerkeleyDB databases to store security
-  information.
+| NSS originally used BerkeleyDB databases to store security information.
 | The last versions of these legacy databases are:
 
 o cert8.db for certificates
@@ -377,43 +349,35 @@ o key3.db for keys
 o secmod.db for PKCS #11 module information
 
 | BerkeleyDB has performance limitations, though, which prevent it from
-| being easily used by multiple applications simultaneously. NSS has
-  some
+| being easily used by multiple applications simultaneously. NSS has some
 | flexibility that allows applications to use their own, independent
 | database engine while keeping a shared database and working around the
 | access issues. Still, NSS requires more flexibility to provide a truly
 | shared security database.
 
-| In 2009, NSS introduced a new set of databases that are SQLite
-  databases
-| rather than BerkleyDB. These new databases provide more accessibility
-  and
+| In 2009, NSS introduced a new set of databases that are SQLite databases
+| rather than BerkleyDB. These new databases provide more accessibility and
 | performance:
 
 o cert9.db for certificates
 
 o key4.db for keys
 
-| o pkcs11.txt, which is listing of all of the PKCS #11 modules
-  contained
+| o pkcs11.txt, which is listing of all of the PKCS #11 modules contained
 | in a new subdirectory in the security databases directory
 
 | Because the SQLite databases are designed to be shared, these are the
-| shared database type. The shared database type is preferred; the
-  legacy
+| shared database type. The shared database type is preferred; the legacy
 | format is included for backward compatibility.
 
-| By default, the tools (certutil, pk12util, modutil) assume that the
-  given
-| security databases follow the more common legacy type. Using the
-  SQLite
+| By default, the tools (certutil, pk12util, modutil) assume that the given
+| security databases follow the more common legacy type. Using the SQLite
 | databases must be manually specified by using the sql: prefix with the
 | given security directory. For example:
 
 # pk12util -i /tmp/cert-files/users.p12 -d sql:/home/my/sharednssdb
 
-| To set the shared database type as the default type for the tools, set
-  the
+| To set the shared database type as the default type for the tools, set the
 | NSS_DEFAULT_DB_TYPE environment variable to sql:
 
 export NSS_DEFAULT_DB_TYPE="sql"
@@ -421,16 +385,13 @@ export NSS_DEFAULT_DB_TYPE="sql"
 | This line can be set added to the ~/.bashrc file to make the change
 | permanent.
 
-| Most applications do not use the shared database by default, but they
-  can
-| be configured to use them. For example, this how-to article covers how
-  to
+| Most applications do not use the shared database by default, but they can
+| be configured to use them. For example, this how-to article covers how to
 | configure Firefox and Thunderbird to use the new shared NSS databases:
 
 o https://wiki.mozilla.org/NSS_Shared_DB_Howto
 
-| For an engineering draft on the changes in the shared NSS databases,
-  see
+| For an engineering draft on the changes in the shared NSS databases, see
 | the NSS project wiki:
 
 o https://wiki.mozilla.org/NSS_Shared_DB
@@ -450,11 +411,9 @@ o https://wiki.mozilla.org/NSS_Shared_DB
 
 Additional Resources
 
-| For information about NSS and other tools related to NSS (like JSS),
-  check
+| For information about NSS and other tools related to NSS (like JSS), check
 | out the NSS project wiki at
-| [1]http://www.mozilla.org/projects/security/pki/nss/. The NSS site
-  relates
+| [1]http://www.mozilla.org/projects/security/pki/nss/. The NSS site relates
 | directly to NSS code changes and releases.
 
 Mailing lists: https://lists.mozilla.org/listinfo/dev-tech-crypto
@@ -463,8 +422,7 @@ IRC: Freenode at #dogtag-pki
 
 Authors
 
-| The NSS tools were written and maintained by developers with Netscape,
-  Red
+| The NSS tools were written and maintained by developers with Netscape, Red
 | Hat, Sun, Oracle, Mozilla, and Google.
 
 | Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey

@@ -8,9 +8,8 @@ NSS 3.16.2 release notes
 Introduction
 ------------
 
-Network Security Services (NSS) 3.16.2 is a patch release for NSS 3.16.
-The bug fixes in NSS 3.16.2 are described in the "Bugs Fixed" section
-below.
+Network Security Services (NSS) 3.16.2 is a patch release for NSS 3.16. The bug fixes in NSS 3.16.2
+are described in the "Bugs Fixed" section below.
 
 .. _Distribution_Information:
 
@@ -19,8 +18,7 @@ Distribution Information
 
 The HG tag is NSS_3_16_2_RTM. NSS 3.16.2 requires NSPR 4.10.6 or newer.
 
-NSS 3.16.2 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+NSS 3.16.2 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_2_RTM/src/
@@ -36,12 +34,12 @@ New Functionality
 ~~~~~~~~~~~~~~~~~
 
 -  DTLS 1.2 is supported.
--  The TLS application layer protocol negotiation (ALPN) extension is
-   also supported on the server side.
--  RSA-OEAP is supported. Use the new PK11_PrivDecrypt and
-   PK11_PubEncrypt functions with the CKM_RSA_PKCS_OAEP mechanism.
--  New Intel AES assembly code for 32-bit and 64-bit Windows,
-   contributed by Shay Gueron and Vlad Krasnov of Intel.
+-  The TLS application layer protocol negotiation (ALPN) extension is also supported on the server
+   side.
+-  RSA-OEAP is supported. Use the new PK11_PrivDecrypt and PK11_PubEncrypt functions with the
+   CKM_RSA_PKCS_OAEP mechanism.
+-  New Intel AES assembly code for 32-bit and 64-bit Windows, contributed by Shay Gueron and Vlad
+   Krasnov of Intel.
 
 .. _New_Functions:
 
@@ -50,16 +48,15 @@ New Functions
 
 -  *in cert.h*
 
-   -  **CERT_AddExtensionByOID** - adds an extension to a certificate.
-      It is the same as CERT_AddExtension except that the OID is
-      represented by a SECItem instead of a SECOidTag.
+   -  **CERT_AddExtensionByOID** - adds an extension to a certificate. It is the same as
+      CERT_AddExtension except that the OID is represented by a SECItem instead of a SECOidTag.
 
 -  *in pk11pub.h*
 
-   -  **PK11_PrivDecrypt** - decrypts with a private key. The algorithm
-      is specified with a CK_MECHANISM_TYPE.
-   -  **PK11_PubEncrypt** - encrypts with a public key. The algorithm is
-      specified with a CK_MECHANISM_TYPE.
+   -  **PK11_PrivDecrypt** - decrypts with a private key. The algorithm is specified with a
+      CK_MECHANISM_TYPE.
+   -  **PK11_PubEncrypt** - encrypts with a public key. The algorithm is specified with a
+      CK_MECHANISM_TYPE.
 
 .. _New_Macros:
 
@@ -68,34 +65,28 @@ New Macros
 
 -  *in sslerr.h*
 
-   -  **SSL_ERROR_NEXT_PROTOCOL_NO_CALLBACK** - An SSL error code that
-      means the next protcol negotiation extension was enabled, but the
-      callback was cleared prior to being needed.
-   -  **SSL_ERROR_NEXT_PROTOCOL_NO_PROTOCOL** - An SSL error code that
-      means the server supports no protocols that the client advertises
-      in the ALPN extension.
+   -  **SSL_ERROR_NEXT_PROTOCOL_NO_CALLBACK** - An SSL error code that means the next protcol
+      negotiation extension was enabled, but the callback was cleared prior to being needed.
+   -  **SSL_ERROR_NEXT_PROTOCOL_NO_PROTOCOL** - An SSL error code that means the server supports no
+      protocols that the client advertises in the ALPN extension.
 
 .. _Notable_Changes_in_NSS_3.16.2:
 
 Notable Changes in NSS 3.16.2
 -----------------------------
 
--  The btoa command has a new command-line option -w *suffix*, which
-   causes the output to be wrapped in BEGIN/END lines with the given
-   suffix. Use "c" as a shorthand for the suffix CERTIFICATE.
--  The certutil commands supports additionals types of subject alt name
-   extensions:
+-  The btoa command has a new command-line option -w *suffix*, which causes the output to be wrapped
+   in BEGIN/END lines with the given suffix. Use "c" as a shorthand for the suffix CERTIFICATE.
+-  The certutil commands supports additionals types of subject alt name extensions:
 
    -  --extSAN *type:name[,type:name]...*
 
--  The certutil commands supports generic certificate extensions, by
-   loading binary data from files, which have been prepared using
-   external tools, or which have been extracted and dumped to file from
-   other existing certificates:
+-  The certutil commands supports generic certificate extensions, by loading binary data from files,
+   which have been prepared using external tools, or which have been extracted and dumped to file
+   from other existing certificates:
 
    -  --dump-ext-val *OID*
-   -  --extGeneric
-      *OID:critical-flag:filename[,OID:critical-flag:filename]...*
+   -  --extGeneric *OID:critical-flag:filename[,OID:critical-flag:filename]...*
 
 -  The certutil command has three new certificate usage specifiers:
 
@@ -103,11 +94,10 @@ Notable Changes in NSS 3.16.2
    -  A: certificateUsageAnyCA
    -  Y: certificateUsageVerifyCA
 
--  The pp command has a new command-line option -u, which means "use
-   UTF-8". The default is to show a non-ASCII character as ".".
--  On Linux, NSS is built with the -ffunction-sections
-   -fdata-sections compiler flags and the --gc-sections linker flag to
-   allow unused functions to be discarded.
+-  The pp command has a new command-line option -u, which means "use UTF-8". The default is to show
+   a non-ASCII character as ".".
+-  On Linux, NSS is built with the -ffunction-sections -fdata-sections compiler flags and the
+   --gc-sections linker flag to allow unused functions to be discarded.
 
 .. _Bugs_fixed_in_NSS_3.16.2:
 

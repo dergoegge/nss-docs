@@ -34,8 +34,8 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-Parallel functions are not implemented. ``FC_CancelFunction`` is a
-legacy function that simply returns ``CKR_FUNCTION_NOT_PARALLEL``.
+Parallel functions are not implemented. ``FC_CancelFunction`` is a legacy function that simply
+returns ``CKR_FUNCTION_NOT_PARALLEL``.
 
 .. _Return_value:
 

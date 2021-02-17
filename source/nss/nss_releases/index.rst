@@ -3,266 +3,143 @@
 ========================================
 Release notes for recent versions of NSS
 ========================================
-The current **Stable** release of NSS is 3.61, which was released on
-**22 January 2021**. (`NSS 3.61 release
-notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.61_release_notes>`__)
+The current **Stable** release of NSS is 3.61, which was released on **22 January 2021**. (`NSS 3.61
+release notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.61_release_notes>`__)
 
 The current **ESR** releases of NSS are 3.44.4 (`NSS 3.44.4 release
-notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.4_release_notes>`__),
-intended for Firefox ESR 68, which was released on **19 May 2020**, and
- 3.53.1 `(NSS 3.53.1 release
-notes) </en-US/docs/Mozilla/Projects/NSS/NSS_3.53.1_release_notes>`__,
-intended for Firefox ESR 78, which was released on **16 June 2020**.
+notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.4_release_notes>`__), intended for Firefox ESR 68,
+which was released on **19 May 2020**, and  3.53.1 `(NSS 3.53.1 release
+notes) </en-US/docs/Mozilla/Projects/NSS/NSS_3.53.1_release_notes>`__, intended for Firefox ESR 78,
+which was released on **16 June 2020**.
 
 .. _Past_releases:
 
 Past releases
 -------------
 
--  `NSS 3.60.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.60.1_release_notes>`__
--  `NSS 3.60 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.60_release_notes>`__
--  `NSS 3.59.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.59.1_release_notes>`__
--  `NSS 3.59 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.59_release_notes>`__
--  `NSS 3.58 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.58_release_notes>`__
--  `NSS 3.57 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.57_release_notes>`__
--  `NSS 3.56 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.56_release_notes>`__
--  `NSS 3.55 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.55_release_notes>`__
--  `NSS 3.54 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.54_release_notes>`__
--  `NSS 3.53.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.53.1_release_notes>`__
--  `NSS 3.53 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.53_release_notes>`__
--  `NSS 3.52.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.52.1_release_notes>`__
--  `NSS 3.44.4 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.4_release_notes>`__
--  `NSS 3.52 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.52_release_notes>`__
--  `NSS 3.51.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.51.1_release_notes>`__
--  `NSS 3.51 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.51_release_notes>`__
--  `NSS 3.50 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.50_release_notes>`__
--  `NSS 3.49.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.49.2_release_notes>`__
--  `NSS 3.49.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.49.1_release_notes>`__
--  `NSS 3.49 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.49_release_notes>`__
--  `NSS 3.48.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.48.1_release_notes>`__
--  `NSS 3.48 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.48_release_notes>`__
--  `NSS 3.47.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.47.1_release_notes>`__
--  `NSS 3.47 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.47_release_notes>`__
--  `NSS 3.46.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.46.1_release_notes>`__
--  `NSS 3.46 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.46_release_notes>`__
--  `NSS 3.45 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.45_release_notes>`__
--  `NSS 3.44.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.3_release_notes>`__
--  `NSS 3.44.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.2_release_notes>`__
--  `NSS 3.44.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.1_release_notes>`__
--  `NSS 3.44 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44_release_notes>`__
--  `NSS 3.43 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.43_release_notes>`__
--  `NSS 3.42.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.42.1_release_notes>`__
--  `NSS 3.42 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.42_release_notes>`__
--  `NSS 3.36.8 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.8_release_notes>`__
--  `NSS 3.36.7 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.7_release_notes>`__
--  `NSS 3.41 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.41_release_notes>`__
--  `NSS 3.40.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.40.1_release_notes>`__
--  `NSS 3.36.6 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.6_release_notes>`__
--  `NSS 3.40 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.40_release_notes>`__
--  `NSS 3.39 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.39_release_notes>`__
--  `NSS 3.38 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.38_release_notes>`__
--  `NSS 3.37.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.37.3_release_notes>`__
--  `NSS 3.37.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.37.1_release_notes>`__
--  `NSS 3.37 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.37_release_notes>`__
--  `NSS 3.36.5 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.5_release_notes>`__
--  `NSS 3.36.4 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.4_release_notes>`__
--  `NSS 3.36.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.2_release_notes>`__
--  `NSS 3.36.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36.1_release_notes>`__
--  `NSS 3.36 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.36_release_notes>`__
--  `NSS 3.35 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.35_release_notes>`__
--  `NSS 3.34.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.34.1_release_notes>`__
--  `NSS 3.34 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.34_release_notes>`__
--  `NSS 3.33 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.33_release_notes>`__
--  `NSS 3.32 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.32_release_notes>`__
--  `NSS 3.31.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.31.1_release_notes>`__
--  `NSS 3.31 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.31_release_notes>`__
--  `NSS 3.30.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.30.2_release_notes>`__
--  `NSS 3.30.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.30.1_release_notes>`__
--  `NSS 3.30 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.30_release_notes>`__
--  `NSS 3.29.5 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.29.5_release_notes>`__
--  `NSS 3.29.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.29.3_release_notes>`__
--  `NSS 3.29.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.29.2_release_notes>`__
--  `NSS 3.29.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.29.1_release_notes>`__
--  `NSS 3.29 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.29_release_notes>`__
--  `NSS 3.28.5 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.28.5_release_notes>`__
--  `NSS 3.28.4 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.28.4_release_notes>`__
--  `NSS 3.28.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.28.3_release_notes>`__
--  `NSS 3.28.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.28.2_release_notes>`__
--  `NSS 3.28.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.28.1_release_notes>`__
--  `NSS 3.28 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.28_release_notes>`__
--  `NSS 3.27.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.27.2_Release_Notes>`__
--  `NSS 3.27.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.27.1_release_notes>`__
--  `NSS 3.27 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.27_release_notes>`__
--  `NSS 3.26.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.26.2_release_notes>`__
--  `NSS 3.26 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.26_release_notes>`__
--  `NSS 3.25.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.25.1_release_notes>`__
--  `NSS 3.25 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.25_release_notes>`__
--  `NSS 3.24 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.24_release_notes>`__
--  `NSS 3.23 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.23_release_notes>`__
--  `NSS 3.22.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.22.2_release_notes>`__
--  `NSS 3.22.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.22.1_release_notes>`__
--  `NSS 3.22 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.22_release_notes>`__
--  `NSS 3.21.4 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.21.4_release_notes>`__
--  `NSS 3.21.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.21.3_release_notes>`__
--  `NSS 3.21.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.21.2_release_notes>`__
--  `NSS 3.21.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.21.1_release_notes>`__
--  `NSS 3.21 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.21_release_notes>`__
--  `NSS 3.20.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.20.1_release_notes>`__
--  `NSS 3.20 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.20_release_notes>`__
--  `NSS 3.19.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.19.3_release_notes>`__
--  `NSS 3.19.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.19.2_release_notes>`__
--  `NSS 3.19.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.19.1_release_notes>`__
--  `NSS 3.19 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.19_release_notes>`__
--  `NSS 3.18.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.18.1_release_notes>`__
--  `NSS 3.18 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.18_release_notes>`__
--  `NSS 3.17.4 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.17.4_release_notes>`__
--  `NSS 3.17.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.17.3_release_notes>`__
--  `NSS 3.17.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.17.2_release_notes>`__
--  `NSS 3.17.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.17.1_release_notes>`__
--  `NSS 3.17 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.17_release_notes>`__
--  `NSS 3.16.6 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.6_release_notes>`__
--  `NSS 3.16.5 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.5_release_notes>`__
--  `NSS 3.16.4 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.4_release_notes>`__
--  `NSS 3.16.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.3_release_notes>`__
--  `NSS 3.16.2.3 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.2.3_release_notes>`__
--  `NSS 3.16.2.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.2.2_release_notes>`__
--  `NSS 3.16.2.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.2.1_release_notes>`__
--  `NSS 3.16.2 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.2_release_notes>`__
--  `NSS 3.16.1 release
-   notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.16.1_release_notes>`__
+-  :ref:`Mozilla_Projects_NSS_NSS_3_60_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_60_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_59_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_59_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_58_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_57_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_56_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_55_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_54_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_53_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_53_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_52_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_44_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_52_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_51_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_51_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_50_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_49_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_49_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_49_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_48_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_48_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_47_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_47_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_46_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_46_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_45_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_44_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_44_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_44_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_44_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_43_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_42_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_42_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_8_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_7_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_41_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_40_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_6_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_40_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_39_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_38_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_37_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_37_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_37_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_5_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_36_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_35_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_34_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_34_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_33_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_32_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_31_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_31_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_30_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_30_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_30_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_29_5_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_29_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_29_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_29_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_29_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_28_5_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_28_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_28_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_28_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_28_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_28_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_27_2_Release_Notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_27_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_27_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_26_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_26_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_25_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_25_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_24_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_23_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_22_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_22_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_22_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_21_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_21_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_21_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_21_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_21_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_20_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_20_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_19_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_19_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_19_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_19_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_18_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_18_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_17_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_17_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_17_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_17_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_17_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_6_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_5_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_2_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_2_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_2_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_NSS_3_16_1_release_notes`
 -  `NSS 3.16 release notes </en-US/docs/NSS/NSS_3.16_release_notes>`__
--  `NSS 3.15.5 release
-   notes </en-US/docs/NSS/NSS_3.15.5_release_notes>`__
--  `NSS 3.15.4 release
-   notes </en-US/docs/NSS/NSS_3.15.4_release_notes>`__
--  `NSS 3.15.3.1 release
-   notes </en-US/docs/NSS/NSS_3.15.3.1_release_notes>`__
--  `NSS 3.15.3 release
-   notes </en-US/docs/NSS/NSS_3.15.3_release_notes>`__
--  `NSS 3.15.2 release
-   notes </en-US/docs/NSS/NSS_3.15.2_release_notes>`__
--  `NSS 3.15.1 release
-   notes </en-US/docs/NSS/NSS_3.15.1_release_notes>`__
+-  `NSS 3.15.5 release notes </en-US/docs/NSS/NSS_3.15.5_release_notes>`__
+-  `NSS 3.15.4 release notes </en-US/docs/NSS/NSS_3.15.4_release_notes>`__
+-  `NSS 3.15.3.1 release notes </en-US/docs/NSS/NSS_3.15.3.1_release_notes>`__
+-  `NSS 3.15.3 release notes </en-US/docs/NSS/NSS_3.15.3_release_notes>`__
+-  `NSS 3.15.2 release notes </en-US/docs/NSS/NSS_3.15.2_release_notes>`__
+-  `NSS 3.15.1 release notes </en-US/docs/NSS/NSS_3.15.1_release_notes>`__
 -  `NSS 3.15 release notes </en-US/docs/NSS/NSS_3.15_release_notes>`__
--  `NSS 3.14.5 release
-   notes </en-US/docs/NSS/NSS_3.14.5_release_notes>`__
--  `NSS 3.14.4 release
-   notes </en-US/docs/NSS/NSS_3.14.4_release_notes>`__
--  `NSS 3.14.3 release
-   notes </en-US/docs/NSS/NSS_3.14.3_release_notes>`__
--  `NSS 3.14.2 release
-   notes </en-US/docs/NSS/NSS_3.14.2_release_notes>`__
--  `NSS 3.14.1 release
-   notes </en-US/docs/NSS/NSS_3.14.1_release_notes>`__
+-  `NSS 3.14.5 release notes </en-US/docs/NSS/NSS_3.14.5_release_notes>`__
+-  `NSS 3.14.4 release notes </en-US/docs/NSS/NSS_3.14.4_release_notes>`__
+-  `NSS 3.14.3 release notes </en-US/docs/NSS/NSS_3.14.3_release_notes>`__
+-  `NSS 3.14.2 release notes </en-US/docs/NSS/NSS_3.14.2_release_notes>`__
+-  `NSS 3.14.1 release notes </en-US/docs/NSS/NSS_3.14.1_release_notes>`__
 -  `NSS 3.14 release notes </en-US/docs/NSS/NSS_3.14_release_notes>`__
 -  `Older release notes </en-US/docs/NSS/release_notes.html>`__
 
@@ -271,5 +148,4 @@ Past releases
 Future releases
 ---------------
 
-Release planning is done on the Mozilla wiki: {{interwiki("wikimo",
-"NSS:Release Versions")}}.
+Release planning is done on the Mozilla wiki: {{interwiki("wikimo", "NSS:Release Versions")}}.

@@ -8,8 +8,7 @@ FC_SeedRandom
 Name
 ~~~~
 
-``FC_SeedRandom()`` - mix additional seed material into the random
-number generator.
+``FC_SeedRandom()`` - mix additional seed material into the random number generator.
 
 .. _Syntax:
 
@@ -41,14 +40,12 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_SeedRandom()`` mixes additional seed material into the token's
-random number generator. Note that ``FC_SeedRandom()`` doesn't provide
-the initial seed material for the random number generator. The initial
-seed material is provided by the NSS cryptographic module itself.
+``FC_SeedRandom()`` mixes additional seed material into the token's random number generator. Note
+that ``FC_SeedRandom()`` doesn't provide the initial seed material for the random number generator.
+The initial seed material is provided by the NSS cryptographic module itself.
 
 | 
-| A user may call ``FC_SeedRandom()`` without logging into the token (to
-  assume the NSS User role).
+| A user may call ``FC_SeedRandom()`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 

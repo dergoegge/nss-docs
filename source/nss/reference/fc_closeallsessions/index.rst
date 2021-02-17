@@ -8,8 +8,7 @@ FC_CloseAllSessions
 Name
 ~~~~
 
-FC_CloseAllSessions - close all sessions between an application and a
-token.
+FC_CloseAllSessions - close all sessions between an application and a token.
 
 .. _Syntax:
 
@@ -35,14 +34,14 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_CloseAllSessions`` closes all sessions between an application and
-the token in the slot with the ID ``slotID``.
+``FC_CloseAllSessions`` closes all sessions between an application and the token in the slot with
+the ID ``slotID``.
 
-The NSS cryptographic module currently doesn't call the surrender
-callback function ``Notify``. (See PKCS #11 v2.20 section 11.17.1.)
+The NSS cryptographic module currently doesn't call the surrender callback function ``Notify``. (See
+PKCS #11 v2.20 section 11.17.1.)
 
-A user may call ``FC_CloseAllSessions`` without logging into the token
-(to assume the NSS User role).
+A user may call ``FC_CloseAllSessions`` without logging into the token (to assume the NSS User
+role).
 
 .. _Return_value:
 

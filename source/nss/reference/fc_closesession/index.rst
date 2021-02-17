@@ -8,8 +8,7 @@ FC_CloseSession
 Name
 ~~~~
 
-FC_CloseSession - close a session opened between an application and a
-token.
+FC_CloseSession - close a session opened between an application and a token.
 
 .. _Syntax:
 
@@ -37,8 +36,7 @@ Description
 
 ``FC_CloseSession`` closes a session between an application and a token.
 
-A user may call ``FC_CloseSession`` without logging into the token (to
-assume the NSS User role).
+A user may call ``FC_CloseSession`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 

@@ -8,182 +8,151 @@ NSS Tools ssltap
 Using the SSL Debugging Tool (ssltap)
 -------------------------------------
 
-Newsgroup:
-`mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
+Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 
-The SSL Debugging Tool is an SSL-aware command-line proxy. It watches
-TCP connections and displays the data going by. If a connection is SSL,
-the data display includes interpreted SSL records and handshaking.
+The SSL Debugging Tool is an SSL-aware command-line proxy. It watches TCP connections and displays
+the data going by. If a connection is SSL, the data display includes interpreted SSL records and
+handshaking.
 
 .. _Availability_2:
 
  Availability
 ------------
 
-This tool is known to build on Solaris 2.5.1 (SunOS 5.5.1) and Windows
-NT 4.0.
+This tool is known to build on Solaris 2.5.1 (SunOS 5.5.1) and Windows NT 4.0.
 
 .. _Description_2:
 
  Description
 -----------
 
-The ``ssltap`` command opens a socket on a rendezvous port and waits for
-an incoming connection from the client side. Once this connection
-arrives, the tool makes another connection to the specified host name
-and port on the server side. It passes any data sent by the client to
-the server and vice versa. The tool also displays the data to the shell
-window from which it was called. It can do this for plain HTTP
-connections or any TCP protocol, as well as for SSL streams, as
-described here. The tool cannot and does not decrypt any encrypted
-message data. You use the tool to look at the plain text and binary data
-that are part of the handshake procedure, before the secure connection
-is established.
+The ``ssltap`` command opens a socket on a rendezvous port and waits for an incoming connection from
+the client side. Once this connection arrives, the tool makes another connection to the specified
+host name and port on the server side. It passes any data sent by the client to the server and vice
+versa. The tool also displays the data to the shell window from which it was called. It can do this
+for plain HTTP connections or any TCP protocol, as well as for SSL streams, as described here. The
+tool cannot and does not decrypt any encrypted message data. You use the tool to look at the plain
+text and binary data that are part of the handshake procedure, before the secure connection is
+established.
 
 .. _Syntax_2:
 
  Syntax
 ------
 
-To run the SSL Debugging Tool, type this command in a command shell:
-``ssltap`` [``-vhfsxl``] [``-p`` *port*] *hostname*:*port*
+To run the SSL Debugging Tool, type this command in a command shell: ``ssltap`` [``-vhfsxl``]
+[``-p`` *port*] *hostname*:*port*
 
 .. _Options:
 
  Options
 ~~~~~~~
 
-The command does not require any options other than *hostname:port*, but
-you normally use them to control the connection interception and output.
-The options for the command are the following:
+The command does not require any options other than *hostname:port*, but you normally use them to
+control the connection interception and output. The options for the command are the following:
 
-+-----------------------------------+-----------------------------------+
-| ``-v``                            | Print a version string for the    |
-|                                   | tool.                             |
-+-----------------------------------+-----------------------------------+
-| ``-h``                            | Turn on hex/ASCII printing.       |
-|                                   | Instead of outputting raw data,   |
-|                                   | the command interprets each       |
-|                                   | record as a numbered line of hex  |
-|                                   | values, followed by the same data |
-|                                   | as ASCII characters. The two      |
-|                                   | parts are separated by a vertical |
-|                                   | bar. Nonprinting characters are   |
-|                                   | replaced by dots.                 |
-+-----------------------------------+-----------------------------------+
-| ``-f``                            | Turn on fancy printing. Output is |
-|                                   | printed in colored HTML. Data     |
-|                                   | sent from the client to the       |
-|                                   | server is in blue; the server's   |
-|                                   | reply is in red. When used with   |
-|                                   | looping mode, the different       |
-|                                   | connections are separated with    |
-|                                   | horizontal lines. You can use     |
-|                                   | this option to upload the output  |
-|                                   | into a browser.                   |
-+-----------------------------------+-----------------------------------+
-| ``-s``                            | Turn on SSL parsing and decoding. |
-|                                   | The tool does not automatically   |
-|                                   | detect SSL sessions. If you are   |
-|                                   | intercepting an SSL connection,   |
-|                                   | use this option so that the tool  |
-|                                   | can detect and decode SSL         |
-|                                   | structures.                       |
-|                                   |                                   |
-|                                   | If the tool detects a certificate |
-|                                   | chain, it saves the DER-encoded   |
-|                                   | certificates into files in the    |
-|                                   | current directory. The files are  |
-|                                   | named ``cert.0``\ *x*, where *x*  |
-|                                   | is the sequence number of the     |
-|                                   | certificate.                      |
-|                                   |                                   |
-|                                   | If the ``-s`` option is used with |
-|                                   | ``-h``, two separate parts are    |
-|                                   | printed for each record: the      |
-|                                   | plain hex/ASCII output, and the   |
-|                                   | parsed SSL output.                |
-+-----------------------------------+-----------------------------------+
-| ``-x``                            | Turn on hex/ASCII printing of     |
-|                                   | undecoded data inside parsed SSL  |
-|                                   | records. Used only with the       |
-|                                   | ``-s`` option. This option uses   |
-|                                   | the same output format as the     |
-|                                   | ``-h`` option.                    |
-+-----------------------------------+-----------------------------------+
-| ``-l``                            | Turn on looping; that is,         |
-|                                   | continue to accept connections    |
-|                                   | rather than stopping after the    |
-|                                   | first connection is complete.     |
-+-----------------------------------+-----------------------------------+
-| ``-p``\ *port*                    | Change the default rendezvous     |
-|                                   | port (1924) to another port. The  |
-|                                   | following are well-known port     |
-|                                   | numbers:                          |
-|                                   |                                   |
-|                                   | HTTP   80                         |
-|                                   |                                   |
-|                                   | HTTPS   443                       |
-|                                   |                                   |
-|                                   | SMTP   25                         |
-|                                   |                                   |
-|                                   | FTP   21                          |
-|                                   |                                   |
-|                                   | IMAP   143                        |
-|                                   |                                   |
-|                                   | IMAPS   993 (IMAP over SSL)       |
-|                                   |                                   |
-|                                   | NNTP   119                        |
-|                                   |                                   |
-|                                   | NNTPS   563 (NNTP over SSL)       |
-+-----------------------------------+-----------------------------------+
++-------------------------------------------------+-------------------------------------------------+
+| ``-v``                                          | Print a version string for the tool.            |
++-------------------------------------------------+-------------------------------------------------+
+| ``-h``                                          | Turn on hex/ASCII printing. Instead of          |
+|                                                 | outputting raw data, the command interprets     |
+|                                                 | each record as a numbered line of hex values,   |
+|                                                 | followed by the same data as ASCII characters.  |
+|                                                 | The two parts are separated by a vertical bar.  |
+|                                                 | Nonprinting characters are replaced by dots.    |
++-------------------------------------------------+-------------------------------------------------+
+| ``-f``                                          | Turn on fancy printing. Output is printed in    |
+|                                                 | colored HTML. Data sent from the client to the  |
+|                                                 | server is in blue; the server's reply is in     |
+|                                                 | red. When used with looping mode, the different |
+|                                                 | connections are separated with horizontal       |
+|                                                 | lines. You can use this option to upload the    |
+|                                                 | output into a browser.                          |
++-------------------------------------------------+-------------------------------------------------+
+| ``-s``                                          | Turn on SSL parsing and decoding. The tool does |
+|                                                 | not automatically detect SSL sessions. If you   |
+|                                                 | are intercepting an SSL connection, use this    |
+|                                                 | option so that the tool can detect and decode   |
+|                                                 | SSL structures.                                 |
+|                                                 |                                                 |
+|                                                 | If the tool detects a certificate chain, it     |
+|                                                 | saves the DER-encoded certificates into files   |
+|                                                 | in the current directory. The files are named   |
+|                                                 | ``cert.0``\ *x*, where *x* is the sequence      |
+|                                                 | number of the certificate.                      |
+|                                                 |                                                 |
+|                                                 | If the ``-s`` option is used with ``-h``, two   |
+|                                                 | separate parts are printed for each record: the |
+|                                                 | plain hex/ASCII output, and the parsed SSL      |
+|                                                 | output.                                         |
++-------------------------------------------------+-------------------------------------------------+
+| ``-x``                                          | Turn on hex/ASCII printing of undecoded data    |
+|                                                 | inside parsed SSL records. Used only with the   |
+|                                                 | ``-s`` option. This option uses the same output |
+|                                                 | format as the ``-h`` option.                    |
++-------------------------------------------------+-------------------------------------------------+
+| ``-l``                                          | Turn on looping; that is, continue to accept    |
+|                                                 | connections rather than stopping after the      |
+|                                                 | first connection is complete.                   |
++-------------------------------------------------+-------------------------------------------------+
+| ``-p``\ *port*                                  | Change the default rendezvous port (1924) to    |
+|                                                 | another port. The following are well-known port |
+|                                                 | numbers:                                        |
+|                                                 |                                                 |
+|                                                 | HTTP   80                                       |
+|                                                 |                                                 |
+|                                                 | HTTPS   443                                     |
+|                                                 |                                                 |
+|                                                 | SMTP   25                                       |
+|                                                 |                                                 |
+|                                                 | FTP   21                                        |
+|                                                 |                                                 |
+|                                                 | IMAP   143                                      |
+|                                                 |                                                 |
+|                                                 | IMAPS   993 (IMAP over SSL)                     |
+|                                                 |                                                 |
+|                                                 | NNTP   119                                      |
+|                                                 |                                                 |
+|                                                 | NNTPS   563 (NNTP over SSL)                     |
++-------------------------------------------------+-------------------------------------------------+
 
 .. _Examples_2:
 
  Examples
 --------
 
-You can use the SSL Debugging Tool to intercept any connection
-information. Although you can run the tool at its most basic by issuing
-the ``ssltap`` command with no options other than *hostname:port*, the
-information you get in this way is not very useful. For example, assume
-your development machine is called ``intercept``. The simplest way to
-use the debugging tool is to execute the following command from a
-command shell:
+You can use the SSL Debugging Tool to intercept any connection information. Although you can run the
+tool at its most basic by issuing the ``ssltap`` command with no options other than *hostname:port*,
+the information you get in this way is not very useful. For example, assume your development machine
+is called ``intercept``. The simplest way to use the debugging tool is to execute the following
+command from a command shell:
 
 ::
 
    ssltap www.netscape.com:80 
 
-The program waits for an incoming connection on the default port 1924.
-In your browser window, enter the URL ``http://intercept:1924``. The
-browser retrieves the requested page from the server at
-``www.netscape.com``, but the page is intercepted and passed on to the
-browser by the debugging tool on ``intercept``. On its way to the
-browser, the data is printed to the command shell from which you issued
-the command. Data sent from the client to the server is surrounded by
-the following symbols: ``--> [``\ *data*\ ``]`` Data sent from the
-server to the client is surrounded by the following symbols:
-``<-- [``\ *data*\ ``]`` The raw data stream is sent to standard output
-and is not interpreted in any way. This can result in peculiar effects,
-such as sounds, flashes, and even crashes of the command shell window.
-To output a basic, printable interpretation of the data, use the ``-h``
-option, or, if you are looking at an SSL connection, the ``-s`` option.
-You will notice that the page you retrieved looks incomplete in the
-browser. This is because, by default, the tool closes down after the
-first connection is complete, so the browser is not able to load images.
-To make the tool continue to accept connections, switch on looping mode
-with the ``-l`` option. The following examples show the output from
-commonly used combinations of options.
+The program waits for an incoming connection on the default port 1924. In your browser window, enter
+the URL ``http://intercept:1924``. The browser retrieves the requested page from the server at
+``www.netscape.com``, but the page is intercepted and passed on to the browser by the debugging tool
+on ``intercept``. On its way to the browser, the data is printed to the command shell from which you
+issued the command. Data sent from the client to the server is surrounded by the following symbols:
+``--> [``\ *data*\ ``]`` Data sent from the server to the client is surrounded by the following
+symbols: ``<-- [``\ *data*\ ``]`` The raw data stream is sent to standard output and is not
+interpreted in any way. This can result in peculiar effects, such as sounds, flashes, and even
+crashes of the command shell window. To output a basic, printable interpretation of the data, use
+the ``-h`` option, or, if you are looking at an SSL connection, the ``-s`` option. You will notice
+that the page you retrieved looks incomplete in the browser. This is because, by default, the tool
+closes down after the first connection is complete, so the browser is not able to load images. To
+make the tool continue to accept connections, switch on looping mode with the ``-l`` option. The
+following examples show the output from commonly used combinations of options.
 
 .. _Example_1:
 
 Example 1
 ^^^^^^^^^
 
-The ``s`` and ``x`` options in this example turn on SSL parsing and show
-undecoded values in hex/ASCII format. The output is routed to a text
-file.
+The ``s`` and ``x`` options in this example turn on SSL parsing and show undecoded values in
+hex/ASCII format. The output is routed to a text file.
 
 .. _Command:
 
@@ -390,9 +359,8 @@ Output
 Example 2
 ^^^^^^^^^
 
-The ``-s`` option turns on SSL parsing. Because the ``-x`` option is not
-used in this example, undecoded values are output as raw data. The
-output is routed to a text file.
+The ``-s`` option turns on SSL parsing. Because the ``-x`` option is not used in this example,
+undecoded values are output as raw data. The output is routed to a text file.
 
 .. _Command_2:
 
@@ -547,8 +515,8 @@ Output
 Example 3
 ^^^^^^^^^
 
-In this example, the ``-h`` option turns hex/ASCII format. There is no
-SSL parsing or decoding. The output is routed to a text file.
+In this example, the ``-h`` option turns hex/ASCII format. There is no SSL parsing or decoding. The
+output is routed to a text file.
 
 .. _Command_3:
 
@@ -601,9 +569,8 @@ Output
 Example 4
 ^^^^^^^^^
 
-In this example, the ``-s`` option turns on SSL parsing, and the ``-h``
-options turns on hex/ASCII format. Both formats are shown for each
-record. The output is routed to a text file.
+In this example, the ``-s`` option turns on SSL parsing, and the ``-h`` options turns on hex/ASCII
+format. Both formats are shown for each record. The output is routed to a text file.
 
 .. _Command_4:
 
@@ -661,14 +628,13 @@ Output
 Usage Tips
 ----------
 
--  When SSL restarts a previous session, it makes use of cached
-   information to do a partial handshake. If you wish to capture a full
-   SSL handshake, restart the browser to clear the session id cache.
--  If you run the tool on a machine other than the SSL server to which
-   you are trying to connect, the browser will complain that the host
-   name you are trying to connect to is different from the certificate.
-   If you are using the default BadCert callback, you can still connect
-   through a dialog. If you are not using the default BadCert callback,
-   the one you supply must allow for this possibility.
+-  When SSL restarts a previous session, it makes use of cached information to do a partial
+   handshake. If you wish to capture a full SSL handshake, restart the browser to clear the session
+   id cache.
+-  If you run the tool on a machine other than the SSL server to which you are trying to connect,
+   the browser will complain that the host name you are trying to connect to is different from the
+   certificate. If you are using the default BadCert callback, you can still connect through a
+   dialog. If you are not using the default BadCert callback, the one you supply must allow for this
+   possibility.
 
 --------------

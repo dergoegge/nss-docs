@@ -8,8 +8,7 @@ FC_WaitForSlotEvent
 Name
 ~~~~
 
-FC_WaitForSlotEvent - waits for a slot event, such as token insertion or
-token removal, to occur.
+FC_WaitForSlotEvent - waits for a slot event, such as token insertion or token removal, to occur.
 
 .. _Syntax:
 

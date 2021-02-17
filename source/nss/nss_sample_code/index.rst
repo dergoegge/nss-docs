@@ -8,20 +8,17 @@ NSS Sample Code
 NSS Sample Code
 ---------------
 
-The collection of sample code here demonstrates how NSS can be used for
-cryptographic operations, certificate handling, SSL, etc. It also
-demonstrates some best practices in the application of cryptography.
+The collection of sample code here demonstrates how NSS can be used for cryptographic operations,
+certificate handling, SSL, etc. It also demonstrates some best practices in the application of
+cryptography.
 
 Old samples in the process of being replaced.
 
 #. `Sample Code 1: Key Generation and Transport Between
    Servers <nss_sample_code/NSS_Sample_Code_Sample1>`__
-#. `Sample Code 2: Symmetric
-   Encryption <nss_sample_code/NSS_Sample_Code_sample2>`__
-#. `Sample Code 3: Hashing,
-   MAC <nss_sample_code/NSS_Sample_Code_sample3>`__
-#. `Sample Code 4: PKI
-   Encryption <nss_sample_code/NSS_Sample_Code_sample4>`__
+#. `Sample Code 2: Symmetric Encryption <nss_sample_code/NSS_Sample_Code_sample2>`__
+#. `Sample Code 3: Hashing, MAC <nss_sample_code/NSS_Sample_Code_sample3>`__
+#. `Sample Code 4: PKI Encryption <nss_sample_code/NSS_Sample_Code_sample4>`__
 #. `Sample Code 5: PKI Encryption with a raw public & private key in DER
    format <nss_sample_code/NSS_Sample_Code_sample5>`__
 #. `Sample Code 6: Persistent Symmetric Keys in NSS

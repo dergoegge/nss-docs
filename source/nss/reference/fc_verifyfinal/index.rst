@@ -31,8 +31,7 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pSignature``
-   [in] pointer to the buffer which will
-   receive the digest or NULL.
+   [in] pointer to the buffer which will receive the digest or NULL.
 ``usSignatureLen``
    [in] length of the signature in bytes.
 
@@ -41,11 +40,9 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_VerifyFinal`` finishes a multi-part signature verification
-operation.
+``FC_VerifyFinal`` finishes a multi-part signature verification operation.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_VerifyFinal``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyFinal``.
 
 .. _Return_value:
 
@@ -62,5 +59,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_VerifyUpdate </en-US/FC_VerifyUpdate>`__,
-   `NSC_VerifyFinal </en-US/NSC_VerifyFinal>`__
+-  `FC_VerifyUpdate </en-US/FC_VerifyUpdate>`__, `NSC_VerifyFinal </en-US/NSC_VerifyFinal>`__

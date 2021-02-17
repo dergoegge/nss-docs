@@ -8,8 +8,7 @@ NSS 3.22 release notes
 Introduction
 ------------
 
-The NSS team has released Network Security Services (NSS) 3.22, which is
-a minor release.
+The NSS team has released Network Security Services (NSS) 3.22, which is a minor release.
 
 .. _Distribution_Information:
 
@@ -18,8 +17,7 @@ Distribution Information
 
 The HG tag is NSS_3_22_RTM. NSS 3.22 requires NSPR 4.11 or newer.
 
-NSS 3.22 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+NSS 3.22 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_22_RTM/src/
@@ -37,27 +35,22 @@ New Functionality
 -  RSA-PSS signatures are now supported (`bug
    1215295 <https://bugzilla.mozilla.org/show_bug.cgi?id=1215295>`__)
 
-   -  New functions ``PK11_SignWithMechanism()`` and
-      ``PK11_SignWithMechanism()`` are provided to allow RSA keys to be
-      used with PSS.
+   -  New functions ``PK11_SignWithMechanism()`` and ``PK11_SignWithMechanism()`` are provided to
+      allow RSA keys to be used with PSS.
 
--  Pseudorandom functions based on hashes other than SHA-1 are now
-   supported with PBKDF (`bug
+-  Pseudorandom functions based on hashes other than SHA-1 are now supported with PBKDF (`bug
    554827 <https://bugzilla.mozilla.org/show_bug.cgi?id=554827>`__).
 
-   -  ``PK11_CreatePBEV2AlgorithmID()`` now supports
-      ``SEC_OID_PKCS5_PBKDF2`` with ``cipherAlgTag`` and ``prfAlgTag``
-      set to ``SEC_OID_HMAC_SHA256``, ``SEC_OID_HMAC_SHA224``,
+   -  ``PK11_CreatePBEV2AlgorithmID()`` now supports ``SEC_OID_PKCS5_PBKDF2`` with ``cipherAlgTag``
+      and ``prfAlgTag`` set to ``SEC_OID_HMAC_SHA256``, ``SEC_OID_HMAC_SHA224``,
       ``SEC_OID_HMAC_SHA384``, or ``SEC_OID_HMAC_SHA512``.
 
 -  Enforce an External Policy on NSS from a config file (`bug
    1009429 <https://bugzilla.mozilla.org/show_bug.cgi?id=1009429>`__)
 
-   -  you can now add a config= line to pkcs11.txt (assuming you are
-      using sql databases), which will force NSS to restrict the
-      application to certain cryptographic algorithms and protocols. A
-      complete list can be found in `NSS Config
-      Options </en-US/docs/NSS_Config_Options>`__.
+   -  you can now add a config= line to pkcs11.txt (assuming you are using sql databases), which
+      will force NSS to restrict the application to certain cryptographic algorithms and protocols.
+      A complete list can be found in `NSS Config Options </en-US/docs/NSS_Config_Options>`__.
 
 .. _New_Functions:
 
@@ -66,24 +59,18 @@ New Functions
 
 -  *in pk11pub.h*
 
-   -  **PK11_SignWithMechanism** - This function is an extended version
-      ``PK11_Sign()``.
-   -  **PK11_VerifyWithMechanism** - This function is an extended
-      version of ``PK11_Verify()``.
+   -  **PK11_SignWithMechanism** - This function is an extended version ``PK11_Sign()``.
+   -  **PK11_VerifyWithMechanism** - This function is an extended version of ``PK11_Verify()``.
 
-      -  These functions take an explicit mechanism and parameters as
-         arguments rather than inferring it from the key type using
-         ``PK11_MapSignKeyType()``.  The mechanism type CKM_RSA_PKCS_PSS
-         is now supported for RSA in addition to CKM_RSA_PKCS.  The
-         CK_RSA_PKCS_PSS mechanism takes a parameter of type
-         CK_RSA_PKCS_PSS_PARAMS.
+      -  These functions take an explicit mechanism and parameters as arguments rather than
+         inferring it from the key type using ``PK11_MapSignKeyType()``.  The mechanism type
+         CKM_RSA_PKCS_PSS is now supported for RSA in addition to CKM_RSA_PKCS.  The CK_RSA_PKCS_PSS
+         mechanism takes a parameter of type CK_RSA_PKCS_PSS_PARAMS.
 
 -  *in ssl.h*
 
-   -  **SSL_PeerSignedCertTimestamps** - Get
-      signed_certificate_timestamp TLS extension data
-   -  **SSL_SetSignedCertTimestamps** - Set signed_certificate_timestamp
-      TLS extension data
+   -  **SSL_PeerSignedCertTimestamps** - Get signed_certificate_timestamp TLS extension data
+   -  **SSL_SetSignedCertTimestamps** - Set signed_certificate_timestamp TLS extension data
 
 .. _New_Types:
 
@@ -125,8 +112,7 @@ New Types
 
 -  in sslt.h
 
-   -  **ssl_signed_cert_timestamp_xtn** is added to
-      ``SSLExtensionType``.
+   -  **ssl_signed_cert_timestamp_xtn** is added to ``SSLExtensionType``.
 
 .. _New_Macros:
 
@@ -145,20 +131,16 @@ New Macros
 
 -  *in pkcs11t.h*
 
-   -  **CKP_PKCS5_PBKD2_HMAC_GOSTR3411** - PRF based on HMAC with
-      GOSTR3411 for PBKDF (not supported)
-   -  **CKP_PKCS5_PBKD2_HMAC_SHA224** - PRF based on HMAC with SHA-224
-      for PBKDF
-   -  **CKP_PKCS5_PBKD2_HMAC_SHA256** - PRF based on HMAC with SHA-256
-      for PBKDF
-   -  **CKP_PKCS5_PBKD2_HMAC_SHA384** - PRF based on HMAC with SHA-256
-      for PBKDF
-   -  **CKP_PKCS5_PBKD2_HMAC_SHA512** - PRF based on HMAC with SHA-256
-      for PBKDF
-   -  **CKP_PKCS5_PBKD2_HMAC_SHA512_224** - PRF based on HMAC with
-      SHA-512 truncated to 224 bits for PBKDF (not supported)
-   -  **CKP_PKCS5_PBKD2_HMAC_SHA512_256** - PRF based on HMAC with
-      SHA-512 truncated to 256 bits for PBKDF (not supported)
+   -  **CKP_PKCS5_PBKD2_HMAC_GOSTR3411** - PRF based on HMAC with GOSTR3411 for PBKDF (not
+      supported)
+   -  **CKP_PKCS5_PBKD2_HMAC_SHA224** - PRF based on HMAC with SHA-224 for PBKDF
+   -  **CKP_PKCS5_PBKD2_HMAC_SHA256** - PRF based on HMAC with SHA-256 for PBKDF
+   -  **CKP_PKCS5_PBKD2_HMAC_SHA384** - PRF based on HMAC with SHA-256 for PBKDF
+   -  **CKP_PKCS5_PBKD2_HMAC_SHA512** - PRF based on HMAC with SHA-256 for PBKDF
+   -  **CKP_PKCS5_PBKD2_HMAC_SHA512_224** - PRF based on HMAC with SHA-512 truncated to 224 bits for
+      PBKDF (not supported)
+   -  **CKP_PKCS5_PBKD2_HMAC_SHA512_256** - PRF based on HMAC with SHA-512 truncated to 256 bits for
+      PBKDF (not supported)
 
 -  *in secoidt.h*
 
@@ -178,8 +160,8 @@ New Macros
 Notable Changes in NSS 3.22
 ---------------------------
 
--  NSS C++ tests are built by default, requiring a C++11 compiler.  Set
-   the NSS_DISABLE_GTESTS variable to 1 to disable building these tests.
+-  NSS C++ tests are built by default, requiring a C++11 compiler.  Set the NSS_DISABLE_GTESTS
+   variable to 1 to disable building these tests.
 
 .. _Bugs_fixed_in_NSS_3.22:
 
@@ -195,12 +177,11 @@ https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Compone
 Compatibility
 -------------
 
-NSS 3.22 shared libraries are backward compatible with all older NSS 3.x
-shared libraries. A program linked with older NSS 3.x shared libraries
-will work with NSS 3.22 shared libraries without recompiling or
-relinking. Furthermore, applications that restrict their use of NSS APIs
-to the functions listed in NSS Public Functions will remain compatible
-with future versions of the NSS shared libraries.
+NSS 3.22 shared libraries are backward compatible with all older NSS 3.x shared libraries. A program
+linked with older NSS 3.x shared libraries will work with NSS 3.22 shared libraries without
+recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs to the
+functions listed in NSS Public Functions will remain compatible with future versions of the NSS
+shared libraries.
 
 .. _Feedback:
 
@@ -208,5 +189,4 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
-(product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).

@@ -5,15 +5,12 @@ sslintro
 ========
 .. note::
 
-   -  This page is part of the `SSL
-      Reference </en-US/docs/NSS/SSL_functions/OLD_SSL_Reference>`__
+   -  This page is part of the `SSL Reference </en-US/docs/NSS/SSL_functions/OLD_SSL_Reference>`__
       that we are migrating into the format described in the `MDN Style
-      Guide </en-US/docs/Project:MDC_style_guide>`__. If you are
-      inclined to help with this migration, your help would be very much
-      appreciated.
+      Guide </en-US/docs/Project:MDC_style_guide>`__. If you are inclined to help with this
+      migration, your help would be very much appreciated.
 
-   -  Upgraded documentation may be found in the `Current NSS
-      Reference </NSS_reference>`__
+   -  Upgraded documentation may be found in the `Current NSS Reference </NSS_reference>`__
 
 .. _Overview_of_an_SSL_Application:
 
@@ -28,11 +25,10 @@ Chapter 1
 Overview of an SSL Application
 ------------------------------
 
-SSL and related APIs allow compliant applications to configure sockets
-for authenticated, tamper-proof, and encrypted communications. This
-chapter introduces some of the basic SSL functions. `Chapter 2, "Getting
-Started With SSL" <gtstd.html#1005439>`__ illustrates their use in
-sample client and server applications.
+SSL and related APIs allow compliant applications to configure sockets for authenticated,
+tamper-proof, and encrypted communications. This chapter introduces some of the basic SSL functions.
+`Chapter 2, "Getting Started With SSL" <gtstd.html#1005439>`__ illustrates their use in sample
+client and server applications.
 
 An SSL application typically includes five parts:
 
@@ -42,205 +38,166 @@ An SSL application typically includes five parts:
 | `Functions Used by Callbacks <#1027820>`__
 | `Cleanup <#1030535>`__
 
-Although the details differ somewhat for client and server applications,
-the concepts and many of the functions are the same for both.
+Although the details differ somewhat for client and server applications, the concepts and many of
+the functions are the same for both.
 
-   **WARNING:** Some of the SSL header files provided as part of NSS 2.0
-   include both public APIs documented in the NSS 2.0 documentation set
-   and private APIs intended for internal use by the NSS implementation
-   of SSL. You should use only the SSL APIs (and related certificate,
-   key, and PKCS #11 APIs) that are described in this document, the SSL
-   Reference. Other APIs that may be exposed in the header files are not
-   supported for application use.
+   **WARNING:** Some of the SSL header files provided as part of NSS 2.0 include both public APIs
+   documented in the NSS 2.0 documentation set and private APIs intended for internal use by the NSS
+   implementation of SSL. You should use only the SSL APIs (and related certificate, key, and PKCS
+   #11 APIs) that are described in this document, the SSL Reference. Other APIs that may be exposed
+   in the header files are not supported for application use.
 
 .. _Initialization_2:
 
  Initialization
 --------------
 
-Initialization includes setting up configuration files, setting global
-defaults, and setting up callback functions. Functions used in the
-initialization part of an application can include the following:
+Initialization includes setting up configuration files, setting global defaults, and setting up
+callback functions. Functions used in the initialization part of an application can include the
+following:
 
--   ``PR_Init``. Initializes NSPR. Must be called before any other NSS
-   functions.
--   ```PK11_SetPasswordFunc`` <pkfnc.html#1023128>`__. Sets the global
-   callback function to obtain passwords for PKCS #11 modules. Required.
--   ``NSS_Init``. Sets up configuration files and performs other tasks
-   required to run Network Security Services. ``NSS_Init`` is *not*
-   idempotent, so call it only once. Required.
--   ``SSL_OptionSetDefault``. Changes default values for all
-   subsequently opened sockets as long as the application is running
-   (compare with ```SSL_SetURL`` <sslfnc.html#1087792>`__ which only
-   configures the socket that is currently open). This function must be
-   called once for each default value that needs to be changed.
-   Optional.
+-   ``PR_Init``. Initializes NSPR. Must be called before any other NSS functions.
+-   ```PK11_SetPasswordFunc`` <pkfnc.html#1023128>`__. Sets the global callback function to obtain
+   passwords for PKCS #11 modules. Required.
+-   ``NSS_Init``. Sets up configuration files and performs other tasks required to run Network
+   Security Services. ``NSS_Init`` is *not* idempotent, so call it only once. Required.
+-   ``SSL_OptionSetDefault``. Changes default values for all subsequently opened sockets as long as
+   the application is running (compare with ```SSL_SetURL`` <sslfnc.html#1087792>`__ which only
+   configures the socket that is currently open). This function must be called once for each default
+   value that needs to be changed. Optional.
 -   ```NSS_SetDomesticPolicy`` <sslfnc.html#1228530>`__,
    ```NSS_SetExportPolicy`` <sslfnc.html#1100285>`__,
    ```NSS_SetFrancePolicy`` <sslfnc.html#1105952>`__, or
-   ```SSL_CipherPolicySet`` <sslfnc.html#1104647>`__. These functions
-   tell the library which cipher suites are permitted by policy (for
-   example, to comply with export restrictions). Cipher suites disabled
-   by policy cannot be enabled by user preference. One of these
-   functions must be called before any cryptographic operations can be
-   performed with NSS.
--   ```SSL_CipherPrefSetDefault`` <sslfnc.html#1084747>`__. Enables all
-   ciphers chosen by user preference. Optional.
+   ```SSL_CipherPolicySet`` <sslfnc.html#1104647>`__. These functions tell the library which cipher
+   suites are permitted by policy (for example, to comply with export restrictions). Cipher suites
+   disabled by policy cannot be enabled by user preference. One of these functions must be called
+   before any cryptographic operations can be performed with NSS.
+-   ```SSL_CipherPrefSetDefault`` <sslfnc.html#1084747>`__. Enables all ciphers chosen by user
+   preference. Optional.
 
 .. _Initializing_Caches:
 
 Initializing Caches
 ~~~~~~~~~~~~~~~~~~~
 
-SSL peers frequently reconnect after a relatively short time has passed.
-To avoid the overhead of repeating the full SSL handshake in situations
-like this, the SSL protocol supports the use of a session cache, which
-retains information about each connection, such as the master secret
-generated during the SSL handshake, for a predetermined length of time.
-If SSL can locate the information about a previous connection in the
-local session cache, it can reestablish the connection much more quickly
-than it can without the connection information.
+SSL peers frequently reconnect after a relatively short time has passed. To avoid the overhead of
+repeating the full SSL handshake in situations like this, the SSL protocol supports the use of a
+session cache, which retains information about each connection, such as the master secret generated
+during the SSL handshake, for a predetermined length of time. If SSL can locate the information
+about a previous connection in the local session cache, it can reestablish the connection much more
+quickly than it can without the connection information.
 
-By default, SSL allocates one session cache. This default cache is
-called the *client session ID cache*, (also known as the client session
-cache, or simply the client cache). The client cache is used for all
-sessions where the program handshakes as an SSL client. It is not
-configurable. You can initialize the client cache with the function
-```SSL_ClearSessionCache`` <sslfnc.html#1138601>`__.
+By default, SSL allocates one session cache. This default cache is called the *client session ID
+cache*, (also known as the client session cache, or simply the client cache). The client cache is
+used for all sessions where the program handshakes as an SSL client. It is not configurable. You can
+initialize the client cache with the function ```SSL_ClearSessionCache`` <sslfnc.html#1138601>`__.
 
-If an application will use SSL sockets that handshake as a server, you
-must specifically create and configure a server cache, using either
-```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__ or
-```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. The server
-cache is used for all sessions where the program handshakes as an SSL
-server.
+If an application will use SSL sockets that handshake as a server, you must specifically create and
+configure a server cache, using either ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__
+or ```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. The server cache is used for all
+sessions where the program handshakes as an SSL server.
 
--   ```SSL_ClearSessionCache`` <sslfnc.html#1138601>`__. Clears all
-   sessions from the client session cache. Optional.
--   ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__. Sets
-   up parameters for a server session cache for a single-process
-   application. Required for single-process server applications.
--   ```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. Sets up
-   parameters for a server cache for a multi-process application.
-   Required for multi-process server applications. You can use either
-   this function or
-   ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__, not
-   both.
+-   ```SSL_ClearSessionCache`` <sslfnc.html#1138601>`__. Clears all sessions from the client session
+   cache. Optional.
+-   ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__. Sets up parameters for a server
+   session cache for a single-process application. Required for single-process server applications.
+-   ```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. Sets up parameters for a server cache
+   for a multi-process application. Required for multi-process server applications. You can use
+   either this function or ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__, not both.
 
 .. _Configuration_2:
 
  Configuration
 -------------
 
-The configuration portion of an SSL-enabled application typically begins
-by opening a new socket and then importing the new socket into the SSL
-environment:
+The configuration portion of an SSL-enabled application typically begins by opening a new socket and
+then importing the new socket into the SSL environment:
 
--   ``PR_NewTCPSocket``. Opens a new socket. A legal NSPR socket is
-   required to be passed to ``SSL_ImportFD``, whether it is created with
-   this function or by another method.
--   ``SSL_ImportFD``. Makes an NSPR socket into an SSL socket. Required.
-   Brings an ordinary NSPR socket into the SSL library, returning a new
-   NSPR socket that can be used to make SSL calls. You can pass this
-   function a *model* file descriptor to create the new SSL socket with
-   the same configuration state as the model.
+-   ``PR_NewTCPSocket``. Opens a new socket. A legal NSPR socket is required to be passed to
+   ``SSL_ImportFD``, whether it is created with this function or by another method.
+-   ``SSL_ImportFD``. Makes an NSPR socket into an SSL socket. Required. Brings an ordinary NSPR
+   socket into the SSL library, returning a new NSPR socket that can be used to make SSL calls. You
+   can pass this function a *model* file descriptor to create the new SSL socket with the same
+   configuration state as the model.
 
-It is also possible for an application to import a socket into SSL after
-the TCP connection on that socket has already been established. In this
-case, initial configuration takes place in the same way: pass the
-existing NSPR file descriptor to ``SSL_ImportFD`` and perform any
-additional configuration that has not already been determined by the
-model file descriptor.
+It is also possible for an application to import a socket into SSL after the TCP connection on that
+socket has already been established. In this case, initial configuration takes place in the same
+way: pass the existing NSPR file descriptor to ``SSL_ImportFD`` and perform any additional
+configuration that has not already been determined by the model file descriptor.
 
-Configuration functions control the configuration of an individual
-socket.
+Configuration functions control the configuration of an individual socket.
 
--   ``PR_GetSocketOption``. Retrieves the socket options currently set
-   for a specified socket. Optional.
--   ``PR_SetSocketOption``. Sets the socket options for a specified
-   socket., including making it blocking or nonblocking. Optional.
--   ```SSL_OptionSet`` <sslfnc.html#1086543>`__. Sets a single
-   configuration parameter of a specified socket. This function must be
-   called once for each parameter whose settings you want to change from
-   those established with ``SSL_OptionSetDefault``. Optional.
--   ```SSL_ConfigSecureServer`` <sslfnc.html#1217647>`__. For servers
-   only. Configures the socket with the information needed to handshake
-   as an SSL server. Required for servers.
--   ```SSL_SetURL`` <sslfnc.html#1087792>`__. For clients only. Records
-   the target server URL for comparison with the URL specified by the
-   server certificate. Required for clients.
+-   ``PR_GetSocketOption``. Retrieves the socket options currently set for a specified socket.
+   Optional.
+-   ``PR_SetSocketOption``. Sets the socket options for a specified socket., including making it
+   blocking or nonblocking. Optional.
+-   ```SSL_OptionSet`` <sslfnc.html#1086543>`__. Sets a single configuration parameter of a
+   specified socket. This function must be called once for each parameter whose settings you want to
+   change from those established with ``SSL_OptionSetDefault``. Optional.
+-   ```SSL_ConfigSecureServer`` <sslfnc.html#1217647>`__. For servers only. Configures the socket
+   with the information needed to handshake as an SSL server. Required for servers.
+-   ```SSL_SetURL`` <sslfnc.html#1087792>`__. For clients only. Records the target server URL for
+   comparison with the URL specified by the server certificate. Required for clients.
 
-Callbacks and helper functions allow you to specify such things as how
-authentication is accomplished and what happens if it fails.
+Callbacks and helper functions allow you to specify such things as how authentication is
+accomplished and what happens if it fails.
 
--   ``SSL_SetPKCS11PinArg``. Sets the argument passed to the PKCS #11
-   password callback function. Required.
--   ``SSL_AuthCertificateHook``. Specifies a callback function used to
-   authenticate an incoming certificate (optional for servers, necessary
-   for clients to avoid "man-in-the-middle" attacks). Optional. If not
-   specified, SSL uses the default callback function,
+-   ``SSL_SetPKCS11PinArg``. Sets the argument passed to the PKCS #11 password callback function.
+   Required.
+-   ``SSL_AuthCertificateHook``. Specifies a callback function used to authenticate an incoming
+   certificate (optional for servers, necessary for clients to avoid "man-in-the-middle" attacks).
+   Optional. If not specified, SSL uses the default callback function,
    ```SSL_AuthCertificate`` <sslfnc.html#1088888>`__.
--   ``SSL_BadCertHook``. Specifies a callback function to deal with a
-   situation where authentication has failed. Optional.
--   ``SSL_GetClientAuthDataHook``. Specifies a callback function for SSL
-   to use when the server asks for client authentication information.
-   This callback is required if you want to do client authentication.
-   You can set the callback function to a standard one that is provided,
+-   ``SSL_BadCertHook``. Specifies a callback function to deal with a situation where authentication
+   has failed. Optional.
+-   ``SSL_GetClientAuthDataHook``. Specifies a callback function for SSL to use when the server asks
+   for client authentication information. This callback is required if you want to do client
+   authentication. You can set the callback function to a standard one that is provided,
    ```NSS_GetClientAuthData`` <sslfnc.html#1106762>`__.
--   ``SSL_HandshakeCallback``. Specifies a callback function that will
-   be used by SSL to inform either a client application or a server
-   application when the SSL handshake is completed. Optional.
+-   ``SSL_HandshakeCallback``. Specifies a callback function that will be used by SSL to inform
+   either a client application or a server application when the SSL handshake is completed.
+   Optional.
 
 .. _Communication_2:
 
  Communication
 -------------
 
-At this point the application has set up the socket to communicate using
-SSL. For simple encrypted and authenticated communications, no further
-calls to SSL functions are required. A variety of additional SSL
-functions are available, however. These can be used, for example, when
-interrupting and restarting socket communications, when the application
-needs to change socket parameters, or when an application imports a
-socket into SSL after the TCP connection on that socket has already been
-established.
+At this point the application has set up the socket to communicate using SSL. For simple encrypted
+and authenticated communications, no further calls to SSL functions are required. A variety of
+additional SSL functions are available, however. These can be used, for example, when interrupting
+and restarting socket communications, when the application needs to change socket parameters, or
+when an application imports a socket into SSL after the TCP connection on that socket has already
+been established.
 
-Communication between SSL sockets always begins with the SSL handshake.
-The handshake occurs automatically the first time communication is
-requested with a socket read/write or send/receive call. It is also
-possible to force the handshake explicitly with
-```SSL_ForceHandshake`` <sslfnc.html#1133431>`__ or repeat it explicitly
-with ```SSL_ReHandshake`` <sslfnc.html#1232052>`__.
+Communication between SSL sockets always begins with the SSL handshake. The handshake occurs
+automatically the first time communication is requested with a socket read/write or send/receive
+call. It is also possible to force the handshake explicitly with
+```SSL_ForceHandshake`` <sslfnc.html#1133431>`__ or repeat it explicitly with
+```SSL_ReHandshake`` <sslfnc.html#1232052>`__.
 
-Once the SSL sockets have been configured, authentication and encryption
-happen automatically whenever you use the communication functions from
-the NSPR library.
+Once the SSL sockets have been configured, authentication and encryption happen automatically
+whenever you use the communication functions from the NSPR library.
 
-A server application typically uses these functions to establish a
-connection:
+A server application typically uses these functions to establish a connection:
 
 ``PR_Bind   PR_Listen   PR_Accept   PR_GetSockName``
 
-A client application typically uses these functions to establish a
-connection:
+A client application typically uses these functions to establish a connection:
 
 |  ``PR_GetHostByName``
 | ``PR_EnumerateHostEnt``
 | ``PR_Connect``
 | ``PR_GetConnectStatus``
 
-When an application imports a socket into SSL after the TCP connection
-on that socket has already been established, it must call
-`SSL_ResetHandshake <sslfnc.html#1058001>`__ to determine whether SSL
-should behave like an SSL client or an SSL server. Note that this step
-would not be necessary if the socket weren't already connected. For an
-SSL socket that is configured before it is connected, SSL figures this
-out when the application calls ``PR_Connect`` or ``PR_Accept``. If the
-socket is already connected before SSL gets involved, you must provide
-this extra hint.
+When an application imports a socket into SSL after the TCP connection on that socket has already
+been established, it must call `SSL_ResetHandshake <sslfnc.html#1058001>`__ to determine whether SSL
+should behave like an SSL client or an SSL server. Note that this step would not be necessary if the
+socket weren't already connected. For an SSL socket that is configured before it is connected, SSL
+figures this out when the application calls ``PR_Connect`` or ``PR_Accept``. If the socket is
+already connected before SSL gets involved, you must provide this extra hint.
 
-Functions that can be used by both clients and servers during
-communication include the following:
+Functions that can be used by both clients and servers during communication include the following:
 
 |  ``PR_Send`` or ``PR_Write``
 | ``PR_Read`` or ``PR_Recv``
@@ -257,33 +214,27 @@ communication include the following:
 | ``PR_Close``
 | ```SSL_InvalidateSession`` <sslfnc.html#1089420>`__
 
-After establishing a connection, an application first calls ``PR_Send``,
-``PR_Recv``, ``PR_Read``, ``PR_Write``, or ``SSL_ForceHandshake`` to
-initiate the handshake. The application's protocol (for example, HTTP)
-determines which end has responsibility to talk first. The end that has
-to talk first should call ``PR_Send`` or ``PR_Write``, and the other end
-should call ``PR_Read`` or ``PR_Recv``.
+After establishing a connection, an application first calls ``PR_Send``, ``PR_Recv``, ``PR_Read``,
+``PR_Write``, or ``SSL_ForceHandshake`` to initiate the handshake. The application's protocol (for
+example, HTTP) determines which end has responsibility to talk first. The end that has to talk first
+should call ``PR_Send`` or ``PR_Write``, and the other end should call ``PR_Read`` or ``PR_Recv``.
 
-Use ```SSL_ForceHandshake`` <sslfnc.html#1133431>`__ when the socket has
-been prepared for a handshake but neither end has anything to say
-immediately. This occurs, for example, when an HTTPS server has received
-a request and determines that before it can answer the request, it needs
-to request an authentication certificate from the client. At the HTTP
-protocol level, nothing more is being said (that is, no HTTP request or
-response is being sent), so the server first uses
-```SSL_ReHandshake`` <sslfnc.html#1232052>`__ to begin a new handshake
-and then call ``SSL_ForceHandshake`` to drive the handshake to
-completion.
+Use ```SSL_ForceHandshake`` <sslfnc.html#1133431>`__ when the socket has been prepared for a
+handshake but neither end has anything to say immediately. This occurs, for example, when an HTTPS
+server has received a request and determines that before it can answer the request, it needs to
+request an authentication certificate from the client. At the HTTP protocol level, nothing more is
+being said (that is, no HTTP request or response is being sent), so the server first uses
+```SSL_ReHandshake`` <sslfnc.html#1232052>`__ to begin a new handshake and then call
+``SSL_ForceHandshake`` to drive the handshake to completion.
 
 .. _Functions_Used_by_Callbacks:
 
 Functions Used by Callbacks
 ---------------------------
 
-An SSL application typically provides one or more callback functions
-that are called by the SSL or PKCS #11 library code under certain
-circumstances. Numerous functions provided by the NSS libraries are
-useful for such application callback functions, including these:
+An SSL application typically provides one or more callback functions that are called by the SSL or
+PKCS #11 library code under certain circumstances. Numerous functions provided by the NSS libraries
+are useful for such application callback functions, including these:
 
 |  ```CERT_CheckCertValidTimes`` <sslcrt.html#1056662>`__
 | ```CERT_GetDefaultCertDB`` <sslcrt.html#1052308>`__
@@ -310,8 +261,7 @@ useful for such application callback functions, including these:
  Cleanup
 -------
 
-This portion of an SSL-enabled application consists primarily of closing
-the socket and freeing memory. After these tasks have been performed,
-call ```NSS_Shutdown`` <sslfnc.html#1061858>`__ to close the certificate
-and key databases opened by ```NSS_Init`` <sslfnc.html#1067601>`__, and
+This portion of an SSL-enabled application consists primarily of closing the socket and freeing
+memory. After these tasks have been performed, call ```NSS_Shutdown`` <sslfnc.html#1061858>`__ to
+close the certificate and key databases opened by ```NSS_Init`` <sslfnc.html#1067601>`__, and
 ``PR_Cleanup`` to coordinate a graceful shutdown of NSPR.

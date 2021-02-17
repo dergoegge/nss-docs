@@ -33,28 +33,24 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pEncryptedPart``
-   [in] pointer to the next block of data to
-   be decrypted.
+   [in] pointer to the next block of data to be decrypted.
 ``usEncryptedPartLen``
    [in] length of data block in bytes.
 ``pPart``
-   [out] pointer to location where recovered
-   block is to be stored.
+   [out] pointer to location where recovered block is to be stored.
 ``pusPartLen``
-   [in,out] pointer the location where the
-   number of bytes of recovered data is to be stored.
+   [in,out] pointer the location where the number of bytes of recovered
+   data is to be stored.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_DecryptUpdate`` decrypts a block of data according to the
-attributes of the previous call to ``FC_DecryptInit``. The block may be
-part of a multi-part decryption operation.
+``FC_DecryptUpdate`` decrypts a block of data according to the attributes of the previous call to
+``FC_DecryptInit``. The block may be part of a multi-part decryption operation.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DecryptUpdate``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_DecryptUpdate``.
 
 .. _Return_value:
 
@@ -71,5 +67,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DecryptInit </en-US/FC_DecryptInit>`__,
-   `NSC_DecryptUpdate </en-US/NSC_DecryptUpdate>`__
+-  `FC_DecryptInit </en-US/FC_DecryptInit>`__, `NSC_DecryptUpdate </en-US/NSC_DecryptUpdate>`__

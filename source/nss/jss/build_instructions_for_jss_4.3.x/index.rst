@@ -8,24 +8,21 @@ Build instructions for JSS 4.3.x
 Build Instructions for JSS 4.3.x
 --------------------------------
 
-Newsgroup:
-`mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
+Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 
 Before building JSS, you need to set up your system as follows:
 
 #. Build NSPR/NSS by following the `NSPR/NSS build
    instructions </en-US/NSS_reference/Building_and_installing_NSS/Build_instructions>`__,
-#. To check that NSS built correctly, run ``all.sh`` (in
-   ``mozilla/security/nss/tests``) and examine the results (in
-   ``mozilla/test_results/security/``\ *computername*.#\ ``/results.html``.
-#. Install a Java compiler and runtime. JSS supports Java version 1.5 or
-   later. We suggest you use the latest.
+#. To check that NSS built correctly, run ``all.sh`` (in ``mozilla/security/nss/tests``) and examine
+   the results (in ``mozilla/test_results/security/``\ *computername*.#\ ``/results.html``.
+#. Install a Java compiler and runtime. JSS supports Java version 1.5 or later. We suggest you use
+   the latest.
 #. You must have Perl version 5.005 or later.
 
 Now you are ready to build JSS. Follow these steps:
 
-#. Switch to the appropriate directory and check out JSS from the root
-   of your source tree.
+#. Switch to the appropriate directory and check out JSS from the root of your source tree.
 
    ::
 
@@ -37,10 +34,9 @@ Now you are ready to build JSS. Follow these steps:
 
       cvs co -r JSS_4_3_RTM mozilla/security/jss
 
-#. Setup environment variables needed for compiling Java source. The
-   ``JAVA_HOME`` variable indicates the directory containing your Java
-   SDK installation. Note, on Windows platforms it is best to have
-   JAVA_HOME set to a directory path that doest not have spaces. 
+#. Setup environment variables needed for compiling Java source. The ``JAVA_HOME`` variable
+   indicates the directory containing your Java SDK installation. Note, on Windows platforms it is
+   best to have JAVA_HOME set to a directory path that doest not have spaces. 
 
    **Unix**
 
@@ -73,8 +69,8 @@ Now you are ready to build JSS. Follow these steps:
       To generate a "WINNT" configuration, set OS_TARGET=WINNT and build NSPR/NSS/JSS WIN95. 
 
    | Mac OS X
-   | It has been recently reported that special build instructions are
-     necessary to succeed building JSS on OSX. Please
+   | It has been recently reported that special build instructions are necessary to succeed building
+     JSS on OSX. Please
      see `HOWTO_successfully_compile_JSS_and_NSS_for_32_and_64_bits_on_OSX_10.6_(10.6.7) </HOWTO_successfully_compile_JSS_and_NSS_for_32_and_64_bits_on_OSX_10.6_(10.6.7)>`__
      for contributed instructions.
    |  

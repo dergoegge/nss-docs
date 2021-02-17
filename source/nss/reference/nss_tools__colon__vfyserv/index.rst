@@ -19,8 +19,7 @@ Options
 
 Additional Resources
 
-| For information about NSS and other tools related to NSS (like JSS),
-  check
+| For information about NSS and other tools related to NSS (like JSS), check
 | out the NSS project wiki at
 | [1]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
   The NSS site relates
@@ -32,8 +31,7 @@ IRC: Freenode at #dogtag-pki
 
 Authors
 
-| The NSS tools were written and maintained by developers with Netscape,
-  Red
+| The NSS tools were written and maintained by developers with Netscape, Red
 | Hat, and Sun.
 
 | Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey

@@ -8,8 +8,7 @@ FC_GetOperationState
 Name
 ~~~~
 
-FC_GetOperationState - get the cryptographic operation state of a
-session.
+FC_GetOperationState - get the cryptographic operation state of a session.
 
 .. _Syntax:
 
@@ -32,22 +31,20 @@ Parameters
 ``hSession``
    [in] handle of the open session.
 ``pOperationState``
-   [out] pointer to a byte array of a length
-   sufficient for containing the operation state or NULL.
+   [out] pointer to a byte array of a length sufficient for containing the
+   operation state or NULL.
 ``pulOperationStateLen``
-   [out] pointer to
-   `CK_ULONG </en-US/CK_ULONG>`__ which receives the total length (in
-   bytes) of the operation state.
+   [out] pointer to `CK_ULONG </en-US/CK_ULONG>`__ which receives the
+   total length (in bytes) of the operation state.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_GetOperationState`` saves the state of the cryptographic operation
-in a session. This function only works for digest operations for now.
-Therefore, a user may call ``FC_GetOperationState`` without logging into
-the token (to assume the NSS User role).
+``FC_GetOperationState`` saves the state of the cryptographic operation in a session. This function
+only works for digest operations for now. Therefore, a user may call ``FC_GetOperationState``
+without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 

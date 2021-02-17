@@ -8,8 +8,7 @@ FC_Finalize
 Name
 ~~~~
 
-FC_Finalize - indicate that an application is done with the PKCS #11
-library.
+FC_Finalize - indicate that an application is done with the PKCS #11 library.
 
 .. _Syntax:
 
@@ -36,10 +35,9 @@ Description
 ~~~~~~~~~~~
 
 ``FC_Finalize`` shuts down the `NSS cryptographic
-module </en-US/NSS_reference/NSS_cryptographic_module>`__ in the `FIPS
-mode of
-operation </en-US/NSS_reference/NSS_cryptographic_module/FIPS_mode_of_operation>`__.
-If the library is not initialized, it does nothing.
+module </en-US/NSS_reference/NSS_cryptographic_module>`__ in the `FIPS mode of
+operation </en-US/NSS_reference/NSS_cryptographic_module/FIPS_mode_of_operation>`__. If the library
+is not initialized, it does nothing.
 
 The ``pReserved`` argument is not used and must be ``NULL``.
 
@@ -52,11 +50,10 @@ Return value
 
 .. note::
 
-   ``FC_Finalize`` should check the ``pReserved`` argument and return
-   ``CKR_ARGUMENTS_BAD`` if ``pReserved`` is not ``NULL``.
+   ``FC_Finalize`` should check the ``pReserved`` argument and return ``CKR_ARGUMENTS_BAD`` if
+   ``pReserved`` is not ``NULL``.
 
-   ``FC_Finalize`` should return ``CKR_CRYPTOKI_NOT_INITIALIZED`` if the
-   library is not initialized.
+   ``FC_Finalize`` should return ``CKR_CRYPTOKI_NOT_INITIALIZED`` if the library is not initialized.
 
 .. _Examples:
 
@@ -83,6 +80,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_Initialize </en-US/FC_Initialize>`__,
-   `NSC_Initialize </en-US/NSC_Initialize>`__,
+-  `FC_Initialize </en-US/FC_Initialize>`__, `NSC_Initialize </en-US/NSC_Initialize>`__,
    `NSC_Finalize </en-US/NSC_Finalize>`__

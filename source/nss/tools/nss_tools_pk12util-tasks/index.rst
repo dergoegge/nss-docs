@@ -8,8 +8,7 @@ NSS Tools pk12util-tasks
 NSS Security Tools: pk12util Tasks
 ----------------------------------
 
-Newsgroup:
-`mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
+Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 
 .. _Task_List:
 

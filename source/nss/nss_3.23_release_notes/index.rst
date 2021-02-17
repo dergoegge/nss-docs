@@ -8,8 +8,7 @@ NSS 3.23 release notes
 Introduction
 ------------
 
-The NSS team has released Network Security Services (NSS) 3.23, which is
-a minor release.
+The NSS team has released Network Security Services (NSS) 3.23, which is a minor release.
 
 .. _Distribution_Information:
 
@@ -18,8 +17,7 @@ Distribution Information
 
 The HG tag is NSS_3_23_RTM. NSS 3.23 requires NSPR 4.12 or newer.
 
-NSS 3.23 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+NSS 3.23 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_23_RTM/src/
@@ -42,8 +40,8 @@ New Functionality
 
    .. container::
 
-      Experimental-only support TLS 1.3 1-RTT mode (draft-11). This code
-      is not ready for production use.
+      Experimental-only support TLS 1.3 1-RTT mode (draft-11). This code is not ready for production
+      use.
 
 .. _New_Functions:
 
@@ -52,11 +50,10 @@ New Functions
 
 -  *in ssl.h*
 
-   -  **SSL_SetDowngradeCheckVersion** - Set maximum version for new
-      ServerRandom anti-downgrade mechanism. Clients that perform a
-      version downgrade (which is a dangerous practice) call this with
-      the highest version number that they possibly support.  This gives
-      them access to the `version downgrade protection from TLS
+   -  **SSL_SetDowngradeCheckVersion** - Set maximum version for new ServerRandom anti-downgrade
+      mechanism. Clients that perform a version downgrade (which is a dangerous practice) call this
+      with the highest version number that they possibly support.  This gives them access to the
+      `version downgrade protection from TLS
       1.3 <https://tlswg.github.io/tls13-spec/#client-hello>`__.
 
 .. _Notable_Changes_in_NSS_3.23:
@@ -64,19 +61,15 @@ New Functions
 Notable Changes in NSS 3.23
 ---------------------------
 
--  The copy of SQLite shipped with NSS has been updated to version
-   3.10.2 (`bug
+-  The copy of SQLite shipped with NSS has been updated to version 3.10.2 (`bug
    1234698 <https://bugzilla.mozilla.org/show_bug.cgi?id=1234698>`__)
--  The list of TLS extensions sent in the TLS handshake has been
-   reordered to increase compatibility of the Extended Master Secret
-   with servers (`bug
+-  The list of TLS extensions sent in the TLS handshake has been reordered to increase compatibility
+   of the Extended Master Secret with servers (`bug
    1243641 <https://bugzilla.mozilla.org/show_bug.cgi?id=1243641>`__)
--  The build time environment variable NSS_ENABLE_ZLIB has been renamed
-   to NSS_SSL_ENABLE_ZLIB (`Bug
+-  The build time environment variable NSS_ENABLE_ZLIB has been renamed to NSS_SSL_ENABLE_ZLIB (`Bug
    1243872 <https://bugzilla.mozilla.org/show_bug.cgi?id=1243872>`__).
--  The build time environment variable NSS_DISABLE_CHACHAPOLY was added,
-   which can be used to prevent compilation of the ChaCha20/Poly1305
-   code.
+-  The build time environment variable NSS_DISABLE_CHACHAPOLY was added, which can be used to
+   prevent compilation of the ChaCha20/Poly1305 code.
 -  The following CA certificates were **Removed**
 
    -  CN = Staat der Nederlanden Root CA
@@ -148,14 +141,11 @@ Notable Changes in NSS 3.23
 Security Fixes in NSS 3.23
 --------------------------
 
--  `Bug
-   1245528 <https://bugzilla.mozilla.org/show_bug.cgi?id=1245528>`__ /
-   `CVE-2016-1950 <http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1950>`__
-   - Fixed a heap-based buffer overflow related to the parsing of
-   certain ASN.1 structures. An attacker could create a
-   specially-crafted certificate which, when parsed by NSS, would cause
-   a crash or execution of arbitrary code with the permissions of the
-   user.
+-  `Bug 1245528 <https://bugzilla.mozilla.org/show_bug.cgi?id=1245528>`__ /
+   `CVE-2016-1950 <http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1950>`__ - Fixed a
+   heap-based buffer overflow related to the parsing of certain ASN.1 structures. An attacker could
+   create a specially-crafted certificate which, when parsed by NSS, would cause a crash or
+   execution of arbitrary code with the permissions of the user.
 
 .. _Bugs_fixed_in_NSS_3.23:
 
@@ -171,21 +161,19 @@ https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Compone
 Acknowledgements
 ----------------
 
-The NSS development team would like to thank security researcher Francis
-Gabriel for responsibly disclosing the issue in `Bug
-1245528 <https://bugzilla.mozilla.org/show_bug.cgi?id=1245528>`__.
+The NSS development team would like to thank security researcher Francis Gabriel for responsibly
+disclosing the issue in `Bug 1245528 <https://bugzilla.mozilla.org/show_bug.cgi?id=1245528>`__.
 
 .. _Compatibility:
 
 Compatibility
 -------------
 
-NSS 3.23 shared libraries are backward compatible with all older NSS 3.x
-shared libraries. A program linked with older NSS 3.x shared libraries
-will work with NSS 3.23 shared libraries without recompiling or
-relinking. Furthermore, applications that restrict their use of NSS APIs
-to the functions listed in NSS Public Functions will remain compatible
-with future versions of the NSS shared libraries.
+NSS 3.23 shared libraries are backward compatible with all older NSS 3.x shared libraries. A program
+linked with older NSS 3.x shared libraries will work with NSS 3.23 shared libraries without
+recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs to the
+functions listed in NSS Public Functions will remain compatible with future versions of the NSS
+shared libraries.
 
 .. _Feedback:
 
@@ -193,5 +181,4 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
-(product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).

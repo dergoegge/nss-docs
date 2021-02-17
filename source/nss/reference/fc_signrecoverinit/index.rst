@@ -31,8 +31,7 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pMechanism``
-   [in] mechanism to be used for the signing
-   operation.
+   [in] mechanism to be used for the signing operation.
 ``hKey``
    [in] handle of the key to be used.
 
@@ -41,11 +40,10 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_SignRecoverInit`` initializes a initializes a signature operation
-where the (digest) data can be recovered from the signature.
+``FC_SignRecoverInit`` initializes a initializes a signature operation where the (digest) data can
+be recovered from the signature.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignRecoverInit``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_SignRecoverInit``.
 
 .. _Return_value:
 

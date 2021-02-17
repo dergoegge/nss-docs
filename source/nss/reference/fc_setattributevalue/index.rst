@@ -43,11 +43,10 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_SetAttributeValue`` sets the value of one or more attributes of an
-object.
+``FC_SetAttributeValue`` sets the value of one or more attributes of an object.
 
-A user must log into the token before setting the attribute values of a
-secret or private key object.
+A user must log into the token before setting the attribute values of a secret or private key
+object.
 
 .. _Return_value:
 

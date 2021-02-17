@@ -8,8 +8,7 @@ FC_SignUpdate
 Name
 ~~~~
 
-FC_SignUpdate - process the next block of a multi-part signing
-operation.
+FC_SignUpdate - process the next block of a multi-part signing operation.
 
 .. _Syntax:
 
@@ -32,8 +31,7 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pPart``
-   [in] pointer to the next block of the data
-   to be signed.
+   [in] pointer to the next block of the data to be signed.
 ``usPartLen``
    [in] length of data block in bytes.
 
@@ -42,13 +40,11 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_SignUpdate`` starts or continues a multi-part signature operation.
-One or more blocks may be part of the signature. The signature for the
-entire message is returned by a call to
+``FC_SignUpdate`` starts or continues a multi-part signature operation. One or more blocks may be
+part of the signature. The signature for the entire message is returned by a call to
 `FC_SignFinal </en-US/FC_SignFinal>`__.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignUpdate``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_SignUpdate``.
 
 .. _Return_value:
 
@@ -65,6 +61,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_SignInit </en-US/FC_SignInit>`__,
-   `FC_SignFinal </en-US/FC_SignFinal>`__,
+-  `FC_SignInit </en-US/FC_SignInit>`__, `FC_SignFinal </en-US/FC_SignFinal>`__,
    `NSC_SignUpdate </en-US/NSC_SignUpdate>`__

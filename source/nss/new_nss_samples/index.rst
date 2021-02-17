@@ -8,13 +8,12 @@ New NSS Samples
 New NSS Sample Code
 -------------------
 
-This collection of sample code demonstrates how NSS can be used for
-cryptographic operations, certificate handling, SSL, etc. It also
-demonstrates some best practices in the application of cryptography.
+This collection of sample code demonstrates how NSS can be used for cryptographic operations,
+certificate handling, SSL, etc. It also demonstrates some best practices in the application of
+cryptography.
 
 | 
-| These new examples are a work in progress. See
-  https://bugzilla.mozilla.org/show_bug.cgi?id=490238
+| These new examples are a work in progress. See https://bugzilla.mozilla.org/show_bug.cgi?id=490238
 
 How to download the samples:
 
@@ -24,8 +23,7 @@ How to download the samples:
 
 Samples list:
 
-#. `Sample Code 1:
-   Hashing </en-US/docs/Mozilla/Projects/NSS/NSS_Sample_Code/Sample1_-_Hashing>`__
+#. :ref:`Mozilla_Projects_NSS_NSS_Sample_Code_Sample1_-_Hashing`
 #. `Sample Code 2: Init NSS
    database </en-US/docs/Mozilla/Projects/NSS/NSS_Sample_Code/Sample2_-_Initialize_NSS_Database>`__
 #. `Sample Code 3: Encrypt/Decrypt and Mac Using
@@ -42,5 +40,5 @@ Common code used by these samples:
 #. `Sample Code 0:
    Utilities </en-US/docs/Mozilla/Projects/NSS/NSS_Sample_Code/Utiltiies_for_nss_samples>`__
 
-Thanks are due to Shailendra Jain, Mozilla Community member, who is the
-principal author of these samples.
+Thanks are due to Shailendra Jain, Mozilla Community member, who is the principal author of these
+samples.

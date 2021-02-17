@@ -38,27 +38,22 @@ Parameters
 ``hWrappingKey``
    [in] pointer to the public key template.
 ``hKey``
-   [in] number of attributes in the public key
-   template.
+   [in] number of attributes in the public key template.
 ``pWrappedKey``
-   [out] pointer to the location to receive
-   the wrapped key or NULL.
+   [out] pointer to the location to receive the wrapped key or NULL.
 ``pusWrappedKeyLen``
-   [in, out] pointer to length of wrapped key
-   buffer.
+   [in, out] pointer to length of wrapped key buffer.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_WrapKey`` wraps (encrypts) a key. If ``pWrappedKey`` is NULL the
-length of the wrapped key is returned in ``pusWrappedKeyLen`` and
-FC_WrapKey may be called again with ``pWrappedKey`` set to retrieve the
-wrapped key.
+``FC_WrapKey`` wraps (encrypts) a key. If ``pWrappedKey`` is NULL the length of the wrapped key is
+returned in ``pusWrappedKeyLen`` and FC_WrapKey may be called again with ``pWrappedKey`` set to
+retrieve the wrapped key.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_WrapKey``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_WrapKey``.
 
 .. _Return_value:
 

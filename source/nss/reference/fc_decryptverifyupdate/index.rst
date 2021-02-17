@@ -8,8 +8,7 @@ FC_DecryptVerifyUpdate
 Name
 ~~~~
 
-FC_DecryptVerifyUpdate - continue a multi-part decrypt and verify
-operation
+FC_DecryptVerifyUpdate - continue a multi-part decrypt and verify operation
 
 .. _Syntax:
 
@@ -38,25 +37,23 @@ Parameters
 ``ulEncryptedDataLen``
    [in] length of encrypted data in bytes.
 ``pData``
-   [in] pointer to the location which receives
-   the recovered data part or NULL.
+   [in] pointer to the location which receives the recovered data part or
+   NULL.
 ``pulDataLen``
-   [in] pointer to the length of the recovered
-   part buffer.
+   [in] pointer to the length of the recovered part buffer.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_DecryptVerifyUpdate`` continues a multi-part decryption and
-signature verification operation. After calling both ``FC_DecryptInit``
-and ``FC_VerifyInit`` to set up the operations this function may be
-called multiple times. The operation is finished by calls to
-``FC_DecryptFinal`` and ``FC_VerifyFinal``.
+``FC_DecryptVerifyUpdate`` continues a multi-part decryption and signature verification operation.
+After calling both ``FC_DecryptInit`` and ``FC_VerifyInit`` to set up the operations this function
+may be called multiple times. The operation is finished by calls to ``FC_DecryptFinal`` and
+``FC_VerifyFinal``.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DecryptVerifyUpdate``.
+A user must log into the token (to assume the NSS User role) before calling
+``FC_DecryptVerifyUpdate``.
 
 .. _Return_value:
 

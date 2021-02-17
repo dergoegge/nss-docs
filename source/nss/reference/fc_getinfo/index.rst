@@ -34,25 +34,20 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_GetInfo`` returns general information about the PKCS #11 library.
-On return, the ``CK_INFO`` structure that ``pInfo`` points to has the
-following information:
+``FC_GetInfo`` returns general information about the PKCS #11 library. On return, the ``CK_INFO``
+structure that ``pInfo`` points to has the following information:
 
--  ``cryptokiVersion``: PKCS #11 interface version number implemented by
-   the PKCS #11 library. The version is 2.20
-   (``major=0x02, minor=0x14``).
--  ``manufacturerID``: the PKCS #11 library manufacturer, "Mozilla
-   Foundation", padded with spaces to 32 characters and not
-   null-terminated.
+-  ``cryptokiVersion``: PKCS #11 interface version number implemented by the PKCS #11 library. The
+   version is 2.20 (``major=0x02, minor=0x14``).
+-  ``manufacturerID``: the PKCS #11 library manufacturer, "Mozilla Foundation", padded with spaces
+   to 32 characters and not null-terminated.
 -  ``flags``: should be 0.
--  ``libraryDescription``: description of the library, "NSS Internal
-   Crypto Services", padded with spaces to 32 characters and not
-   null-terminated.
--  ``libraryVersion``: PKCS #11 library version number, for example,
-   3.11 (``major=0x03, minor=0x0b``).
+-  ``libraryDescription``: description of the library, "NSS Internal Crypto Services", padded with
+   spaces to 32 characters and not null-terminated.
+-  ``libraryVersion``: PKCS #11 library version number, for example, 3.11
+   (``major=0x03, minor=0x0b``).
 
-A user may call ``FC_GetInfo`` without logging into the token (to assume
-the NSS User role).
+A user may call ``FC_GetInfo`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 
@@ -63,20 +58,17 @@ Return value
 
 .. note::
 
-   ``FC_GetInfo`` should return ``CKR_ARGUMENTS_BAD`` if ``pInfo`` is
-   ``NULL``.
+   ``FC_GetInfo`` should return ``CKR_ARGUMENTS_BAD`` if ``pInfo`` is ``NULL``.
 
-   ``FC_GetInfo`` should return ``CKR_CRYPTOKI_NOT_INITIALIZED`` if the
-   library is not initialized.
+   ``FC_GetInfo`` should return ``CKR_CRYPTOKI_NOT_INITIALIZED`` if the library is not initialized.
 
 .. _Examples:
 
 Examples
 ~~~~~~~~
 
-Note the use of the ``%.32s`` format string to print the
-``manufacturerID`` and ``libraryDescription`` members of the ``CK_INFO``
-structure.
+Note the use of the ``%.32s`` format string to print the ``manufacturerID`` and
+``libraryDescription`` members of the ``CK_INFO`` structure.
 
 .. code:: eval
 

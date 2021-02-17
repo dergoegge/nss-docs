@@ -8,8 +8,7 @@ FC_GetTokenInfo
 Name
 ~~~~
 
-FC_GetTokenInfo - obtain information about a particular token in the
-system.
+FC_GetTokenInfo - obtain information about a particular token in the system.
 
 .. _Syntax:
 
@@ -37,49 +36,38 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_GetTokenInfo`` returns information about the token in the specified
-slot. On return, the ``CK_TOKEN_INFO`` structure that ``pInfo`` points
-to has the following information:
+``FC_GetTokenInfo`` returns information about the token in the specified slot. On return, the
+``CK_TOKEN_INFO`` structure that ``pInfo`` points to has the following information:
 
--  ``label``: the label of the token, assigned during token
-   initialization, padded with spaces to 32 bytes and not
-   null-terminated.
--  ``manufacturerID``: ID of the device manufacturer, "Mozilla
-   Foundation", padded with spaces to 32 characters and not
-   null-terminated.
--  ``model``: model of the device, "NSS 3", padded with spaces to 16
+-  ``label``: the label of the token, assigned during token initialization, padded with spaces to 32
+   bytes and not null-terminated.
+-  ``manufacturerID``: ID of the device manufacturer, "Mozilla Foundation", padded with spaces to 32
    characters and not null-terminated.
--  ``serialNumber``: the device's serial number as a string,
-   "0000000000000000", 16 characters and not null-terminated.
--  ``flags``: bit flags indicating capabilities and status of the
-   device.
+-  ``model``: model of the device, "NSS 3", padded with spaces to 16 characters and not
+   null-terminated.
+-  ``serialNumber``: the device's serial number as a string, "0000000000000000", 16 characters and
+   not null-terminated.
+-  ``flags``: bit flags indicating capabilities and status of the device.
 
-   -  ``CKF_RNG (0x00000001)``: this device has a random number
-      generator
+   -  ``CKF_RNG (0x00000001)``: this device has a random number generator
    -  ``CKF_WRITE_PROTECTED (0x00000002)``: this device is read-only
-   -  ``CKF_LOGIN_REQUIRED (0x00000004)``: this device requires the user
-      to log in to use some of its services
-   -  ``CKF_USER_PIN_INITIALIZED (0x00000008)``: the user's password has
-      been initialized
-   -  ``CKF_DUAL_CRYPTO_OPERATIONS (0x00000200)``: a single session with
-      the token can perform dual cryptographic operations
-   -  ``CKF_TOKEN_INITIALIZED (0x00000400)``: the token has been
-      initialized. If login is required (which is true for the FIPS mode
-      of operation), this flag means the user's password has been
+   -  ``CKF_LOGIN_REQUIRED (0x00000004)``: this device requires the user to log in to use some of
+      its services
+   -  ``CKF_USER_PIN_INITIALIZED (0x00000008)``: the user's password has been initialized
+   -  ``CKF_DUAL_CRYPTO_OPERATIONS (0x00000200)``: a single session with the token can perform dual
+      cryptographic operations
+   -  ``CKF_TOKEN_INITIALIZED (0x00000400)``: the token has been initialized. If login is required
+      (which is true for the FIPS mode of operation), this flag means the user's password has been
       initialized.
 
--  ``ulSessionCount``: number of sessions that this application
-   currently has open with the token
--  ``ulRwSessionCount``: number of read/write sessions that this
-   application currently has open with the token
--  ``hardwareVersion``: hardware version number, for example, 8.3
-   (``major=0x08, minor=0x03``), which are the version numbers of the
-   certificate and key databases, respectively.
--  ``firmwareVersion``: firmware version number, 0.0
-   (``major=0x00, minor=0x00``).
+-  ``ulSessionCount``: number of sessions that this application currently has open with the token
+-  ``ulRwSessionCount``: number of read/write sessions that this application currently has open with
+   the token
+-  ``hardwareVersion``: hardware version number, for example, 8.3 (``major=0x08, minor=0x03``),
+   which are the version numbers of the certificate and key databases, respectively.
+-  ``firmwareVersion``: firmware version number, 0.0 (``major=0x00, minor=0x00``).
 
-A user may call ``FC_GetTokenInfo`` without logging into the token (to
-assume the NSS User role).
+A user may call ``FC_GetTokenInfo`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 
@@ -102,13 +90,12 @@ Return value
 Examples
 ~~~~~~~~
 
-Note the use of the ``%.32s`` format string to print the ``label`` and
-``manufacturerID`` members of the ``CK_TOKEN_INFO`` structure.
+Note the use of the ``%.32s`` format string to print the ``label`` and ``manufacturerID`` members of
+the ``CK_TOKEN_INFO`` structure.
 
 .. _See_also:
 
 See also
 ~~~~~~~~
 
--  `FC_GetSlotInfo </en-US/FC_GetSlotInfo>`__,
-   `NSC_GetTokenInfo </en-US/NSC_GetTokenInfo>`__
+-  `FC_GetSlotInfo </en-US/FC_GetSlotInfo>`__, `NSC_GetTokenInfo </en-US/NSC_GetTokenInfo>`__

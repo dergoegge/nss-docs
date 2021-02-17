@@ -3,41 +3,29 @@
 =======================
 Older NSS release notes
 =======================
-This page lists release notes for older versions of NSS. See `Release
-notes for recent versions of
-NSS </en-US/docs/Mozilla/Projects/NSS/NSS_Releases>`__
-` </docs/NSS/NSS_Releases>`__ for recent release notes. The links below
-are provided for historical information.
+This page lists release notes for older versions of NSS. See `Release notes for recent versions of
+NSS </en-US/docs/Mozilla/Projects/NSS/NSS_Releases>`__ ` </docs/NSS/NSS_Releases>`__ for recent
+release notes. The links below are provided for historical information.
 
 -  NSS 3.14
 
-   -  `NSS 3.14.3 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.14.3_release_notes>`__
-   -  `NSS 3.14.2 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.14.2_release_notes>`__
-   -  `NSS 3.14.1 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.14.1_release_notes>`__
-   -  `NSS 3.14 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.14_release_notes>`__
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_14_3_release_notes`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_14_2_release_notes`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_14_1_release_notes`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_14_release_notes`
 
 -  NSS 3.12
 
-   -  `NSS 3.12.6 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.12.6_release_notes>`__
-   -  `NSS 3.12.5 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.12.5_release_notes>`__
-   -  `NSS 3.12.4 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.12.4_release_notes>`__
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_12_6_release_notes`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_12_5_release_notes`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_12_4_release_notes`
    -  NSS 3.12.3.2 Release Notes
    -  NSS 3.12.3.1 Release Notes
    -  `NSS 3.12.3 Release
       Notes </en-US/docs/Mozilla/Projects/NSS/release_notes.html/NSS_3.12.3_release_notes.html>`__
-   -  `NSS 3.12.2 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.12.2_release_notes.html>`__
-   -  `NSS 3.12.1 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.12.1_release_notes.html>`__
-   -  `NSS 3.12 Release
-      Notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.12_release_notes.html>`__
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_12_2_release_notes_html`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_12_1_release_notes_html`
+   -  :ref:`Mozilla_Projects_NSS_NSS_3_12_release_notes_html`
 
 -  NSS 3.11
 

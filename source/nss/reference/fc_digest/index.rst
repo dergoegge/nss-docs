@@ -37,23 +37,20 @@ Parameters
 ``usDataLen``
    [in] length of the data in bytes.
 ``pDigest``
-   [out] pointer to location where recovered
-   data is to be stored.
+   [out] pointer to location where recovered data is to be stored.
 ``pusDigestLen``
-   [in, out] pointer to the maximum size of
-   the output buffer, replaced by the length of the message digest if
-   the operation is successful.
+   [in, out] pointer to the maximum size of the output buffer, replaced by
+   the length of the message digest if the operation is successful.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_Digest`` digests a message in a single operation according to the
-attributes of the previous call to ``FC_DigestInit``.
+``FC_Digest`` digests a message in a single operation according to the attributes of the previous
+call to ``FC_DigestInit``.
 
-A user may call ``FC_Digest`` without logging into the token (to assume
-the NSS User role).
+A user may call ``FC_Digest`` without logging into the token (to assume the NSS User role).
 
 .. _Return_value:
 
@@ -70,5 +67,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DigestInit </en-US/FC_DigestInit>`__,
-   `NSC_Digest </en-US/NSC_Digest>`__
+-  `FC_DigestInit </en-US/FC_DigestInit>`__, `NSC_Digest </en-US/NSC_Digest>`__

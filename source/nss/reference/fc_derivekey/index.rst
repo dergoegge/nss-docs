@@ -40,13 +40,11 @@ Parameters
 ``pWrappedKey``
    [in] pointer to the wrapped key.
 ``pTemplate``
-   [in] pointer to the list of attributes for
-   the new key.
+   [in] pointer to the list of attributes for the new key.
 ``usAttributeCount``
    [in] number of attributes in the template.
 ``phKey``
-   [out] pointer to the location to receive
-   the handle of the new key.
+   [out] pointer to the location to receive the handle of the new key.
 
 .. _Description:
 
@@ -55,8 +53,7 @@ Description
 
 ``FC_DeriveKey`` derives (decrypts) a key and creates a new key object.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DeriveKey``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_DeriveKey``.
 
 .. _Return_value:
 

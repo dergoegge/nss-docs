@@ -36,19 +36,16 @@ Parameters
 ``ulCount``
    [in] number of attributes in the template.
 ``phObject``
-   [out] pointer to location to receive the
-   new objects handle.
+   [out] pointer to location to receive the new objects handle.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_CreateObject`` creates an object using the attributes specified in
-the template.
+``FC_CreateObject`` creates an object using the attributes specified in the template.
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_CreateObject``.
+A user must log into the token (to assume the NSS User role) before calling ``FC_CreateObject``.
 
 .. _Return_value:
 
@@ -65,5 +62,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DestroyObject </en-US/FC_DestroyObject>`__,
-   `NSC_CreateObject </en-US/NSC_CreateObject>`__
+-  `FC_DestroyObject </en-US/FC_DestroyObject>`__, `NSC_CreateObject </en-US/NSC_CreateObject>`__
