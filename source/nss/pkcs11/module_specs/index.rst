@@ -1,9 +1,6 @@
-=======================
-'PKCS #11 Module Specs'
-=======================
---- title: 'PKCS #11 Module Specs' slug:
-Mozilla/Projects/NSS/PKCS11/Module_Specs tags: - NSS ---
-
+=====================
+PKCS #11 Module Specs
+=====================
 .. _PKCS_.2311_Module_Specs:
 
 PKCS #11 Module Specs
@@ -16,10 +13,7 @@ this proposal internally.
 
 The file format consists of name/value pairs of the form ``name=value``.
 Each name/value pair is separated by a blank value. A single line,
-terminated by a '
-', '
-', or '' represents a single pkcs #11
-library.
+terminated by a ' ', ' ', or '' represents a single pkcs #11 library.
 
 Names can be any alpha/numeric combination, and are parsed
 case-insensitive.

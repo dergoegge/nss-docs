@@ -1,10 +1,6 @@
 ==================
 NSS Tools certutil
 ==================
---- title: NSS Tools certutil slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_certutil tags: - certificates -
-x509v3 ---
-
 .. _Using_the_Certificate_Database_Tool:
 
 Using the Certificate Database Tool

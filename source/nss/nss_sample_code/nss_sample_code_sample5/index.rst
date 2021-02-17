@@ -1,9 +1,6 @@
 =======================
 NSS Sample Code sample5
 =======================
---- title: NSS Sample Code sample5 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_sample5 ---
-
 .. _NSS_Sample_Code_5_PKI_Encryption_with_a_raw_public_private_key_in_DER_format:
 
 NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
@@ -59,7 +56,7 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (rv != SECSuccess)
      {
        fprintf(stderr, "NSS initialization failed (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
@@ -69,7 +66,7 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (slot == NULL)
      {
        fprintf(stderr, "Couldn't find slot (err %d)
-", PR_GetError());
+   ", PR_GetError());
        goto cleanup;
      }
 
@@ -77,7 +74,7 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (rv!= SECSuccess)
      {
        fprintf(stderr, "ATOB_ConvertAsciiToItem failed %d
-", PR_GetError());
+   ", PR_GetError());
        goto cleanup;
      }
      spki = SECKEY_DecodeDERSubjectPublicKeyInfo(&der);
@@ -87,13 +84,13 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (pubkey == NULL)
      {
        fprintf(stderr, "Couldn't extract public key (err %d)
-", PR_GetError());
+   ", PR_GetError());
        goto cleanup;
      }
 
      modulus_len = SECKEY_PublicKeyStrength(pubkey);
      fprintf(stderr, "Public Key Modulus %d bytes
-", modulus_len);
+   ", modulus_len);
      buf1 = (char *)malloc(modulus_len);
      buf2 = (char *)malloc(modulus_len);
 
@@ -104,15 +101,15 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      }
      buf1[modulus_len-1] = '';
      fprintf(stderr, "Buffer being encrypted = 
-%s
-", buf1);
+   %s
+   ", buf1);
 
      /* encrypt buf1, result will be in buf2 */
      rv = PK11_PubEncryptRaw(pubkey, buf2, buf1, modulus_len, NULL);
      if (rv != SECSuccess)
      {
        fprintf(stderr, "Encrypt with Public Key failed (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
@@ -124,7 +121,7 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (rv!= SECSuccess)
      {
        fprintf(stderr, "ATOB_ConvertAsciiToItem failed %d
-", PR_GetError());
+   ", PR_GetError());
        goto cleanup;
      }
 
@@ -141,7 +138,7 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (pvtkey == NULL)
      {
        fprintf(stderr, "Couldn't extract private key (err %d)
-", PR_GetError());
+   ", PR_GetError());
        goto cleanup;
      }
 
@@ -157,16 +154,16 @@ NSS Sample Code 5: PKI Encryption with a raw public & private key in DER format
      if (rv != SECSuccess)
      {
        fprintf(stderr, "Decrypt with Private Key failed (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
 
      fprintf(stderr, "Result of decryption, outlen = %d
-", outlen);
+   ", outlen);
      fprintf(stderr, "Result of decryption, buf = 
-%s
-", buf1);
+   %s
+   ", buf1);
 
    cleanup:
      if (cert)

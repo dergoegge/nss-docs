@@ -1,9 +1,6 @@
 =====================
 Certificate functions
 =====================
---- title: Certificate functions slug:
-Mozilla/Projects/NSS/Certificate_functions tags: - NSS ---
-
 The public functions listed here are used to interact with certificate
 databases.
 

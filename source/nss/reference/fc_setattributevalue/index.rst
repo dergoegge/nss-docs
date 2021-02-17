@@ -1,9 +1,6 @@
 ====================
 FC_SetAttributeValue
 ====================
---- title: FC_SetAttributeValue slug:
-Mozilla/Projects/NSS/Reference/FC_SetAttributeValue tags: - NSS ---
-
 .. _Name:
 
 Name

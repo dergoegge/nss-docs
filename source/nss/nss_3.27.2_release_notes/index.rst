@@ -1,9 +1,6 @@
 ========================
 NSS 3.27.2 Release Notes
 ========================
---- title: NSS 3.27.2 Release Notes slug:
-Mozilla/Projects/NSS/NSS_3.27.2_Release_Notes ---
-
 .. _Introduction:
 
 Introduction

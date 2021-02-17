@@ -1,9 +1,6 @@
 =========
 Using JSS
 =========
---- title: Using JSS slug: Mozilla/Projects/NSS/JSS/Using_JSS tags: -
-JSS ---
-
 .. _Using_JSS:
 
 Using JSS

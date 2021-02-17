@@ -1,8 +1,6 @@
 ======
 sslerr
 ======
---- title: sslerr slug: Mozilla/Projects/NSS/SSL_functions/sslerr ---
-
 .. note::
 
    -  This page is part of the `SSL

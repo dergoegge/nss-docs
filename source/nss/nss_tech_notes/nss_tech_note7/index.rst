@@ -1,9 +1,6 @@
 ==============
 nss tech note7
 ==============
---- title: nss tech note7 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note7 ---
-
 .. _RSA_Signing_and_Encryption_with_NSS:
 
 RSA Signing and Encryption with NSS

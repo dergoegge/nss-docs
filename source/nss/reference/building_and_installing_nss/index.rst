@@ -1,10 +1,6 @@
 ===========================
 Building and installing NSS
 ===========================
---- title: Building and installing NSS slug:
-Mozilla/Projects/NSS/Reference/Building_and_installing_NSS tags: - NSS
----
-
 This chapter describes how to build and install NSS.
 
 -  `Build

@@ -1,9 +1,6 @@
 ==============
 FC_FindObjects
 ==============
---- title: FC_FindObjects slug:
-Mozilla/Projects/NSS/Reference/FC_FindObjects tags: - NSS ---
-
 .. _Name:
 
 Name

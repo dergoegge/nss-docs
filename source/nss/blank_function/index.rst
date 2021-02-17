@@ -1,9 +1,6 @@
 =============
 Function_Name
 =============
---- title: Function_Name slug: Mozilla/Projects/NSS/Blank_Function tags:
-- NSS ---
-
 One-line description of what the function does (more than just what it
 returns).
 

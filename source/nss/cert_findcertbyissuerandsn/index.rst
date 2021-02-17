@@ -1,9 +1,6 @@
 ==========================
 CERT_FindCertByIssuerAndSN
 ==========================
---- title: CERT_FindCertByIssuerAndSN slug:
-Mozilla/Projects/NSS/CERT_FindCertByIssuerAndSN tags: - NSS ---
-
 Find a certificate in the database with the given issuer and serial
 number.
 

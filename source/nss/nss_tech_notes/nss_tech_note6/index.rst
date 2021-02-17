@@ -1,9 +1,6 @@
 ==============
 nss tech note6
 ==============
---- title: nss tech note6 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note6 ---
-
 .. _NSS_.chk_Files_for_the_FIPS_140_Mode:
 
 NSS .chk Files for the FIPS 140 Mode

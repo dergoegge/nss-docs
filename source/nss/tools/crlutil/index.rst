@@ -1,9 +1,6 @@
-=====================
-'NSS tools : crlutil'
-=====================
---- title: 'NSS tools : crlutil' slug:
-Mozilla/Projects/NSS/Tools/crlutil ---
-
+===================
+NSS tools : crlutil
+===================
 | Name
 |    crlutil — List, generate, modify, or delete CRLs within the NSS
   security

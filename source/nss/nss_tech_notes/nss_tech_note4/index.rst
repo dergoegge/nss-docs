@@ -1,9 +1,6 @@
 ==============
 nss tech note4
 ==============
---- title: nss tech note4 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note4 ---
-
 .. _Pulling_certificate_extension_information_out_of_SSL_certificates:
 
 Pulling certificate extension information out of SSL certificates

@@ -1,9 +1,6 @@
 =================
 4.3 Release Notes
 =================
---- title: 4.3 Release Notes slug:
-Mozilla/Projects/NSS/JSS/4_3_ReleaseNotes tags: - JSS - NSS ---
-
 .. _Release_Date_01_April_2009:
 
 Release Date: 01 April 2009

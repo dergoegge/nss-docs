@@ -1,9 +1,6 @@
 ===================
 NSS troubleshooting
 ===================
---- title: NSS troubleshooting slug:
-Mozilla/Projects/NSS/Troubleshooting tags: - NSS ---
-
 On this page, let's collect information on how to troubleshoot NSS at
 runtime. Debugging tips, how to enable tracing of the various modules,
 etc.

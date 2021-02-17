@@ -1,10 +1,6 @@
 ===============
 HTTP delegation
 ===============
---- title: HTTP delegation slug:
-Mozilla/Projects/NSS/HTTP_delegation_clone tags: - Advanced - Guide -
-NSS ---
-
 .. _Background:
 
 Background

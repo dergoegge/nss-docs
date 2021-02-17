@@ -1,9 +1,6 @@
 ============
 FC_InitToken
 ============
---- title: FC_InitToken slug:
-Mozilla/Projects/NSS/Reference/FC_InitToken tags: - NSS ---
-
 .. _Name:
 
 Name

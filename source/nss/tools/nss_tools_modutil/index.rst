@@ -1,9 +1,6 @@
 =================
 NSS Tools modutil
 =================
---- title: NSS Tools modutil slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_modutil ---
-
 .. _Using_the_Security_Module_Database_(modutil):
 
 Using the Security Module Database (modutil)
@@ -484,14 +481,14 @@ The script file grammar is as follows:
 
 ::
 
-   simple_string --> [^ 	
-\""{""}"]+ 
+   simple_string --> [^   
+   \""{""}"]+ 
    (No whitespace, quotes, or braces.)
 
 ::
 
    complex_string --> ([^\"\
-]|(\")|(\))+ (Quotes and
+   ]|(\")|(\))+ (Quotes and
    backslashes must be escaped with a backslash. A complex string must not
    include newlines or carriage returns.)
 

@@ -1,9 +1,6 @@
 =======
 FC_Sign
 =======
---- title: FC_Sign slug: Mozilla/Projects/NSS/Reference/FC_Sign tags: -
-NSS ---
-
 .. _Name:
 
 Name

@@ -1,9 +1,6 @@
 =============
 SSL functions
 =============
---- title: SSL functions slug: Mozilla/Projects/NSS/SSL_functions tags:
-- NSS ---
-
 The public functions listed here are used to configure sockets for
 communication via the SSL and TLS protocols. In addition to the
 functions listed here, applications that support SSL use some of the

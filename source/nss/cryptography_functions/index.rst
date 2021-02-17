@@ -1,9 +1,6 @@
 ======================
 Cryptography functions
 ======================
---- title: Cryptography functions slug:
-Mozilla/Projects/NSS/Cryptography_functions tags: - NSS ---
-
 The public functions listed here perform cryptographic operations based
 on the PKCS #11 interface.
 

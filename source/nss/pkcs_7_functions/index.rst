@@ -1,9 +1,6 @@
 ================
 PKCS 7 functions
 ================
---- title: PKCS 7 functions slug: Mozilla/Projects/NSS/PKCS_7_functions
-tags: - NSS ---
-
 The public functions listed here perform PKCS #7 operations required by
 mail and news applications and by some of the NSS tools.
 

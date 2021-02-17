@@ -1,9 +1,6 @@
 ==============
 NSS Tech Notes
 ==============
---- title: NSS Tech Notes slug: Mozilla/Projects/NSS/NSS_Tech_Notes
-tags: - NSS ---
-
 .. _NSS_Technical_Notes:
 
 NSS Technical Notes

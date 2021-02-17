@@ -1,9 +1,6 @@
 =================
 NSS Tools crlutil
 =================
---- title: NSS Tools crlutil slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_crlutil ---
-
 .. _Using_the_Certificate_Revocation_List_Management_Tool:
 
 Using the Certificate Revocation List Management Tool

@@ -1,10 +1,6 @@
 ========================
 NSS 3.36.5 release notes
 ========================
---- title: NSS 3.36.5 release notes slug:
-Mozilla/Projects/NSS/NSS_3.36.5_release_notes tags: - Mozilla - NSS -
-Release Notes ---
-
 .. _Introduction:
 
 Introduction

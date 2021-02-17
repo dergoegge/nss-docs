@@ -1,9 +1,6 @@
 ===============
 HTTP delegation
 ===============
---- title: HTTP delegation slug: Mozilla/Projects/NSS/HTTP_delegation
-tags: - Advanced - Guide - NSS ---
-
 .. _Background:
 
 Background

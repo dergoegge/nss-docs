@@ -1,9 +1,6 @@
 =========
 NSC_Login
 =========
---- title: NSC_Login slug: Mozilla/Projects/NSS/Reference/NSC_Login
-tags: - NSS ---
-
 .. _Name:
 
 Name

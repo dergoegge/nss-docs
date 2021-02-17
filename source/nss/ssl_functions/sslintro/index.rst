@@ -1,9 +1,6 @@
 ========
 sslintro
 ========
---- title: sslintro slug: Mozilla/Projects/NSS/SSL_functions/sslintro
----
-
 .. note::
 
    -  This page is part of the `SSL

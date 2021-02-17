@@ -1,9 +1,6 @@
 ==========
 FC_InitPIN
 ==========
---- title: FC_InitPIN slug: Mozilla/Projects/NSS/Reference/FC_InitPIN
-tags: - NSS ---
-
 .. _Name:
 
 Name

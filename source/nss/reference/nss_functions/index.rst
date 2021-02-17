@@ -1,9 +1,6 @@
 =============
 NSS functions
 =============
---- title: NSS functions slug:
-Mozilla/Projects/NSS/Reference/NSS_functions tags: - NSS ---
-
 This page lists all exported functions in NSS 3.11.7 It was ported from
 `here <http://www-archive.mozilla.org/projects/security/pki/nss/ref/nssfunctions.html>`__.
 

@@ -1,9 +1,6 @@
 ================
 FC_DestroyObject
 ================
---- title: FC_DestroyObject slug:
-Mozilla/Projects/NSS/Reference/FC_DestroyObject tags: - NSS ---
-
 .. _Name:
 
 Name

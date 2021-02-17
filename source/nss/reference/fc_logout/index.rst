@@ -1,9 +1,6 @@
 =========
 FC_Logout
 =========
---- title: FC_Logout slug: Mozilla/Projects/NSS/Reference/FC_Logout
-tags: - NSS ---
-
 .. _Name:
 
 Name

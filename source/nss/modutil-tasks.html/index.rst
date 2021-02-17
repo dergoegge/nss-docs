@@ -1,9 +1,6 @@
 ==================
 modutil-tasks.html
 ==================
---- title: modutil-tasks.html slug:
-Mozilla/Projects/NSS/modutil-tasks.html ---
-
 .. _NSS_Security_Tools_modutil_Tasks:
 
 NSS Security Tools: modutil Tasks

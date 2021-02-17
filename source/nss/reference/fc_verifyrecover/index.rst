@@ -1,9 +1,6 @@
 ================
 FC_VerifyRecover
 ================
---- title: FC_VerifyRecover slug:
-Mozilla/Projects/NSS/Reference/FC_VerifyRecover tags: - NSS ---
-
 .. _Name:
 
 Name

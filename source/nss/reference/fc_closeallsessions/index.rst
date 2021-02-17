@@ -1,9 +1,6 @@
 ===================
 FC_CloseAllSessions
 ===================
---- title: FC_CloseAllSessions slug:
-Mozilla/Projects/NSS/Reference/FC_CloseAllSessions tags: - NSS ---
-
 .. _Name:
 
 Name

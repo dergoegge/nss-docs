@@ -1,10 +1,6 @@
 =============================================
 Enc Dec MAC Using Key Wrap CertReq PKCS10 CSR
 =============================================
---- title: Enc Dec MAC Using Key Wrap CertReq PKCS10 CSR slug: >-
-Mozilla/Projects/NSS/NSS_Sample_Code/Enc_Dec_MAC_Using_Key_Wrap_CertReq_PKCS10_CSR
----
-
 .. _NSS_Sample_Code_6_EncryptionDecryption_and_MAC_and_output_Public_as_a_PKCS_11_CSR.:
 
 NSS Sample Code 6: Encryption/Decryption and MAC and output Public as a PKCS 11 CSR.
@@ -99,9 +95,9 @@ certificate signing request
     Usage(const char *progName)
     {
         fprintf(stderr, "
-Usage:  %s %s %s %s %s %s %s %s %s %s
+   Usage:  %s %s %s %s %s %s %s %s %s %s
 
-",
+   ",
                 progName,
                 " -<G|A|H|E|DS|V> -d <dbdirpath> ",
                 "[-p <dbpwd> | -f <dbpwdfile>] [-z <noisefilename>] [-a <\"\">]",
@@ -112,111 +108,111 @@ Usage:  %s %s %s %s %s %s %s %s %s %s
                 "-b <headerfilename> -i <ipfilename> | ",
                 "-b <headerfilename> -i <ipfilename> | ",
                 "-b <headerfilename> -e <encryptfilename> -o <opfilename> 
-");
+   ");
         fprintf(stderr, "commands:
 
-");
+   ");
         fprintf(stderr, "%s %s
- --for generating cert request (for CA also)
+    --for generating cert request (for CA also)
 
-",
+   ",
                  progName, "-G -s <subject> -r <csr>");
         fprintf(stderr, "%s %s
- --to input and store cert (for CA also)
+    --to input and store cert (for CA also)
 
-",
+   ",
                  progName, "-A -n <nickName> -t <trust> -c <cert> [ -r <csr> -u <issuerNickname> [-x <\"\">] -m <serialNumber> ]");
         fprintf(stderr, "%s %s
- --to put cert in header
+    --to put cert in header
 
-",
+   ",
                  progName, "-H -n <nickname> -b <headerfilename> [-v <\"\">]");
         fprintf(stderr, "%s %s
- --to find public key from cert in header and encrypt
+    --to find public key from cert in header and encrypt
 
-",
+   ",
                  progName, "-E -b <headerfilename> -i <ipfilename> -e <encryptfilename> ");
         fprintf(stderr, "%s %s
- --decrypt using corresponding private key 
+    --decrypt using corresponding private key 
 
-",
+   ",
                  progName, "-D -b <headerfilename> -e <encryptfilename> -o <opfilename>");
         fprintf(stderr, "%s %s
- --Sign using private key 
+    --Sign using private key 
 
-",
+   ",
                  progName, "-S -b <headerfilename> -i <infilename> ");
         fprintf(stderr, "%s %s
- --Verify using public key 
+    --Verify using public key 
 
-",
+   ",
                  progName, "-V -b <headerfilename> -i <ipfilename> ");
         fprintf(stderr, "options:
 
-");
+   ");
         fprintf(stderr, "%-30s - db directory path
 
-",
+   ",
                  "-d <dbdirpath>");
         fprintf(stderr, "%-30s - db password [optional]
 
-",
+   ",
                  "-p <dbpwd>");
         fprintf(stderr, "%-30s - db password file [optional]
 
-",
+   ",
                  "-f <dbpwdfile>");
         fprintf(stderr, "%-30s - noise file name [optional]
 
-",
+   ",
                  "-z <noisefilename>");
         fprintf(stderr, "%-30s - input file name
 
-",
+   ",
                  "-i <ipfilename>");
         fprintf(stderr, "%-30s - header file name
 
-",
+   ",
                  "-b <headerfilename>");
         fprintf(stderr, "%-30s - encrypt file name
 
-",
+   ",
                  "-e <encryptfilename>");
         fprintf(stderr, "%-30s - output file name
 
-",
+   ",
                  "-o <opfilename>");
         fprintf(stderr, "%-30s - certificate serial number
 
-",
+   ",
                  "-m <serialNumber>");
         fprintf(stderr, "%-30s - certificate nickname
 
-",
+   ",
                  "-n <nickname>");
         fprintf(stderr, "%-30s - certificate trust
 
-",
+   ",
                  "-t <trustargs>");
         fprintf(stderr, "%-30s - certificate issuer nickname
 
-",
+   ",
                  "-u <issuerNickname>");
         fprintf(stderr, "%-30s - certificate signing request 
 
-",
+   ",
                  "-r <csr>");
         fprintf(stderr, "%-30s - generate a self-signed cert [optional]
 
-",
+   ",
                  "-x");
         fprintf(stderr, "%-30s - to enable ascii [optional]
 
-",
+   ",
                  "-a");
         fprintf(stderr, "%-30s - to save certificate to header file as sig verification [optional]
 
-",
+   ",
                  "-v");
         exit(-1);
     }
@@ -234,23 +230,23 @@ Usage:  %s %s %s %s %s %s %s %s %s %s
         PRBool validationFailed = PR_FALSE;
         if (!subject) {
             PR_fprintf(PR_STDERR, "%s -G -d %s -s: improperly formatted name: \"%s\"
-",
+   ",
                        progName, dbdir, subjectStr);
             validationFailed = PR_TRUE;
         }
         if (!certReqFileName) {
             PR_fprintf(PR_STDERR, "%s -G -d %s -s %s -r: certificate request file name not found
-",
+   ",
                        progName, dbdir, subjectStr);
             validationFailed = PR_TRUE;
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-G -d <dbdirpath> -s <subject> -r <csr> 
-");
+   ");
             exit(-1);
         }
     }
@@ -272,57 +268,57 @@ Usage:  %s %s
         PRBool validationFailed = PR_FALSE;
         if (!nickNameStr) {
             PR_fprintf(PR_STDERR, "%s -A -d %s -n : nick name is missing
-",
+   ",
                        progName, dbdir);
             validationFailed = PR_TRUE;
         }
         if (!trustStr) {
             PR_fprintf(PR_STDERR, "%s -A -d %s -n %s -t: trust flag is missing
-",
+   ",
                        progName, dbdir, nickNameStr);
             validationFailed = PR_TRUE;
         }
         if (!certFileName) {
             PR_fprintf(PR_STDERR, "%s -A -d %s -n %s -t %s -c: certificate file name not found
-",
+   ",
                        progName, dbdir, nickNameStr, trustStr, serialNumberStr, certReqFileName);
             validationFailed = PR_TRUE;
         }
         if (PR_Access(certFileName, PR_ACCESS_EXISTS) == PR_FAILURE) {
             if (!certReqFileName) {
                 PR_fprintf(PR_STDERR, "%s -A -d %s -n %s -t %s -c %s -r: certificate file or certificate request file is not found
-",
+   ",
                            progName, dbdir, nickNameStr, trustStr, certFileName);
                 validationFailed = PR_TRUE;
             }
             if (!selfsign && !issuerNameStr) {
                 PR_fprintf(PR_STDERR, "%s -A -d %s -n %s -t %s -c %s -r %s -u : issuer name is missing
-",
+   ",
                            progName, dbdir, nickNameStr, trustStr, certFileName, certReqFileName);
                 validationFailed = PR_TRUE;
             }
             if (!serialNumberStr) {
                 PR_fprintf(PR_STDERR, "%s -A -d %s -n %s -t %s -c %s -r %s -u %s -m : serial number is missing
-",
+   ",
                            progName, dbdir, nickNameStr, trustStr, certFileName, certReqFileName, issuerNameStr);
                 validationFailed = PR_TRUE;
             }
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     " -A -d <dbdirpath> -n <nickName> -t <trust> -c <cert> 
-");
+   ");
             fprintf(stderr, "     OR
-");
+   ");
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-A -d <dbdirpath> -n <nickName> -t <trust> -c <cert> -r <csr> -u <issuerNickname> -m <serialNumber> [-x <\"\">] 
-");
+   ");
             exit(-1);
         }
     }
@@ -339,23 +335,23 @@ Usage:  %s %s
         PRBool validationFailed = PR_FALSE;
         if (!nickNameStr) {
             PR_fprintf(PR_STDERR, "%s -S -d %s -n : nick name is missing
-",
+   ",
                        progName, dbdir);
             validationFailed = PR_TRUE;
         }
         if (!headerFileName) {
             PR_fprintf(PR_STDERR, "%s -S -d %s -n %s -b : header file name is not found
-",
+   ",
                        progName, dbdir, nickNameStr);
             validationFailed = PR_TRUE;
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-S -d <dbdirpath> -n <nickname> -b <headerfilename> [-v <\"\">]
-");
+   ");
             exit(-1);
         }
     }
@@ -374,35 +370,35 @@ Usage:  %s %s
         PRBool validationFailed = PR_FALSE;
         if (!nickNameStr) {
             PR_fprintf(PR_STDERR, "%s -E -d %s -n : nick name is missing
-",
+   ",
                        progName, dbdir);
             validationFailed = PR_TRUE;
         }
         if (!headerFileName) {
             PR_fprintf(PR_STDERR, "%s -E -d %s -n %s -b : header file name is not found
-",
+   ",
                        progName, dbdir, nickNameStr);
             validationFailed = PR_TRUE;
         }
         if (!inFileName) {
             PR_fprintf(PR_STDERR, "%s -E -d %s -n %s -b %s -i : input file name is not found
-",
+   ",
                        progName, dbdir, nickNameStr, headerFileName);
             validationFailed = PR_TRUE;
         }
         if (!encryptedFileName) {
             PR_fprintf(PR_STDERR, "%s -E -d %s -n %s -b %s -i %s -e : encrypt file name is not found
-",
+   ",
                        progName, dbdir, nickNameStr, headerFileName, inFileName);
             validationFailed = PR_TRUE;
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-E -d <dbdirpath> -b <headerfilename> -i <ipfilename> -e <encryptfilename> -n <nickname> 
-");
+   ");
             exit(-1);
         }
     }
@@ -420,29 +416,29 @@ Usage:  %s %s
         PRBool validationFailed = PR_FALSE;
         if (!nickNameStr) {
             PR_fprintf(PR_STDERR, "%s -I -d %s -n : nick name is missing
-",
+   ",
                        progName, dbdir);
             validationFailed = PR_TRUE;
         }
         if (!headerFileName) {
             PR_fprintf(PR_STDERR, "%s -I -d %s -n %s -b : header file name is not found
-",
+   ",
                        progName, dbdir, nickNameStr);
             validationFailed = PR_TRUE;
         }
         if (!inFileName) {
             PR_fprintf(PR_STDERR, "%s -I -d %s -n %s -b %s -i : input file name is not found
-",
+   ",
                        progName, dbdir, nickNameStr, headerFileName);
             validationFailed = PR_TRUE;
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-I -d <dbdirpath> -b <headerfilename> -i <ipfilename> -n <nickname> 
-");
+   ");
             exit(-1);
         }
     }
@@ -459,23 +455,23 @@ Usage:  %s %s
         PRBool validationFailed = PR_FALSE;
         if (!headerFileName) {
             PR_fprintf(PR_STDERR, "%s -V -d %s -b : header file name is not found
-",
+   ",
                        progName, dbdir);
             validationFailed = PR_TRUE;
         }
         if (!inFileName) {
             PR_fprintf(PR_STDERR, "%s -I -d %s -b %s -i : input file name is not found
-",
+   ",
                        progName, dbdir, headerFileName);
             validationFailed = PR_TRUE;
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-I -d <dbdirpath> -b <headerfilename> -i <ipfilename> 
-");
+   ");
             exit(-1);
         }
     }
@@ -493,29 +489,29 @@ Usage:  %s %s
         PRBool validationFailed = PR_FALSE;
         if (!headerFileName) {
             PR_fprintf(PR_STDERR, "%s -D -d %s -b : header file name is not found
-",
+   ",
                        progName, dbdir);
             validationFailed = PR_TRUE;
         }
         if (!encryptedFileName) {
             PR_fprintf(PR_STDERR, "%s -D -d %s -b %s -e : encrypt file name is not found
-",
+   ",
                        progName, dbdir, headerFileName);
             validationFailed = PR_TRUE;
         }
         if (!outFileName) {
             PR_fprintf(PR_STDERR, "%s -D -d %s -b %s -e %s -o : output file name is not found
-",
+   ",
                        progName, dbdir, headerFileName, encryptedFileName);
             validationFailed = PR_TRUE;
         }
         if (validationFailed) {
             fprintf(stderr, "
-Usage:  %s %s 
+   Usage:  %s %s 
 
-", progName,
+   ", progName,
                     "-D -d <dbdirpath> -b <headerfilename> -e <encryptfilename> -o <opfilename>
-");
+   ");
             exit(-1);
         }
     }
@@ -537,7 +533,7 @@ Usage:  %s %s
         inFile = PR_Open(inFileName, PR_RDONLY, 0);
         if (!inFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                        inFileName);
             rv = SECFailure;
             goto cleanup;
@@ -548,7 +544,7 @@ Usage:  %s %s
        sgn = SGN_NewContext(SEC_OID_PKCS1_MD5_WITH_RSA_ENCRYPTION, pk);
         if (!sgn) {
             PR_fprintf(PR_STDERR, "unable to create context for signing
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -556,21 +552,21 @@ Usage:  %s %s
        rv = SGN_Begin(sgn);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "problem while SGN_Begin
-");
+   ");
             goto cleanup;
         }
         while ((nb = PR_Read(inFile, ibuf, sizeof(ibuf))) > 0) {
             rv = SGN_Update(sgn, ibuf, nb);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "problem while SGN_Update
-");
+   ");
                 goto cleanup;
             }
         }
         rv = SGN_End(sgn, res);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "problem while SGN_End
-");
+   ");
             goto cleanup;
         }
     cleanup:
@@ -600,7 +596,7 @@ Usage:  %s %s
         inFile = PR_Open(inFileName, PR_RDONLY, 0);
         if (!inFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                        inFileName);
             rv = SECFailure;
             goto cleanup;
@@ -612,28 +608,28 @@ Usage:  %s %s
                                pwdata);
         if (!vfy) {
             PR_fprintf(PR_STDERR, "unable to create context for verifying signature
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
         rv = VFY_Begin(vfy);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "problem while VFY_Begin
-");
+   ");
             goto cleanup;
         }
         while ((nb = PR_Read(inFile, ibuf, sizeof(ibuf))) > 0) {
             rv = VFY_Update(vfy, ibuf, nb);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "problem while VFY_Update
-");
+   ");
                 goto cleanup;
             }
         }
         rv = VFY_End(vfy);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "problem while VFY_End
-");
+   ");
             goto cleanup;
         }
 
@@ -699,12 +695,12 @@ Usage:  %s %s
             header = LAB_HEADER;
             trailer = LAB_TRAILER;
             PR_fprintf(outFile, "%s
-", header);
+   ", header);
             PR_fprintf(outFile, "%s
-", buf);
+   ", buf);
             PR_fprintf(outFile, "%s
 
-", trailer);
+   ", trailer);
             return SECSuccess;
             break;
         default:
@@ -712,11 +708,11 @@ Usage:  %s %s
         }
 
        PR_fprintf(outFile, "%s
-", header);
+   ", header);
         PrintAsHex(outFile, buf, len);
         PR_fprintf(outFile, "%s
 
-", trailer);
+   ", trailer);
         return SECSuccess;
     }
 
@@ -740,7 +736,7 @@ Usage:  %s %s
         file = PR_Open(fileName, PR_RDONLY, 0);
         if (!file) {
             PR_fprintf(PR_STDERR, "Failed to open %s
-", fileName);
+   ", fileName);
             rv = SECFailure;
             goto cleanup;
         }
@@ -794,7 +790,7 @@ Usage:  %s %s
         nonbody = (char *)filedata.data;
         if (!nonbody) {
             PR_fprintf(PR_STDERR, "unable to read data from input file
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -804,16 +800,16 @@ Usage:  %s %s
             char *trail = NULL;
             nonbody = body;
             body = PORT_Strchr(body, '
-');
+   ');
             if (!body)
-                body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
+                body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
             if (body)
                 trail = strstr(++body, trailer);
             if (trail != NULL) {
                 *trail = '';
             } else {
                 PR_fprintf(PR_STDERR,  "input has header but no trailer
-");
+   ");
                 PORT_Free(filedata.data);
                 rv = SECFailure;
                 goto cleanup;
@@ -826,7 +822,7 @@ Usage:  %s %s
                 trail = strstr(++body, trailer);
                 if (trail != NULL) {
                     PR_fprintf(PR_STDERR,  "input has no header but has trailer
-");
+   ");
                     PORT_Free(filedata.data);
                     rv = SECFailure;
                     goto cleanup;
@@ -861,7 +857,7 @@ Usage:  %s %s
        rv = GenerateRandom(randbuf, BLOCKSIZE);
         if (rv != SECSuccess) {
             fprintf(stderr, "Error while generating the random numbers : %s
-",
+   ",
                     PORT_ErrorToString(rv));
             goto cleanup;
         }
@@ -879,10 +875,10 @@ Usage:  %s %s
         }
         fprintf(stderr, "
 
-");
+   ");
         fprintf(stderr, "Generating key.  This may take a few moments...
 
-");
+   ");
         privKey = PK11_GenerateKeyPair(slot, mechanism, params, pubkeyp,
                                            PR_TRUE /*isPerm*/, PR_TRUE /*isSensitive*/,
                                            pwdata);
@@ -945,7 +941,7 @@ Usage:  %s %s
    cleanup:
         if (rv) {
             PR_fprintf(PR_STDERR, "bad certificate request
-");
+   ");
             if (arena) {
                 PORT_FreeArena(arena, PR_FALSE);
             }
@@ -974,7 +970,7 @@ Usage:  %s %s
             CERTCertificate *issuer = PK11_FindCertFromNickname(issuerNickName, pwarg);
             if ((CERTCertificate *)NULL == issuer) {
                 PR_fprintf(PR_STDERR, "unable to find issuer with nickname %s
-",
+   ",
                            issuerNickName);
                 goto cleanup;
             }
@@ -982,7 +978,7 @@ Usage:  %s %s
             CERT_DestroyCertificate(issuer);
             if (caPrivateKey == NULL) {
                 PR_fprintf(PR_STDERR, "unable to retrieve key  %s
-",
+   ",
                            issuerNickName);
                 goto cleanup;
             }
@@ -991,14 +987,14 @@ Usage:  %s %s
         algID = SEC_GetSignatureAlgorithmOidTag(privKey->keyType, hashAlgTag);
         if (algID == SEC_OID_UNKNOWN) {
             PR_fprintf(PR_STDERR, "Unknown key or hash type for issuer.
-");
+   ");
             goto cleanup;
         }
         rv = SECOID_SetAlgorithmID(arena, &cert->signature, algID, 0);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not set signature algorithm id.
-%s
-",
+   %s
+   ",
                        PORT_ErrorToString(rv));
             goto cleanup;
         }
@@ -1013,21 +1009,21 @@ Usage:  %s %s
                                     SEC_ASN1_GET(CERT_CertificateTemplate));
         if (!dummy) {
             PR_fprintf(PR_STDERR, "Could not encode certificate.
-");
+   ");
             goto cleanup;
         }
 
        result = (SECItem *) PORT_ArenaZAlloc (arena, sizeof (SECItem));
         if (result == NULL) {
             PR_fprintf(PR_STDERR, "Could not allocate item for certificate data.
-");
+   ");
             goto cleanup;
         }
 
        rv = SEC_DerSignData(arena, result, der.data, der.len, privKey, algID);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not sign encoded certificate data : %s
-",
+   ",
                        PORT_ErrorToString(rv));
             /* result allocated out of the arena, it will be freed
              * when the arena is freed */
@@ -1065,7 +1061,7 @@ Usage:  %s %s
             issuerCert = CERT_FindCertByNicknameOrEmailAddr(handle, issuerNickName);
             if (!issuerCert) {
                 PR_fprintf(PR_STDERR, "could not find certificate named %s
-",
+   ",
                            issuerNickName);
                 goto cleanup;
             }
@@ -1116,7 +1112,7 @@ Usage:  %s %s
         rv = ReadDERFromFile(&certDER, inFileName, ascii);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "unable to read input file %s : %s
-",
+   ",
                        inFileName, PORT_ErrorToString(rv));
             goto cleanup;
         }
@@ -1125,7 +1121,7 @@ Usage:  %s %s
         cert = CERT_DecodeCertFromPackage((char *)certDER.data, certDER.len);
         if (!cert) {
             PR_fprintf(PR_STDERR, "could not obtain certificate from file
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1134,7 +1130,7 @@ Usage:  %s %s
         trust = (CERTCertTrust *)PORT_ZAlloc(sizeof(CERTCertTrust));
         if (!trust) {
             PR_fprintf(PR_STDERR, "unable to allocate cert trust
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1142,7 +1138,7 @@ Usage:  %s %s
        rv = CERT_DecodeTrustString(trust, trusts);
         if (rv) {
             PR_fprintf(PR_STDERR, "unable to decode trust string
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1155,7 +1151,7 @@ Usage:  %s %s
                 rv = PK11_Authenticate(slot, PR_TRUE, pwdata);
                 if (rv != SECSuccess) {
                     PR_fprintf(PR_STDERR, "could not authenticate to token  %s : %s
-",
+   ",
                                PK11_GetTokenName(slot), PORT_ErrorToString(rv));
                     rv = SECFailure;
                     goto cleanup;
@@ -1166,7 +1162,7 @@ Usage:  %s %s
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR,
                            "could not add certificate to token or database : %s
-",
+   ",
                            PORT_ErrorToString(rv));
                 rv = SECFailure;
                 goto cleanup;
@@ -1178,7 +1174,7 @@ Usage:  %s %s
                 rv = PK11_Authenticate(slot, PR_TRUE, pwdata);
                 if (rv != SECSuccess) {
                     PR_fprintf(PR_STDERR, "could not authenticate to token  %s : %s
-",
+   ",
                                PK11_GetTokenName(slot), PORT_ErrorToString(rv));
                     rv = SECFailure;
                     goto cleanup;
@@ -1187,7 +1183,7 @@ Usage:  %s %s
             }
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "could not change trust on certificate : %s
-",
+   ",
                            PORT_ErrorToString(rv));
                 rv = SECFailure;
                 goto cleanup;
@@ -1272,13 +1268,13 @@ Usage:  %s %s
             rv = CERT_GetCertificateRequestExtensions(certReq, &CRexts);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "%s
-", PORT_ErrorToString(rv));
+   ", PORT_ErrorToString(rv));
                 goto cleanup;
             }
             rv = CERT_MergeExtensions(extHandle, CRexts);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "%s
-", PORT_ErrorToString(rv));
+   ", PORT_ErrorToString(rv));
                 goto cleanup;
             }
         }
@@ -1290,7 +1286,7 @@ Usage:  %s %s
             *selfsignprivkey = PK11_FindKeyByDERCert(slot, subjectCert, pwarg);
             if (!*selfsignprivkey) {
                 PR_fprintf(PR_STDERR, "Failed to locate private key.
-");
+   ");
                 rv = SECFailure;
                 goto cleanup;
             }
@@ -1301,9 +1297,9 @@ Usage:  %s %s
         if (certDER) {
             if (ascii) {
                 PR_fprintf(outFile, "%s
-%s
-%s
-", NS_CERT_HEADER,
+   %s
+   %s
+   ", NS_CERT_HEADER,
                            BTOA_DataToAscii(certDER->data, certDER->len),
                            NS_CERT_TRAILER);
             } else {
@@ -1313,7 +1309,7 @@ Usage:  %s %s
         if (rv != SECSuccess) {
             PRErrorCode  perr = PR_GetError();
             PR_fprintf(PR_STDERR, "unable to create cert %s
-",
+   ",
                        perr);
         }
     cleanup:
@@ -1360,7 +1356,7 @@ Usage:  %s %s
         if (!outFile) {
             PR_fprintf(PR_STDERR,
                        "unable to open \"%s\" for writing (%ld, %ld).
-",
+   ",
                        certReqFileName, PR_GetError(), PR_GetOSError());
             goto cleanup;
         }
@@ -1368,7 +1364,7 @@ Usage:  %s %s
         spki = SECKEY_CreateSubjectPublicKeyInfo(pubk);
         if (!spki) {
             PR_fprintf(PR_STDERR, "unable to create subject public key
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1377,7 +1373,7 @@ Usage:  %s %s
         cr = CERT_CreateCertificateRequest(subject, spki, NULL);
         if (!cr) {
             PR_fprintf(PR_STDERR, "unable to make certificate request
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1404,7 +1400,7 @@ Usage:  %s %s
                                       SEC_ASN1_GET(CERT_CertificateRequestTemplate));
         if (encoding == NULL) {
             PR_fprintf(PR_STDERR, "der encoding of request failed
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1413,7 +1409,7 @@ Usage:  %s %s
         signAlgTag = SEC_GetSignatureAlgorithmOidTag(keyType, hashAlgTag);
         if (signAlgTag == SEC_OID_UNKNOWN) {
             PR_fprintf(PR_STDERR, "unknown Key or Hash type
-");
+   ");
             rv = SECFailure;
         goto cleanup;
         }
@@ -1421,7 +1417,7 @@ Usage:  %s %s
                              privk, signAlgTag);
         if (rv) {
             PR_fprintf(PR_STDERR, "signing of data failed
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1461,36 +1457,36 @@ Usage:  %s %s
 
            PR_fprintf(outFile,
                        "
-Certificate request generated by Netscape certutil
-");
+   Certificate request generated by Netscape certutil
+   ");
             PR_fprintf(outFile, "Common Name: %s
-", name);
+   ", name);
             PR_fprintf(outFile, "Email: %s
-", email);
+   ", email);
             PR_fprintf(outFile, "Organization: %s
-", org);
+   ", org);
             PR_fprintf(outFile, "State: %s
-", state);
+   ", state);
             PR_fprintf(outFile, "Country: %s
 
-", country);
+   ", country);
 
            PR_fprintf(outFile, "%s
-", NS_CERTREQ_HEADER);
+   ", NS_CERTREQ_HEADER);
             numBytes = PR_Write(outFile, obuf, total);
             if (numBytes != total) {
                 PR_fprintf(PR_STDERR, "write error
-");
+   ");
                 return SECFailure;
             }
             PR_fprintf(outFile, "
-%s
-", NS_CERTREQ_TRAILER);
+   %s
+   ", NS_CERTREQ_TRAILER);
         } else {
             numBytes = PR_Write(outFile, result.data, result.len);
             if (numBytes != (int)result.len) {
                 PR_fprintf(PR_STDERR, "write error
-");
+   ");
                 rv = SECFailure;
                 goto cleanup;
             }
@@ -1530,7 +1526,7 @@ Certificate request generated by Netscape certutil
                                      &pubkey, NULL, pwdata);
         if (privkey == NULL) {
             PR_fprintf(PR_STDERR, "unable to generate key(s)
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1541,7 +1537,7 @@ Certificate request generated by Netscape certutil
         
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Failed to create Certificate Request
-");
+   ");
         }
     cleanup:
         return rv;
@@ -1573,7 +1569,7 @@ Certificate request generated by Netscape certutil
                             serialNumber, 0, 3, NULL, ascii, selfsign);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Failed to create Certificate
-");
+   ");
                 goto cleanup;
             }
         }
@@ -1581,7 +1577,7 @@ Certificate request generated by Netscape certutil
                      trustStr, certFileName, ascii, 0, &pwdata);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Failed to add Certificate
-");
+   ");
         }
     cleanup:
         return rv;
@@ -1611,7 +1607,7 @@ Certificate request generated by Netscape certutil
         if (!headerFile) {
             PR_fprintf(PR_STDERR,
             "unable to open \"%s\" for writing (%ld, %ld).
-",
+   ",
             headerFileName, PR_GetError(), PR_GetOSError());
             rv = SECFailure;
             goto cleanup;
@@ -1619,7 +1615,7 @@ Certificate request generated by Netscape certutil
         cert = CERT_FindCertByNicknameOrEmailAddr(certHandle, nickNameStr);
         if (!cert) {
             PR_fprintf(PR_STDERR, "could not obtain certificate from file
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1672,14 +1668,14 @@ Certificate request generated by Netscape certutil
         rv = ReadFromHeaderFile(headerFileName, CERTENC, &data, PR_TRUE);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not read certificate from header file
-");
+   ");
             goto cleanup;
         }
         /* Read in an ASCII cert and return a CERTCertificate */
         cert = CERT_DecodeCertFromPackage((char *)data.data, data.len);
         if (!cert) {
             PR_fprintf(PR_STDERR, "could not obtain certificate from file
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1687,7 +1683,7 @@ Certificate request generated by Netscape certutil
         pubkey = CERT_ExtractPublicKey(cert);
         if (!pubkey) {
             PR_fprintf(PR_STDERR, "could not get key from certificate
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1698,7 +1694,7 @@ Certificate request generated by Netscape certutil
         if (!encFile) {
             PR_fprintf(PR_STDERR,
                        "Unable to open \"%s\" for writing.
-",
+   ",
                        encryptedFileName);
             rv = SECFailure;
             goto cleanup;
@@ -1708,7 +1704,7 @@ Certificate request generated by Netscape certutil
         inFile = PR_Open(inFileName, PR_RDONLY, 0);
         if (!inFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                        inFileName);
             rv = SECFailure;
             goto cleanup;
@@ -1718,7 +1714,7 @@ Certificate request generated by Netscape certutil
         headerFile = PR_Open(headerFileName, PR_CREATE_FILE | PR_RDWR | PR_APPEND, 00660);
         if (!headerFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for writing.
-",
+   ",
                        headerFileName);
             rv = SECFailure;
             goto cleanup;
@@ -1787,7 +1783,7 @@ Certificate request generated by Netscape certutil
         headerFile = PR_Open(headerFileName, PR_CREATE_FILE | PR_RDWR | PR_APPEND, 00660);
         if (!headerFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for writing.
-",
+   ",
                        headerFileName);
             rv = SECFailure;
             goto cleanup;
@@ -1797,7 +1793,7 @@ Certificate request generated by Netscape certutil
         cert = CERT_FindCertByNicknameOrEmailAddr(certHandle, nickNameStr);
         if (!cert) {
             PR_fprintf(PR_STDERR, "could not obtain certificate by name - %s
-", nickNameStr);
+   ", nickNameStr);
             rv = SECFailure;
             goto cleanup;
         }
@@ -1808,7 +1804,7 @@ Certificate request generated by Netscape certutil
         privkey = PK11_FindKeyByAnyCert(cert, NULL);
         if (privkey == NULL) {
             fprintf(stderr, "Couldn't find private key for cert
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1817,7 +1813,7 @@ Certificate request generated by Netscape certutil
         rv = SignData(inFileName, privkey, &sigItem);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "could not sign the contents from file - %s 
-", inFileName);
+   ", inFileName);
             goto cleanup;
         }
 
@@ -1860,7 +1856,7 @@ Certificate request generated by Netscape certutil
         if (!inFile) {
             PR_fprintf(PR_STDERR,
                        "Unable to open \"%s\" for reading.
-",
+   ",
                        inFileName);
             rv = SECFailure;
             goto cleanup;
@@ -1870,7 +1866,7 @@ Certificate request generated by Netscape certutil
         headerFile = PR_Open(headerFileName, PR_RDONLY, 0);
         if (!headerFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for writing.
-",
+   ",
                        headerFileName);
             rv = SECFailure;
             goto cleanup;
@@ -1880,7 +1876,7 @@ Certificate request generated by Netscape certutil
         rv = ReadFromHeaderFile(headerFileName, CERTVFY, &certData, PR_TRUE);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not read certificate from header file
-");
+   ");
             goto cleanup;
         }
 
@@ -1888,7 +1884,7 @@ Certificate request generated by Netscape certutil
         cert = CERT_DecodeCertFromPackage((char *)certData.data, certData.len);
         if (!cert) {
             PR_fprintf(PR_STDERR, "could not obtain certificate from file
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1897,7 +1893,7 @@ Certificate request generated by Netscape certutil
         pubkey = CERT_ExtractPublicKey(cert);
         if (!pubkey) {
             PR_fprintf(PR_STDERR, "Could not get key from certificate
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1906,7 +1902,7 @@ Certificate request generated by Netscape certutil
         rv = ReadFromHeaderFile(headerFileName, SIG, &sigItem, PR_TRUE);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not read signature from header file
-");
+   ");
             goto cleanup;
         }
             
@@ -1914,7 +1910,7 @@ Certificate request generated by Netscape certutil
         rv = VerifyData(inFileName, pubkey, &sigItem, pwdata);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Couldn't verify the signature for file - %s
-", inFileName);
+   ", inFileName);
             goto cleanup;
         }
 
@@ -1962,7 +1958,7 @@ Certificate request generated by Netscape certutil
         rv = ReadFromHeaderFile(headerFileName, CERTENC, &data, PR_TRUE);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not read certificate from header file
-");
+   ");
             goto cleanup;
         }
 
@@ -1971,7 +1967,7 @@ Certificate request generated by Netscape certutil
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR,
                     "Could not retrieve PAD detail from header file
-");
+   ");
             goto cleanup;
         }
         paddingLength = (unsigned int)padItem.data[0];
@@ -1981,7 +1977,7 @@ Certificate request generated by Netscape certutil
         cert = CERT_DecodeCertFromPackage((char *)data.data, data.len);
         if (!cert) {
             PR_fprintf(PR_STDERR, "could not obtain certificate from file
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -1990,7 +1986,7 @@ Certificate request generated by Netscape certutil
         pvtkey = PK11_FindKeyByAnyCert(cert, NULL);
         if (pvtkey == NULL) {
             fprintf(stderr, "Couldn't find private key for cert
-");
+   ");
             rv = SECFailure;
             goto cleanup;
         }
@@ -2000,7 +1996,7 @@ Certificate request generated by Netscape certutil
                           PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR, 00660);
         if (!outFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for writing.
-",
+   ",
                        outFileName);
             rv = SECFailure;
             goto cleanup;
@@ -2009,7 +2005,7 @@ Certificate request generated by Netscape certutil
         encFile = PR_Open(encryptedFileName, PR_RDONLY, 0);
         if (!encFile) {
             PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                        encryptedFileName);
             rv = SECFailure;
             goto cleanup;
@@ -2020,7 +2016,7 @@ Certificate request generated by Netscape certutil
             rv = PK11_PubDecryptRaw(pvtkey, decBuf, &decBufLen, sizeof(decBuf), ctext, ctextLen);
             if (rv != SECSuccess) {
                 fprintf(stderr, "Couldn't decrypt
-");
+   ");
                 goto cleanup;
             }
             if (decBufLen == 0) {
@@ -2033,7 +2029,7 @@ Certificate request generated by Netscape certutil
             temp = PR_Write(outFile, decBuf, decBufLen);
             if (temp != decBufLen) {
                 PR_fprintf(PR_STDERR, "write error
-");
+   ");
                 rv = SECFailure;
                 break;
             }
@@ -2209,7 +2205,7 @@ Certificate request generated by Netscape certutil
         rv = NSS_InitReadWrite(dbdir);
         if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed
-");
+   ");
             goto cleanup;
         }
 
@@ -2219,7 +2215,7 @@ Certificate request generated by Netscape certutil
             rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-",
+   ",
                            PK11_GetTokenName(slot));
                 goto cleanup;
             }
@@ -2234,7 +2230,7 @@ Certificate request generated by Netscape certutil
                                    certReqFileName, ascii);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Create Certificate Request: Failed
-");
+   ");
                 goto cleanup;
             }
             break;
@@ -2248,7 +2244,7 @@ Certificate request generated by Netscape certutil
                                     trustStr, serialNumber, selfsign, ascii);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Add Certificate to DB: Failed
-");
+   ");
                  goto cleanup;
             }
             break;
@@ -2258,7 +2254,7 @@ Certificate request generated by Netscape certutil
             rv = AddCertificateToHeader(slot, &pwdata, headerFileName, certHandle, nickNameStr, sigVerify);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Saving Certificate to header: Failed
-");
+   ");
                 goto cleanup;
             }
             break;
@@ -2268,7 +2264,7 @@ Certificate request generated by Netscape certutil
             rv = FindKeyAndEncrypt(slot, &pwdata, headerFileName, encryptedFileName, inFileName);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Find public key and Encrypt : Failed
-");
+   ");
                 goto cleanup;
             }
             break;
@@ -2278,7 +2274,7 @@ Certificate request generated by Netscape certutil
             rv = FindKeyAndSign(slot, certHandle, &pwdata, nickNameStr, headerFileName, inFileName);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Find private key and sign : Failed
-");
+   ");
                 goto cleanup;
             }
             break;
@@ -2288,7 +2284,7 @@ Certificate request generated by Netscape certutil
             rv = FindKeyAndDecrypt(slot, &pwdata, headerFileName, encryptedFileName, outFileName);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Find private key and Decrypt : Failed
-");
+   ");
             }
             break;
         case VERIFY:
@@ -2297,7 +2293,7 @@ Certificate request generated by Netscape certutil
             rv = FindKeyAndVerify(slot, certHandle, &pwdata, headerFileName, inFileName);
             if (rv != SECSuccess) {
                 PR_fprintf(PR_STDERR, "Find public key and verify signature : Failed
-");
+   ");
                 goto cleanup;
             }
         }

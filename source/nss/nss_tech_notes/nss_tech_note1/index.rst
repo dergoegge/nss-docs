@@ -1,9 +1,6 @@
 ==============
 nss tech note1
 ==============
---- title: nss tech note1 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note1 ---
-
 .. _How_to_use_the_NSS_ASN.1_and_QuickDER_decoders:
 
 How to use the NSS ASN.1 and QuickDER decoders

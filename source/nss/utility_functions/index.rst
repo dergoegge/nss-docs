@@ -1,9 +1,6 @@
 =================
 Utility functions
 =================
---- title: Utility functions slug:
-Mozilla/Projects/NSS/Utility_functions tags: - NSS ---
-
 The public functions listed here perform initialization tasks and other
 services.
 

@@ -1,9 +1,6 @@
 =================
 NSS Code Coverage
 =================
---- title: NSS Code Coverage slug: Mozilla/Projects/NSS/Code_Coverage
-tags: - NSS ---
-
 .. _NSS_-_Code_Coverage:
 
 NSS - Code Coverage

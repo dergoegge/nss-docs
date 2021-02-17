@@ -1,10 +1,6 @@
 ==============================================
 NSS Sample Code Sample_2_Initialization of NSS
 ==============================================
---- title: NSS Sample Code Sample_2_Initialization of NSS slug: >-
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_Sample_2_Initialization_of_NSS
-tags: - Examples - NSS - Security ---
-
 .. _NSS_Sample_Code_2_Initializing_NSS:
 
 NSS Sample Code 2: Initializing NSS
@@ -35,22 +31,22 @@ Sample Code 1
    static void Usage(const char *progName)
    {
        fprintf(stderr, "
-Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
+   Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
                        " [-f <passwdffile>]
 
-",
+   ",
                        progName);
        fprintf(stderr, "%-15s Specify a DB directory path
 
-",
+   ",
                 "-d <dbdirpath>");
        fprintf(stderr, "%-15s Specify a plaintext password
 
-",
+   ",
                 "-p <plainpasswc>");
        fprintf(stderr, "%-15s Specify a password file
 
-",
+   ",
                 "-f <plainpasswc>");
        exit(-1);
    }
@@ -75,24 +71,24 @@ Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
       input = fopen("/dev/tty", "r");
       if (input == NULL) {
           PR_fprintf(PR_STDERR, "Error opening input terminal for read
-");
+   ");
           return NULL;
       }
 
       /* we have no password, so initialize database with one */
       PR_fprintf(PR_STDERR,
           "Enter a password which will be used to encrypt your keys.
-"
+   "
           "The password should be at least 8 characters long,
-"
+   "
           "and should contain at least one non-alphabetic character.
 
-");
+   ");
 
       output = fopen("/dev/tty", "w");
       if (output == NULL) {
           PR_fprintf(PR_STDERR, "Error opening output terminal for write
-");
+   ");
           return NULL;
       }
 
@@ -109,7 +105,7 @@ Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
               break;
           }
           PR_fprintf(PR_STDERR, "Passwords do not match. Try again.
-");
+   ");
       }
 
       /* clear out the duplicate password string */
@@ -166,10 +162,10 @@ Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
                if (PK11_CheckUserPassword(slot, oldpw) != SECSuccess) {
                    if (pwdata.source == PW_NONE) {
                        PR_fprintf(PR_STDERR, "Invalid password.  Try again.
-");
+   ");
                    } else {
                        PR_fprintf(PR_STDERR, "Invalid password.
-");
+   ");
                        PORT_Memset(oldpw, 0, PL_strlen(oldpw));
                        PORT_Free(oldpw);
                        return SECFailure;
@@ -183,13 +179,13 @@ Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
 
            if (PK11_ChangePW(slot, oldpw, newpw) != SECSuccess) {
                PR_fprintf(PR_STDERR, "Failed to change password.
-");
+   ");
                return SECFailure;
            }
            PORT_Memset(oldpw, 0, PL_strlen(oldpw));
            PORT_Free(oldpw);
            PR_fprintf(PR_STDOUT, "Password changed successfully.
-");
+   ");
        }
        PORT_Memset(newpw, 0, PL_strlen(newpw));
        PORT_Free(newpw);
@@ -257,7 +253,7 @@ Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
        rv = ChangePW(slot, plainPass, 0, pwFile, 0);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Failed to change password
-");
+   ");
        }
 
        if (slot) {
@@ -266,7 +262,7 @@ Usage:  %s -d <dbdirpath> [-p <plainpasswc>]"
        rvShutdown = NSS_Shutdown();
        if (rvShutdown != SECSuccess) {
            PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()
-");
+   ");
            rv = SECFailure;
        }
 

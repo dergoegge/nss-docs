@@ -1,9 +1,6 @@
 ======================
 FC_DecryptVerifyUpdate
 ======================
---- title: FC_DecryptVerifyUpdate slug:
-Mozilla/Projects/NSS/Reference/FC_DecryptVerifyUpdate tags: - NSS ---
-
 .. _Name:
 
 Name

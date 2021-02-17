@@ -1,10 +1,6 @@
 ==================
 Installation guide
 ==================
---- title: Installation guide slug:
-Mozilla/Projects/NSS/Reference/Building_and_installing_NSS/Installation_guide
-tags: - NSS ---
-
 The build system of NSS originated from Netscape's build system, which
 predated the "configure; make; make test; make install" sequence that
 we're familiar with now. Our makefiles also have an "install" target,

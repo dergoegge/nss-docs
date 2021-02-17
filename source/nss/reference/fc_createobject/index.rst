@@ -1,9 +1,6 @@
 ===============
 FC_CreateObject
 ===============
---- title: FC_CreateObject slug:
-Mozilla/Projects/NSS/Reference/FC_CreateObject tags: - NSS ---
-
 .. _Name:
 
 Name

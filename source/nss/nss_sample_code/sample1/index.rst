@@ -1,9 +1,6 @@
 =======
 sample1
 =======
---- title: sample1 slug: Mozilla/Projects/NSS/NSS_Sample_Code/sample1
-tags: - Example - NSS ---
-
 1. A program to compute the hash of a file and save it to another file.
 
 .. code:: brush:
@@ -57,7 +54,7 @@ tags: - Example - NSS ---
     static void Newline(PRFileDesc* out)
     {
         PR_fprintf(out, "
-");
+   ");
     }
 
     /*  PrintAsHex  */
@@ -71,7 +68,7 @@ tags: - Example - NSS ---
         column = level;
         if (!len) {
             PR_fprintf(out, "(empty)
-");
+   ");
             return;
         }
 
@@ -103,9 +100,9 @@ tags: - Example - NSS ---
         int HASH_AlgTOTAL = sizeof(HASH_NAMES) / sizeof(HASH_NAMES[0]);
 
         fprintf(stderr, "Usage:  %s -t type [ < input ] [ > output ]
-", progName);
+   ", progName);
         fprintf(stderr, "%-20s Specify the digest method (must be one of
-",
+   ",
                 "-t type");
         fprintf(stderr, "%-20s ", "");
         for (htype = 0; htype < HASH_AlgTOTAL; htype++) {
@@ -116,12 +113,12 @@ tags: - Example - NSS ---
                 fprintf(stderr, ", ");
         }
         fprintf(stderr, " (case ignored))
-");
+   ");
         fprintf(stderr, "%-20s Define an input file to use (default is stdin)
-",
+   ",
                 "< input");
         fprintf(stderr, "%-20s Define an output file to use (default is stdout)
-",
+   ",
                 "> output");
         exit(-1);
     }
@@ -131,7 +128,7 @@ tags: - Example - NSS ---
     PrintMsgAndExit(const char *progName, char opt)
     {
         fprintf(stderr, "%s: option -%c requires an argument
-", progName, opt);
+   ", progName, opt);
         Usage(progName);
     }
 
@@ -199,7 +196,7 @@ tags: - Example - NSS ---
         rv = NSS_NoDB_Init("/tmp");
         if (rv != SECSuccess) {
             fprintf(stderr, "%s: NSS_Init failed in directory %s
-", progName, "/tmp");
+   ", progName, "/tmp");
             return -1;
         }
 
@@ -221,7 +218,7 @@ tags: - Example - NSS ---
         hashOIDTag = HashNameToOIDTag(hashName);
         if (hashOIDTag == SEC_OID_UNKNOWN) {
             fprintf(stderr, "%s: invalid digest type - %s
-", progName, hashName);
+   ", progName, hashName);
             Usage(progName);
         }
 
@@ -229,7 +226,7 @@ tags: - Example - NSS ---
         rv = DigestFile(PR_STDOUT, PR_STDIN, hashOIDTag);
         if (rv != SECSuccess) {
             fprintf(stderr, "%s: problem digesting data (%d)
-", progName, PORT_GetError());
+   ", progName, PORT_GetError());
         }
 
         rv = NSS_Shutdown();

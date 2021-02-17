@@ -1,9 +1,6 @@
 =================
 PKCS 12 functions
 =================
---- title: PKCS 12 functions slug:
-Mozilla/Projects/NSS/PKCS_12_functions tags: - NSS ---
-
 The public functions listed here perform PKCS #12 operations required by
 some of the NSS tools and other applications.
 

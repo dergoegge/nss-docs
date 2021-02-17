@@ -1,9 +1,6 @@
 ==============
 nss tech note5
 ==============
---- title: nss tech note5 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note5 ---
-
 .. _Using_NSS_to_perform_miscellaneous_cryptographic_operations:
 
 Using NSS to perform miscellaneous cryptographic operations

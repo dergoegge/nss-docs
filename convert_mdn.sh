@@ -48,15 +48,17 @@ convert_file() {
     html_file_name=${html_file_name%.*}
     # output file name
     local rst_file="$DST_DIR/$html_file_name.rst"
-#    echo "$html_file -> $rst_file"
+   #echo "$html_file -> $rst_file"
 
+    local top_yaml="$(cat $html_file | awk '/</ {exit} {print}' | sed 's/---//g')"
+	local html_content="$(cat $html_file | awk '/</,EOF')"
     # Convert the html file to rst.
-    local rst_content=$(cat $html_file | pandoc --from html --to rst)
+    local rst_content=$(echo "$html_content" | pandoc --from html --to rst)
 
     rst_content="$(replace_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
-    local title="$(get_file_title "$rst_content")"
+	local title="$(echo "$top_yaml" | shyaml get-value title)"
     rst_content="$(print_rst_title "$title")\n$rst_content"
     
     mkdir -p "$(dirname $rst_file)"
@@ -66,6 +68,14 @@ convert_file() {
 echo "Converting files in $MDN_DIR"
 for html_file in $(find $MDN_DIR -type f -name '*.html'); do
     [ -e "$html_file" ] || continue
-    convert_file $html_file
+    convert_file $html_file &
+done
+
+wait
+
+echo "Checking rst syntax"
+for rst_file in $(find $DST_DIR -type f -name '*.rst'); do
+    [ -e "$html_file" ] || continue
+	rstcheck --report warning $rst_file
 done
 #convert_file "$MDN_DIR/http_delegation_clone/index.html"

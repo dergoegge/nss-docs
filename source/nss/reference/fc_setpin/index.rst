@@ -1,9 +1,6 @@
 =========
 FC_SetPIN
 =========
---- title: FC_SetPIN slug: Mozilla/Projects/NSS/Reference/FC_SetPIN
-tags: - NSS ---
-
 .. _Name:
 
 Name

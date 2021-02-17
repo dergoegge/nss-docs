@@ -1,9 +1,6 @@
-======================
-'NSS tools : certutil'
-======================
---- title: 'NSS tools : certutil' slug:
-'Mozilla/Projects/NSS/Reference/NSS_tools_:_certutil' ---
-
+====================
+NSS tools : certutil
+====================
 | Name
 |    certutil — Manage keys and certificate in both NSS databases and
   other NSS tokens

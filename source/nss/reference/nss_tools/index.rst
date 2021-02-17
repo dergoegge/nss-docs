@@ -1,9 +1,6 @@
 ======================================
 NSS Tools Man Pages - work in progress
 ======================================
---- title: NSS Tools Man Pages - work in progress slug:
-Mozilla/Projects/NSS/Reference/NSS_tools ---
-
 certutil `certutil </en-US/NSS_reference/NSS_tools_:_certutil>`__
 
 pk12util `pk12util </en-US/NSS_reference/NSS_tools_:_pk12util>`__

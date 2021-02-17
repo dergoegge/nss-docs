@@ -1,11 +1,6 @@
 ==========================
 PKCS11 module installation
 ==========================
---- title: PKCS11 module installation slug:
-Mozilla/Projects/NSS/PKCS11/Module_Installation tags: - Authentication -
-Biometric - Mozilla - NSS - 'PKCS #11' - Projects - Security - Smart
-Card - Smart-card - Smartcard - pkcs11 ---
-
 `PKCS #11 </en-US/PKCS11>`__ modules are external modules which add to
 Firefox support for smartcard readers, biometric security devices, and
 external certificate stores. This article covers the two methods for

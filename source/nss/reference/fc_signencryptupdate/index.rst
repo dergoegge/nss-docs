@@ -1,9 +1,6 @@
 ====================
 FC_SignEncryptUpdate
 ====================
---- title: FC_SignEncryptUpdate slug:
-Mozilla/Projects/NSS/Reference/FC_SignEncryptUpdate tags: - NSS ---
-
 .. _Name:
 
 Name

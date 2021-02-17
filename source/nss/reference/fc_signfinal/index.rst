@@ -1,9 +1,6 @@
 ============
 FC_SignFinal
 ============
---- title: FC_SignFinal slug:
-Mozilla/Projects/NSS/Reference/FC_SignFinal tags: - NSS ---
-
 .. _Name:
 
 Name

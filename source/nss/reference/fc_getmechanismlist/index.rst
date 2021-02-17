@@ -1,9 +1,6 @@
 ===================
 FC_GetMechanismList
 ===================
---- title: FC_GetMechanismList slug:
-Mozilla/Projects/NSS/Reference/FC_GetMechanismList tags: - NSS ---
-
 .. _Name:
 
 Name

@@ -1,10 +1,6 @@
 ==================
 Hashing - sample 1
 ==================
---- title: Hashing - sample 1 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/Sample1_-_Hashing tags: - HTML -
-Hashing Sample - JavaScript - NSS - Web Development - hashing ---
-
 .. _NSS_sample_code_1_hashing.:
 
 NSS sample code 1: hashing.
@@ -71,7 +67,7 @@ another file, this illustrates the use of NSS message APIs.
    Newline(PRFileDesc* out)
    {
        PR_fprintf(out, "
-");
+   ");
    }
 
    /*
@@ -88,7 +84,7 @@ another file, this illustrates the use of NSS message APIs.
        column = level;
        if (!len) {
            PR_fprintf(out, "(empty)
-");
+   ");
            return;
        }
 
@@ -123,9 +119,9 @@ another file, this illustrates the use of NSS message APIs.
        int HASH_AlgTOTAL = sizeof(HASH_NAMES) / sizeof(HASH_NAMES[0]);
 
        fprintf(stderr, "Usage:  %s -t type [ < input ] [ > output ]
-", progName);
+   ", progName);
        fprintf(stderr, "%-20s Specify the digest method (must be one of
-",
+   ",
                "-t type");
        fprintf(stderr, "%-20s ", "");
        for (htype = 0; htype < HASH_AlgTOTAL; htype++) {
@@ -136,12 +132,12 @@ another file, this illustrates the use of NSS message APIs.
                fprintf(stderr, ", ");
        }
        fprintf(stderr, " (case ignored))
-");
+   ");
        fprintf(stderr, "%-20s Define an input file to use (default is stdin)
-",
+   ",
                "< input");
        fprintf(stderr, "%-20s Define an output file to use (default is stdout)
-",
+   ",
                "> output");
        exit(-1);
    }
@@ -153,7 +149,7 @@ another file, this illustrates the use of NSS message APIs.
    PrintMsgAndExit(const char *progName, char opt)
    {
        fprintf(stderr, "%s: option -%c requires an argument
-", progName, opt);
+   ", progName, opt);
        Usage(progName);
    }
 
@@ -224,7 +220,7 @@ another file, this illustrates the use of NSS message APIs.
        rv = NSS_NoDB_Init("/tmp");
        if (rv != SECSuccess) {
            fprintf(stderr, "%s: NSS_Init failed in directory %s
-",
+   ",
                    progName, "/tmp");
            return -1;
        }
@@ -247,7 +243,7 @@ another file, this illustrates the use of NSS message APIs.
        hashOIDTag = HashNameToOIDTag(hashName);
        if (hashOIDTag == SEC_OID_UNKNOWN) {
            fprintf(stderr, "%s: invalid digest type - %s
-", progName, hashName);
+   ", progName, hashName);
            Usage(progName);
        }
 
@@ -255,7 +251,7 @@ another file, this illustrates the use of NSS message APIs.
        rv = DigestFile(PR_STDOUT, PR_STDIN, hashOIDTag);
        if (rv != SECSuccess) {
            fprintf(stderr, "%s: problem digesting data (%d)
-",
+   ",
                    progName, PORT_GetError());
        }
 

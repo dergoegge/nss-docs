@@ -1,9 +1,6 @@
 ==========================
 NSS release notes template
 ==========================
---- title: NSS release notes template slug:
-Mozilla/Projects/NSS/NSS_release_notes_template ---
-
 .. _DRAFT_(remove_line_when_document_is_finished):
 
 *DRAFT (remove line when document is finished)*

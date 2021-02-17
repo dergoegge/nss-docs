@@ -1,9 +1,6 @@
 ==============
 NSPR functions
 ==============
---- title: NSPR functions slug:
-Mozilla/Projects/NSS/Reference/NSPR_functions ---
-
 `NSPR <https://www.mozilla.org/projects/nspr/>`__ is a platform
 abstraction library that provides a cross-platform API to common OS
 services.  NSS uses NSPR internally as the porting layer.  However, a

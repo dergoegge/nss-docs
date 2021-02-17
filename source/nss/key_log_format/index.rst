@@ -1,9 +1,6 @@
 ==================
 NSS Key Log Format
 ==================
---- title: NSS Key Log Format slug: Mozilla/Projects/NSS/Key_Log_Format
----
-
 Key logs can be written by NSS so that external programs can decrypt TLS
 connections. Wireshark 1.6.0 and above can use these log files to
 decrypt packets. You can tell Wireshark where to find the key file via

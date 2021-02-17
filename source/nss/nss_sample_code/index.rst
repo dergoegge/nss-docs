@@ -1,9 +1,6 @@
 ===============
 NSS Sample Code
 ===============
---- title: NSS Sample Code slug: Mozilla/Projects/NSS/NSS_Sample_Code
-tags: - Example ---
-
 .. _NSS_Sample_Code:
 
 NSS Sample Code

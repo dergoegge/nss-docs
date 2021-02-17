@@ -1,8 +1,6 @@
 ======
 sslcrt
 ======
---- title: sslcrt slug: Mozilla/Projects/NSS/SSL_functions/sslcrt ---
-
 .. note::
 
    -  This page is part of the `SSL

@@ -1,10 +1,6 @@
 =========================================
 Notes on TLS - SSL 3.0 Intolerant Servers
 =========================================
---- title: Notes on TLS - SSL 3.0 Intolerant Servers slug:
-Mozilla/Projects/NSS/Notes_on_TLS_-_SSL_3.0_Intolerant_Servers tags: -
-Gecko - NSS - Security ---
-
 .. _Problem:
 
 Problem

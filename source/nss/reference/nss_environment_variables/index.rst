@@ -1,9 +1,6 @@
 =========================
 NSS environment variables
 =========================
---- title: NSS environment variables slug:
-Mozilla/Projects/NSS/Reference/NSS_environment_variables tags: - NSS ---
-
 .. note::
 
    **Note: NSS Environment Variables are subject to be changed and/or

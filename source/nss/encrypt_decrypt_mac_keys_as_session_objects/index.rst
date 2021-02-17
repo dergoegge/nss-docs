@@ -1,10 +1,6 @@
 ===========================================
 Encrypt Decrypt MAC Keys As Session Objects
 ===========================================
---- title: Encrypt Decrypt MAC Keys As Session Objects slug:
-Mozilla/Projects/NSS/Encrypt_Decrypt_MAC_Keys_As_Session_Objects tags: -
-Decrypt - Encryption - Example - NSS - Sample code ---
-
 .. _NSS_Sample_Code_4_EncryptionDecryption_and_MAC_Keys_Using_Session.:
 
 NSS Sample Code 4: Encryption/Decryption and MAC Keys Using Session.
@@ -75,56 +71,56 @@ Generates encryption/mac keys and uses session objects.
    Usage(const char *progName)
    {
        fprintf(stderr, "
-Usage:  %s -c  -d  [-z ] "
+   Usage:  %s -c  -d  [-z ] "
                "[-p  | -f ] -i  -o 
 
-",
+   ",
                progName);
        fprintf(stderr, "%-20s  Specify 'a' for encrypt operation
 
-",
+   ",
                 "-c ");
        fprintf(stderr, "%-20s  Specify 'b' for decrypt operation
 
-",
+   ",
                 " ");
        fprintf(stderr, "%-20s  Specify db directory path
 
-",
+   ",
                 "-d ");
        fprintf(stderr, "%-20s  Specify db password [optional]
 
-",
+   ",
                 "-p ");
        fprintf(stderr, "%-20s  Specify db password file [optional]
 
-",
+   ",
                 "-f ");
        fprintf(stderr, "%-20s  Specify noise file name [optional]
 
-",
+   ",
                 "-z ");
        fprintf(stderr, "%-21s Specify an input file name
 
-",
+   ",
                 "-i ");
        fprintf(stderr, "%-21s Specify an output file name
 
-",
+   ",
                 "-o ");
        fprintf(stderr, "%-7s For encrypt, it takes  as an input file and produces
-",
+   ",
                 "Note :");
        fprintf(stderr, "%-7s .enc and .header as intermediate output files.
 
-",
+   ",
                 "");
        fprintf(stderr, "%-7s For decrypt, it takes .enc and .header
-",
+   ",
                 "");
        fprintf(stderr, "%-7s as input files and produces  as a final output file.
 
-",
+   ",
                 "");
        exit(-1);
    }
@@ -138,9 +134,9 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_ReadRawAttribute(PK11_TypeSymKey, key, CKA_ID, buf);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "PK11_ReadRawAttribute returned (%d)
-", rv);
+   ", rv);
            PR_fprintf(PR_STDERR, "Could not read SymKey CKA_ID attribute
-");
+   ");
            return rv;
        }
        return rv;
@@ -160,7 +156,7 @@ Usage:  %s -c  -d  [-z ] "
            rv = PK11_Authenticate(slot, PR_TRUE, pwdata);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-",
+   ",
                           PK11_GetTokenName(slot));
                return NULL;
            }
@@ -172,7 +168,7 @@ Usage:  %s -c  -d  [-z ] "
 
        if (!key) {
            PR_fprintf(PR_STDERR, "Symmetric Key Generation Failed 
-");
+   ");
        }
 
        return key;
@@ -187,7 +183,7 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_DigestBegin(ctx);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestBegin()
-");
+   ");
        }
        return rv;
    }
@@ -202,7 +198,7 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_DigestOp(ctx, msg, msgLen);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Compute MAC Failed : DigestOp()
-");
+   ");
        }
        return rv;
    }
@@ -217,7 +213,7 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_DigestFinal(ctx, mac, macLen, maxLen);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestFinal()
-");
+   ");
        }
        return SECSuccess;
    }
@@ -275,11 +271,11 @@ Usage:  %s -c  -d  [-z ] "
        }
 
        PR_fprintf(outFile, "%s
-", header);
+   ", header);
        PrintAsHex(outFile, buf, len);
        PR_fprintf(outFile, "%s
 
-", trailer);
+   ", trailer);
        return SECSuccess;
    }
 
@@ -297,13 +293,13 @@ Usage:  %s -c  -d  [-z ] "
        SECItem *secParam = PK11_ParamFromIV(CKM_AES_CBC, &ivItem);
        if (secParam == NULL) {
            PR_fprintf(PR_STDERR, "Crypt Failed : secParam NULL
-");
+   ");
            return NULL;
        }
        ctx = PK11_CreateContextBySymKey(CKM_AES_CBC, operation, key, secParam);
        if (ctx == NULL) {
            PR_fprintf(PR_STDERR, "Crypt Failed : can't create a context
-");
+   ");
            goto cleanup;
 
        }
@@ -327,7 +323,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = PK11_CipherOp(ctx, out, outLen, maxOut, in, inLen);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Crypt Failed : PK11_CipherOp returned %d
-", rv);
+   ", rv);
            goto cleanup;
        }
 
@@ -400,7 +396,7 @@ Usage:  %s -c  -d  [-z ] "
        file = PR_Open(fileName, PR_RDONLY, 0);
        if (!file) {
            PR_fprintf(PR_STDERR, "Failed to open %s
-", fileName);
+   ", fileName);
            return SECFailure;
        }
        switch (type) {
@@ -430,7 +426,7 @@ Usage:  %s -c  -d  [-z ] "
        nonbody = (char *)filedata.data;
        if (!nonbody) {
            PR_fprintf(PR_STDERR, "unable to read data from input file
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -440,16 +436,16 @@ Usage:  %s -c  -d  [-z ] "
            char *trail = NULL;
            nonbody = body;
            body = PORT_Strchr(body, '
-');
+   ');
            if (!body)
-               body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
+               body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
                *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
-");
+   ");
                PORT_Free(filedata.data);
                return SECFailure;
            }
@@ -496,7 +492,7 @@ Usage:  %s -c  -d  [-z ] "
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
            PR_fprintf(PR_STDERR, "Can't create MAC context
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -523,7 +519,7 @@ Usage:  %s -c  -d  [-z ] "
                    ptext, ptextLen);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Encrypt Failure
-");
+   ");
                goto cleanup;
            }
 
@@ -541,19 +537,19 @@ Usage:  %s -c  -d  [-z ] "
        rv = MacFinal(ctxmac, mac, &macLen, DIGESTSIZE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "MacFinal Failure
-");
+   ");
            goto cleanup;
        }
        if (macLen == 0) {
            PR_fprintf(PR_STDERR, "Bad MAC length
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
        WriteToHeaderFile(mac, macLen, MAC, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Write MAC Failure
-");
+   ");
            goto cleanup;
        }
 
@@ -565,7 +561,7 @@ Usage:  %s -c  -d  [-z ] "
        WriteToHeaderFile(padItem.data, padItem.len, PAD, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Write PAD Failure
-");
+   ");
            goto cleanup;
        }
 
@@ -598,7 +594,7 @@ Usage:  %s -c  -d  [-z ] "
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR,
                           "Could not authenticate to token %s.
-",
+   ",
                           PK11_GetTokenName(slot));
                if (slot) {
                    PK11_FreeSlot(slot);
@@ -611,7 +607,7 @@ Usage:  %s -c  -d  [-z ] "
        if (!key) {
            PR_fprintf(PR_STDERR,
                       "PK11_FindFixedKey failed (err %d)
-",
+   ",
                       PR_GetError());
            PK11_FreeSlot(slot);
            return NULL;
@@ -661,7 +657,7 @@ Usage:  %s -c  -d  [-z ] "
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
            PR_fprintf(PR_STDERR, "Can't create MAC context
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -671,7 +667,7 @@ Usage:  %s -c  -d  [-z ] "
        if (!inFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       encryptedFileName);
            return SECFailure;
        }
@@ -681,7 +677,7 @@ Usage:  %s -c  -d  [-z ] "
        if (!outFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       outFileName);
            return SECFailure;
        }
@@ -703,7 +699,7 @@ Usage:  %s -c  -d  [-z ] "
 
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Decrypt Failure
-");
+   ");
                goto cleanup;
            }
 
@@ -719,7 +715,7 @@ Usage:  %s -c  -d  [-z ] "
            temp = PR_Write(outFile, decbuf, decbufLen);
            if (temp != decbufLen) {
                PR_fprintf(PR_STDERR, "write error
-");
+   ");
                rv = SECFailure;
                break;
            }
@@ -739,7 +735,7 @@ Usage:  %s -c  -d  [-z ] "
            rv = SECSuccess;
        } else {
            PR_fprintf(PR_STDERR, "Check MAC : Failure
-");
+   ");
            PR_fprintf(PR_STDERR, "Extracted : ");
            PrintAsHex(PR_STDERR, macItem->data, macItem->len);
            PR_fprintf(PR_STDERR, "Computed  : ");
@@ -775,7 +771,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = ReadFromHeaderFile(cipherFileName, IV, ivItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Could not retrieve IV from cipher file
-");
+   ");
            goto cleanup;
        }
 
@@ -783,14 +779,14 @@ Usage:  %s -c  -d  [-z ] "
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
            "Could not retrieve AES CKA_ID from cipher file
-");
+   ");
            goto cleanup;
        }
        rv = ReadFromHeaderFile(cipherFileName, MACKEY, macKeyItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
                       "Could not retrieve MAC CKA_ID from cipher file
-");
+   ");
            goto cleanup;
        }
    cleanup:
@@ -849,7 +845,7 @@ Usage:  %s -c  -d  [-z ] "
        encKey = FindKey(slot, CKM_AES_CBC, &encKeyItem, pwdata);
        if (encKey == NULL) {
            PR_fprintf(PR_STDERR, "Can't find the encryption key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -865,18 +861,18 @@ Usage:  %s -c  -d  [-z ] "
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
                       "Could not retrieve MAC from cipher file
-");
+   ");
            goto cleanup;
        }
        if (macItem.data == NULL) {
            PR_fprintf(PR_STDERR, "MAC has NULL data
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
        if (macItem.len == 0) {
            PR_fprintf(PR_STDERR, "MAC has data has 0 length
-");
+   ");
            /*rv = SECFailure;
            goto cleanup;*/
        }
@@ -885,7 +881,7 @@ Usage:  %s -c  -d  [-z ] "
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
                       "Could not retrieve PAD detail from header file
-");
+   ");
            goto cleanup;
        }
 
@@ -895,7 +891,7 @@ Usage:  %s -c  -d  [-z ] "
                    &cipherItem, &macItem, encKey, macKey, &ivItem, &padItem);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Failed while decrypting and removing MAC
-");
+   ");
            }
        }
 
@@ -967,7 +963,7 @@ Usage:  %s -c  -d  [-z ] "
        encKey = GenerateSYMKey(slot, CKM_AES_KEY_GEN, 128/8, &encKeyID, pwdata);
        if (encKey == NULL) {
            PR_fprintf(PR_STDERR, "GenerateSYMKey for AES returned NULL.
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -977,7 +973,7 @@ Usage:  %s -c  -d  [-z ] "
                                &macKeyID, pwdata);
        if (macKey == NULL) {
            PR_fprintf(PR_STDERR, "GenerateSYMKey for MACing returned NULL.
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -986,7 +982,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = GatherCKA_ID(encKey, &encCKAID);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error while wrapping encrypt key
-");
+   ");
            goto cleanup;
        }
 
@@ -994,7 +990,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = GatherCKA_ID(macKey, &macCKAID);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Can't get the MAC key CKA_ID.
-");
+   ");
            goto cleanup;
        }
 
@@ -1019,7 +1015,7 @@ Usage:  %s -c  -d  [-z ] "
        if (!headerFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       headerFileName);
            return SECFailure;
        }
@@ -1028,7 +1024,7 @@ Usage:  %s -c  -d  [-z ] "
        if (!encFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       encryptedFileName);
            return SECFailure;
        }
@@ -1042,7 +1038,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = WriteToHeaderFile(iv, BLOCKSIZE, IV, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing IV to cipher file - %s
-",
+   ",
                       headerFileName);
            goto cleanup;
        }
@@ -1050,14 +1046,14 @@ Usage:  %s -c  -d  [-z ] "
        rv = WriteToHeaderFile(encCKAID.data, encCKAID.len, SYMKEY, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing AES CKA_ID to cipher file - %s
-",
+   ",
            encryptedFileName);
            goto cleanup;
        }
        rv = WriteToHeaderFile(macCKAID.data, macCKAID.len, MACKEY, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing MAC CKA_ID to cipher file - %s
-",
+   ",
                       headerFileName);
            goto cleanup;
        }
@@ -1066,7 +1062,7 @@ Usage:  %s -c  -d  [-z ] "
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
            PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                       inFileName);
            return SECFailure;
        }
@@ -1077,7 +1073,7 @@ Usage:  %s -c  -d  [-z ] "
                               encKey, macKey, ivItem.data, ivItem.len, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Failed : Macing and Encryption
-");
+   ");
                goto cleanup;
            }
        }
@@ -1186,7 +1182,7 @@ Usage:  %s -c  -d  [-z ] "
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
            PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                       inFileName);
            return SECFailure;
        }
@@ -1219,7 +1215,7 @@ Usage:  %s -c  -d  [-z ] "
            rv = NSS_InitReadWrite(dbdir);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed
-");
+   ");
                goto cleanup;
            }
 
@@ -1229,7 +1225,7 @@ Usage:  %s -c  -d  [-z ] "
                rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
                if (rv != SECSuccess) {
                    PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-",
+   ",
                               PK11_GetTokenName(slot));
                    goto cleanup;
                }
@@ -1239,7 +1235,7 @@ Usage:  %s -c  -d  [-z ] "
                              noiseFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "EncryptFile : Failed
-");
+   ");
                return SECFailure;
            }
            break;
@@ -1250,7 +1246,7 @@ Usage:  %s -c  -d  [-z ] "
            rv = NSS_Init(dbdir);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "NSS_Init Failed
-");
+   ");
                return SECFailure;
            }
 
@@ -1259,7 +1255,7 @@ Usage:  %s -c  -d  [-z ] "
                rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
                if (rv != SECSuccess) {
                    PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-",
+   ",
                               PK11_GetTokenName(slot));
                    goto cleanup;
                }
@@ -1270,7 +1266,7 @@ Usage:  %s -c  -d  [-z ] "
                             encryptedFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "DecryptFile : Failed
-");
+   ");
                return SECFailure;
            }
            break;
@@ -1280,7 +1276,7 @@ Usage:  %s -c  -d  [-z ] "
        rvShutdown = NSS_Shutdown();
        if (rvShutdown != SECSuccess) {
            PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()
-");
+   ");
            rv = SECFailure;
        }
 

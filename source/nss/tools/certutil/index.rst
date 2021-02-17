@@ -1,8 +1,6 @@
 ========
 certutil
 ========
---- title: certutil slug: Mozilla/Projects/NSS/Tools/certutil ---
-
 | Name
 |    certutil — Manage keys and certificate in the NSS database.
 | Synopsis

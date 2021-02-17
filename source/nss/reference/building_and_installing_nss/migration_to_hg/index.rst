@@ -1,10 +1,6 @@
 ===============
 Migration to HG
 ===============
---- title: Migration to HG slug:
-Mozilla/Projects/NSS/Reference/Building_and_installing_NSS/Migration_to_HG
----
-
 | The NSPR, NSS and related projects have stopped using Mozilla'a CVS
   server, but have migrated to
 | Mozilla's HG (Mercurial) server.

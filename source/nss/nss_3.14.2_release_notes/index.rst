@@ -1,9 +1,6 @@
 ========================
 NSS 3.14.2 release notes
 ========================
---- title: NSS 3.14.2 release notes slug:
-Mozilla/Projects/NSS/NSS_3.14.2_release_notes ---
-
 Network Security Services (NSS) 3.14.2 is a patch release for NSS 3.14.
 The bug fixes in NSS 3.14.2 are described in the "Bugs Fixed" section
 below. NSS 3.14.2 should be used with NSPR 4.9.5 or newer.

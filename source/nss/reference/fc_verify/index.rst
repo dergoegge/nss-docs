@@ -1,9 +1,6 @@
 =========
 FC_Verify
 =========
---- title: FC_Verify slug: Mozilla/Projects/NSS/Reference/FC_Verify
-tags: - NSS ---
-
 .. _Name:
 
 Name

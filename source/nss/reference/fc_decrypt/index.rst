@@ -1,9 +1,6 @@
 ==========
 FC_Decrypt
 ==========
---- title: FC_Decrypt slug: Mozilla/Projects/NSS/Reference/FC_Decrypt
-tags: - NSS ---
-
 .. _Name:
 
 Name

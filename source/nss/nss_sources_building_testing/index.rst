@@ -1,10 +1,6 @@
 ============================
 NSS sources building testing
 ============================
---- title: NSS sources building testing slug:
-Mozilla/Projects/NSS/NSS_Sources_Building_Testing tags: - Build
-documentation - Guide - NSS - Security ---
-
 Getting the source code of `Network Security Services
 (NSS) </en-US/docs/NSS>`__, how to build it, and how to run its test
 suite.

@@ -1,9 +1,6 @@
 ==========
 FC_WrapKey
 ==========
---- title: FC_WrapKey slug: Mozilla/Projects/NSS/Reference/FC_WrapKey
-tags: - NSS ---
-
 .. _Name:
 
 Name

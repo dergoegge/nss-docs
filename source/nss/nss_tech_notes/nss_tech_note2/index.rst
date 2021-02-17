@@ -1,9 +1,6 @@
 ==============
 nss tech note2
 ==============
---- title: nss tech note2 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note2 ---
-
 .. _Using_the_PKCS_11_Module_Logger:
 
 Using the PKCS #11 Module Logger

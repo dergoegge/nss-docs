@@ -1,9 +1,6 @@
 ==========
 PKCS11 FAQ
 ==========
---- title: PKCS11 FAQ slug: Mozilla/Projects/NSS/PKCS11/FAQ tags: - NSS
-- Security ---
-
 .. _PKCS11_FAQ:
 
 PKCS11 FAQ

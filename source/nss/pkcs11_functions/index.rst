@@ -1,9 +1,6 @@
 ====================
 NSS PKCS11 Functions
 ====================
---- title: NSS PKCS11 Functions slug:
-Mozilla/Projects/NSS/PKCS11_Functions tags: - NSS ---
-
 .. _PKCS_.2311_Functions:
 
 PKCS #11 Functions

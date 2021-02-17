@@ -1,9 +1,6 @@
 =================
 NSS Key Functions
 =================
---- title: NSS Key Functions slug:
-Mozilla/Projects/NSS/Reference/NSS_Key_Functions tags: - NSS ---
-
 This chapter describes two functions used to manipulate private keys and
 key databases such as the key3.db database provided with NSS. This was
 converted from `"Chapter 6: Key

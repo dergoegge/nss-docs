@@ -1,9 +1,6 @@
 =========================
 Network Security Services
 =========================
---- title: Network Security Services slug: Mozilla/Projects/NSS tags: -
-JSS - NSS - NeedsMigration ---
-
 **Network Security Services** (**NSS**) is a set of libraries designed
 to support cross-platform development of security-enabled client and
 server applications. Applications built with NSS can support SSL v3,

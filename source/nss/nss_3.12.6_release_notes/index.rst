@@ -1,9 +1,6 @@
 ========================
 NSS 3.12.6 release notes
 ========================
---- title: NSS 3.12.6 release notes slug:
-Mozilla/Projects/NSS/NSS_3.12.6_release_notes ---
-
 .. _NSS_3.12.6_release_notes:
 
 NSS 3.12.6 release notes

@@ -1,10 +1,6 @@
 ====================================
 Enc Dec MAC Output Public Key as CSR
 ====================================
---- title: Enc Dec MAC Output Public Key as CSR slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/Enc_Dec_MAC_Output_Plblic_Key_as_CSR
----
-
 .. _NSS_Sample_Code_5_EncryptionDecryption_and_MAC_and_output_Public_as_a_CSR.:
 
 NSS Sample Code 5: Encryption/Decryption and MAC and output Public as a CSR.
@@ -110,68 +106,68 @@ signing request
    Usage(const char *progName)
    {
        fprintf(stderr, "
-Usage:  %s -c  -d  [-z ] "
+   Usage:  %s -c  -d  [-z ] "
                "[-p  | -f ] -s  -r  -i  -o  
 
-",
+   ",
                progName);
        fprintf(stderr, "%-20s  Specify 'G' for generating RSA keypair for wrapping
 
-",
+   ",
                 "G");
        fprintf(stderr, "%-20s  Specify 'E' for encrypt operation
 
-",
+   ",
                 "E");
        fprintf(stderr, "%-20s  Specify 'D' for decrypt operation
 
-",
+   ",
                 "D");
        fprintf(stderr, "%-20s  Specify db directory path
 
-",
+   ",
                 "-d ");
        fprintf(stderr, "%-20s  Specify db password [optional]
 
-",
+   ",
                 "-p ");
        fprintf(stderr, "%-20s  Specify db password file [optional]
 
-",
+   ",
                 "-f ");
        fprintf(stderr, "%-20s  Specify noise file name [optional]
 
-",
+   ",
                 "-z ");
        fprintf(stderr, "%-21s Specify subject
 
-",
+   ",
                 "-s ");
        fprintf(stderr, "%-21s Specify certficate request file name
 
-",
+   ",
                 "-r ");
        fprintf(stderr, "%-21s Specify an input file name
 
-",
+   ",
                 "-i ");
        fprintf(stderr, "%-21s Specify an output file name
 
-",
+   ",
                 "-o ");
        fprintf(stderr, "%-7s For encrypt, it takes  as an input file and produces
-",
+   ",
                 "Note :");
        fprintf(stderr, "%-7s .enc and .header as intermediate output files.
 
-",
+   ",
                 "");
        fprintf(stderr, "%-7s For decrypt, it takes .enc and .header
-",
+   ",
                 "");
        fprintf(stderr, "%-7s as input files and produces  as a final output file.
 
-",
+   ",
                 "");
        exit(-1);
    }
@@ -199,7 +195,7 @@ Usage:  %s -c  -d  [-z ] "
 
        if (!data) {
            PR_fprintf(PR_STDERR, "Error while allocating memory
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -209,7 +205,7 @@ Usage:  %s -c  -d  [-z ] "
 
        if (!data->data) {
            PR_fprintf(PR_STDERR, "Error while allocating memory
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -245,7 +241,7 @@ Usage:  %s -c  -d  [-z ] "
 
        if (!key) {
            PR_fprintf(PR_STDERR, "Symmetric Key Generation Failed 
-");
+   ");
        }
 
        return key;
@@ -260,7 +256,7 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_DigestBegin(ctx);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestBegin()
-");
+   ");
        }
        return rv;
    }
@@ -275,7 +271,7 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_DigestOp(ctx, msg, msgLen);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Compute MAC Failed : DigestOp()
-");
+   ");
        }
        return rv;
    }
@@ -290,7 +286,7 @@ Usage:  %s -c  -d  [-z ] "
        SECStatus rv = PK11_DigestFinal(ctx, mac, macLen, maxLen);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestFinal()
-");
+   ");
        }
        return SECSuccess;
    }
@@ -352,12 +348,12 @@ Usage:  %s -c  -d  [-z ] "
            header = LAB_HEADER;
            trailer = LAB_TRAILER;
            PR_fprintf(outFile, "%s
-", header);
+   ", header);
            PR_fprintf(outFile, "%s
-", buf);
+   ", buf);
            PR_fprintf(outFile, "%s
 
-", trailer);
+   ", trailer);
            return SECSuccess;
            break;
            default:
@@ -365,11 +361,11 @@ Usage:  %s -c  -d  [-z ] "
        }
 
        PR_fprintf(outFile, "%s
-", header);
+   ", header);
        PrintAsAscii(outFile, buf, len);
        PR_fprintf(outFile, "%s
 
-", trailer);
+   ", trailer);
        return SECSuccess;
    }
 
@@ -387,13 +383,13 @@ Usage:  %s -c  -d  [-z ] "
        SECItem *secParam = PK11_ParamFromIV(type, &ivItem);
        if (secParam == NULL) {
            PR_fprintf(PR_STDERR, "Crypt Failed : secParam NULL
-");
+   ");
            return NULL;
        }
        ctx = PK11_CreateContextBySymKey(type, operation, key, secParam);
        if (ctx == NULL) {
            PR_fprintf(PR_STDERR, "Crypt Failed : can't create a context
-");
+   ");
            goto cleanup;
 
        }
@@ -417,7 +413,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = PK11_CipherOp(ctx, out, outLen, maxOut, in, inLen);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Crypt Failed : PK11_CipherOp returned %d
-", rv);
+   ", rv);
            goto cleanup;
        }
 
@@ -490,7 +486,7 @@ Usage:  %s -c  -d  [-z ] "
        file = PR_Open(fileName, PR_RDONLY, 0);
        if (!file) {
            PR_fprintf(PR_STDERR, "Failed to open %s
-", fileName);
+   ", fileName);
            return SECFailure;
        }
        switch (type) {
@@ -531,7 +527,7 @@ Usage:  %s -c  -d  [-z ] "
        nonbody = (char *)filedata.data;
        if (!nonbody) {
            PR_fprintf(PR_STDERR, "unable to read data from input file
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -542,16 +538,16 @@ Usage:  %s -c  -d  [-z ] "
            char *trail = NULL;
            nonbody = body;
            body = PORT_Strchr(body, '
-');
+   ');
            if (!body)
-               body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
+               body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
                *trail = '';
            } else {
                PR_fprintf(PR_STDERR,  "input has header but no trailer
-");
+   ");
                PORT_Free(filedata.data);
                return SECFailure;
            }
@@ -563,7 +559,7 @@ Usage:  %s -c  -d  [-z ] "
                if (trail != NULL) {
                    PR_fprintf(PR_STDERR,
                        "input has no header but has trailer
-");
+   ");
                    PORT_Free(filedata.data);
                    return SECFailure;
                }
@@ -596,7 +592,7 @@ Usage:  %s -c  -d  [-z ] "
        rv = GenerateRandom(randbuf, BLOCKSIZE);
        if (rv != SECSuccess) {
            fprintf(stderr, "Error while generating the random numbers : %s
-",
+   ",
                    PORT_ErrorToString(rv));
            goto cleanup;
        }
@@ -614,10 +610,10 @@ Usage:  %s -c  -d  [-z ] "
        }
        fprintf(stderr, "
 
-");
+   ");
        fprintf(stderr, "Generating key.  This may take a few moments...
 
-");
+   ");
        privKey = PK11_GenerateKeyPair(slot, mechanism, params, pubkeyp,
                                           PR_TRUE /*isPerm*/, PR_TRUE /*isSensitive*/,
                                           pwdata);
@@ -700,7 +696,7 @@ Usage:  %s -c  -d  [-z ] "
 
        if (slot == NULL) {
            fprintf(stderr, "Empty Slot
-");
+   ");
            goto cleanup;
        }
        if (PK11_Authenticate(slot, PR_TRUE, pwdata) != SECSuccess) {
@@ -739,7 +735,7 @@ Usage:  %s -c  -d  [-z ] "
        if (!outFile) {
            PR_fprintf(PR_STDERR,
                       "unable to open \"%s\" for writing (%ld, %ld).
-",
+   ",
                       certReqFileName, PR_GetError(), PR_GetOSError());
            goto cleanup;
        }
@@ -747,7 +743,7 @@ Usage:  %s -c  -d  [-z ] "
        spki = SECKEY_CreateSubjectPublicKeyInfo(pubk);
        if (!spki) {
            PR_fprintf(PR_STDERR, "unable to create subject public key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -756,7 +752,7 @@ Usage:  %s -c  -d  [-z ] "
        cr = CERT_CreateCertificateRequest(subject, spki, NULL);
        if (!cr) {
            PR_fprintf(PR_STDERR, "unable to make certificate request
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -783,7 +779,7 @@ Usage:  %s -c  -d  [-z ] "
                                      SEC_ASN1_GET(CERT_CertificateRequestTemplate));
        if (encoding == NULL) {
            PR_fprintf(PR_STDERR, "der encoding of request failed
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -792,7 +788,7 @@ Usage:  %s -c  -d  [-z ] "
        signAlgTag = SEC_GetSignatureAlgorithmOidTag(keyType, hashAlgTag);
        if (signAlgTag == SEC_OID_UNKNOWN) {
            PR_fprintf(PR_STDERR, "unknown Key or Hash type
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -800,7 +796,7 @@ Usage:  %s -c  -d  [-z ] "
                             privk, signAlgTag);
        if (rv) {
            PR_fprintf(PR_STDERR, "signing of data failed
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -840,31 +836,31 @@ Usage:  %s -c  -d  [-z ] "
 
            PR_fprintf(outFile,
                       "
-Certificate request generated by Netscape certutil
-");
+   Certificate request generated by Netscape certutil
+   ");
            PR_fprintf(outFile, "Common Name: %s
-", name);
+   ", name);
            PR_fprintf(outFile, "Email: %s
-", email);
+   ", email);
            PR_fprintf(outFile, "Organization: %s
-", org);
+   ", org);
            PR_fprintf(outFile, "State: %s
-", state);
+   ", state);
            PR_fprintf(outFile, "Country: %s
 
-", country);
+   ", country);
 
            PR_fprintf(outFile, "%s
-", NS_CERTREQ_HEADER);
+   ", NS_CERTREQ_HEADER);
            numBytes = PR_Write(outFile, obuf, total);
            if (numBytes != total) {
                PR_fprintf(PR_STDERR, "write error
-");
+   ");
                return SECFailure;
            }
            PR_fprintf(outFile, "
-%s
-", NS_CERTREQ_TRAILER);
+   %s
+   ", NS_CERTREQ_TRAILER);
            if (obuf) {
                PORT_Free(obuf);
            }
@@ -872,7 +868,7 @@ Certificate request generated by Netscape certutil
            numBytes = PR_Write(outFile, result.data, result.len);
            if (numBytes != (int)result.len) {
                PR_fprintf(PR_STDERR, "write error
-");
+   ");
                rv = SECFailure;
            goto cleanup;
            }
@@ -926,7 +922,7 @@ Certificate request generated by Netscape certutil
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
            PR_fprintf(PR_STDERR, "Can't create MAC context
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -952,7 +948,7 @@ Certificate request generated by Netscape certutil
                    ptext, ptextLen);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Encrypt Failure
-");
+   ");
                goto cleanup;
            }
 
@@ -972,19 +968,19 @@ Certificate request generated by Netscape certutil
        rv = MacFinal(ctxmac, mac, &macLen, DIGESTSIZE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "MacFinal Failure
-");
+   ");
            goto cleanup;
        }
        if (macLen == 0) {
            PR_fprintf(PR_STDERR, "Bad MAC length
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
        WriteToHeaderFile(mac, macLen, MAC, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Write MAC Failure
-");
+   ");
            goto cleanup;
        }
 
@@ -996,7 +992,7 @@ Certificate request generated by Netscape certutil
        WriteToHeaderFile(padItem.data, padItem.len, PAD, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Write PAD Failure
-");
+   ");
            goto cleanup;
        }
 
@@ -1051,7 +1047,7 @@ Certificate request generated by Netscape certutil
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
            PR_fprintf(PR_STDERR, "Can't create MAC context
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1072,7 +1068,7 @@ Certificate request generated by Netscape certutil
 
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Decrypt Failure
-");
+   ");
                goto cleanup;
            }
 
@@ -1088,7 +1084,7 @@ Certificate request generated by Netscape certutil
            temp = PR_Write(outFile, decbuf, decbufLen);
            if (temp != decbufLen) {
                PR_fprintf(PR_STDERR, "write error
-");
+   ");
                rv = SECFailure;
                break;
            }
@@ -1105,7 +1101,7 @@ Certificate request generated by Netscape certutil
            rv = SECSuccess;
        } else {
            PR_fprintf(PR_STDERR, "Check MAC : Failure
-");
+   ");
            PR_fprintf(PR_STDERR, "Extracted : ");
            PrintAsAscii(PR_STDERR, macItem->data, macItem->len);
            PR_fprintf(PR_STDERR, "Computed  : ");
@@ -1144,7 +1140,7 @@ Certificate request generated by Netscape certutil
        rv = ReadFromHeaderFile(headerFileName, IV, ivItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Could not retrieve IV from cipher file
-");
+   ");
            goto cleanup;
        }
 
@@ -1152,7 +1148,7 @@ Certificate request generated by Netscape certutil
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
            "Could not retrieve wrapped AES key from header file
-");
+   ");
            goto cleanup;
        }
        /* Read in the MAC key into item from the header file */
@@ -1160,7 +1156,7 @@ Certificate request generated by Netscape certutil
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
            "Could not retrieve wrapped MAC key from header file
-");
+   ");
            goto cleanup;
        }
 
@@ -1169,20 +1165,20 @@ Certificate request generated by Netscape certutil
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
            "Could not retrieve public key from header file
-");
+   ");
            goto cleanup;
        }
        keyInfo    = SECKEY_DecodeDERSubjectPublicKeyInfo(&pubKeyData);
        if (!keyInfo) {
            PR_fprintf(PR_STDERR, "Could not decode public key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
        *pubKey = SECKEY_ExtractPublicKey(keyInfo);
        if (*pubKey == NULL) {
            PR_fprintf(PR_STDERR, "Error while getting RSA public key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1191,18 +1187,18 @@ Certificate request generated by Netscape certutil
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
            "Could not retrieve MAC from cipher file
-");
+   ");
            goto cleanup;
        }
        if (macItem->data == NULL) {
            PR_fprintf(PR_STDERR, "MAC has NULL data
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
        if (macItem->len == 0) {
            PR_fprintf(PR_STDERR, "MAC has data has 0 length
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1212,7 +1208,7 @@ Certificate request generated by Netscape certutil
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
            "Could not retrieve PAD detail from header file
-");
+   ");
            goto cleanup;
        }
 
@@ -1281,7 +1277,7 @@ Certificate request generated by Netscape certutil
        privKey = GetRSAPrivateKey(slot, pwdata, pubKey);
        if (privKey == NULL) {
            PR_fprintf(PR_STDERR, "Can't find private key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1290,7 +1286,7 @@ Certificate request generated by Netscape certutil
                                      CKM_AES_CBC, CKA_ENCRYPT, 0);
        if (encKey == NULL) {
            PR_fprintf(PR_STDERR, "Can't unwrap the encryption key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1300,7 +1296,7 @@ Certificate request generated by Netscape certutil
                                      CKM_MD5_HMAC, CKA_SIGN, 160/8);
        if (macKey == NULL) {
            PR_fprintf(PR_STDERR, "Can't unwrap the Mac key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1310,7 +1306,7 @@ Certificate request generated by Netscape certutil
        if (!inFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       encryptedFileName);
            return SECFailure;
        }
@@ -1320,7 +1316,7 @@ Certificate request generated by Netscape certutil
        if (!outFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       outFileName);
            return SECFailure;
        }
@@ -1332,7 +1328,7 @@ Certificate request generated by Netscape certutil
                    &cipherItem, &macItem, encKey, macKey, &ivItem, &padItem);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Failed while decrypting and removing MAC
-");
+   ");
            }
        }
 
@@ -1407,7 +1403,7 @@ Certificate request generated by Netscape certutil
        pubKey = ExtractPublicKeyFromCertRequest(certReqFileName, ascii);
        if (pubKey == NULL) {
            PR_fprintf(PR_STDERR, "Error while getting RSA public key
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1415,7 +1411,7 @@ Certificate request generated by Netscape certutil
        encKey = GenerateSYMKey(slot, CKM_AES_KEY_GEN, 128/8, &encKeyID, pwdata);
        if (encKey == NULL) {
            PR_fprintf(PR_STDERR, "GenerateSYMKey for AES returned NULL.
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1424,7 +1420,7 @@ Certificate request generated by Netscape certutil
        macKey = GenerateSYMKey(slot, CKM_GENERIC_SECRET_KEY_GEN, 160/8, &macKeyID, pwdata);
        if (macKey == NULL) {
            PR_fprintf(PR_STDERR, "GenerateSYMKey for MACing returned NULL.
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1433,7 +1429,7 @@ Certificate request generated by Netscape certutil
        rv = WrapKey(encKey, pubKey, &wrappedEncKey);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error while wrapping encrypt key
-");
+   ");
            goto cleanup;
        }
 
@@ -1441,7 +1437,7 @@ Certificate request generated by Netscape certutil
        rv = WrapKey(macKey, pubKey, &wrappedMacKey);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error while wrapping Mac key
-");
+   ");
            goto cleanup;
        }
 
@@ -1466,7 +1462,7 @@ Certificate request generated by Netscape certutil
        if (!headerFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       headerFileName);
            return SECFailure;
        }
@@ -1475,7 +1471,7 @@ Certificate request generated by Netscape certutil
        if (!encFile) {
            PR_fprintf(PR_STDERR,
                       "Unable to open \"%s\" for writing.
-",
+   ",
                       encryptedFileName);
            return SECFailure;
        }
@@ -1489,7 +1485,7 @@ Certificate request generated by Netscape certutil
        rv = WriteToHeaderFile(iv, BLOCKSIZE, IV, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing IV to cipher file - %s
-",
+   ",
                       headerFileName);
            goto cleanup;
        }
@@ -1497,14 +1493,14 @@ Certificate request generated by Netscape certutil
        rv = WriteToHeaderFile(wrappedEncKey->data, wrappedEncKey->len, SYMKEY, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing wrapped AES key to cipher file - %s
-",
+   ",
            encryptedFileName);
            goto cleanup;
        }
        rv = WriteToHeaderFile(wrappedMacKey->data, wrappedMacKey->len, MACKEY, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing wrapped MAC key to cipher file - %s
-",
+   ",
                       headerFileName);
            goto cleanup;
        }
@@ -1513,7 +1509,7 @@ Certificate request generated by Netscape certutil
        rv = WriteToHeaderFile(pubKeyData->data, pubKeyData->len, PUBKEY, headerFile);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Error writing wrapped AES key to cipher file - %s
-",
+   ",
                       headerFileName);
            goto cleanup;
        }
@@ -1522,7 +1518,7 @@ Certificate request generated by Netscape certutil
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
            PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-",
+   ",
                       inFileName);
            return SECFailure;
        }
@@ -1533,7 +1529,7 @@ Certificate request generated by Netscape certutil
                    encKey, macKey, ivItem.data, ivItem.len, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Failed : Macing and Encryption
-");
+   ");
                goto cleanup;
            }
        }
@@ -1592,7 +1588,7 @@ Certificate request generated by Netscape certutil
                                     &pubkey, NULL, pwdata);
        if (privkey == NULL) {
            PR_fprintf(PR_STDERR, "unable to generate key(s)
-");
+   ");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1604,7 +1600,7 @@ Certificate request generated by Netscape certutil
 
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "Failed to create Certificate Request
-");
+   ");
        }
    cleanup:
        if (privkey) {
@@ -1725,7 +1721,7 @@ Certificate request generated by Netscape certutil
        rv = NSS_InitReadWrite(dbdir);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed
-");
+   ");
            goto cleanup;
        }
 
@@ -1734,7 +1730,7 @@ Certificate request generated by Netscape certutil
        rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
        if (rv != SECSuccess) {
             PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-",
+   ",
                        PK11_GetTokenName(slot));
             goto cleanup;
        }
@@ -1753,7 +1749,7 @@ Certificate request generated by Netscape certutil
            rv = CreateCertificateRequest(slot, dbdir, &pwdata, subject, certReqFileName, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "Create Certificate Request: Failed
-");
+   ");
                goto cleanup;
            }
            break;
@@ -1778,7 +1774,7 @@ Certificate request generated by Netscape certutil
                             noiseFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "EncryptFile : Failed
-");
+   ");
                return SECFailure;
            }
            break;
@@ -1800,7 +1796,7 @@ Certificate request generated by Netscape certutil
                      encryptedFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR, "DecryptFile : Failed
-");
+   ");
                return SECFailure;
            }
            break;
@@ -1813,7 +1809,7 @@ Certificate request generated by Netscape certutil
        rvShutdown = NSS_Shutdown();
        if (rvShutdown != SECSuccess) {
            PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()
-");
+   ");
            rv = SECFailure;
        }
        PR_Cleanup();

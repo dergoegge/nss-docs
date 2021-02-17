@@ -1,9 +1,6 @@
 ======================
 NSS 3.58 release notes
 ======================
---- title: NSS 3.58 release notes slug:
-Mozilla/Projects/NSS/NSS_3.58_release_notes ---
-
 .. _Introduction:
 
 Introduction

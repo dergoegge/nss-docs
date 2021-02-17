@@ -1,9 +1,6 @@
 =======================
 JSS 4.4.0 Release Notes
 =======================
---- title: JSS 4.4.0 Release Notes slug:
-Mozilla/Projects/NSS/JSS_4.4.0_Release_Notes tags: - D ---
-
 .. _Introduction:
 
 Introduction

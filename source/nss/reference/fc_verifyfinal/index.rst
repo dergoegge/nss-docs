@@ -1,9 +1,6 @@
 ==============
 FC_VerifyFinal
 ==============
---- title: FC_VerifyFinal slug:
-Mozilla/Projects/NSS/Reference/FC_VerifyFinal tags: - NSS ---
-
 .. _Name:
 
 Name

@@ -1,9 +1,6 @@
 ==================
 NSS API Guidelines
 ==================
---- title: NSS API Guidelines slug:
-Mozilla/Projects/NSS/NSS_API_Guidelines ---
-
 .. _NSS_API_Guidelines:
 
 NSS API Guidelines

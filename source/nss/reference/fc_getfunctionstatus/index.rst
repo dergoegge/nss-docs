@@ -1,9 +1,6 @@
 ====================
 FC_GetFunctionStatus
 ====================
---- title: FC_GetFunctionStatus slug:
-Mozilla/Projects/NSS/Reference/FC_GetFunctionStatus tags: - NSS ---
-
 .. _Name:
 
 Name

@@ -1,10 +1,6 @@
 ==================
 Build instructions
 ==================
---- title: Build instructions slug:
-Mozilla/Projects/NSS/Reference/Building_and_installing_NSS/Build_instructions
-tags: - NSS ---
-
 .. container:: blockIndicator note
 
    These instructions are outdated.  Use the `Building

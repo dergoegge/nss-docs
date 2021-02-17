@@ -1,9 +1,6 @@
 ============
 troubleshoot
 ============
---- title: troubleshoot slug:
-Mozilla/Projects/NSS/Reference/troubleshoot ---
-
 .. _Troubleshooting_NSS_and_JSS_Builds:
 
 Troubleshooting NSS and JSS Builds

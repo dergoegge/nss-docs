@@ -1,9 +1,6 @@
 ========================
 Deprecated SSL functions
 ========================
---- title: Deprecated SSL functions slug:
-Mozilla/Projects/NSS/Deprecated_SSL_functions tags: - NSS ---
-
 The following SSL functions have been replaced with newer versions. The
 deprecated functions are not supported by the new SSL shared libraries.
 Applications that want to use the SSL shared libraries must convert to

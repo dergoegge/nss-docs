@@ -1,10 +1,6 @@
 ====================
 NSS Third-Party Code
 ====================
---- title: NSS Third-Party Code slug:
-Mozilla/Projects/NSS/NSS_Third-Party_Code tags: - NSS - Security -
-Third-Party Code ---
-
 This is a list of third-party code included in the NSS repository,
 broken into two lists: Code that can be compiled into the NSS libraries,
 and code that is only used for testing.

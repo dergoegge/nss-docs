@@ -1,9 +1,6 @@
 =========================
 NSS Certificate Functions
 =========================
---- title: NSS Certificate Functions slug:
-Mozilla/Projects/NSS/Reference/NSS_Certificate_Functions tags: - NSS ---
-
 .. _Certificate_Functions:
 
 Certificate Functions

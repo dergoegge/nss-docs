@@ -1,9 +1,6 @@
 =============
 FC_CopyObject
 =============
---- title: FC_CopyObject slug:
-Mozilla/Projects/NSS/Reference/FC_CopyObject tags: - NSS ---
-
 .. _Name:
 
 Name

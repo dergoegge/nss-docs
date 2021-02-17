@@ -1,9 +1,6 @@
 ===============
 New NSS Samples
 ===============
---- title: New NSS Samples slug: Mozilla/Projects/NSS/New_NSS_Samples
-tags: - Example ---
-
 .. _New_NSS_Sample_Code:
 
 New NSS Sample Code

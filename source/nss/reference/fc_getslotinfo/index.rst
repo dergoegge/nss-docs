@@ -1,9 +1,6 @@
 ==============
 FC_GetSlotInfo
 ==============
---- title: FC_GetSlotInfo slug:
-Mozilla/Projects/NSS/Reference/FC_GetSlotInfo tags: - NSS ---
-
 .. _Name:
 
 Name

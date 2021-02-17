@@ -1,9 +1,6 @@
 ==============
 FC_SignRecover
 ==============
---- title: FC_SignRecover slug:
-Mozilla/Projects/NSS/Reference/FC_SignRecover tags: - NSS ---
-
 .. _Name:
 
 Name

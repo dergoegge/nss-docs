@@ -1,9 +1,6 @@
 ===========
 FC_SignInit
 ===========
---- title: FC_SignInit slug: Mozilla/Projects/NSS/Reference/FC_SignInit
-tags: - NSS ---
-
 .. _Name:
 
 Name

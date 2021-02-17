@@ -1,9 +1,6 @@
 ======================
 Python binding for NSS
 ======================
---- title: Python binding for NSS slug:
-Mozilla/Projects/NSS/Python_binding_for_NSS ---
-
 .. _Project_Information:
 
 Project Information

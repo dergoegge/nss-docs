@@ -1,10 +1,6 @@
 ========================
 NSS 3.16.6 release notes
 ========================
---- title: NSS 3.16.6 release notes slug:
-Mozilla/Projects/NSS/NSS_3.16.6_release_notes tags: - Reference -
-Security ---
-
 .. _Introduction:
 
 Introduction

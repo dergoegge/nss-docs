@@ -1,9 +1,6 @@
-======================
-'NSS tools : pk12util'
-======================
---- title: 'NSS tools : pk12util' slug:
-Mozilla/Projects/NSS/Tools/pk12util ---
-
+====================
+NSS tools : pk12util
+====================
 | Name
 |    pk12util — Export and import keys and certificate to or from a PKCS
   #12

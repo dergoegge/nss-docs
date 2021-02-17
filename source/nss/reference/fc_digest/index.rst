@@ -1,9 +1,6 @@
 =========
 FC_Digest
 =========
---- title: FC_Digest slug: Mozilla/Projects/NSS/Reference/FC_Digest
-tags: - NSS ---
-
 .. _Name:
 
 Name

@@ -1,9 +1,6 @@
-=====================
-'NSS tools : cmsutil'
-=====================
---- title: 'NSS tools : cmsutil' slug:
-Mozilla/Projects/NSS/Tools/cmsutil ---
-
+===================
+NSS tools : cmsutil
+===================
 | Name
 |    cmsutil — Performs basic cryptograpic operations, such as
   encryption and

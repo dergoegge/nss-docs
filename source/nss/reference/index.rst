@@ -1,9 +1,6 @@
 =============
 NSS reference
 =============
---- title: NSS reference slug: Mozilla/Projects/NSS/Reference tags: -
-NSS ---
-
 .. _Initial_Notes:
 
 Initial Notes

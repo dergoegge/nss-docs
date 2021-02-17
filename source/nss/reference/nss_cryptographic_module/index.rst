@@ -1,9 +1,6 @@
 ========================
 NSS cryptographic module
 ========================
---- title: NSS cryptographic module slug:
-Mozilla/Projects/NSS/Reference/NSS_cryptographic_module tags: - NSS ---
-
 This chapter describes the data types and functions that one can use to
 perform cryptographic operations with the NSS cryptographic module. The
 NSS cryptographic module uses the industry standard `PKCS

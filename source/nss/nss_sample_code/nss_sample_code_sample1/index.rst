@@ -1,9 +1,6 @@
 =======================
 NSS Sample Code Sample1
 =======================
---- title: NSS Sample Code Sample1 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_Sample1 ---
-
 .. _NSS_Sample_Code_1_Key_Generation_and_Transport_Between_Servers.:
 
 NSS Sample Code 1: Key Generation and Transport Between Servers.

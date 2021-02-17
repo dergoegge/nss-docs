@@ -1,9 +1,6 @@
 ======================================
 NSS Certificate Download Specification
 ======================================
---- title: NSS Certificate Download Specification slug:
-Mozilla/Projects/NSS/Certificate_Download_Specification tags: - NSS ---
-
 This document describes the data formats used by NSS 3.x for installing
 certificates. This document is currently being revised and has not yet
 been reviewed for accuracy.

@@ -1,9 +1,6 @@
 ==============
 NSS_Initialize
 ==============
---- title: NSS_Initialize slug:
-Mozilla/Projects/NSS/Reference/NSS_Initialize ---
-
 .. _Name:
 
 Name

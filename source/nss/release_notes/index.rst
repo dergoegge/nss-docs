@@ -1,9 +1,6 @@
 =======================
 Older NSS release notes
 =======================
---- title: Older NSS release notes slug:
-Mozilla/Projects/NSS/release_notes ---
-
 This page lists release notes for older versions of NSS. See `Release
 notes for recent versions of
 NSS </en-US/docs/Mozilla/Projects/NSS/NSS_Releases>`__

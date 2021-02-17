@@ -1,9 +1,6 @@
 =============
 FC_SignUpdate
 =============
---- title: FC_SignUpdate slug:
-Mozilla/Projects/NSS/Reference/FC_SignUpdate tags: - NSS ---
-
 .. _Name:
 
 Name

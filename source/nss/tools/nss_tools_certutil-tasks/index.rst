@@ -1,9 +1,6 @@
 ========================
 NSS Tools certutil-tasks
 ========================
---- title: NSS Tools certutil-tasks slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_certutil-tasks ---
-
 .. _NSS_Security_Tools_certutil_Tasks:
 
 NSS Security Tools: certutil Tasks

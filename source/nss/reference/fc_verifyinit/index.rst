@@ -1,9 +1,6 @@
 =============
 FC_VerifyInit
 =============
---- title: FC_VerifyInit slug:
-Mozilla/Projects/NSS/Reference/FC_VerifyInit tags: - NSS ---
-
 .. _Name:
 
 Name

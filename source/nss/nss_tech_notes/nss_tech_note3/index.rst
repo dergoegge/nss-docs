@@ -1,9 +1,6 @@
 ==============
 nss tech note3
 ==============
---- title: nss tech note3 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note3 ---
-
 .. _All_About_Certificate_Extensions:
 
 All About Certificate Extensions

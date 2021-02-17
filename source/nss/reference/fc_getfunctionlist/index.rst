@@ -1,9 +1,6 @@
 ==================
 FC_GetFunctionList
 ==================
---- title: FC_GetFunctionList slug:
-Mozilla/Projects/NSS/Reference/FC_GetFunctionList tags: - NSS ---
-
 .. _Name:
 
 Name

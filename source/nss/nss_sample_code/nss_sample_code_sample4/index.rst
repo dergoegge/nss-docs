@@ -1,9 +1,6 @@
 =======================
 NSS Sample Code sample4
 =======================
---- title: NSS Sample Code sample4 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_sample4 ---
-
 .. _NSS_Sample_Code_4_PKI_Encryption:
 
 NSS Sample Code 4: PKI Encryption
@@ -63,7 +60,7 @@ NSS Sample Code 4: PKI Encryption
      if (rv != SECSuccess)
      {
        fprintf(stderr, "NSS initialization failed (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
@@ -72,7 +69,7 @@ NSS Sample Code 4: PKI Encryption
      if (cert == NULL)
      {
        fprintf(stderr, "Couldn't find cert TestCA in NSS db (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
@@ -81,14 +78,14 @@ NSS Sample Code 4: PKI Encryption
      if (pubkey == NULL)
      {
        fprintf(stderr, "Couldn't extract public key from cert TestCA (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
 
      modulus_len = SECKEY_PublicKeyStrength(pubkey);
      fprintf(stderr, "Public Key Modulus %d bytes
-", modulus_len);
+   ", modulus_len);
      buf1 = (char *)malloc(modulus_len);
      buf2 = (char *)malloc(modulus_len);
 
@@ -99,15 +96,15 @@ NSS Sample Code 4: PKI Encryption
      }
      buf1[modulus_len-1] = '';
      fprintf(stderr, "Buffer being encrypted = 
-%s
-", buf1);
+   %s
+   ", buf1);
 
      /* encrypt buf1, result will be in buf2 */
      rv = PK11_PubEncryptRaw(pubkey, buf2, buf1, modulus_len, NULL);
      if (rv != SECSuccess)
      {
        fprintf(stderr, "Encrypt with Public Key failed (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
@@ -116,7 +113,7 @@ NSS Sample Code 4: PKI Encryption
      if (pvtkey == NULL)
      {
        fprintf(stderr, "Couldn't find private key for cert TestCA (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
@@ -133,16 +130,16 @@ NSS Sample Code 4: PKI Encryption
      if (rv != SECSuccess)
      {
        fprintf(stderr, "Decrypt with Private Key failed (err %d)
-",
+   ",
                PR_GetError());
        goto cleanup;
      }
 
      fprintf(stderr, "Result of decryption, outlen = %d
-", outlen);
+   ", outlen);
      fprintf(stderr, "Result of decryption, buf = 
-%s
-", buf1);
+   %s
+   ", buf1);
 
      exit(0);
 

@@ -1,9 +1,6 @@
 =======================
 NSS Sample Code sample2
 =======================
---- title: NSS Sample Code sample2 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_sample2 ---
-
 .. _NSS_Sample_Code_2_Symmetric_Encryption:
 
 NSS Sample Code 2: Symmetric Encryption
@@ -52,7 +49,7 @@ NSS Sample Code 2: Symmetric Encryption
      if (rv != SECSuccess)
      {
        fprintf(stderr, "NSS initialization failed (err %d)
-",
+   ",
                PR_GetError());
        goto out;
      }
@@ -71,7 +68,7 @@ NSS Sample Code 2: Symmetric Encryption
      if (slot == NULL)
      {
        fprintf(stderr, "Unable to find security device (err %d)
-",
+   ",
                PR_GetError());
        goto out;
      }
@@ -90,7 +87,7 @@ NSS Sample Code 2: Symmetric Encryption
      if (SymKey == NULL)
      {
        fprintf(stderr, "Failure to import key into NSS (err %d)
-",
+   ",
                PR_GetError());
        goto out;
      }
@@ -106,7 +103,7 @@ NSS Sample Code 2: Symmetric Encryption
      if (SecParam == NULL)
      {
        fprintf(stderr, "Failure to set up PKCS11 param (err %d)
-",
+   ",
                PR_GetError());
        goto out;
      }
@@ -114,7 +111,7 @@ NSS Sample Code 2: Symmetric Encryption
      /* sample data we'll encrypt and decrypt */
      strcpy(data, "Encrypt me!");
      fprintf(stderr, "Clear Data: %s
-", data);
+   ", data);
 
      /* ========================= START SECTION ============================= */
      /* If using the same key and iv over and over, stuff before this         */
@@ -139,7 +136,7 @@ NSS Sample Code 2: Symmetric Encryption
      for (i=0; i<result_len; i++)
        fprintf(stderr, "%02x ", buf1[i]);
      fprintf(stderr, "
-");
+   ");
 
 
      /* DECRYPT buf1 into buf2. buf2 len must be atleast buf1 len */
@@ -158,7 +155,7 @@ NSS Sample Code 2: Symmetric Encryption
        goto out;
 
      fprintf(stderr, "Decrypted Data: %s
-", buf2);
+   ", buf2);
 
      /* =========================== END SECTION ============================= */
 

@@ -1,9 +1,6 @@
 ========================
 NSS 3.44.3 release notes
 ========================
---- title: NSS 3.44.3 release notes slug:
-Mozilla/Projects/NSS/NSS_3.44.3_release_notes ---
-
 .. _Introduction:
 
 Introduction

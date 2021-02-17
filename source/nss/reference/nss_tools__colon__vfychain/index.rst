@@ -1,9 +1,6 @@
-======================
-'NSS tools : vfychain'
-======================
---- title: 'NSS tools : vfychain' slug:
-'Mozilla/Projects/NSS/Reference/NSS_tools_:_vfychain' ---
-
+====================
+NSS tools : vfychain
+====================
 Name
 
 | vfychain — vfychain [options] [revocation options] certfile [[options]

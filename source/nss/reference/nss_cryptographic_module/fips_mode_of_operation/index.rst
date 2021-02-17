@@ -1,10 +1,6 @@
 ======================
 FIPS mode of operation
 ======================
---- title: FIPS mode of operation slug:
-Mozilla/Projects/NSS/Reference/NSS_cryptographic_module/FIPS_mode_of_operation
-tags: - NSS ---
-
 .. _General-purpose_functions:
 
 General-purpose functions

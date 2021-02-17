@@ -1,9 +1,6 @@
 ==================
 NSS Tools pk12util
 ==================
---- title: NSS Tools pk12util slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_pk12util ---
-
 .. _Using_the_PKCS_12_Tool_(pk12util):
 
 Using the PKCS #12 Tool (pk12util)

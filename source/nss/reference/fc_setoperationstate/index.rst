@@ -1,9 +1,6 @@
 ====================
 FC_SetOperationState
 ====================
---- title: FC_SetOperationState slug:
-Mozilla/Projects/NSS/Reference/FC_SetOperationState tags: - NSS ---
-
 .. _Name:
 
 Name

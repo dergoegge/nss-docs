@@ -1,9 +1,6 @@
 ===============
 FC_GetTokenInfo
 ===============
---- title: FC_GetTokenInfo slug:
-Mozilla/Projects/NSS/Reference/FC_GetTokenInfo tags: - NSS ---
-
 .. _Name:
 
 Name

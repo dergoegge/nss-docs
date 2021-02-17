@@ -1,9 +1,6 @@
 ==============
 FC_DecryptInit
 ==============
---- title: FC_DecryptInit slug:
-Mozilla/Projects/NSS/Reference/FC_DecryptInit tags: - NSS ---
-
 .. _Name:
 
 Name

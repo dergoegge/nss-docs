@@ -1,9 +1,6 @@
 ===============
 Overview of NSS
 ===============
---- title: Overview of NSS slug: Mozilla/Projects/NSS/Overview tags: -
-NSS ---
-
 .. _Open_Source_Crypto_Libraries:
 
 Open Source Crypto Libraries

@@ -1,9 +1,6 @@
 =============
 FC_SeedRandom
 =============
---- title: FC_SeedRandom slug:
-Mozilla/Projects/NSS/Reference/FC_SeedRandom tags: - NSS ---
-
 .. _Name:
 
 Name

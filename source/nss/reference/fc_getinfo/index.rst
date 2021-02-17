@@ -1,9 +1,6 @@
 ==========
 FC_GetInfo
 ==========
---- title: FC_GetInfo slug: Mozilla/Projects/NSS/Reference/FC_GetInfo
-tags: - NSS ---
-
 .. _Name:
 
 Name
@@ -97,21 +94,21 @@ structure.
    crv = pFunctionList->C_GetInfo(&info);
    assert(crv == CKR_OK);
    printf("General information about the PKCS #11 library:
-");
+   ");
    printf("    PKCS #11 version: %d.%d
-",
+   ",
        (int)info.cryptokiVersion.major, (int)info.cryptokiVersion.minor);
    printf("    manufacturer ID: %.32s
-", info.manufacturerID);
+   ", info.manufacturerID);
    printf("    flags: 0x%08lx
-", info.flags);
+   ", info.flags);
    printf("    library description: %.32s
-", info.libraryDescription);
+   ", info.libraryDescription);
    printf("    library version: %d.%d
-",
+   ",
        (int)info.libraryVersion.major, (int)info.libraryVersion.minor);
    printf("
-");
+   ");
 
 .. _See_also:
 

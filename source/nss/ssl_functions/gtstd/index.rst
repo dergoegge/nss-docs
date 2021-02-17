@@ -1,8 +1,6 @@
 =====
 gtstd
 =====
---- title: gtstd slug: Mozilla/Projects/NSS/SSL_functions/gtstd ---
-
 .. note::
 
    -  This page is part of the `SSL

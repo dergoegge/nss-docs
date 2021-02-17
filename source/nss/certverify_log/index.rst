@@ -1,9 +1,6 @@
 ==================
 NSS CERTVerify Log
 ==================
---- title: NSS CERTVerify Log slug: Mozilla/Projects/NSS/CERTVerify_Log
-tags: - NSS ---
-
 .. _CERTVerifyLog:
 
 CERTVerifyLog

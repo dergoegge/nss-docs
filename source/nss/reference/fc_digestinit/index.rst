@@ -1,9 +1,6 @@
 =============
 FC_DigestInit
 =============
---- title: FC_DigestInit slug:
-Mozilla/Projects/NSS/Reference/FC_DigestInit tags: - NSS ---
-
 .. _Name:
 
 Name

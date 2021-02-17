@@ -1,9 +1,6 @@
 ======================
 NSS 3.29 release notes
 ======================
---- title: NSS 3.29 release notes slug:
-Mozilla/Projects/NSS/NSS_3.29_release_notes ---
-
 .. _Introduction:
 
 Introduction

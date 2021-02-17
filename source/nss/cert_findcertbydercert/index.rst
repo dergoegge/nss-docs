@@ -1,9 +1,6 @@
 ======================
 CERT_FindCertByDERCert
 ======================
---- title: CERT_FindCertByDERCert slug:
-Mozilla/Projects/NSS/CERT_FindCertByDERCert tags: - NSS ---
-
 Find a certificate in the database that matches a DER-encoded
 certificate.
 

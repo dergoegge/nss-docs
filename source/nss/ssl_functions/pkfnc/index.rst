@@ -1,8 +1,6 @@
 =====
 pkfnc
 =====
---- title: pkfnc slug: Mozilla/Projects/NSS/SSL_functions/pkfnc ---
-
 .. note::
 
    -  This page is part of the `SSL

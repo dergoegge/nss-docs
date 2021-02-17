@@ -1,9 +1,6 @@
 ========
 FC_Login
 ========
---- title: FC_Login slug: Mozilla/Projects/NSS/Reference/FC_Login tags:
-- NSS ---
-
 .. _Name:
 
 Name

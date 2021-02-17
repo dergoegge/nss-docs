@@ -1,10 +1,6 @@
 ========================================
 Release notes for recent versions of NSS
 ========================================
---- title: Release notes for recent versions of NSS slug:
-Mozilla/Projects/NSS/NSS_Releases tags: - Landing - Mozilla - NSS -
-Networking - Project - Release Notes - Security ---
-
 The current **Stable** release of NSS is 3.61, which was released on
 **22 January 2021**. (`NSS 3.61 release
 notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.61_release_notes>`__)

@@ -1,9 +1,6 @@
 ==========================
 FIPS Mode - an explanation
 ==========================
---- title: FIPS Mode - an explanation slug:
-Mozilla/Projects/NSS/FIPS_Mode_-_an_explanation tags: - NSS ---
-
 NSS has a "FIPS Mode" that can be enabled when NSS is compiled in a
 specific way. (Note: Mozilla does not distribute a "FIPS Mode"-ready NSS
 with Firefox.) This page attempts to provide an informal explanation of

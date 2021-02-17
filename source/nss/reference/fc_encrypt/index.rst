@@ -1,9 +1,6 @@
 ==========
 FC_Encrypt
 ==========
---- title: FC_Encrypt slug: Mozilla/Projects/NSS/Reference/FC_Encrypt
-tags: - NSS ---
-
 .. _Name:
 
 Name

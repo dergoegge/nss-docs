@@ -1,9 +1,6 @@
-=====================
-'NSS tools : signver'
-=====================
---- title: 'NSS tools : signver' slug:
-Mozilla/Projects/NSS/Tools/signver ---
-
+===================
+NSS tools : signver
+===================
 | Name
 |    signver — Verify a detached PKCS#7 signature for a file.
 | Synopsis

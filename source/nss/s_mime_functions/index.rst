@@ -1,9 +1,6 @@
 ================
 S/MIME functions
 ================
---- title: S/MIME functions slug: Mozilla/Projects/NSS/S_MIME_functions
-tags: - NSS ---
-
 The public functions listed here perform S/MIME operations using the
 `S/MIME
 Toolkit <http://www-archive.mozilla.org/projects/security/pki/nss/smime/>`__.

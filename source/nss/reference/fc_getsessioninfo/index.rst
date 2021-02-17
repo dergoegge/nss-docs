@@ -1,9 +1,6 @@
 =================
 FC_GetSessionInfo
 =================
---- title: FC_GetSessionInfo slug:
-Mozilla/Projects/NSS/Reference/FC_GetSessionInfo tags: - NSS ---
-
 .. _Name:
 
 Name

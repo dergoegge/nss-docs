@@ -1,9 +1,6 @@
 =======
 JSS FAQ
 =======
---- title: JSS FAQ slug: Mozilla/Projects/NSS/JSS/JSS_FAQ tags: - JSS
----
-
 .. _JSS_Frequently_Asked_Questions:
 
 JSS Frequently Asked Questions

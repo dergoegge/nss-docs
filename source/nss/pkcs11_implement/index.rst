@@ -1,9 +1,6 @@
 ================
 PKCS11 Implement
 ================
---- title: PKCS11 Implement slug: Mozilla/Projects/NSS/PKCS11_Implement
----
-
 .. _Implementing_PKCS_.2311_for_NSS:
 
 Implementing PKCS #11 for NSS

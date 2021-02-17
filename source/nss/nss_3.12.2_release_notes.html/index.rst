@@ -1,9 +1,6 @@
 =============================
 NSS_3.12.2_release_notes.html
 =============================
---- title: NSS_3.12.2_release_notes.html slug:
-Mozilla/Projects/NSS/NSS_3.12.2_release_notes.html ---
-
 .. _NSS_3.12.2_Release_Notes:
 
 NSS 3.12.2 Release Notes

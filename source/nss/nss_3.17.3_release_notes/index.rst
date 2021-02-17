@@ -1,10 +1,6 @@
 ========================
 NSS 3.17.3 release notes
 ========================
---- title: NSS 3.17.3 release notes slug:
-Mozilla/Projects/NSS/NSS_3.17.3_release_notes tags: - Guide - NSS -
-Security ---
-
 .. _Introduction:
 
 Introduction

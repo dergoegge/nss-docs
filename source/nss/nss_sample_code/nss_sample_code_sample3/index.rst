@@ -1,9 +1,6 @@
 =======================
 NSS Sample Code sample3
 =======================
---- title: NSS Sample Code sample3 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_sample3 ---
-
 .. _Sample_Code_3_Hashing_MAC:
 
 Sample Code 3: Hashing, MAC

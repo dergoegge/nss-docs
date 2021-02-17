@@ -1,9 +1,6 @@
 ====================
 NSS Tools dbck-tasks
 ====================
---- title: NSS Tools dbck-tasks slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_dbck-tasks ---
-
 .. _NSS_Security_Tools_dbck_Tasks:
 
 NSS Security Tools: dbck Tasks

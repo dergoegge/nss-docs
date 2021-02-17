@@ -1,9 +1,6 @@
 ======================
 NSS 3.21 release notes
 ======================
---- title: NSS 3.21 release notes slug:
-Mozilla/Projects/NSS/NSS_3.21_release_notes ---
-
 2016-01-07, this page has been updated to include additional information
 about the release. The sections "Security Fixes" and "Acknowledgements"
 have been added.

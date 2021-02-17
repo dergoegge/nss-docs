@@ -1,9 +1,6 @@
 ========================
 Getting Started With NSS
 ========================
---- title: Getting Started With NSS slug:
-Mozilla/Projects/NSS/Getting_started_with_NSS tags: - Samples WIP ---
-
 .. _How_to_get_involved_with_NSS:
 
 How to get involved with NSS

@@ -1,9 +1,6 @@
 ============
 FC_DeriveKey
 ============
---- title: FC_DeriveKey slug:
-Mozilla/Projects/NSS/Reference/FC_DeriveKey tags: - NSS ---
-
 .. _Name:
 
 Name

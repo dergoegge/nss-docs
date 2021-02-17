@@ -1,9 +1,6 @@
 ======================
 NSS 3.37 release notes
 ======================
---- title: NSS 3.37 release notes slug:
-Mozilla/Projects/NSS/NSS_3.37_release_notes ---
-
 .. _Introduction:
 
 Introduction

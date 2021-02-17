@@ -1,10 +1,6 @@
 =========================================
 Introduction to Network Security Services
 =========================================
---- title: Introduction to Network Security Services slug:
-Mozilla/Projects/NSS/Introduction_to_Network_Security_Services tags: -
-Introduction - Mozilla - NSS ---
-
 **Network Security Services (NSS)** is a set of libraries designed to
 support cross-platform development of communications applications that
 support SSL, S/MIME, and other Internet security standards. For a

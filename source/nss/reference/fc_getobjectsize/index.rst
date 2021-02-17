@@ -1,9 +1,6 @@
 ================
 FC_GetObjectSize
 ================
---- title: FC_GetObjectSize slug:
-Mozilla/Projects/NSS/Reference/FC_GetObjectSize tags: - NSS ---
-
 .. _Name:
 
 Name

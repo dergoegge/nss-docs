@@ -1,9 +1,6 @@
 ==========================
 TLS Cipher Suite Discovery
 ==========================
---- title: TLS Cipher Suite Discovery slug:
-Mozilla/Projects/NSS/TLS_Cipher_Suite_Discovery tags: - NSS ---
-
 | 
 | In order to communicate securely, an TLS client and TLS server must
   agree on the cryptographic algorithms and keys that they will both use

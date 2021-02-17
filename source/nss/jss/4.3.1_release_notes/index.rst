@@ -1,10 +1,6 @@
 ===================
 4.3.1 Release Notes
 ===================
---- title: 4.3.1 Release Notes slug:
-Mozilla/Projects/NSS/JSS/4.3.1_Release_Notes tags: - JSS - NSPR - NSS
----
-
 .. _Release_Date_2009-12-02:
 
 Release Date: 2009-12-02

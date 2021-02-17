@@ -1,9 +1,6 @@
 ====================
 FC_GetAttributeValue
 ====================
---- title: FC_GetAttributeValue slug:
-Mozilla/Projects/NSS/Reference/FC_GetAttributeValue tags: - NSS ---
-
 .. _Name:
 
 Name

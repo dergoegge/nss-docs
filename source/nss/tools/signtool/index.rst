@@ -1,9 +1,6 @@
-======================
-'NSS tools : signtool'
-======================
---- title: 'NSS tools : signtool' slug:
-Mozilla/Projects/NSS/Tools/signtool ---
-
+====================
+NSS tools : signtool
+====================
 | Name
 |    signtool — Digitally sign objects and files.
 | Synopsis
@@ -676,10 +673,8 @@ Mozilla/Projects/NSS/Tools/signtool ---
 |    You can use the -M option to list the PKCS #11 modules, including
   smart
 |    cards, that are available to signtool:
-|  signtool -d "c:
-etscape\users\jsmith" -M
-|  using certificate directory: c:
-etscape\users\username
+|  signtool -d "c: etscape\users\jsmith" -M
+|  using certificate directory: c: etscape\users\username
 |  Listing of PKCS11 modules
 |  -----------------------------------------------
 |          1. Netscape Internal PKCS #11 Module
@@ -717,10 +712,8 @@ etscape\users\username
 |    Verifying FIPS Mode
 |    Use the -M option to verify that you are using the FIPS-140-1
   module.
-|  signtool -d "c:
-etscape\users\jsmith" -M
-|  using certificate directory: c:
-etscape\users\jsmith
+|  signtool -d "c: etscape\users\jsmith" -M
+|  using certificate directory: c: etscape\users\jsmith
 |  Listing of PKCS11 modules
 |  -----------------------------------------------
 |    1. Netscape Internal PKCS #11 Module
@@ -735,10 +728,8 @@ etscape\users\jsmith
 |    This Unix example shows that Netscape Signing Tool is using a
   FIPS-140-1
 |    module:
-|  signtool -d "c:
-etscape\users\jsmith" -M
-|  using certificate directory: c:
-etscape\users\jsmith
+|  signtool -d "c: etscape\users\jsmith" -M
+|  using certificate directory: c: etscape\users\jsmith
 |  Enter Password or Pin for "Communicator Certificate DB": [password
   will not echo]
 |  Listing of PKCS11 modules

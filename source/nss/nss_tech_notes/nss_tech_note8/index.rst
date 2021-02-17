@@ -1,9 +1,6 @@
 ==============
 nss tech note8
 ==============
---- title: nss tech note8 slug:
-Mozilla/Projects/NSS/NSS_Tech_Notes/nss_tech_note8 ---
-
 .. _Background_Information_on_libSSL's_Cache_Functions_and_SIDs:
 
 Background Information on libSSL's Cache Functions and SIDs

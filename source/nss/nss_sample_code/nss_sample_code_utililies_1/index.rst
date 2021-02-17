@@ -1,10 +1,6 @@
 ===========================
 NSS Sample Code Utilities_1
 ===========================
---- title: NSS Sample Code Utilities_1 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_Utililies_1 tags: -
-Examples - NSS - Security ---
-
 .. _NSS_Sample_Code_Common_Utilities:
 
 NSS Sample Code Common: Utilities
@@ -46,7 +42,7 @@ Sample Code
     */
    static void Newline(PRFileDesc* out) {
        PR_fprintf(out, "
-");
+   ");
    }
 
    /*
@@ -59,7 +55,7 @@ Sample Code
        b64Data = BTOA_DataToAscii(data, len);
        PR_fprintf(out, "%s", b64Data);
        PR_fprintf(out, "
-");
+   ");
        if (b64Data) {
            PORT_Free(b64Data);
        }
@@ -78,7 +74,7 @@ Sample Code
        column = level;
        if (!len) {
            PR_fprintf(out, "(empty)
-");
+   ");
            return;
        }
 
@@ -141,7 +137,7 @@ Sample Code
        if (isHexData) {
            while (*inString) {
                 if ((*inString == '
-') || (*inString == ':')) {
+   ') || (*inString == ':')) {
                     inString++;
                     continue;
                 }
@@ -157,7 +153,7 @@ Sample Code
        } else {
            while (*inString) {
                if (*inString == '
-') {
+   ') {
                    inString++;
                    continue;
                }
@@ -265,7 +261,7 @@ Sample Code
            fgets(phrase, sizeof(phrase), input);
            if (isTTY) {
                fprintf(output, "
-");
+   ");
                echoOn(infd);
            }
            /* stomp on newline */
@@ -274,9 +270,9 @@ Sample Code
            if (!(*ok)(phrase)) {
                if (!isTTY) return 0;
                fprintf(output, "Password must be at least 8 characters long with one or more
-");
+   ");
                fprintf(output, "non-alphabetic characters
-");
+   ");
                continue;
            }
            return (char*) PORT_Strdup(phrase);
@@ -326,7 +322,7 @@ Sample Code
        fd = PR_Open(pwFile, PR_RDONLY, 0);
        if (!fd) {
            fprintf(stderr, "No password file \"%s\" exists.
-", pwFile);
+   ", pwFile);
            PORT_Free(phrases);
            return NULL;
        }
@@ -337,7 +333,7 @@ Sample Code
 
        if (nb == 0) {
            fprintf(stderr,"password file contains no data
-");
+   ");
            PORT_Free(phrases);
            return NULL;
        }
@@ -354,15 +350,15 @@ Sample Code
            int phraseLen;
 
            /* handle the Windows EOL case */
-           while (phrases[i] != '' && phrases[i] != '
-' && i < nb) i++;
+           while (phrases[i] != '' && phrases[i] != '
+   ' && i < nb) i++;
 
            /* terminate passphrase */
            phrases[i++] = '';
            /* clean up any EOL before the start of the next passphrase */
            while ( (i<nb) analyze="" char="" current="" getmodulepassword="" if="" int="" now="" passphrase="" phrase="&amp;phrases[startphrase];" phraselen="" pk11slotinfo="" pwdata="=" pwdata-="" retry="" return="" secupwdata="" the="" void="" while="">source != PW_NONE) {
            PR_fprintf(PR_STDERR, "Incorrect password/PIN entered.
-");
+   ");
            return NULL;
        }
 
@@ -382,7 +378,7 @@ Sample Code
            break;
        }
        PR_fprintf(PR_STDERR, "Password check failed: No password found.
-");
+   ");
        return NULL;
    }
 
@@ -392,7 +388,7 @@ Sample Code
    SECStatus GenerateRandom(unsigned char *rbuf, int rsize)
    {
        char meter[] = {
-                      "|                                |" };
+                      "|                                |" };
        int            fd,  count;
        int            c;
        SECStatus      rv                  = SECSuccess;
@@ -404,9 +400,9 @@ Sample Code
        fprintf(stderr, "To generate random numbers, "
                "continue typing until the progress meter is full:
 
-");
+   ");
        fprintf(stderr, "%s", meter);
-       fprintf(stderr, "|");
+       fprintf(stderr, "|");
 
        /* turn off echo on stdin & return on 1 char instead of NL */
        fd = fileno(stdin);
@@ -438,14 +434,14 @@ Sample Code
 
        fprintf(stderr, "
 
-Finished.  Press enter to continue: ");
+   Finished.  Press enter to continue: ");
        while ((c = getc(stdin)) != '
-' && c != EOF)
+   ' && c != EOF)
            ;
        if (c == EOF)
            rv = SECFailure;
        fprintf(stderr, "
-");
+   ");
 
        /* set back termio the way it was */
        tio.c_lflag = orig_lflag;
@@ -502,7 +498,7 @@ Finished.  Press enter to continue: ");
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
            PR_fprintf(PR_STDERR, "Failed to open file \"%s\" (%ld, %ld).
-",
+   ",
                       inFileName, PR_GetError(), PR_GetOSError());
            rv = SECFailure;
            goto cleanup;
@@ -518,7 +514,7 @@ Finished.  Press enter to continue: ");
            asc = (char *)filedata.data;
            if (!asc) {
                PR_fprintf(PR_STDERR, "unable to read data from input file
-");
+   ");
                rv = SECFailure;
                goto cleanup;
            }
@@ -528,16 +524,16 @@ Finished.  Press enter to continue: ");
                char *trailer = NULL;
                asc = body;
                body = PORT_Strchr(body, '
-');
+   ');
                if (!body)
-                   body = PORT_Strchr(asc, ''); /* maybe this is a MAC file */
+                   body = PORT_Strchr(asc, ''); /* maybe this is a MAC file */
                if (body)
                    trailer = strstr(++body, "-----END");
                if (trailer != NULL) {
                    *trailer = '';
                } else {
                    PR_fprintf(PR_STDERR,  "input has header but no trailer
-");
+   ");
                    PORT_Free(filedata.data);
                    rv = SECFailure;
                    goto cleanup;
@@ -550,7 +546,7 @@ Finished.  Press enter to continue: ");
            rv = ATOB_ConvertAsciiToItem(der, body);
            if (rv) {
                PR_fprintf(PR_STDERR,  "error converting ascii to binary %s
-",
+   ",
                           PORT_GetError());
                PORT_Free(filedata.data);
                rv = SECFailure;
@@ -563,7 +559,7 @@ Finished.  Press enter to continue: ");
            rv = FileToItem(der, inFile);
            if (rv) {
                PR_fprintf(PR_STDERR, "error converting der 
-");
+   ");
                rv = SECFailure;
            }
        }

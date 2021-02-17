@@ -1,9 +1,6 @@
 =====================
 NSS Memory allocation
 =====================
---- title: NSS Memory allocation slug:
-Mozilla/Projects/NSS/Memory_allocation tags: - NSS ---
-
 NSS makes extensive use of NSPR's PLArenaPools for memory allocation.
 
 Each block of memory allocated in a PLArenaPool is called a PLArena.

@@ -1,9 +1,6 @@
 ==============
 FC_OpenSession
 ==============
---- title: FC_OpenSession slug:
-Mozilla/Projects/NSS/Reference/FC_OpenSession tags: - NSS ---
-
 .. _Name:
 
 Name

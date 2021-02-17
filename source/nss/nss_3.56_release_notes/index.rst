@@ -1,9 +1,6 @@
 ======================
 NSS 3.56 release notes
 ======================
---- title: NSS 3.56 release notes slug:
-Mozilla/Projects/NSS/NSS_3.56_release_notes ---
-
 .. _Introduction:
 
 Introduction

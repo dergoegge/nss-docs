@@ -1,9 +1,6 @@
 =======================
 NSS Sample Code sample6
 =======================
---- title: NSS Sample Code sample6 slug:
-Mozilla/Projects/NSS/NSS_Sample_Code/NSS_Sample_Code_sample6 ---
-
 .. _NSS_Sample_Code_6_Persistent_Symmetric_Keys_in_NSS_database:
 
 NSS Sample Code 6: Persistent Symmetric Keys in NSS database
@@ -56,7 +53,7 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
      if (rv != SECSuccess)
      {
        fprintf(stderr, "NSS initialization failed (err %d)
-",
+   ",
                PR_GetError());
        exit(1);
      }
@@ -93,7 +90,7 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
      if (slot == NULL)
      {
        fprintf(stderr, "Unable to find security device (err %d)
-",
+   ",
                PR_GetError());
        return;
      }
@@ -112,17 +109,17 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
      if (key == NULL)
      {
        fprintf(stderr, "PK11_TokenKeyGen failed (err %d)
-",
+   ",
                PR_GetError());
        PK11_FreeSlot(slot);
        return;
      }
 
      fprintf(stderr, "key length of generated key is %d
-",
+   ",
              PK11_GetKeyLength(key));
      fprintf(stderr, "mechanism of key is %d (asked for %d)
-",
+   ",
              PK11_GetMechanism(key), cipherMech);
 
      PK11_FreeSymKey(key);
@@ -132,19 +129,19 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
      if (key == NULL)
      {
        fprintf(stderr, "PK11_FindFixedKey failed (err %d)
-",
+   ",
                PR_GetError());
        PK11_FreeSlot(slot);
        return;
      }
 
      fprintf(stderr, "Found key!
-");
+   ");
      fprintf(stderr, "key length of generated key is %d
-",
+   ",
              PK11_GetKeyLength(key));
      fprintf(stderr, "mechanism of key is %d (asked for %d)
-",
+   ",
              PK11_GetMechanism(key), cipherMech);
 
      PK11_FreeSymKey(key);

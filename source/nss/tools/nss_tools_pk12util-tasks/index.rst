@@ -1,9 +1,6 @@
 ========================
 NSS Tools pk12util-tasks
 ========================
---- title: NSS Tools pk12util-tasks slug:
-Mozilla/Projects/NSS/tools/NSS_Tools_pk12util-tasks ---
-
 .. _NSS_Security_Tools_pk12util_Tasks:
 
 NSS Security Tools: pk12util Tasks
