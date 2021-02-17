@@ -59,8 +59,7 @@ NSS Sample Code 4: PKI Encryption
      rv = NSS_Init(".");
      if (rv != SECSuccess)
      {
-       fprintf(stderr, "NSS initialization failed (err %d)
-   ",
+       fprintf(stderr, "NSS initialization failed (err %d)\n",
                PR_GetError());
        goto cleanup;
      }
@@ -68,8 +67,7 @@ NSS Sample Code 4: PKI Encryption
      cert = PK11_FindCertFromNickname("TestCA", NULL);
      if (cert == NULL)
      {
-       fprintf(stderr, "Couldn't find cert TestCA in NSS db (err %d)
-   ",
+       fprintf(stderr, "Couldn't find cert TestCA in NSS db (err %d)\n",
                PR_GetError());
        goto cleanup;
      }
@@ -77,15 +75,13 @@ NSS Sample Code 4: PKI Encryption
      pubkey = CERT_ExtractPublicKey(cert);
      if (pubkey == NULL)
      {
-       fprintf(stderr, "Couldn't extract public key from cert TestCA (err %d)
-   ",
+       fprintf(stderr, "Couldn't extract public key from cert TestCA (err %d)\n",
                PR_GetError());
        goto cleanup;
      }
 
      modulus_len = SECKEY_PublicKeyStrength(pubkey);
-     fprintf(stderr, "Public Key Modulus %d bytes
-   ", modulus_len);
+     fprintf(stderr, "Public Key Modulus %d bytes\n", modulus_len);
      buf1 = (char *)malloc(modulus_len);
      buf2 = (char *)malloc(modulus_len);
 
@@ -94,17 +90,14 @@ NSS Sample Code 4: PKI Encryption
      {
        buf1[i]= (i %26) + 'A';
      }
-     buf1[modulus_len-1] = '';
-     fprintf(stderr, "Buffer being encrypted = 
-   %s
-   ", buf1);
+     buf1[modulus_len-1] = '\0';
+     fprintf(stderr, "Buffer being encrypted = \n%s\n", buf1);
 
      /* encrypt buf1, result will be in buf2 */
      rv = PK11_PubEncryptRaw(pubkey, buf2, buf1, modulus_len, NULL);
      if (rv != SECSuccess)
      {
-       fprintf(stderr, "Encrypt with Public Key failed (err %d)
-   ",
+       fprintf(stderr, "Encrypt with Public Key failed (err %d)\n",
                PR_GetError());
        goto cleanup;
      }
@@ -112,8 +105,7 @@ NSS Sample Code 4: PKI Encryption
      pvtkey = PK11_FindKeyByAnyCert(cert, NULL);
      if (pvtkey == NULL)
      {
-       fprintf(stderr, "Couldn't find private key for cert TestCA (err %d)
-   ",
+       fprintf(stderr, "Couldn't find private key for cert TestCA (err %d)\n",
                PR_GetError());
        goto cleanup;
      }
@@ -121,7 +113,7 @@ NSS Sample Code 4: PKI Encryption
      /* clear buf1 */
      for (i=0;i<modulus_len;i++)
      {
-       buf1[i]= '';
+       buf1[i]= '\0';
      }
 
      /* decrypt buf2, result will be in buf1 */
@@ -129,17 +121,13 @@ NSS Sample Code 4: PKI Encryption
                              modulus_len);
      if (rv != SECSuccess)
      {
-       fprintf(stderr, "Decrypt with Private Key failed (err %d)
-   ",
+       fprintf(stderr, "Decrypt with Private Key failed (err %d)\n",
                PR_GetError());
        goto cleanup;
      }
 
-     fprintf(stderr, "Result of decryption, outlen = %d
-   ", outlen);
-     fprintf(stderr, "Result of decryption, buf = 
-   %s
-   ", buf1);
+     fprintf(stderr, "Result of decryption, outlen = %d\n", outlen);
+     fprintf(stderr, "Result of decryption, buf = \n%s\n", buf1);
 
      exit(0);
 

@@ -66,8 +66,7 @@ another file, this illustrates the use of NSS message APIs.
    static void
    Newline(PRFileDesc* out)
    {
-       PR_fprintf(out, "
-   ");
+       PR_fprintf(out, "\n");
    }
 
    /*
@@ -83,8 +82,7 @@ another file, this illustrates the use of NSS message APIs.
 
        column = level;
        if (!len) {
-           PR_fprintf(out, "(empty)
-   ");
+           PR_fprintf(out, "(empty)\n");
            return;
        }
 
@@ -118,10 +116,8 @@ another file, this illustrates the use of NSS message APIs.
        int htype;
        int HASH_AlgTOTAL = sizeof(HASH_NAMES) / sizeof(HASH_NAMES[0]);
 
-       fprintf(stderr, "Usage:  %s -t type [ < input ] [ > output ]
-   ", progName);
-       fprintf(stderr, "%-20s Specify the digest method (must be one of
-   ",
+       fprintf(stderr, "Usage:  %s -t type [ < input ] [ > output ]\n", progName);
+       fprintf(stderr, "%-20s Specify the digest method (must be one of\n",
                "-t type");
        fprintf(stderr, "%-20s ", "");
        for (htype = 0; htype < HASH_AlgTOTAL; htype++) {
@@ -131,13 +127,10 @@ another file, this illustrates the use of NSS message APIs.
            else if (htype != (HASH_AlgTOTAL - 1))
                fprintf(stderr, ", ");
        }
-       fprintf(stderr, " (case ignored))
-   ");
-       fprintf(stderr, "%-20s Define an input file to use (default is stdin)
-   ",
+       fprintf(stderr, " (case ignored))\n");
+       fprintf(stderr, "%-20s Define an input file to use (default is stdin)\n",
                "< input");
-       fprintf(stderr, "%-20s Define an output file to use (default is stdout)
-   ",
+       fprintf(stderr, "%-20s Define an output file to use (default is stdout)\n",
                "> output");
        exit(-1);
    }
@@ -148,8 +141,7 @@ another file, this illustrates the use of NSS message APIs.
    static void
    PrintMsgAndExit(const char *progName, char opt)
    {
-       fprintf(stderr, "%s: option -%c requires an argument
-   ", progName, opt);
+       fprintf(stderr, "%s: option -%c requires an argument\n", progName, opt);
        Usage(progName);
    }
 
@@ -219,8 +211,7 @@ another file, this illustrates the use of NSS message APIs.
 
        rv = NSS_NoDB_Init("/tmp");
        if (rv != SECSuccess) {
-           fprintf(stderr, "%s: NSS_Init failed in directory %s
-   ",
+           fprintf(stderr, "%s: NSS_Init failed in directory %s\n",
                    progName, "/tmp");
            return -1;
        }
@@ -242,16 +233,14 @@ another file, this illustrates the use of NSS message APIs.
        /* convert and validate */
        hashOIDTag = HashNameToOIDTag(hashName);
        if (hashOIDTag == SEC_OID_UNKNOWN) {
-           fprintf(stderr, "%s: invalid digest type - %s
-   ", progName, hashName);
+           fprintf(stderr, "%s: invalid digest type - %s\n", progName, hashName);
            Usage(progName);
        }
 
        /* Digest it and print the result */
        rv = DigestFile(PR_STDOUT, PR_STDIN, hashOIDTag);
        if (rv != SECSuccess) {
-           fprintf(stderr, "%s: problem digesting data (%d)
-   ",
+           fprintf(stderr, "%s: problem digesting data (%d)\n",
                    progName, PORT_GetError());
        }
 

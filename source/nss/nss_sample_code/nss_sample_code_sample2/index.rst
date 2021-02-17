@@ -48,8 +48,7 @@ NSS Sample Code 2: Symmetric Encryption
      rv = NSS_NoDB_Init(".");
      if (rv != SECSuccess)
      {
-       fprintf(stderr, "NSS initialization failed (err %d)
-   ",
+       fprintf(stderr, "NSS initialization failed (err %d)\n",
                PR_GetError());
        goto out;
      }
@@ -67,8 +66,7 @@ NSS Sample Code 2: Symmetric Encryption
       */
      if (slot == NULL)
      {
-       fprintf(stderr, "Unable to find security device (err %d)
-   ",
+       fprintf(stderr, "Unable to find security device (err %d)\n",
                PR_GetError());
        goto out;
      }
@@ -86,8 +84,7 @@ NSS Sample Code 2: Symmetric Encryption
                                 &keyItem, NULL);
      if (SymKey == NULL)
      {
-       fprintf(stderr, "Failure to import key into NSS (err %d)
-   ",
+       fprintf(stderr, "Failure to import key into NSS (err %d)\n",
                PR_GetError());
        goto out;
      }
@@ -102,16 +99,14 @@ NSS Sample Code 2: Symmetric Encryption
      SecParam = PK11_ParamFromIV(cipherMech, &ivItem);
      if (SecParam == NULL)
      {
-       fprintf(stderr, "Failure to set up PKCS11 param (err %d)
-   ",
+       fprintf(stderr, "Failure to set up PKCS11 param (err %d)\n",
                PR_GetError());
        goto out;
      }
 
      /* sample data we'll encrypt and decrypt */
      strcpy(data, "Encrypt me!");
-     fprintf(stderr, "Clear Data: %s
-   ", data);
+     fprintf(stderr, "Clear Data: %s\n", data);
 
      /* ========================= START SECTION ============================= */
      /* If using the same key and iv over and over, stuff before this         */
@@ -135,8 +130,7 @@ NSS Sample Code 2: Symmetric Encryption
      fprintf(stderr, "Encrypted Data: ");
      for (i=0; i<result_len; i++)
        fprintf(stderr, "%02x ", buf1[i]);
-     fprintf(stderr, "
-   ");
+     fprintf(stderr, "\n");
 
 
      /* DECRYPT buf1 into buf2. buf2 len must be atleast buf1 len */
@@ -154,8 +148,7 @@ NSS Sample Code 2: Symmetric Encryption
      if (rv1 != SECSuccess || rv2 != SECSuccess)
        goto out;
 
-     fprintf(stderr, "Decrypted Data: %s
-   ", buf2);
+     fprintf(stderr, "Decrypted Data: %s\n", buf2);
 
      /* =========================== END SECTION ============================= */
 

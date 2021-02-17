@@ -105,69 +105,38 @@ signing request
    static void
    Usage(const char *progName)
    {
-       fprintf(stderr, "
-   Usage:  %s -c  -d  [-z ] "
-               "[-p  | -f ] -s  -r  -i  -o  
-
-   ",
+       fprintf(stderr, "\nUsage:  %s -c  -d  [-z ] "
+               "[-p  | -f ] -s  -r  -i  -o  \n\n",
                progName);
-       fprintf(stderr, "%-20s  Specify 'G' for generating RSA keypair for wrapping
-
-   ",
+       fprintf(stderr, "%-20s  Specify 'G' for generating RSA keypair for wrapping\n\n",
                 "G");
-       fprintf(stderr, "%-20s  Specify 'E' for encrypt operation
-
-   ",
+       fprintf(stderr, "%-20s  Specify 'E' for encrypt operation\n\n",
                 "E");
-       fprintf(stderr, "%-20s  Specify 'D' for decrypt operation
-
-   ",
+       fprintf(stderr, "%-20s  Specify 'D' for decrypt operation\n\n",
                 "D");
-       fprintf(stderr, "%-20s  Specify db directory path
-
-   ",
+       fprintf(stderr, "%-20s  Specify db directory path\n\n",
                 "-d ");
-       fprintf(stderr, "%-20s  Specify db password [optional]
-
-   ",
+       fprintf(stderr, "%-20s  Specify db password [optional]\n\n",
                 "-p ");
-       fprintf(stderr, "%-20s  Specify db password file [optional]
-
-   ",
+       fprintf(stderr, "%-20s  Specify db password file [optional]\n\n",
                 "-f ");
-       fprintf(stderr, "%-20s  Specify noise file name [optional]
-
-   ",
+       fprintf(stderr, "%-20s  Specify noise file name [optional]\n\n",
                 "-z ");
-       fprintf(stderr, "%-21s Specify subject
-
-   ",
+       fprintf(stderr, "%-21s Specify subject\n\n",
                 "-s ");
-       fprintf(stderr, "%-21s Specify certficate request file name
-
-   ",
+       fprintf(stderr, "%-21s Specify certficate request file name\n\n",
                 "-r ");
-       fprintf(stderr, "%-21s Specify an input file name
-
-   ",
+       fprintf(stderr, "%-21s Specify an input file name\n\n",
                 "-i ");
-       fprintf(stderr, "%-21s Specify an output file name
-
-   ",
+       fprintf(stderr, "%-21s Specify an output file name\n\n",
                 "-o ");
-       fprintf(stderr, "%-7s For encrypt, it takes  as an input file and produces
-   ",
+       fprintf(stderr, "%-7s For encrypt, it takes  as an input file and produces\n",
                 "Note :");
-       fprintf(stderr, "%-7s .enc and .header as intermediate output files.
-
-   ",
+       fprintf(stderr, "%-7s .enc and .header as intermediate output files.\n\n",
                 "");
-       fprintf(stderr, "%-7s For decrypt, it takes .enc and .header
-   ",
+       fprintf(stderr, "%-7s For decrypt, it takes .enc and .header\n",
                 "");
-       fprintf(stderr, "%-7s as input files and produces  as a final output file.
-
-   ",
+       fprintf(stderr, "%-7s as input files and produces  as a final output file.\n\n",
                 "");
        exit(-1);
    }
@@ -194,8 +163,7 @@ signing request
        SECItem *data = (SECItem *)PORT_ZAlloc(sizeof(SECItem));
 
        if (!data) {
-           PR_fprintf(PR_STDERR, "Error while allocating memory
-   ");
+           PR_fprintf(PR_STDERR, "Error while allocating memory\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -204,8 +172,7 @@ signing request
        data->data = (unsigned char*)PORT_ZAlloc((data->len)*sizeof(unsigned int));
 
        if (!data->data) {
-           PR_fprintf(PR_STDERR, "Error while allocating memory
-   ");
+           PR_fprintf(PR_STDERR, "Error while allocating memory\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -240,8 +207,7 @@ signing request
                NULL, keySize, keyID, PR_FALSE, pwdata);
 
        if (!key) {
-           PR_fprintf(PR_STDERR, "Symmetric Key Generation Failed 
-   ");
+           PR_fprintf(PR_STDERR, "Symmetric Key Generation Failed \n");
        }
 
        return key;
@@ -255,8 +221,7 @@ signing request
    {
        SECStatus rv = PK11_DigestBegin(ctx);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestBegin()
-   ");
+           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestBegin()\n");
        }
        return rv;
    }
@@ -270,8 +235,7 @@ signing request
    {
        SECStatus rv = PK11_DigestOp(ctx, msg, msgLen);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Compute MAC Failed : DigestOp()
-   ");
+           PR_fprintf(PR_STDERR, "Compute MAC Failed : DigestOp()\n");
        }
        return rv;
    }
@@ -285,8 +249,7 @@ signing request
    {
        SECStatus rv = PK11_DigestFinal(ctx, mac, macLen, maxLen);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestFinal()
-   ");
+           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestFinal()\n");
        }
        return SECSuccess;
    }
@@ -347,25 +310,18 @@ signing request
        case LAB:
            header = LAB_HEADER;
            trailer = LAB_TRAILER;
-           PR_fprintf(outFile, "%s
-   ", header);
-           PR_fprintf(outFile, "%s
-   ", buf);
-           PR_fprintf(outFile, "%s
-
-   ", trailer);
+           PR_fprintf(outFile, "%s\n", header);
+           PR_fprintf(outFile, "%s\n", buf);
+           PR_fprintf(outFile, "%s\n\n", trailer);
            return SECSuccess;
            break;
            default:
            return SECFailure;
        }
 
-       PR_fprintf(outFile, "%s
-   ", header);
+       PR_fprintf(outFile, "%s\n", header);
        PrintAsAscii(outFile, buf, len);
-       PR_fprintf(outFile, "%s
-
-   ", trailer);
+       PR_fprintf(outFile, "%s\n\n", trailer);
        return SECSuccess;
    }
 
@@ -382,14 +338,12 @@ signing request
 
        SECItem *secParam = PK11_ParamFromIV(type, &ivItem);
        if (secParam == NULL) {
-           PR_fprintf(PR_STDERR, "Crypt Failed : secParam NULL
-   ");
+           PR_fprintf(PR_STDERR, "Crypt Failed : secParam NULL\n");
            return NULL;
        }
        ctx = PK11_CreateContextBySymKey(type, operation, key, secParam);
        if (ctx == NULL) {
-           PR_fprintf(PR_STDERR, "Crypt Failed : can't create a context
-   ");
+           PR_fprintf(PR_STDERR, "Crypt Failed : can't create a context\n");
            goto cleanup;
 
        }
@@ -412,8 +366,7 @@ signing request
 
        rv = PK11_CipherOp(ctx, out, outLen, maxOut, in, inLen);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Crypt Failed : PK11_CipherOp returned %d
-   ", rv);
+           PR_fprintf(PR_STDERR, "Crypt Failed : PK11_CipherOp returned %d\n", rv);
            goto cleanup;
        }
 
@@ -485,8 +438,7 @@ signing request
        outbuf.type = siBuffer;
        file = PR_Open(fileName, PR_RDONLY, 0);
        if (!file) {
-           PR_fprintf(PR_STDERR, "Failed to open %s
-   ", fileName);
+           PR_fprintf(PR_STDERR, "Failed to open %s\n", fileName);
            return SECFailure;
        }
        switch (type) {
@@ -526,8 +478,7 @@ signing request
        rv = FileToItem(&filedata, file);
        nonbody = (char *)filedata.data;
        if (!nonbody) {
-           PR_fprintf(PR_STDERR, "unable to read data from input file
-   ");
+           PR_fprintf(PR_STDERR, "unable to read data from input file\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -537,17 +488,15 @@ signing request
        if ((body = strstr(nonbody, header)) != NULL) {
            char *trail = NULL;
            nonbody = body;
-           body = PORT_Strchr(body, '
-   ');
+           body = PORT_Strchr(body, '\n');
            if (!body)
-               body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
+               body = PORT_Strchr(nonbody, '\r'); /* maybe this is a MAC file */
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = '';
+               *trail = '\0';
            } else {
-               PR_fprintf(PR_STDERR,  "input has header but no trailer
-   ");
+               PR_fprintf(PR_STDERR,  "input has header but no trailer\n");
                PORT_Free(filedata.data);
                return SECFailure;
            }
@@ -558,8 +507,7 @@ signing request
                trail = strstr(++body, trailer);
                if (trail != NULL) {
                    PR_fprintf(PR_STDERR,
-                       "input has no header but has trailer
-   ");
+                       "input has no header but has trailer\n");
                    PORT_Free(filedata.data);
                    return SECFailure;
                }
@@ -591,8 +539,7 @@ signing request
 
        rv = GenerateRandom(randbuf, BLOCKSIZE);
        if (rv != SECSuccess) {
-           fprintf(stderr, "Error while generating the random numbers : %s
-   ",
+           fprintf(stderr, "Error while generating the random numbers : %s\n",
                    PORT_ErrorToString(rv));
            goto cleanup;
        }
@@ -608,12 +555,8 @@ signing request
            default:
                goto cleanup;
        }
-       fprintf(stderr, "
-
-   ");
-       fprintf(stderr, "Generating key.  This may take a few moments...
-
-   ");
+       fprintf(stderr, "\n\n");
+       fprintf(stderr, "Generating key.  This may take a few moments...\n\n");
        privKey = PK11_GenerateKeyPair(slot, mechanism, params, pubkeyp,
                                           PR_TRUE /*isPerm*/, PR_TRUE /*isSensitive*/,
                                           pwdata);
@@ -695,8 +638,7 @@ signing request
        SECItem                  *cka_id;
 
        if (slot == NULL) {
-           fprintf(stderr, "Empty Slot
-   ");
+           fprintf(stderr, "Empty Slot\n");
            goto cleanup;
        }
        if (PK11_Authenticate(slot, PR_TRUE, pwdata) != SECSuccess) {
@@ -734,16 +676,14 @@ signing request
        outFile = PR_Open(certReqFileName, PR_CREATE_FILE | PR_RDWR | PR_TRUNCATE, 00660);
        if (!outFile) {
            PR_fprintf(PR_STDERR,
-                      "unable to open \"%s\" for writing (%ld, %ld).
-   ",
+                      "unable to open \"%s\" for writing (%ld, %ld).\n",
                       certReqFileName, PR_GetError(), PR_GetOSError());
            goto cleanup;
        }
        /* Create info about public key */
        spki = SECKEY_CreateSubjectPublicKeyInfo(pubk);
        if (!spki) {
-           PR_fprintf(PR_STDERR, "unable to create subject public key
-   ");
+           PR_fprintf(PR_STDERR, "unable to create subject public key\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -751,8 +691,7 @@ signing request
        /* Generate certificate request */
        cr = CERT_CreateCertificateRequest(subject, spki, NULL);
        if (!cr) {
-           PR_fprintf(PR_STDERR, "unable to make certificate request
-   ");
+           PR_fprintf(PR_STDERR, "unable to make certificate request\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -778,8 +717,7 @@ signing request
        encoding = SEC_ASN1EncodeItem(arena, NULL, cr,
                                      SEC_ASN1_GET(CERT_CertificateRequestTemplate));
        if (encoding == NULL) {
-           PR_fprintf(PR_STDERR, "der encoding of request failed
-   ");
+           PR_fprintf(PR_STDERR, "der encoding of request failed\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -787,16 +725,14 @@ signing request
        /* Sign the request */
        signAlgTag = SEC_GetSignatureAlgorithmOidTag(keyType, hashAlgTag);
        if (signAlgTag == SEC_OID_UNKNOWN) {
-           PR_fprintf(PR_STDERR, "unknown Key or Hash type
-   ");
+           PR_fprintf(PR_STDERR, "unknown Key or Hash type\n");
            rv = SECFailure;
            goto cleanup;
        }
        rv = SEC_DerSignData(arena, &result, encoding->data, encoding->len,
                             privk, signAlgTag);
        if (rv) {
-           PR_fprintf(PR_STDERR, "signing of data failed
-   ");
+           PR_fprintf(PR_STDERR, "signing of data failed\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -835,40 +771,27 @@ signing request
                country = strdup("(not specified)");
 
            PR_fprintf(outFile,
-                      "
-   Certificate request generated by Netscape certutil
-   ");
-           PR_fprintf(outFile, "Common Name: %s
-   ", name);
-           PR_fprintf(outFile, "Email: %s
-   ", email);
-           PR_fprintf(outFile, "Organization: %s
-   ", org);
-           PR_fprintf(outFile, "State: %s
-   ", state);
-           PR_fprintf(outFile, "Country: %s
+                      "\nCertificate request generated by Netscape certutil\n");
+           PR_fprintf(outFile, "Common Name: %s\n", name);
+           PR_fprintf(outFile, "Email: %s\n", email);
+           PR_fprintf(outFile, "Organization: %s\n", org);
+           PR_fprintf(outFile, "State: %s\n", state);
+           PR_fprintf(outFile, "Country: %s\n\n", country);
 
-   ", country);
-
-           PR_fprintf(outFile, "%s
-   ", NS_CERTREQ_HEADER);
+           PR_fprintf(outFile, "%s\n", NS_CERTREQ_HEADER);
            numBytes = PR_Write(outFile, obuf, total);
            if (numBytes != total) {
-               PR_fprintf(PR_STDERR, "write error
-   ");
+               PR_fprintf(PR_STDERR, "write error\n");
                return SECFailure;
            }
-           PR_fprintf(outFile, "
-   %s
-   ", NS_CERTREQ_TRAILER);
+           PR_fprintf(outFile, "\n%s\n", NS_CERTREQ_TRAILER);
            if (obuf) {
                PORT_Free(obuf);
            }
        } else {
            numBytes = PR_Write(outFile, result.data, result.len);
            if (numBytes != (int)result.len) {
-               PR_fprintf(PR_STDERR, "write error
-   ");
+               PR_fprintf(PR_STDERR, "write error\n");
                rv = SECFailure;
            goto cleanup;
            }
@@ -921,8 +844,7 @@ signing request
 
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
-           PR_fprintf(PR_STDERR, "Can't create MAC context
-   ");
+           PR_fprintf(PR_STDERR, "Can't create MAC context\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -947,8 +869,7 @@ signing request
                    encbuf, &encbufLen, sizeof(encbuf),
                    ptext, ptextLen);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Encrypt Failure
-   ");
+               PR_fprintf(PR_STDERR, "Encrypt Failure\n");
                goto cleanup;
            }
 
@@ -967,20 +888,17 @@ signing request
 
        rv = MacFinal(ctxmac, mac, &macLen, DIGESTSIZE);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "MacFinal Failure
-   ");
+           PR_fprintf(PR_STDERR, "MacFinal Failure\n");
            goto cleanup;
        }
        if (macLen == 0) {
-           PR_fprintf(PR_STDERR, "Bad MAC length
-   ");
+           PR_fprintf(PR_STDERR, "Bad MAC length\n");
            rv = SECFailure;
            goto cleanup;
        }
        WriteToHeaderFile(mac, macLen, MAC, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Write MAC Failure
-   ");
+           PR_fprintf(PR_STDERR, "Write MAC Failure\n");
            goto cleanup;
        }
 
@@ -991,8 +909,7 @@ signing request
 
        WriteToHeaderFile(padItem.data, padItem.len, PAD, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Write PAD Failure
-   ");
+           PR_fprintf(PR_STDERR, "Write PAD Failure\n");
            goto cleanup;
        }
 
@@ -1046,8 +963,7 @@ signing request
 
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
-           PR_fprintf(PR_STDERR, "Can't create MAC context
-   ");
+           PR_fprintf(PR_STDERR, "Can't create MAC context\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1067,8 +983,7 @@ signing request
                         ctext, ctextLen);
 
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Decrypt Failure
-   ");
+               PR_fprintf(PR_STDERR, "Decrypt Failure\n");
                goto cleanup;
            }
 
@@ -1083,8 +998,7 @@ signing request
            /* write the plain text to out file */
            temp = PR_Write(outFile, decbuf, decbufLen);
            if (temp != decbufLen) {
-               PR_fprintf(PR_STDERR, "write error
-   ");
+               PR_fprintf(PR_STDERR, "write error\n");
                rv = SECFailure;
                break;
            }
@@ -1100,8 +1014,7 @@ signing request
        if (PORT_Memcmp(macItem->data, newmac, newmacLen) == 0) {
            rv = SECSuccess;
        } else {
-           PR_fprintf(PR_STDERR, "Check MAC : Failure
-   ");
+           PR_fprintf(PR_STDERR, "Check MAC : Failure\n");
            PR_fprintf(PR_STDERR, "Extracted : ");
            PrintAsAscii(PR_STDERR, macItem->data, macItem->len);
            PR_fprintf(PR_STDERR, "Computed  : ");
@@ -1139,24 +1052,21 @@ signing request
        /* Read in the IV into item from the header file */
        rv = ReadFromHeaderFile(headerFileName, IV, ivItem, PR_TRUE);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Could not retrieve IV from cipher file
-   ");
+           PR_fprintf(PR_STDERR, "Could not retrieve IV from cipher file\n");
            goto cleanup;
        }
 
        rv = ReadFromHeaderFile(headerFileName, SYMKEY, wrappedEncKeyItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-           "Could not retrieve wrapped AES key from header file
-   ");
+           "Could not retrieve wrapped AES key from header file\n");
            goto cleanup;
        }
        /* Read in the MAC key into item from the header file */
        rv = ReadFromHeaderFile(headerFileName, MACKEY, wrappedMacKeyItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-           "Could not retrieve wrapped MAC key from header file
-   ");
+           "Could not retrieve wrapped MAC key from header file\n");
            goto cleanup;
        }
 
@@ -1164,21 +1074,18 @@ signing request
        rv = ReadFromHeaderFile(headerFileName, PUBKEY, &pubKeyData, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-           "Could not retrieve public key from header file
-   ");
+           "Could not retrieve public key from header file\n");
            goto cleanup;
        }
        keyInfo    = SECKEY_DecodeDERSubjectPublicKeyInfo(&pubKeyData);
        if (!keyInfo) {
-           PR_fprintf(PR_STDERR, "Could not decode public key
-   ");
+           PR_fprintf(PR_STDERR, "Could not decode public key\n");
            rv = SECFailure;
            goto cleanup;
        }
        *pubKey = SECKEY_ExtractPublicKey(keyInfo);
        if (*pubKey == NULL) {
-           PR_fprintf(PR_STDERR, "Error while getting RSA public key
-   ");
+           PR_fprintf(PR_STDERR, "Error while getting RSA public key\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1186,19 +1093,16 @@ signing request
        rv = ReadFromHeaderFile(headerFileName, MAC, macItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-           "Could not retrieve MAC from cipher file
-   ");
+           "Could not retrieve MAC from cipher file\n");
            goto cleanup;
        }
        if (macItem->data == NULL) {
-           PR_fprintf(PR_STDERR, "MAC has NULL data
-   ");
+           PR_fprintf(PR_STDERR, "MAC has NULL data\n");
            rv = SECFailure;
            goto cleanup;
        }
        if (macItem->len == 0) {
-           PR_fprintf(PR_STDERR, "MAC has data has 0 length
-   ");
+           PR_fprintf(PR_STDERR, "MAC has data has 0 length\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1207,8 +1111,7 @@ signing request
        rv = ReadFromHeaderFile(headerFileName, PAD, padItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-           "Could not retrieve PAD detail from header file
-   ");
+           "Could not retrieve PAD detail from header file\n");
            goto cleanup;
        }
 
@@ -1276,8 +1179,7 @@ signing request
        /* find private key from the DB token using public key */
        privKey = GetRSAPrivateKey(slot, pwdata, pubKey);
        if (privKey == NULL) {
-           PR_fprintf(PR_STDERR, "Can't find private key
-   ");
+           PR_fprintf(PR_STDERR, "Can't find private key\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1285,8 +1187,7 @@ signing request
        encKey = PK11_PubUnwrapSymKey(privKey, &wrappedEncKeyItem,
                                      CKM_AES_CBC, CKA_ENCRYPT, 0);
        if (encKey == NULL) {
-           PR_fprintf(PR_STDERR, "Can't unwrap the encryption key
-   ");
+           PR_fprintf(PR_STDERR, "Can't unwrap the encryption key\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1295,8 +1196,7 @@ signing request
        macKey = PK11_PubUnwrapSymKey(privKey, &wrappedMacKeyItem,
                                      CKM_MD5_HMAC, CKA_SIGN, 160/8);
        if (macKey == NULL) {
-           PR_fprintf(PR_STDERR, "Can't unwrap the Mac key
-   ");
+           PR_fprintf(PR_STDERR, "Can't unwrap the Mac key\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1305,8 +1205,7 @@ signing request
        inFile = PR_Open(encryptedFileName, PR_RDONLY , 0);
        if (!inFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       encryptedFileName);
            return SECFailure;
        }
@@ -1315,8 +1214,7 @@ signing request
                          PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR , 00660);
        if (!outFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       outFileName);
            return SECFailure;
        }
@@ -1327,8 +1225,7 @@ signing request
            rv = DecryptAndVerifyMac(outFile, inFile, inFileLength,
                    &cipherItem, &macItem, encKey, macKey, &ivItem, &padItem);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Failed while decrypting and removing MAC
-   ");
+               PR_fprintf(PR_STDERR, "Failed while decrypting and removing MAC\n");
            }
        }
 
@@ -1402,16 +1299,14 @@ signing request
 
        pubKey = ExtractPublicKeyFromCertRequest(certReqFileName, ascii);
        if (pubKey == NULL) {
-           PR_fprintf(PR_STDERR, "Error while getting RSA public key
-   ");
+           PR_fprintf(PR_STDERR, "Error while getting RSA public key\n");
            rv = SECFailure;
            goto cleanup;
        }
        /* generate a symmetric AES key as a token object. */
        encKey = GenerateSYMKey(slot, CKM_AES_KEY_GEN, 128/8, &encKeyID, pwdata);
        if (encKey == NULL) {
-           PR_fprintf(PR_STDERR, "GenerateSYMKey for AES returned NULL.
-   ");
+           PR_fprintf(PR_STDERR, "GenerateSYMKey for AES returned NULL.\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1419,8 +1314,7 @@ signing request
        /* generate a second key to use for MACing, also a token object. */
        macKey = GenerateSYMKey(slot, CKM_GENERIC_SECRET_KEY_GEN, 160/8, &macKeyID, pwdata);
        if (macKey == NULL) {
-           PR_fprintf(PR_STDERR, "GenerateSYMKey for MACing returned NULL.
-   ");
+           PR_fprintf(PR_STDERR, "GenerateSYMKey for MACing returned NULL.\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1428,16 +1322,14 @@ signing request
        /* Wrap encrypt key */
        rv = WrapKey(encKey, pubKey, &wrappedEncKey);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error while wrapping encrypt key
-   ");
+           PR_fprintf(PR_STDERR, "Error while wrapping encrypt key\n");
            goto cleanup;
        }
 
        /* Wrap Mac key */
        rv = WrapKey(macKey, pubKey, &wrappedMacKey);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error while wrapping Mac key
-   ");
+           PR_fprintf(PR_STDERR, "Error while wrapping Mac key\n");
            goto cleanup;
        }
 
@@ -1461,8 +1353,7 @@ signing request
                             PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR, 00660);
        if (!headerFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       headerFileName);
            return SECFailure;
        }
@@ -1470,8 +1361,7 @@ signing request
                          PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR, 00660);
        if (!encFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       encryptedFileName);
            return SECFailure;
        }
@@ -1484,23 +1374,20 @@ signing request
 
        rv = WriteToHeaderFile(iv, BLOCKSIZE, IV, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing IV to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing IV to cipher file - %s\n",
                       headerFileName);
            goto cleanup;
        }
 
        rv = WriteToHeaderFile(wrappedEncKey->data, wrappedEncKey->len, SYMKEY, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing wrapped AES key to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing wrapped AES key to cipher file - %s\n",
            encryptedFileName);
            goto cleanup;
        }
        rv = WriteToHeaderFile(wrappedMacKey->data, wrappedMacKey->len, MACKEY, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing wrapped MAC key to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing wrapped MAC key to cipher file - %s\n",
                       headerFileName);
            goto cleanup;
        }
@@ -1508,8 +1395,7 @@ signing request
        pubKeyData = SECKEY_EncodeDERSubjectPublicKeyInfo(pubKey);
        rv = WriteToHeaderFile(pubKeyData->data, pubKeyData->len, PUBKEY, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing wrapped AES key to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing wrapped AES key to cipher file - %s\n",
                       headerFileName);
            goto cleanup;
        }
@@ -1517,8 +1403,7 @@ signing request
        /*  Open the input file.  */
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
-           PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-   ",
+           PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.\n",
                       inFileName);
            return SECFailure;
        }
@@ -1528,8 +1413,7 @@ signing request
            rv = EncryptAndMac(inFile, headerFile, encFile,
                    encKey, macKey, ivItem.data, ivItem.len, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Failed : Macing and Encryption
-   ");
+               PR_fprintf(PR_STDERR, "Failed : Macing and Encryption\n");
                goto cleanup;
            }
        }
@@ -1587,8 +1471,7 @@ signing request
                                     publicExponent, NULL,
                                     &pubkey, NULL, pwdata);
        if (privkey == NULL) {
-           PR_fprintf(PR_STDERR, "unable to generate key(s)
-   ");
+           PR_fprintf(PR_STDERR, "unable to generate key(s)\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -1599,8 +1482,7 @@ signing request
                     ascii, certReqFileName);
 
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Failed to create Certificate Request
-   ");
+           PR_fprintf(PR_STDERR, "Failed to create Certificate Request\n");
        }
    cleanup:
        if (privkey) {
@@ -1720,8 +1602,7 @@ signing request
        /* Open DB for read/write and authenticate to it. */
        rv = NSS_InitReadWrite(dbdir);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed
-   ");
+           PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed\n");
            goto cleanup;
        }
 
@@ -1729,8 +1610,7 @@ signing request
        slot = PK11_GetInternalKeySlot();
        rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
        if (rv != SECSuccess) {
-            PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-   ",
+            PR_fprintf(PR_STDERR, "Could not authenticate to token %s.\n",
                        PK11_GetTokenName(slot));
             goto cleanup;
        }
@@ -1748,8 +1628,7 @@ signing request
             */
            rv = CreateCertificateRequest(slot, dbdir, &pwdata, subject, certReqFileName, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Create Certificate Request: Failed
-   ");
+               PR_fprintf(PR_STDERR, "Create Certificate Request: Failed\n");
                goto cleanup;
            }
            break;
@@ -1773,8 +1652,7 @@ signing request
                             headerFileName, encryptedFileName,
                             noiseFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "EncryptFile : Failed
-   ");
+               PR_fprintf(PR_STDERR, "EncryptFile : Failed\n");
                return SECFailure;
            }
            break;
@@ -1795,8 +1673,7 @@ signing request
                      outFileName, headerFileName,
                      encryptedFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "DecryptFile : Failed
-   ");
+               PR_fprintf(PR_STDERR, "DecryptFile : Failed\n");
                return SECFailure;
            }
            break;
@@ -1808,8 +1685,7 @@ signing request
        }
        rvShutdown = NSS_Shutdown();
        if (rvShutdown != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()
-   ");
+           PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()\n");
            rv = SECFailure;
        }
        PR_Cleanup();

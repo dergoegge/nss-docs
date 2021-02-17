@@ -1323,7 +1323,7 @@ SEC Error Codes
 | R_PKCS7_BAD_SIGNATURE |                       | verification failed:  |
 |                       |                       | no signer found, too  |
 |                       |                       | many signers found,   |
-|                       |                       | \                    |
+|                       |                       | \\                    |
 |                       |                       | or improper or        |
 |                       |                       | corrupted data.       |
 +-----------------------+-----------------------+-----------------------+

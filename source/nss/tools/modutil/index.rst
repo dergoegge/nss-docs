@@ -559,8 +559,8 @@ NSS tools : modutil
 |  key --> string
 |  string --> simple_string
 |              "complex_string"
-|  simple_string --> [^ \""{""}"]+
-|  complex_string --> ([^\"\ ]|(\")|(\))+
+|  simple_string --> [^ \\t\n\""{""}"]+
+|  complex_string --> ([^\"\\\r\n]|(\\\")|(\\\\))+
 |    Quotes and backslashes must be escaped with a backslash. A complex
   string
 |    must not include newlines or carriage returns.Outside of complex

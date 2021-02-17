@@ -14,23 +14,23 @@ rm -r $DST_DIR/nss || true
 
 # replaces bug macros
 replace_bug() {
-    echo "$1" | iconv -t UTF-8 | sed -E 's/{{( )*[bB]ug\(([0-9]*)\)( )*}}/\`Bug \2 <https:\/\/bugzilla.mozilla.org\/show_bug.cgi\?id\=\2>\`__/g'
+    printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/{{( )*[bB]ug\(([0-9]*)\)( )*}}/\`Bug \2 <https:\/\/bugzilla.mozilla.org\/show_bug.cgi\?id\=\2>\`__/g'
 }
 
 # replaces rfc macros
 replace_rfc() {
-    echo "$1" | iconv -t UTF-8 | sed -E 's/{{( )*rfc\(([0-9]*)\)( )*}}/\`RFC \2 <https:\/\/tools.ietf.org\/html\/rfc\2>\`__/g'
+    printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/{{( )*rfc\(([0-9]*)\)( )*}}/\`RFC \2 <https:\/\/tools.ietf.org\/html\/rfc\2>\`__/g'
 }
 
 replace_mediawiki() {
-    echo "$1" | iconv -t UTF-8 | sed -E 's/{{( )*mediawiki.external\('\''(.*)'\''\)( )*}}/\[\2\]/g'
+    printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/{{( )*mediawiki.external\('\''(.*)'\''\)( )*}}/\[\2\]/g'
 }
 
 #replace_interwiki() {}
 #replace_discussionlist() {}
 
 get_file_title() {
-    echo "$1" | head -n 1 | sed -n -E 's/--- title: (.*) slug:.*/\1/p'
+    printf "%s" "$1" | head -n 1 | sed -n -E 's/--- title: (.*) slug:.*/\1/p'
 }
 
 print_rst_title() {
@@ -53,16 +53,15 @@ convert_file() {
     local top_yaml="$(cat $html_file | awk '/</ {exit} {print}' | sed 's/---//g')"
 	local html_content="$(cat $html_file | awk '/</,EOF')"
     # Convert the html file to rst.
-    local rst_content=$(echo "$html_content" | pandoc --from html --to rst)
+    local rst_content=$(printf "%s" "$html_content" | pandoc --from html --to rst)
 
     rst_content="$(replace_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
-	local title="$(echo "$top_yaml" | shyaml get-value title)"
-    rst_content="$(print_rst_title "$title")\n$rst_content"
-    
+	local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
+	title="$(print_rst_title "$title")"
     mkdir -p "$(dirname $rst_file)"
-    echo "$rst_content" > $rst_file
+	printf "%s\n%s" "$title" "$rst_content" > $rst_file
 }
 
 echo "Converting files in $MDN_DIR"

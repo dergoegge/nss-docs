@@ -481,14 +481,12 @@ The script file grammar is as follows:
 
 ::
 
-   simple_string --> [^   
-   \""{""}"]+ 
+   simple_string --> [^ \t\n\""{""}"]+ 
    (No whitespace, quotes, or braces.)
 
 ::
 
-   complex_string --> ([^\"\
-   ]|(\")|(\))+ (Quotes and
+   complex_string --> ([^\"\\\r\n]|(\\\")|(\\\\))+ (Quotes and
    backslashes must be escaped with a backslash. A complex string must not
    include newlines or carriage returns.)
 
@@ -706,4 +704,316 @@ After you press Enter, the tool displays the following:
 ::
 
    Creating "c:\databases\key3.db"...done.
-   Creating "c:\databases
+   Creating "c:\databases\cert8.db"...done.
+   Creating "c:\databases\secmod.db"...done. 
+
+.. _Displaying_Module_Information:
+
+Displaying Module Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example gives detailed information about the specified module:
+
+::
+
+   modutil -list "Netscape Internal PKCS #11 Module" -dbdir c:\databases 
+
+The Security Module Database Tool displays information similar to this:
+
+::
+
+   Using database directory c:\databases...
+   --------------------------------------------------------
+   Name: Netscape Internal PKCS #11 Module
+   Library file: **Internal ONLY module**
+   Manufacturer: Netscape Communications Corp 
+   Description: Communicator Internal Crypto Svc
+   PKCS #11 Version 2.0
+   Library Version: 4.0
+   Cipher Enable Flags: None
+   Default Mechanism Flags: RSA:DSA:RC2:RC4:DES:SHA1:MD5:MD2
+
+::
+
+   Slot: Communicator Internal Cryptographic Services Version 4.0
+   Manufacturer: Netscape Communications Corp 
+   Type: Software
+   Version Number: 4.1
+   Firmware Version: 0.0
+   Status: Enabled
+   Token Name: Communicator Generic Crypto Svcs
+   Token Manufacturer: Netscape Communications Corp 
+   Token Model: Libsec 4.0 
+   Token Serial Number: 0000000000000000
+   Token Version: 4.0
+   Token Firmware Version: 0.0
+   Access: Write Protected
+   Login Type: Public (no login required)
+   User Pin: NOT Initialized
+
+::
+
+   Slot: Communicator User Private Key and Certificate Services
+   Manufacturer: Netscape Communications Corp 
+   Type: Software
+   Version Number: 3.0
+   Firmware Version: 0.0
+   Status: Enabled
+   Token Name: Communicator Certificate DB 
+   Token Manufacturer: Netscape Communications Corp 
+   Token Model: Libsec 4.0 
+   Token Serial Number: 0000000000000000
+   Token Version: 7.0
+   Token Firmware Version: 0.0
+   Access: NOT Write Protected
+   Login Type: Login required
+   User Pin: NOT Initialized
+
+.. _Setting_a_Default_Provider:
+
+Setting a Default Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example makes the specified module a default provider for the RSA,
+DSA, and RC2 security mechanisms:
+
+::
+
+   modutil -default "Cryptographic Module" -dbdir 
+   c:\databases -mechanisms RSA:DSA:RC2 
+
+The Security Module Database Tool displays a warning:
+
+::
+
+   WARNING: Performing this operation while Communicator is running could
+   cause corruption of your security databases. If Communicator is
+   currently running, you should exit Communicator before continuing this
+   operation. Type 'q <enter>' to abort, or <enter> to continue: 
+
+After you press Enter, the tool displays the following:
+
+::
+
+   Using database directory c:\databases...
+
+::
+
+   Successfully changed defaults.
+
+.. _Enabling_a_Slot:
+
+Enabling a Slot
+~~~~~~~~~~~~~~~
+
+This example enables a particular slot in the specified module:
+
+::
+
+   modutil -enable "Cryptographic Module" -slot 
+   "Cryptographic Reader" -dbdir c:\databases 
+
+The Security Module Database Tool displays a warning:
+
+::
+
+   WARNING: Performing this operation while Communicator is running could
+   cause corruption of your security databases. If Communicator is
+   currently running, you should exit Communicator before continuing this
+   operation. Type 'q <enter>' to abort, or <enter> to continue: 
+
+After you press Enter, the tool displays the following:
+
+::
+
+   Using database directory c:\databases...
+
+::
+
+   Slot "Cryptographic Reader" enabled. 
+
+.. _Enabling_FIPS_Compliance:
+
+Enabling FIPS Compliance
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example enables FIPS 140-2 compliance in Communicator's internal
+module:
+
+::
+
+   modutil -dbdir "C:\databases" -fips true 
+
+The Security Module Database Tool displays a warning:
+
+::
+
+   WARNING: Performing this operation while the browser is running could cause
+   corruption of your security databases. If the browser is currently running,
+   you should exit browser before continuing this operation. Type
+   'q <enter>' to abort, or <enter> to continue: 
+
+After you press Enter, the tool displays the following:
+
+::
+
+   FIPS mode enabled. 
+
+.. _Adding_a_Cryptographic_Module:
+
+Adding a Cryptographic Module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example adds a new cryptographic module to the database:
+
+::
+
+   C:\modutil> modutil -dbdir "C:\databases" -add "Cryptorific Module" -
+   libfile "C:\winnt\system32\crypto.dll" -mechanisms RSA:DSA:RC2:RANDOM 
+
+The Security Module Database Tool displays a warning:
+
+::
+
+   WARNING: Performing this operation while Communicator is running could
+   cause corruption of your security databases. If Communicator is
+   currently running, you should exit Communicator before continuing this
+   operation. Type 'q <enter>' to abort, or <enter> to continue: 
+
+After you press Enter, the tool displays the following:
+
+::
+
+   Using database directory C:\databases... 
+   Module "Cryptorific Module" added to database. 
+   C:\modutil> 
+
+.. _Installing_a_Cryptographic_Module_from_a_JAR_File:
+
+Installing a Cryptographic Module from a JAR File
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example installs a cryptographic module from the following sample
+installation script.
+
+::
+
+   Platforms { 
+      WinNT::x86 { 
+         ModuleName { "Cryptorific Module" } 
+         ModuleFile { crypto.dll } 
+         DefaultMechanismFlags{0x0000} 
+         CipherEnableFlags{0x0000} 
+         Files { 
+            crypto.dll { 
+               RelativePath{ %root%/system32/crypto.dll } 
+            } 
+            setup.exe { 
+               Executable 
+               RelativePath{ %temp%/setup.exe } 
+            } 
+         } 
+      } 
+      Win95::x86 { 
+         EquivalentPlatform { Winnt::x86 } 
+      } 
+   } 
+
+To install from the script, use the following command. The root
+directory should be the Windows root directory (for example,
+``c:\\windows``, or ``c:\\winnt``).
+
+::
+
+   C:\modutil> modutil -dbdir "c:\databases" -jar 
+   install.jar -installdir "C:/winnt" 
+
+The Security Module Database Tool displays a warning:
+
+::
+
+   WARNING: Performing this operation while Communicator is running could
+   cause corruption of your security databases. If Communicator is
+   currently running, you should exit Communicator before continuing this
+   operation. Type 'q <enter>' to abort, or <enter> to continue: 
+
+After you press Enter, the tool displays the following:
+
+::
+
+   Using database directory c:\databases... 
+
+::
+
+   This installation JAR file was signed by: 
+   ---------------------------------------------- 
+
+::
+
+   **SUBJECT NAME** 
+
+::
+
+   C=US, ST=California, L=Mountain View, CN=Cryptorific Inc., OU=Digital ID
+   Class 3 - Netscape Object Signing, OU="www.verisign.com/repository/CPS
+   Incorp. by Ref.,LIAB.LTD(c)9 6", OU=www.verisign.com/CPS Incorp.by Ref
+   . LIABILITY LTD.(c)97 VeriSign, OU=VeriSign Object Signing CA - Class 3
+   Organization, OU="VeriSign, Inc.", O=VeriSign Trust Network **ISSUER
+   NAME**, OU=www.verisign.com/CPS Incorp.by Ref. LIABILITY LTD.(c)97
+   VeriSign, OU=VeriSign Object Signing CA - Class 3 Organization,
+   OU="VeriSign, Inc.", O=VeriSign Trust Network 
+   ---------------------------------------------- 
+
+::
+
+   Do you wish to continue this installation? (y/n) y 
+   Using installer script "installer_script" 
+   Successfully parsed installation script 
+   Current platform is WINNT::x86 
+   Using installation parameters for platform WinNT::x86 
+   Installed file crypto.dll to C:/winnt/system32/crypto.dll 
+   Installed file setup.exe to ./pk11inst.dir/setup.exe 
+   Executing "./pk11inst.dir/setup.exe"... 
+   "./pk11inst.dir/setup.exe" executed successfully 
+   Installed module "Cryptorific Module" into module database 
+
+::
+
+   Installation completed successfully 
+   C:\modutil> 
+
+.. _Changing_the_Password_on_a_Token:
+
+Changing the Password on a Token
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example changes the password for a token on an existing module.
+
+::
+
+   C:\modutil> modutil -dbdir "c:\databases" -changepw 
+   "Communicator Certificate DB" 
+
+The Security Module Database Tool displays a warning:
+
+::
+
+   WARNING: Performing this operation while Communicator is running could
+   cause corruption of your security databases. If Communicator is
+   currently running, you should exit Communicator before continuing this
+   operation. Type 'q <enter>' to abort, or <enter> to continue: 
+
+After you press Enter, the tool displays the following:
+
+::
+
+   Using database directory c:\databases... 
+   Enter old password: 
+   Incorrect password, try again... 
+   Enter old password: 
+   Enter new password: 
+   Re-enter new password: 
+   Token "Communicator Certificate DB" password changed successfully. 
+   C:\modutil> 
+
+--------------

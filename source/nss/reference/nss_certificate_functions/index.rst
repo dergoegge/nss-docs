@@ -263,7 +263,7 @@ the construction of common names in SSL server certificates:
 
 -  \* matches anything
 -   ? matches one character
--  \ escapes a special character
+-  \\ escapes a special character
 -  $ matches the end of the string
 -  [abc] matches one occurrence of a, b, or c.
    The only character that needs to be escaped in this is ], all others

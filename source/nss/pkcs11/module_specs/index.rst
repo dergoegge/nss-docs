@@ -13,7 +13,8 @@ this proposal internally.
 
 The file format consists of name/value pairs of the form ``name=value``.
 Each name/value pair is separated by a blank value. A single line,
-terminated by a ' ', ' ', or '' represents a single pkcs #11 library.
+terminated by a '\n', '\r\n', or '\r' represents a single pkcs #11
+library.
 
 Names can be any alpha/numeric combination, and are parsed
 case-insensitive.

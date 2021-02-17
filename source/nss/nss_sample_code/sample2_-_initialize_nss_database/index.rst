@@ -17,23 +17,14 @@ database.
    static void
    Usage(const char *progName)
    {
-       fprintf(stderr, "
-   Usage:  %s -d  [-p ]"
-                       " [-f ]
-
-   ",
+       fprintf(stderr, "\nUsage:  %s -d  [-p ]"
+                       " [-f ]\n\n",
                        progName);
-       fprintf(stderr, "%-15s Specify a DB directory path
-
-   ",
+       fprintf(stderr, "%-15s Specify a DB directory path\n\n",
                 "-d ");
-       fprintf(stderr, "%-15s Specify a plaintext password
-
-   ",
+       fprintf(stderr, "%-15s Specify a plaintext password\n\n",
                 "-p ");
-       fprintf(stderr, "%-15s Specify a password file
-
-   ",
+       fprintf(stderr, "%-15s Specify a password file\n\n",
                 "-f ");
        exit(-1);
    }
@@ -60,25 +51,19 @@ database.
       /* open terminal */
       input = fopen("/dev/tty", "r");
       if (input == NULL) {
-          PR_fprintf(PR_STDERR, "Error opening input terminal for read
-   ");
+          PR_fprintf(PR_STDERR, "Error opening input terminal for read\n");
           return NULL;
       }
 
       /* we have no password, so initialize database with one */
       PR_fprintf(PR_STDERR,
-          "Enter a password which will be used to encrypt your keys.
-   "
-          "The password should be at least 8 characters long,
-   "
-          "and should contain at least one non-alphabetic character.
-
-   ");
+          "Enter a password which will be used to encrypt your keys.\n"
+          "The password should be at least 8 characters long,\n"
+          "and should contain at least one non-alphabetic character.\n\n");
 
       output = fopen("/dev/tty", "w");
       if (output == NULL) {
-          PR_fprintf(PR_STDERR, "Error opening output terminal for write
-   ");
+          PR_fprintf(PR_STDERR, "Error opening output terminal for write\n");
           return NULL;
       }
 
@@ -94,8 +79,7 @@ database.
           if (p0 && p1 && !PORT_Strcmp(p0, p1)) {
               break;
           }
-          PR_fprintf(PR_STDERR, "Passwords do not match. Try again.
-   ");
+          PR_fprintf(PR_STDERR, "Passwords do not match. Try again.\n");
       }
 
       /* clear out the duplicate password string */
@@ -148,8 +132,7 @@ database.
            newpw = InitSlotPassword(slot, PR_FALSE, &pwdata);
            rv = PK11_InitPin(slot, (char*)NULL, newpw);
            if (rv == SECSuccess) {
-               PR_fprintf(PR_STDERR, "PK11_InitPin failed.
-   ");
+               PR_fprintf(PR_STDERR, "PK11_InitPin failed.\n");
                return SECFailure;
            }
        }
@@ -159,11 +142,9 @@ database.
 
                if (PK11_CheckUserPassword(slot, oldpw) != SECSuccess) {
                    if (pwdata.source == PW_NONE) {
-                       PR_fprintf(PR_STDERR, "Invalid password.  Try again.
-   ");
+                       PR_fprintf(PR_STDERR, "Invalid password.  Try again.\n");
                    } else {
-                       PR_fprintf(PR_STDERR, "Invalid password.
-   ");
+                       PR_fprintf(PR_STDERR, "Invalid password.\n");
                        PORT_Memset(oldpw, 0, PL_strlen(oldpw));
                        PORT_Free(oldpw);
                        return SECFailure;
@@ -176,14 +157,12 @@ database.
            newpw = InitSlotPassword(slot, PR_FALSE, &newpwdata);
 
            if (PK11_ChangePW(slot, oldpw, newpw) != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Failed to change password.
-   ");
+               PR_fprintf(PR_STDERR, "Failed to change password.\n");
                return SECFailure;
            }
            PORT_Memset(oldpw, 0, PL_strlen(oldpw));
            PORT_Free(oldpw);
-           PR_fprintf(PR_STDOUT, "Password changed successfully.
-   ");
+           PR_fprintf(PR_STDOUT, "Password changed successfully.\n");
        }
        PORT_Memset(newpw, 0, PL_strlen(newpw));
        PORT_Free(newpw);
@@ -250,8 +229,7 @@ database.
        /*  If creating new database, initialize the password.  */
        rv = ChangePW(slot, plainPass, 0, pwFile, 0);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Failed to change password
-   ");
+           PR_fprintf(PR_STDERR, "Failed to change password\n");
        }
 
        if (slot) {
@@ -259,8 +237,7 @@ database.
        }
        rvShutdown = NSS_Shutdown();
        if (rvShutdown != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()
-   ");
+           PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()\n");
            rv = SECFailure;
        }
 

@@ -81,13 +81,13 @@ Major changes in NSS 3.12.4
 
    -  \* matches anything
    -  ? matches one character
-   -  \ will escape a special character
+   -  \\ will escape a special character
    -  $ matches the end of the string
    -  Bracketed expressions:
       [abc] matches one occurrence of a, b, or c.
       [^abc] matches any character except a, b, or c.
       To be matched between [ and ], these characters must be escaped:
-      \ ]
+      \\ ]
       No other characters need be escaped between brackets.
       Unnecessary escaping is permitted.
    -  [a-z] matches any character between a and z, inclusive.
@@ -113,9 +113,9 @@ Major changes in NSS 3.12.4
       Expressions inside unions may not include unions or exclusions.
       Inside a union, to be matched and not treated as a special
       character,
-      these characters must be escaped: \ ( \| ) [ ~ except when they
+      these characters must be escaped: \\ ( \| ) [ ~ except when they
       occur
-      inside a bracketed expression, where only \ and ] require
+      inside a bracketed expression, where only \\ and ] require
       escaping.
 
 -  New functions in the nss shared library:

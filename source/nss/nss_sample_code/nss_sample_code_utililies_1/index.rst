@@ -41,8 +41,7 @@ Sample Code
     * Newline
     */
    static void Newline(PRFileDesc* out) {
-       PR_fprintf(out, "
-   ");
+       PR_fprintf(out, "\n");
    }
 
    /*
@@ -54,8 +53,7 @@ Sample Code
 
        b64Data = BTOA_DataToAscii(data, len);
        PR_fprintf(out, "%s", b64Data);
-       PR_fprintf(out, "
-   ");
+       PR_fprintf(out, "\n");
        if (b64Data) {
            PORT_Free(b64Data);
        }
@@ -73,8 +71,7 @@ Sample Code
 
        column = level;
        if (!len) {
-           PR_fprintf(out, "(empty)
-   ");
+           PR_fprintf(out, "(empty)\n");
            return;
        }
 
@@ -136,8 +133,7 @@ Sample Code
        }
        if (isHexData) {
            while (*inString) {
-                if ((*inString == '
-   ') || (*inString == ':')) {
+                if ((*inString == '\n') || (*inString == ':')) {
                     inString++;
                     continue;
                 }
@@ -152,14 +148,13 @@ Sample Code
            }
        } else {
            while (*inString) {
-               if (*inString == '
-   ') {
+               if (*inString == '\n') {
                    inString++;
                    continue;
                }
                outbuf->data[trueLen++] = *inString++;
            }
-           outbuf->data[trueLen] = '';
+           outbuf->data[trueLen] = '\0';
            trueLen = trueLen-1;
        }
        outbuf->len = trueLen;
@@ -247,7 +242,7 @@ Sample Code
    char* GetPassword(FILE *input, FILE *output, char *prompt,
                      PRBool (*ok)(char *))
    {
-       char phrase[200] = {''};
+       char phrase[200] = {'\0'};
        int infd         = fileno(input);
        int isTTY        = isatty(infd);
 
@@ -260,8 +255,7 @@ Sample Code
            }
            fgets(phrase, sizeof(phrase), input);
            if (isTTY) {
-               fprintf(output, "
-   ");
+               fprintf(output, "\n");
                echoOn(infd);
            }
            /* stomp on newline */
@@ -269,10 +263,8 @@ Sample Code
            /* Validate password */
            if (!(*ok)(phrase)) {
                if (!isTTY) return 0;
-               fprintf(output, "Password must be at least 8 characters long with one or more
-   ");
-               fprintf(output, "non-alphabetic characters
-   ");
+               fprintf(output, "Password must be at least 8 characters long with one or more\n");
+               fprintf(output, "non-alphabetic characters\n");
                continue;
            }
            return (char*) PORT_Strdup(phrase);
@@ -321,8 +313,7 @@ Sample Code
 
        fd = PR_Open(pwFile, PR_RDONLY, 0);
        if (!fd) {
-           fprintf(stderr, "No password file \"%s\" exists.
-   ", pwFile);
+           fprintf(stderr, "No password file \"%s\" exists.\n", pwFile);
            PORT_Free(phrases);
            return NULL;
        }
@@ -332,8 +323,7 @@ Sample Code
        PR_Close(fd);
 
        if (nb == 0) {
-           fprintf(stderr,"password file contains no data
-   ");
+           fprintf(stderr,"password file contains no data\n");
            PORT_Free(phrases);
            return NULL;
        }
@@ -350,15 +340,13 @@ Sample Code
            int phraseLen;
 
            /* handle the Windows EOL case */
-           while (phrases[i] != '' && phrases[i] != '
-   ' && i < nb) i++;
+           while (phrases[i] != '\r' && phrases[i] != '\n' && i < nb) i++;
 
            /* terminate passphrase */
-           phrases[i++] = '';
+           phrases[i++] = '\0';
            /* clean up any EOL before the start of the next passphrase */
            while ( (i<nb) analyze="" char="" current="" getmodulepassword="" if="" int="" now="" passphrase="" phrase="&amp;phrases[startphrase];" phraselen="" pk11slotinfo="" pwdata="=" pwdata-="" retry="" return="" secupwdata="" the="" void="" while="">source != PW_NONE) {
-           PR_fprintf(PR_STDERR, "Incorrect password/PIN entered.
-   ");
+           PR_fprintf(PR_STDERR, "Incorrect password/PIN entered.\n");
            return NULL;
        }
 
@@ -377,8 +365,7 @@ Sample Code
        default:
            break;
        }
-       PR_fprintf(PR_STDERR, "Password check failed: No password found.
-   ");
+       PR_fprintf(PR_STDERR, "Password check failed: No password found.\n");
        return NULL;
    }
 
@@ -388,7 +375,7 @@ Sample Code
    SECStatus GenerateRandom(unsigned char *rbuf, int rsize)
    {
        char meter[] = {
-                      "|                                |" };
+                      "\r|                                |" };
        int            fd,  count;
        int            c;
        SECStatus      rv                  = SECSuccess;
@@ -398,11 +385,9 @@ Sample Code
        struct termios tio;
 
        fprintf(stderr, "To generate random numbers, "
-               "continue typing until the progress meter is full:
-
-   ");
+               "continue typing until the progress meter is full:\n\n");
        fprintf(stderr, "%s", meter);
-       fprintf(stderr, "|");
+       fprintf(stderr, "\r|");
 
        /* turn off echo on stdin & return on 1 char instead of NL */
        fd = fileno(stdin);
@@ -430,18 +415,14 @@ Sample Code
                fprintf(stderr, "*");
            }
        }
-       rbuf[count] = '';
+       rbuf[count] = '\0';
 
-       fprintf(stderr, "
-
-   Finished.  Press enter to continue: ");
-       while ((c = getc(stdin)) != '
-   ' && c != EOF)
+       fprintf(stderr, "\n\nFinished.  Press enter to continue: ");
+       while ((c = getc(stdin)) != '\n' && c != EOF)
            ;
        if (c == EOF)
            rv = SECFailure;
-       fprintf(stderr, "
-   ");
+       fprintf(stderr, "\n");
 
        /* set back termio the way it was */
        tio.c_lflag = orig_lflag;
@@ -497,8 +478,7 @@ Sample Code
 
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
-           PR_fprintf(PR_STDERR, "Failed to open file \"%s\" (%ld, %ld).
-   ",
+           PR_fprintf(PR_STDERR, "Failed to open file \"%s\" (%ld, %ld).\n",
                       inFileName, PR_GetError(), PR_GetOSError());
            rv = SECFailure;
            goto cleanup;
@@ -513,8 +493,7 @@ Sample Code
            rv = FileToItem(&filedata, inFile);
            asc = (char *)filedata.data;
            if (!asc) {
-               PR_fprintf(PR_STDERR, "unable to read data from input file
-   ");
+               PR_fprintf(PR_STDERR, "unable to read data from input file\n");
                rv = SECFailure;
                goto cleanup;
            }
@@ -523,17 +502,15 @@ Sample Code
            if ((body = strstr(asc, "-----BEGIN")) != NULL) {
                char *trailer = NULL;
                asc = body;
-               body = PORT_Strchr(body, '
-   ');
+               body = PORT_Strchr(body, '\n');
                if (!body)
-                   body = PORT_Strchr(asc, ''); /* maybe this is a MAC file */
+                   body = PORT_Strchr(asc, '\r'); /* maybe this is a MAC file */
                if (body)
                    trailer = strstr(++body, "-----END");
                if (trailer != NULL) {
-                   *trailer = '';
+                   *trailer = '\0';
                } else {
-                   PR_fprintf(PR_STDERR,  "input has header but no trailer
-   ");
+                   PR_fprintf(PR_STDERR,  "input has header but no trailer\n");
                    PORT_Free(filedata.data);
                    rv = SECFailure;
                    goto cleanup;
@@ -545,8 +522,7 @@ Sample Code
            /* Convert to binary */
            rv = ATOB_ConvertAsciiToItem(der, body);
            if (rv) {
-               PR_fprintf(PR_STDERR,  "error converting ascii to binary %s
-   ",
+               PR_fprintf(PR_STDERR,  "error converting ascii to binary %s\n",
                           PORT_GetError());
                PORT_Free(filedata.data);
                rv = SECFailure;
@@ -558,8 +534,7 @@ Sample Code
            /* Read in binary der */
            rv = FileToItem(der, inFile);
            if (rv) {
-               PR_fprintf(PR_STDERR, "error converting der 
-   ");
+               PR_fprintf(PR_STDERR, "error converting der \n");
                rv = SECFailure;
            }
        }

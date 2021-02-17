@@ -70,57 +70,32 @@ Generates encryption/mac keys and uses session objects.
    static void
    Usage(const char *progName)
    {
-       fprintf(stderr, "
-   Usage:  %s -c  -d  [-z ] "
-               "[-p  | -f ] -i  -o 
-
-   ",
+       fprintf(stderr, "\nUsage:  %s -c  -d  [-z ] "
+               "[-p  | -f ] -i  -o \n\n",
                progName);
-       fprintf(stderr, "%-20s  Specify 'a' for encrypt operation
-
-   ",
+       fprintf(stderr, "%-20s  Specify 'a' for encrypt operation\n\n",
                 "-c ");
-       fprintf(stderr, "%-20s  Specify 'b' for decrypt operation
-
-   ",
+       fprintf(stderr, "%-20s  Specify 'b' for decrypt operation\n\n",
                 " ");
-       fprintf(stderr, "%-20s  Specify db directory path
-
-   ",
+       fprintf(stderr, "%-20s  Specify db directory path\n\n",
                 "-d ");
-       fprintf(stderr, "%-20s  Specify db password [optional]
-
-   ",
+       fprintf(stderr, "%-20s  Specify db password [optional]\n\n",
                 "-p ");
-       fprintf(stderr, "%-20s  Specify db password file [optional]
-
-   ",
+       fprintf(stderr, "%-20s  Specify db password file [optional]\n\n",
                 "-f ");
-       fprintf(stderr, "%-20s  Specify noise file name [optional]
-
-   ",
+       fprintf(stderr, "%-20s  Specify noise file name [optional]\n\n",
                 "-z ");
-       fprintf(stderr, "%-21s Specify an input file name
-
-   ",
+       fprintf(stderr, "%-21s Specify an input file name\n\n",
                 "-i ");
-       fprintf(stderr, "%-21s Specify an output file name
-
-   ",
+       fprintf(stderr, "%-21s Specify an output file name\n\n",
                 "-o ");
-       fprintf(stderr, "%-7s For encrypt, it takes  as an input file and produces
-   ",
+       fprintf(stderr, "%-7s For encrypt, it takes  as an input file and produces\n",
                 "Note :");
-       fprintf(stderr, "%-7s .enc and .header as intermediate output files.
-
-   ",
+       fprintf(stderr, "%-7s .enc and .header as intermediate output files.\n\n",
                 "");
-       fprintf(stderr, "%-7s For decrypt, it takes .enc and .header
-   ",
+       fprintf(stderr, "%-7s For decrypt, it takes .enc and .header\n",
                 "");
-       fprintf(stderr, "%-7s as input files and produces  as a final output file.
-
-   ",
+       fprintf(stderr, "%-7s as input files and produces  as a final output file.\n\n",
                 "");
        exit(-1);
    }
@@ -133,10 +108,8 @@ Generates encryption/mac keys and uses session objects.
    {
        SECStatus rv = PK11_ReadRawAttribute(PK11_TypeSymKey, key, CKA_ID, buf);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "PK11_ReadRawAttribute returned (%d)
-   ", rv);
-           PR_fprintf(PR_STDERR, "Could not read SymKey CKA_ID attribute
-   ");
+           PR_fprintf(PR_STDERR, "PK11_ReadRawAttribute returned (%d)\n", rv);
+           PR_fprintf(PR_STDERR, "Could not read SymKey CKA_ID attribute\n");
            return rv;
        }
        return rv;
@@ -155,8 +128,7 @@ Generates encryption/mac keys and uses session objects.
        if (PK11_NeedLogin(slot)) {
            rv = PK11_Authenticate(slot, PR_TRUE, pwdata);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-   ",
+               PR_fprintf(PR_STDERR, "Could not authenticate to token %s.\n",
                           PK11_GetTokenName(slot));
                return NULL;
            }
@@ -167,8 +139,7 @@ Generates encryption/mac keys and uses session objects.
                               NULL, keySize, keyID, PR_TRUE, pwdata);
 
        if (!key) {
-           PR_fprintf(PR_STDERR, "Symmetric Key Generation Failed 
-   ");
+           PR_fprintf(PR_STDERR, "Symmetric Key Generation Failed \n");
        }
 
        return key;
@@ -182,8 +153,7 @@ Generates encryption/mac keys and uses session objects.
    {
        SECStatus rv = PK11_DigestBegin(ctx);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestBegin()
-   ");
+           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestBegin()\n");
        }
        return rv;
    }
@@ -197,8 +167,7 @@ Generates encryption/mac keys and uses session objects.
    {
        SECStatus rv = PK11_DigestOp(ctx, msg, msgLen);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Compute MAC Failed : DigestOp()
-   ");
+           PR_fprintf(PR_STDERR, "Compute MAC Failed : DigestOp()\n");
        }
        return rv;
    }
@@ -212,8 +181,7 @@ Generates encryption/mac keys and uses session objects.
    {
        SECStatus rv = PK11_DigestFinal(ctx, mac, macLen, maxLen);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestFinal()
-   ");
+           PR_fprintf(PR_STDERR, "Compute MAC Failed : PK11_DigestFinal()\n");
        }
        return SECSuccess;
    }
@@ -270,12 +238,9 @@ Generates encryption/mac keys and uses session objects.
            break;
        }
 
-       PR_fprintf(outFile, "%s
-   ", header);
+       PR_fprintf(outFile, "%s\n", header);
        PrintAsHex(outFile, buf, len);
-       PR_fprintf(outFile, "%s
-
-   ", trailer);
+       PR_fprintf(outFile, "%s\n\n", trailer);
        return SECSuccess;
    }
 
@@ -292,14 +257,12 @@ Generates encryption/mac keys and uses session objects.
 
        SECItem *secParam = PK11_ParamFromIV(CKM_AES_CBC, &ivItem);
        if (secParam == NULL) {
-           PR_fprintf(PR_STDERR, "Crypt Failed : secParam NULL
-   ");
+           PR_fprintf(PR_STDERR, "Crypt Failed : secParam NULL\n");
            return NULL;
        }
        ctx = PK11_CreateContextBySymKey(CKM_AES_CBC, operation, key, secParam);
        if (ctx == NULL) {
-           PR_fprintf(PR_STDERR, "Crypt Failed : can't create a context
-   ");
+           PR_fprintf(PR_STDERR, "Crypt Failed : can't create a context\n");
            goto cleanup;
 
        }
@@ -322,8 +285,7 @@ Generates encryption/mac keys and uses session objects.
 
        rv = PK11_CipherOp(ctx, out, outLen, maxOut, in, inLen);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Crypt Failed : PK11_CipherOp returned %d
-   ", rv);
+           PR_fprintf(PR_STDERR, "Crypt Failed : PK11_CipherOp returned %d\n", rv);
            goto cleanup;
        }
 
@@ -395,8 +357,7 @@ Generates encryption/mac keys and uses session objects.
        outbuf.type = siBuffer;
        file = PR_Open(fileName, PR_RDONLY, 0);
        if (!file) {
-           PR_fprintf(PR_STDERR, "Failed to open %s
-   ", fileName);
+           PR_fprintf(PR_STDERR, "Failed to open %s\n", fileName);
            return SECFailure;
        }
        switch (type) {
@@ -425,8 +386,7 @@ Generates encryption/mac keys and uses session objects.
        rv = FileToItem(&filedata, file);
        nonbody = (char *)filedata.data;
        if (!nonbody) {
-           PR_fprintf(PR_STDERR, "unable to read data from input file
-   ");
+           PR_fprintf(PR_STDERR, "unable to read data from input file\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -435,17 +395,15 @@ Generates encryption/mac keys and uses session objects.
        if ((body = strstr(nonbody, header)) != NULL) {
            char *trail = NULL;
            nonbody = body;
-           body = PORT_Strchr(body, '
-   ');
+           body = PORT_Strchr(body, '\n');
            if (!body)
-               body = PORT_Strchr(nonbody, ''); /* maybe this is a MAC file */
+               body = PORT_Strchr(nonbody, '\r'); /* maybe this is a MAC file */
            if (body)
                trail = strstr(++body, trailer);
            if (trail != NULL) {
-               *trail = '';
+               *trail = '\0';
            } else {
-               PR_fprintf(PR_STDERR,  "input has header but no trailer
-   ");
+               PR_fprintf(PR_STDERR,  "input has header but no trailer\n");
                PORT_Free(filedata.data);
                return SECFailure;
            }
@@ -491,8 +449,7 @@ Generates encryption/mac keys and uses session objects.
 
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
-           PR_fprintf(PR_STDERR, "Can't create MAC context
-   ");
+           PR_fprintf(PR_STDERR, "Can't create MAC context\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -518,8 +475,7 @@ Generates encryption/mac keys and uses session objects.
                    encbuf, &encbufLen, sizeof(encbuf),
                    ptext, ptextLen);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Encrypt Failure
-   ");
+               PR_fprintf(PR_STDERR, "Encrypt Failure\n");
                goto cleanup;
            }
 
@@ -536,20 +492,17 @@ Generates encryption/mac keys and uses session objects.
 
        rv = MacFinal(ctxmac, mac, &macLen, DIGESTSIZE);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "MacFinal Failure
-   ");
+           PR_fprintf(PR_STDERR, "MacFinal Failure\n");
            goto cleanup;
        }
        if (macLen == 0) {
-           PR_fprintf(PR_STDERR, "Bad MAC length
-   ");
+           PR_fprintf(PR_STDERR, "Bad MAC length\n");
            rv = SECFailure;
            goto cleanup;
        }
        WriteToHeaderFile(mac, macLen, MAC, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Write MAC Failure
-   ");
+           PR_fprintf(PR_STDERR, "Write MAC Failure\n");
            goto cleanup;
        }
 
@@ -560,8 +513,7 @@ Generates encryption/mac keys and uses session objects.
 
        WriteToHeaderFile(padItem.data, padItem.len, PAD, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Write PAD Failure
-   ");
+           PR_fprintf(PR_STDERR, "Write PAD Failure\n");
            goto cleanup;
        }
 
@@ -593,8 +545,7 @@ Generates encryption/mac keys and uses session objects.
            rv = PK11_Authenticate(slot, PR_TRUE, pwdata);
            if (rv != SECSuccess) {
                PR_fprintf(PR_STDERR,
-                          "Could not authenticate to token %s.
-   ",
+                          "Could not authenticate to token %s.\n",
                           PK11_GetTokenName(slot));
                if (slot) {
                    PK11_FreeSlot(slot);
@@ -606,8 +557,7 @@ Generates encryption/mac keys and uses session objects.
        key = PK11_FindFixedKey(slot, mechanism, keyBuf, 0);
        if (!key) {
            PR_fprintf(PR_STDERR,
-                      "PK11_FindFixedKey failed (err %d)
-   ",
+                      "PK11_FindFixedKey failed (err %d)\n",
                       PR_GetError());
            PK11_FreeSlot(slot);
            return NULL;
@@ -656,8 +606,7 @@ Generates encryption/mac keys and uses session objects.
 
        ctxmac = PK11_CreateContextBySymKey(CKM_MD5_HMAC, CKA_SIGN, mk, &noParams);
        if (ctxmac == NULL) {
-           PR_fprintf(PR_STDERR, "Can't create MAC context
-   ");
+           PR_fprintf(PR_STDERR, "Can't create MAC context\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -666,8 +615,7 @@ Generates encryption/mac keys and uses session objects.
        inFile = PR_Open(encryptedFileName, PR_RDONLY , 0);
        if (!inFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       encryptedFileName);
            return SECFailure;
        }
@@ -676,8 +624,7 @@ Generates encryption/mac keys and uses session objects.
                          PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR , 00660);
        if (!outFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       outFileName);
            return SECFailure;
        }
@@ -698,8 +645,7 @@ Generates encryption/mac keys and uses session objects.
                         ctext, ctextLen);
 
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Decrypt Failure
-   ");
+               PR_fprintf(PR_STDERR, "Decrypt Failure\n");
                goto cleanup;
            }
 
@@ -714,8 +660,7 @@ Generates encryption/mac keys and uses session objects.
            /* write the plain text to out file */
            temp = PR_Write(outFile, decbuf, decbufLen);
            if (temp != decbufLen) {
-               PR_fprintf(PR_STDERR, "write error
-   ");
+               PR_fprintf(PR_STDERR, "write error\n");
                rv = SECFailure;
                break;
            }
@@ -734,8 +679,7 @@ Generates encryption/mac keys and uses session objects.
        if (PORT_Memcmp(macItem->data, newmac, newmacLen) == 0) {
            rv = SECSuccess;
        } else {
-           PR_fprintf(PR_STDERR, "Check MAC : Failure
-   ");
+           PR_fprintf(PR_STDERR, "Check MAC : Failure\n");
            PR_fprintf(PR_STDERR, "Extracted : ");
            PrintAsHex(PR_STDERR, macItem->data, macItem->len);
            PR_fprintf(PR_STDERR, "Computed  : ");
@@ -770,23 +714,20 @@ Generates encryption/mac keys and uses session objects.
         */
        rv = ReadFromHeaderFile(cipherFileName, IV, ivItem, PR_TRUE);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Could not retrieve IV from cipher file
-   ");
+           PR_fprintf(PR_STDERR, "Could not retrieve IV from cipher file\n");
            goto cleanup;
        }
 
        rv = ReadFromHeaderFile(cipherFileName, SYMKEY, encKeyItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-           "Could not retrieve AES CKA_ID from cipher file
-   ");
+           "Could not retrieve AES CKA_ID from cipher file\n");
            goto cleanup;
        }
        rv = ReadFromHeaderFile(cipherFileName, MACKEY, macKeyItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-                      "Could not retrieve MAC CKA_ID from cipher file
-   ");
+                      "Could not retrieve MAC CKA_ID from cipher file\n");
            goto cleanup;
        }
    cleanup:
@@ -844,8 +785,7 @@ Generates encryption/mac keys and uses session objects.
        /* find those keys in the DB token */
        encKey = FindKey(slot, CKM_AES_CBC, &encKeyItem, pwdata);
        if (encKey == NULL) {
-           PR_fprintf(PR_STDERR, "Can't find the encryption key
-   ");
+           PR_fprintf(PR_STDERR, "Can't find the encryption key\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -860,19 +800,16 @@ Generates encryption/mac keys and uses session objects.
        rv = ReadFromHeaderFile(headerFileName, MAC, &macItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-                      "Could not retrieve MAC from cipher file
-   ");
+                      "Could not retrieve MAC from cipher file\n");
            goto cleanup;
        }
        if (macItem.data == NULL) {
-           PR_fprintf(PR_STDERR, "MAC has NULL data
-   ");
+           PR_fprintf(PR_STDERR, "MAC has NULL data\n");
            rv = SECFailure;
            goto cleanup;
        }
        if (macItem.len == 0) {
-           PR_fprintf(PR_STDERR, "MAC has data has 0 length
-   ");
+           PR_fprintf(PR_STDERR, "MAC has data has 0 length\n");
            /*rv = SECFailure;
            goto cleanup;*/
        }
@@ -880,8 +817,7 @@ Generates encryption/mac keys and uses session objects.
        rv = ReadFromHeaderFile(headerFileName, PAD, &padItem, PR_TRUE);
        if (rv != SECSuccess) {
            PR_fprintf(PR_STDERR,
-                      "Could not retrieve PAD detail from header file
-   ");
+                      "Could not retrieve PAD detail from header file\n");
            goto cleanup;
        }
 
@@ -890,8 +826,7 @@ Generates encryption/mac keys and uses session objects.
            rv = DecryptAndVerifyMac(outFileName, encryptedFileName,
                    &cipherItem, &macItem, encKey, macKey, &ivItem, &padItem);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Failed while decrypting and removing MAC
-   ");
+               PR_fprintf(PR_STDERR, "Failed while decrypting and removing MAC\n");
            }
        }
 
@@ -962,8 +897,7 @@ Generates encryption/mac keys and uses session objects.
        /* generate a symmetric AES key as a token object. */
        encKey = GenerateSYMKey(slot, CKM_AES_KEY_GEN, 128/8, &encKeyID, pwdata);
        if (encKey == NULL) {
-           PR_fprintf(PR_STDERR, "GenerateSYMKey for AES returned NULL.
-   ");
+           PR_fprintf(PR_STDERR, "GenerateSYMKey for AES returned NULL.\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -972,8 +906,7 @@ Generates encryption/mac keys and uses session objects.
        macKey = GenerateSYMKey(slot, CKM_GENERIC_SECRET_KEY_GEN, 160/8,
                                &macKeyID, pwdata);
        if (macKey == NULL) {
-           PR_fprintf(PR_STDERR, "GenerateSYMKey for MACing returned NULL.
-   ");
+           PR_fprintf(PR_STDERR, "GenerateSYMKey for MACing returned NULL.\n");
            rv = SECFailure;
            goto cleanup;
        }
@@ -981,16 +914,14 @@ Generates encryption/mac keys and uses session objects.
        /* get the encrypt key CKA_ID */
        rv = GatherCKA_ID(encKey, &encCKAID);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error while wrapping encrypt key
-   ");
+           PR_fprintf(PR_STDERR, "Error while wrapping encrypt key\n");
            goto cleanup;
        }
 
        /* get the MAC key CKA_ID */
        rv = GatherCKA_ID(macKey, &macCKAID);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Can't get the MAC key CKA_ID.
-   ");
+           PR_fprintf(PR_STDERR, "Can't get the MAC key CKA_ID.\n");
            goto cleanup;
        }
 
@@ -1014,8 +945,7 @@ Generates encryption/mac keys and uses session objects.
                             PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR, 00660);
        if (!headerFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       headerFileName);
            return SECFailure;
        }
@@ -1023,8 +953,7 @@ Generates encryption/mac keys and uses session objects.
                          PR_CREATE_FILE | PR_TRUNCATE | PR_RDWR, 00660);
        if (!encFile) {
            PR_fprintf(PR_STDERR,
-                      "Unable to open \"%s\" for writing.
-   ",
+                      "Unable to open \"%s\" for writing.\n",
                       encryptedFileName);
            return SECFailure;
        }
@@ -1037,23 +966,20 @@ Generates encryption/mac keys and uses session objects.
 
        rv = WriteToHeaderFile(iv, BLOCKSIZE, IV, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing IV to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing IV to cipher file - %s\n",
                       headerFileName);
            goto cleanup;
        }
 
        rv = WriteToHeaderFile(encCKAID.data, encCKAID.len, SYMKEY, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing AES CKA_ID to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing AES CKA_ID to cipher file - %s\n",
            encryptedFileName);
            goto cleanup;
        }
        rv = WriteToHeaderFile(macCKAID.data, macCKAID.len, MACKEY, headerFile);
        if (rv != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Error writing MAC CKA_ID to cipher file - %s
-   ",
+           PR_fprintf(PR_STDERR, "Error writing MAC CKA_ID to cipher file - %s\n",
                       headerFileName);
            goto cleanup;
        }
@@ -1061,8 +987,7 @@ Generates encryption/mac keys and uses session objects.
        /*  Open the input file.  */
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
-           PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-   ",
+           PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.\n",
                       inFileName);
            return SECFailure;
        }
@@ -1072,8 +997,7 @@ Generates encryption/mac keys and uses session objects.
            rv = EncryptAndMac(inFile, headerFile, encFile,
                               encKey, macKey, ivItem.data, ivItem.len, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "Failed : Macing and Encryption
-   ");
+               PR_fprintf(PR_STDERR, "Failed : Macing and Encryption\n");
                goto cleanup;
            }
        }
@@ -1181,8 +1105,7 @@ Generates encryption/mac keys and uses session objects.
        /*  Open the input file.  */
        inFile = PR_Open(inFileName, PR_RDONLY, 0);
        if (!inFile) {
-           PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.
-   ",
+           PR_fprintf(PR_STDERR, "Unable to open \"%s\" for reading.\n",
                       inFileName);
            return SECFailure;
        }
@@ -1214,8 +1137,7 @@ Generates encryption/mac keys and uses session objects.
            /* Open DB for read/write and authenticate to it. */
            rv = NSS_InitReadWrite(dbdir);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed
-   ");
+               PR_fprintf(PR_STDERR, "NSS_InitReadWrite Failed\n");
                goto cleanup;
            }
 
@@ -1224,8 +1146,7 @@ Generates encryption/mac keys and uses session objects.
            if (PK11_NeedLogin(slot)) {
                rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
                if (rv != SECSuccess) {
-                   PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-   ",
+                   PR_fprintf(PR_STDERR, "Could not authenticate to token %s.\n",
                               PK11_GetTokenName(slot));
                    goto cleanup;
                }
@@ -1234,8 +1155,7 @@ Generates encryption/mac keys and uses session objects.
                              inFileName, headerFileName, encryptedFileName,
                              noiseFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "EncryptFile : Failed
-   ");
+               PR_fprintf(PR_STDERR, "EncryptFile : Failed\n");
                return SECFailure;
            }
            break;
@@ -1245,8 +1165,7 @@ Generates encryption/mac keys and uses session objects.
 
            rv = NSS_Init(dbdir);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "NSS_Init Failed
-   ");
+               PR_fprintf(PR_STDERR, "NSS_Init Failed\n");
                return SECFailure;
            }
 
@@ -1254,8 +1173,7 @@ Generates encryption/mac keys and uses session objects.
            if (PK11_NeedLogin(slot)) {
                rv = PK11_Authenticate(slot, PR_TRUE, &pwdata);
                if (rv != SECSuccess) {
-                   PR_fprintf(PR_STDERR, "Could not authenticate to token %s.
-   ",
+                   PR_fprintf(PR_STDERR, "Could not authenticate to token %s.\n",
                               PK11_GetTokenName(slot));
                    goto cleanup;
                }
@@ -1265,8 +1183,7 @@ Generates encryption/mac keys and uses session objects.
                             outFileName, headerFileName,
                             encryptedFileName, &pwdata, ascii);
            if (rv != SECSuccess) {
-               PR_fprintf(PR_STDERR, "DecryptFile : Failed
-   ");
+               PR_fprintf(PR_STDERR, "DecryptFile : Failed\n");
                return SECFailure;
            }
            break;
@@ -1275,8 +1192,7 @@ Generates encryption/mac keys and uses session objects.
    cleanup:
        rvShutdown = NSS_Shutdown();
        if (rvShutdown != SECSuccess) {
-           PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()
-   ");
+           PR_fprintf(PR_STDERR, "Failed : NSS_Shutdown()\n");
            rv = SECFailure;
        }
 

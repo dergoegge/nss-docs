@@ -52,8 +52,7 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
      rv = NSS_InitReadWrite(".");
      if (rv != SECSuccess)
      {
-       fprintf(stderr, "NSS initialization failed (err %d)
-   ",
+       fprintf(stderr, "NSS initialization failed (err %d)\n",
                PR_GetError());
        exit(1);
      }
@@ -89,8 +88,7 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
       */
      if (slot == NULL)
      {
-       fprintf(stderr, "Unable to find security device (err %d)
-   ",
+       fprintf(stderr, "Unable to find security device (err %d)\n",
                PR_GetError());
        return;
      }
@@ -108,18 +106,15 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
                             &keyiditem, PR_TRUE, 0);
      if (key == NULL)
      {
-       fprintf(stderr, "PK11_TokenKeyGen failed (err %d)
-   ",
+       fprintf(stderr, "PK11_TokenKeyGen failed (err %d)\n",
                PR_GetError());
        PK11_FreeSlot(slot);
        return;
      }
 
-     fprintf(stderr, "key length of generated key is %d
-   ",
+     fprintf(stderr, "key length of generated key is %d\n",
              PK11_GetKeyLength(key));
-     fprintf(stderr, "mechanism of key is %d (asked for %d)
-   ",
+     fprintf(stderr, "mechanism of key is %d (asked for %d)\n",
              PK11_GetMechanism(key), cipherMech);
 
      PK11_FreeSymKey(key);
@@ -128,20 +123,16 @@ NSS Sample Code 6: Persistent Symmetric Keys in NSS database
      key = PK11_FindFixedKey(slot, cipherMech, &keyiditem, 0);
      if (key == NULL)
      {
-       fprintf(stderr, "PK11_FindFixedKey failed (err %d)
-   ",
+       fprintf(stderr, "PK11_FindFixedKey failed (err %d)\n",
                PR_GetError());
        PK11_FreeSlot(slot);
        return;
      }
 
-     fprintf(stderr, "Found key!
-   ");
-     fprintf(stderr, "key length of generated key is %d
-   ",
+     fprintf(stderr, "Found key!\n");
+     fprintf(stderr, "key length of generated key is %d\n",
              PK11_GetKeyLength(key));
-     fprintf(stderr, "mechanism of key is %d (asked for %d)
-   ",
+     fprintf(stderr, "mechanism of key is %d (asked for %d)\n",
              PK11_GetMechanism(key), cipherMech);
 
      PK11_FreeSymKey(key);

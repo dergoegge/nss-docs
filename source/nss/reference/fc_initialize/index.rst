@@ -68,7 +68,7 @@ Mozilla Firefox initializes NSS with this string (on Windows):
 
 ::
 
-    "configdir='C:\Documents and Settings\wtc\Application Data\Mozilla\Firefox\Profiles\default.7tt' certPrefix='' keyPrefix='' secmod='secmod.db' flags=optimizeSpace  manufacturerID='Mozilla.org' libraryDescription='PSM Internal Crypto Services' cryptoTokenDescription='Generic Crypto Services' dbTokenDescription='Software Security Device' cryptoSlotDescription='PSM Internal Cryptographic Services' dbSlotDescription='PSM Private Keys' FIPSSlotDescription='PSM Internal FIPS-140-1 Cryptographic Services' FIPSTokenDescription='PSM FIPS-140-1 User Private Key Services' minPS=0"
+    "configdir='C:\\Documents and Settings\\wtc\\Application Data\\Mozilla\\Firefox\\Profiles\\default.7tt' certPrefix='' keyPrefix='' secmod='secmod.db' flags=optimizeSpace  manufacturerID='Mozilla.org' libraryDescription='PSM Internal Crypto Services' cryptoTokenDescription='Generic Crypto Services' dbTokenDescription='Software Security Device' cryptoSlotDescription='PSM Internal Cryptographic Services' dbSlotDescription='PSM Private Keys' FIPSSlotDescription='PSM Internal FIPS-140-1 Cryptographic Services' FIPSTokenDescription='PSM FIPS-140-1 User Private Key Services' minPS=0"
 
 See `PKCS #11 Module
 Specs </en-US/docs/Mozilla/Projects/NSS/PKCS11/Module_Specs>`__ for
