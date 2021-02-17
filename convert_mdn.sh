@@ -102,11 +102,5 @@ done
 
 wait
 
-#echo "Checking rst syntax"
-#
-#for rst_file in $(find $DST_DIR -type f -name '*.rst'); do
-#    [ -e "$html_file" ] || continue
-#    rstcheck --report warning $rst_file
-#done
 #convert_file "$MDN_DIR/http_delegation_clone/index.html"
 #convert_file "$MDN_DIR/reference/nss_cryptographic_module/fips_mode_of_operation/index.html"
