@@ -57,7 +57,7 @@ callback functions. Functions used in the initialization part of an application 
 following:
 
 -   ``PR_Init``. Initializes NSPR. Must be called before any other NSS functions.
--   ```PK11_SetPasswordFunc`` <pkfnc.html#1023128>`__. Sets the global callback function to obtain
+-  ```PK11_SetPasswordFunc`` <pkfnc.html#1023128>`__. Sets the global callback function to obtain
    passwords for PKCS #11 modules. Required.
 -   ``NSS_Init``. Sets up configuration files and performs other tasks required to run Network
    Security Services. ``NSS_Init`` is *not* idempotent, so call it only once. Required.
@@ -65,14 +65,14 @@ following:
    the application is running (compare with ```SSL_SetURL`` <sslfnc.html#1087792>`__ which only
    configures the socket that is currently open). This function must be called once for each default
    value that needs to be changed. Optional.
--   ```NSS_SetDomesticPolicy`` <sslfnc.html#1228530>`__,
+-  ```NSS_SetDomesticPolicy`` <sslfnc.html#1228530>`__,
    ```NSS_SetExportPolicy`` <sslfnc.html#1100285>`__,
    ```NSS_SetFrancePolicy`` <sslfnc.html#1105952>`__, or
    ```SSL_CipherPolicySet`` <sslfnc.html#1104647>`__. These functions tell the library which cipher
    suites are permitted by policy (for example, to comply with export restrictions). Cipher suites
    disabled by policy cannot be enabled by user preference. One of these functions must be called
    before any cryptographic operations can be performed with NSS.
--   ```SSL_CipherPrefSetDefault`` <sslfnc.html#1084747>`__. Enables all ciphers chosen by user
+-  ```SSL_CipherPrefSetDefault`` <sslfnc.html#1084747>`__. Enables all ciphers chosen by user
    preference. Optional.
 
 .. _Initializing_Caches:
@@ -97,11 +97,11 @@ configure a server cache, using either ```SSL_ConfigServerSessionIDCache`` <sslf
 or ```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. The server cache is used for all
 sessions where the program handshakes as an SSL server.
 
--   ```SSL_ClearSessionCache`` <sslfnc.html#1138601>`__. Clears all sessions from the client session
+-  ```SSL_ClearSessionCache`` <sslfnc.html#1138601>`__. Clears all sessions from the client session
    cache. Optional.
--   ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__. Sets up parameters for a server
+-  ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__. Sets up parameters for a server
    session cache for a single-process application. Required for single-process server applications.
--   ```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. Sets up parameters for a server cache
+-  ```SSL_ConfigMPServerSIDCache`` <sslfnc.html#1142625>`__. Sets up parameters for a server cache
    for a multi-process application. Required for multi-process server applications. You can use
    either this function or ```SSL_ConfigServerSessionIDCache`` <sslfnc.html#1143851>`__, not both.
 
@@ -131,12 +131,12 @@ Configuration functions control the configuration of an individual socket.
    Optional.
 -   ``PR_SetSocketOption``. Sets the socket options for a specified socket., including making it
    blocking or nonblocking. Optional.
--   ```SSL_OptionSet`` <sslfnc.html#1086543>`__. Sets a single configuration parameter of a
+-  ```SSL_OptionSet`` <sslfnc.html#1086543>`__. Sets a single configuration parameter of a
    specified socket. This function must be called once for each parameter whose settings you want to
    change from those established with ``SSL_OptionSetDefault``. Optional.
--   ```SSL_ConfigSecureServer`` <sslfnc.html#1217647>`__. For servers only. Configures the socket
+-  ```SSL_ConfigSecureServer`` <sslfnc.html#1217647>`__. For servers only. Configures the socket
    with the information needed to handshake as an SSL server. Required for servers.
--   ```SSL_SetURL`` <sslfnc.html#1087792>`__. For clients only. Records the target server URL for
+-  ```SSL_SetURL`` <sslfnc.html#1087792>`__. For clients only. Records the target server URL for
    comparison with the URL specified by the server certificate. Required for clients.
 
 Callbacks and helper functions allow you to specify such things as how authentication is

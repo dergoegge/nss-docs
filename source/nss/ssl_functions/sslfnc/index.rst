@@ -121,10 +121,10 @@ The policy flags for all cipher suites are turned off by default, disallowing al
 Therefore, an application cannot use NSS to perform any cryptographic operations until after it
 enables appropriate cipher suites by calling one of the `SSL Export Policy Functions <#1098841>`__:
 
--   ```NSS_SetDomesticPolicy`` <#1228530>`__, ```NSS_SetExportPolicy`` <#1100285>`__, and
+-  ```NSS_SetDomesticPolicy`` <#1228530>`__, ```NSS_SetExportPolicy`` <#1100285>`__, and
    ```NSS_SetFrancePolicy`` <#1105952>`__ configure the cipher suites for domestic, international,
    and French versions of software products with encryption features.
--   ```SSL_CipherPolicySet`` <#1104647>`__ sets policy flags for individual cipher suites, one at a
+-  ```SSL_CipherPolicySet`` <#1104647>`__ sets policy flags for individual cipher suites, one at a
    time. This may be helpful if you have an export license that permits more or fewer capabilities
    than those allowed by the other export policy functions.
 
@@ -3499,8 +3499,8 @@ handshake:
 
 -   ``PR_Connect``
 -   ``PR_Accept``
--   ```SSL_ReHandshake`` <#1232052>`__ (after the first handshake is finished)
--   ```SSL_ResetHandshake`` <#1058001>`__ (for sockets that were connected or accepted prior to
+-  ```SSL_ReHandshake`` <#1232052>`__ (after the first handshake is finished)
+-  ```SSL_ResetHandshake`` <#1058001>`__ (for sockets that were connected or accepted prior to
    being imported)
 
 A call to ``SSL_ForceHandshake`` will almost always be preceded by one of those functions.
