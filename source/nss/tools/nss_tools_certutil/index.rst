@@ -145,7 +145,8 @@ Certificate Database Tool command options and their arguments are defined as fol
 +-------------------------------------------------+-------------------------------------------------+
 | ``-a``                                          | Use ASCII format or allow the use of ASCII      |
 |                                                 | format for input or output. This formatting     |
-|                                                 | follows `RFC 1113 <https://tools.ietf.org/html/rfc1113>`__. For certificate          |
+|                                                 | follows `RFC 1113 <https://tools.ietf.org/html  |
+|                                                 | /rfc1113>`__. For certificate                   |
 |                                                 | requests, ASCII output defaults to standard     |
 |                                                 | output unless redirected.                       |
 +-------------------------------------------------+-------------------------------------------------+
@@ -260,7 +261,8 @@ Certificate Database Tool command options and their arguments are defined as fol
 |                                                 | certificates or certificate requests. Bracket   |
 |                                                 | this string with quotation marks if it contains |
 |                                                 | spaces. The subject identification format       |
-|                                                 | follows `RFC 1485 <https://tools.ietf.org/html/rfc1485>`__.                          |
+|                                                 | follows `RFC 1485 <https://tools.ietf.org/html  |
+|                                                 | /rfc1485>`__.                                   |
 +-------------------------------------------------+-------------------------------------------------+
 | ``-t``\ *trustargs*                             | Specify the trust attributes to modify in an    |
 |                                                 | existing certificate or to apply to a           |
@@ -445,14 +447,16 @@ Certificate Database Tool command options and their arguments are defined as fol
 |                                                 | certificate or certificate request that is      |
 |                                                 | being created or added to the database. Subject |
 |                                                 | alternative name extensions are described in    |
-|                                                 | Section 4.2.1.7 of `RFC 32800 <https://tools.ietf.org/html/rfc32800>`__.              |
+|                                                 | Section 4.2.1.7 of `RFC 32800 <https://tools.i  |
+|                                                 | etf.org/html/rfc32800>`__.                      |
 +-------------------------------------------------+-------------------------------------------------+
 | ``-8``\ *dns-names*                             | Add a comma-separated list of DNS names to the  |
 |                                                 | subject alternative name extension of a         |
 |                                                 | certificate or certificate request that is      |
 |                                                 | being created or added to the database. Subject |
 |                                                 | alternative name extensions are described in    |
-|                                                 | Section 4.2.1.7 of `RFC 32800 <https://tools.ietf.org/html/rfc32800>`__               |
+|                                                 | Section 4.2.1.7 of `RFC 32800 <https://tools.i  |
+|                                                 | etf.org/html/rfc32800>`__                       |
 +-------------------------------------------------+-------------------------------------------------+
 
 .. _Usage:
