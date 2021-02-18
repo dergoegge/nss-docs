@@ -52,6 +52,10 @@ replace_broken_NSSv2_links() {
 	printf "%s" "$1" | sed -E 's,\`[A-Za-z0-9# ]*<([^>#/]*)>\`__,:ref:\`Mozilla_Projects_NSS_\1\`,g'
 }
 
+replace_space_titles() {
+	printf "%s" "$1" | sed -E '/^ [a-zA-Z]*$/{N;s/ ([a-zA-Z]*)(\n\---*)/\1\2/;}'
+}
+
 #replace_interwiki() {}
 #replace_discussionlist() {}
 
@@ -94,6 +98,7 @@ convert_file() {
     rst_content="$(replace_internal_links "$rst_content")"
     rst_content="$(replace_broken_NSS_links "$rst_content")"
     rst_content="$(replace_broken_NSSv2_links "$rst_content")"
+    rst_content="$(replace_space_titles "$rst_content")"
     #replace_internal_links "$rst_content"
     local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
     local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug)"

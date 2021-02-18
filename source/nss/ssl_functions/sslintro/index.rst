@@ -49,7 +49,7 @@ the functions are the same for both.
 
 .. _Initialization_2:
 
- Initialization
+Initialization
 --------------
 
 Initialization includes setting up configuration files, setting global defaults, and setting up
@@ -107,7 +107,7 @@ sessions where the program handshakes as an SSL server.
 
 .. _Configuration_2:
 
- Configuration
+Configuration
 -------------
 
 The configuration portion of an SSL-enabled application typically begins by opening a new socket and
@@ -160,7 +160,7 @@ accomplished and what happens if it fails.
 
 .. _Communication_2:
 
- Communication
+Communication
 -------------
 
 At this point the application has set up the socket to communicate using SSL. For simple encrypted
@@ -258,7 +258,7 @@ are useful for such application callback functions, including these:
 
 .. _Cleanup_2:
 
- Cleanup
+Cleanup
 -------
 
 This portion of an SSL-enabled application consists primarily of closing the socket and freeing

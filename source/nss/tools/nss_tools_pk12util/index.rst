@@ -17,7 +17,7 @@ and keys in such files.
 
 .. _Availability_2:
 
- Availability
+Availability
 ------------
 
 See the `release notes <../release_notes.html>`__ for the platforms this tool is available on.

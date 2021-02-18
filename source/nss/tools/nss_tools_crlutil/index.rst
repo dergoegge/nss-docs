@@ -25,7 +25,7 @@ Tool <NSS_Tools_certutil>`__.
 
 .. _Availability_2:
 
- Availability
+Availability
 ------------
 
 See the `release notes </en-US/docs/NSS/NSS_Releases>`__ for the platforms this tool is available
@@ -33,7 +33,7 @@ on.
 
 .. _Syntax_2:
 
- Syntax
+Syntax
 ------
 
 To run the Certificate Revocation List Management Tool, type the command
@@ -300,7 +300,7 @@ theirs entries. For more information see `RFC #3280 <http://www.faqs.org/rfcs/rf
 
 .. _Usage_2:
 
- Usage
+Usage
 -----
 
 The Certificate Revocation List Management Tool's capabilities are grouped as follows, using these
@@ -329,7 +329,7 @@ without square brackets are required.
 
 .. _Examples_2:
 
- Examples
+Examples
 --------
 
 |  `Creating a New CRL <NSS_Tools_certutil#1028724>`__

@@ -16,7 +16,7 @@ Syntax (CMS) <http://www.ietf.org/rfc/rfc2630.txt>`__ messages.
 
 .. _Syntax_2:
 
- Syntax
+Syntax
 ------
 
 To run cmsutil, type the command ``cmsutil``\ *option*\ ``[``\ *arguments*\ ``]`` where *option* and

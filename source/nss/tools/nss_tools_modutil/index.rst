@@ -26,14 +26,14 @@ Tool <certutil.html>`__.
 
 .. _Availability_2:
 
- Availability
+Availability
 ------------
 
 This tool is known to build on Solaris 2.5.1 (SunOS 5.5.1) and Windows NT 4.0.
 
 .. _Syntax_2:
 
- Syntax
+Syntax
 ------
 
 To run the Security Module Database Tool, type the command
@@ -226,7 +226,7 @@ Options specify an action. Option arguments modify an action. The options and ar
 
 .. _Usage_2:
 
- Usage
+Usage
 -----
 
 The Security Module Database Tool's capabilities are grouped as follows, using these combinations of
@@ -560,7 +560,7 @@ sense for the current platform. If this attribute is omitted, a default of 777 i
 
 .. _Examples_2:
 
- Examples
+Examples
 --------
 
 |  `Creating Database Files <modutil.html#1028724>`__

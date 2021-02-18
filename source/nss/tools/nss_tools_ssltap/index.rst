@@ -16,14 +16,14 @@ handshaking.
 
 .. _Availability_2:
 
- Availability
+Availability
 ------------
 
 This tool is known to build on Solaris 2.5.1 (SunOS 5.5.1) and Windows NT 4.0.
 
 .. _Description_2:
 
- Description
+Description
 -----------
 
 The ``ssltap`` command opens a socket on a rendezvous port and waits for an incoming connection from
@@ -37,7 +37,7 @@ established.
 
 .. _Syntax_2:
 
- Syntax
+Syntax
 ------
 
 To run the SSL Debugging Tool, type this command in a command shell: ``ssltap`` [``-vhfsxl``]
@@ -118,7 +118,7 @@ control the connection interception and output. The options for the command are 
 
 .. _Examples_2:
 
- Examples
+Examples
 --------
 
 You can use the SSL Debugging Tool to intercept any connection information. Although you can run the
