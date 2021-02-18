@@ -10,7 +10,7 @@ Name
 
 Synopsis
 
-cmsutil [options] `arguments <arguments>`__
+cmsutil [options] :ref:`Mozilla_Projects_NSS_arguments`
 
 Description
 

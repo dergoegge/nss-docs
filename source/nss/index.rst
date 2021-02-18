@@ -130,7 +130,7 @@ CA certificates pre-loaded into NSS
 NSS is built on top of Netscape Portable Runtime (NSPR)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Netscape Portable Runtime <NSPR>`__
+:ref:`Mozilla_Projects_NSS_NSPR`
    NSPR project page.
 :ref:`Mozilla_Projects_NSPR_Reference`
    NSPR API documentation.

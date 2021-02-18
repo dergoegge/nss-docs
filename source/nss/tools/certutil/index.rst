@@ -6,7 +6,7 @@ certutil
 | Name
 |    certutil — Manage keys and certificate in the NSS database.
 | Synopsis
-|    certutil [options] `arguments <arguments>`__
+|    certutil [options] :ref:`Mozilla_Projects_NSS_arguments`
 | Description
 |    The Certificate Database Tool, certutil, is a command-line utility that
 |    can create and modify certificate and key database files. It can also

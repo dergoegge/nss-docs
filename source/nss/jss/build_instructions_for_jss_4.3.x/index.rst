@@ -93,4 +93,4 @@ Now you are ready to build JSS. Follow these steps:
          signed binary release of the jss4.jar from ftp.mozilla.org.
          with your built jss4 JNI shared library.
 
-Next, you should read the instructions on `using JSS <Using_JSS>`__.
+Next, you should read the instructions on :ref:`Mozilla_Projects_NSS_Using_JSS`.

@@ -7,7 +7,7 @@ NSS tools : cmsutil
 |    cmsutil — Performs basic cryptograpic operations, such as encryption and
 |    decryption, on Cryptographic Message Syntax (CMS) messages.
 | Synopsis
-|    cmsutil [options] `arguments <arguments>`__
+|    cmsutil [options] :ref:`Mozilla_Projects_NSS_arguments`
 | Description
 |    The cmsutil command-line uses the S/MIME Toolkit to perform basic
 |    operations, such as encryption and decryption, on Cryptographic Message

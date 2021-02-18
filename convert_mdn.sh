@@ -44,6 +44,14 @@ replace_internal_links() {
     printf "%s" "$content"
 }
 
+replace_broken_NSS_links() {
+	printf "%s" "$1" | sed -E 's,\`[^<]*<(NSS_[^>#/]*)>\`__,:ref:\`Mozilla_Projects_\1\`,g'
+}
+
+replace_broken_NSSv2_links() {
+	printf "%s" "$1" | sed -E 's,\`[A-Za-z0-9# ]*<([^>#/]*)>\`__,:ref:\`Mozilla_Projects_NSS_\1\`,g'
+}
+
 #replace_interwiki() {}
 #replace_discussionlist() {}
 
@@ -84,6 +92,8 @@ convert_file() {
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
     rst_content="$(replace_internal_links "$rst_content")"
+    rst_content="$(replace_broken_NSS_links "$rst_content")"
+    rst_content="$(replace_broken_NSSv2_links "$rst_content")"
     #replace_internal_links "$rst_content"
     local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
     local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug)"
@@ -103,6 +113,9 @@ done
 wait
 cp -r $DST_DIR/nss/*_release_notes $DST_DIR/nss/nss_releases
 rm -r $DST_DIR/nss/*_release_notes
+
+# apply some nits
+git apply ./nits1.patch
 
 #convert_file "$MDN_DIR/http_delegation_clone/index.html"
 #convert_file "$MDN_DIR/reference/nss_cryptographic_module/fips_mode_of_operation/index.html"

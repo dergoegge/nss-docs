@@ -94,7 +94,7 @@ and tokens that are configured in the NSS DB and freely access all of it.
 | For information on downloading NSS releases,    |                                                 |
 | see `NSS sources building                       |                                                 |
 | testing <NSS_Sources_Building_Te                |                                                 |
-| sting>`__\ `. <NSS_Sources_Building_Testing>`__ |                                                 |
+| sting>:ref:`Mozilla_Projects_NSS_Sources_Building_Testing` |                                                 |
 |                                                 |                                                 |
 | Read `Using JSS <JSS/Using_JSS>`__ to get you   |                                                 |
 | started with development after you've built and |                                                 |

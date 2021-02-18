@@ -14,4 +14,4 @@ To build JSS see `Upstream JSS Build/Test
 Instructions <https://hg.mozilla.org/projects/jss/file/tip/README>`__
 
 `Next, you should read the instructions on <https://hg.mozilla.org/projects/jss/file/tip/README>`__
-`using JSS <Using_JSS>`__.
+:ref:`Mozilla_Projects_NSS_Using_JSS`.

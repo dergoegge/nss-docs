@@ -46,10 +46,10 @@ NSS includes a framework to which developers and OEMs can contribute patches, su
 code, to optimize performance on their platforms. NSS 3.x has been certified on 18 platforms.
 
 For more detailed information about NSS, see `wiki.mozilla.org <https://wiki.mozilla.org/NSS>`__ and
-`NSS FAQ <NSS_FAQ>`__.
+:ref:`Mozilla_Projects_NSS_FAQ`.
 
 Source code for a Java interface to NSS is available in the Mozilla CVS tree. For details, see
-`Network Security Services for Java <JSS>`__.
+:ref:`Mozilla_Projects_NSS_JSS`.
 
 NSS makes use of Netscape Portable Runtime (:ref:`Mozilla_Projects_NSPR`), a
 platform-neutral open-source API for system functions designed to facilitate cross-platform
@@ -119,7 +119,7 @@ FIPS 140 Validation and NISCC Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The NSS software crypto module has been validated three times for conformance to FIPS 140 at
-Security Levels 1 and 2. For more information, see the `NSS FIPS <FIPS_Mode_-_an_explanation>`__
+Security Levels 1 and 2. For more information, see the :ref:`Mozilla_Projects_NSS_FIPS_Mode_-_an_explanation`
 page (`Or this one <https://wiki.mozilla.org/FIPS_Validation>`__).
 
 The NSS libraries passed the NISCC

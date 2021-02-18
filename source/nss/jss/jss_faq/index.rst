@@ -41,7 +41,7 @@ Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org:119/mozilla.dev.tec
    113808 <http://bugzilla.mozilla.org/show_bug.cgi?id=113808>`__. JSS only supports the native
    threading model (no green threads). For JSS 3.2 and higher, if you use JDK 1.4 or higher you will
    not need to install the JCE, but if you using an earlier version of the JDK then you will also
-   have to install JCE 1.2.1. See also the document `Using JSS <Using_JSS>`__.
+   have to install JCE 1.2.1. See also the document :ref:`Mozilla_Projects_NSS_Using_JSS`.
 
 **Does JSS have 64 bit support?**
 
@@ -56,7 +56,7 @@ Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org:119/mozilla.dev.tec
 
 **Is there any sample code and documentation?**
 
--  The `Using JSS <Using_JSS>`__ document describes how to set up your environment to run JSS. The
+-  The :ref:`Mozilla_Projects_NSS_Using_JSS` document describes how to set up your environment to run JSS. The
    only other documentation is the
    `Javadoc <ftp://ftp.mozilla.org/pub/mozilla.org/security/jss/releases/JSS_4_3_RTM/doc/JSS_4_3_RTM-doc.zip>`__.
 
@@ -193,7 +193,7 @@ org.mozilla.jss.pkix.cert.Certificate?**
 
 -  Yes. Before JSS 3.2 you would use CryptoManager to obtain the CryptoToken you want to use, then
    call CryptoToken.getCipherContext() to get an encryption engine. But as of JSS 3.2 you would use
-   the `JSS JCA provider <JSS_Provider_Notes>`__.
+   the :ref:`Mozilla_Projects_NSS_JSS_Provider_Notes`.
 
 **Can you explain token names and keys with regards to JSS?**
 

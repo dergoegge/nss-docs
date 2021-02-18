@@ -7,7 +7,7 @@ NSS tools : modutil
 |    modutil — Manage PKCS #11 module information within the security module
 |    database.
 | Synopsis
-|    modutil [options] `arguments <arguments>`__
+|    modutil [options] :ref:`Mozilla_Projects_NSS_arguments`
 | Description
 |    The Security Module Database Tool, modutil, is a command-line utility for
 |    managing PKCS #11 module information both within secmod.db files and

@@ -19,7 +19,7 @@ then generating and managing certificates in the certificate database(see ``cert
 continues with certificates expiration or revocation.
 
 This document discusses certificate revocation list management. For information on security module
-database management, see `Using the Security Module Database Tool <NSS_Tools_modutil>`__. For
+database management, see :ref:`Mozilla_Projects_NSS_Tools_modutil`. For
 information on certificate and key database management, see `Using the Certificate Database
 Tool <NSS_Tools_certutil>`__.
 

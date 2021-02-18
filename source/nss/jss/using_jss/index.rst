@@ -139,4 +139,4 @@ Initialize JSS in your application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Before calling any JSS methods, you must initialize JSS by calling one of the
-``CryptoManager.initialize`` methods. See the `javadoc <javadoc>`__ for more details.
+``CryptoManager.initialize`` methods. See the :ref:`Mozilla_Projects_NSS_javadoc` for more details.

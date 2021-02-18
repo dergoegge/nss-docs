@@ -8,7 +8,7 @@ NSS tools : crlutil
 |    database file(s) and list, create, modify or delete certificates entries
 |    in a particular CRL.
 | Synopsis
-|    crlutil [options] `arguments <arguments>`__
+|    crlutil [options] :ref:`Mozilla_Projects_NSS_arguments`
 | Description
 |    The Certificate Revocation List (CRL) Management Tool, crlutil, is a
 |    command-line utility that can list, generate, modify, or delete CRLs
