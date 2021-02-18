@@ -17,8 +17,6 @@ gtstd
 Getting Started With SSL
 ========================
 
---------------
-
 .. _Chapter_2_Getting_Started_With_SSL:
 
 Chapter 2

@@ -17,8 +17,6 @@ sslcrt
 Certificate Functions
 =====================
 
---------------
-
 .. _Chapter_5_Certificate_Functions:
 
 Chapter 5

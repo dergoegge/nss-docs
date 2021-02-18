@@ -17,8 +17,6 @@ sslkey
 Key Functions
 =============
 
---------------
-
 .. _Chapter_6_Key_Functions:
 
 Chapter 6

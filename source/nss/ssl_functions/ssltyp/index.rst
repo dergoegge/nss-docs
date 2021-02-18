@@ -17,8 +17,6 @@ ssltyp
 Selected SSL Types and Structures
 =================================
 
---------------
-
 .. _Chapter_3_Selected_SSL_Types_and_Structures:
 
 Chapter 3
