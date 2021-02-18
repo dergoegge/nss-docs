@@ -62,7 +62,7 @@ Gather components
    | nssckbi           |                                     | PKCS #11 module containing built-in  |
    |                   |                                     | root CA certificates. Optional.      |
    +-------------------+-------------------------------------+--------------------------------------+
-   | freebl_\*         |                                     | Processor-specific optimized         |
+   | freebl_*          |                                     | Processor-specific optimized         |
    |                   |                                     | big-number arithmetic library. Not   |
    |                   |                                     | present on all platforms. `More      |
    |                   |                                     | i                                    |
