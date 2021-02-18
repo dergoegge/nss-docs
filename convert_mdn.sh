@@ -101,6 +101,8 @@ for html_file in $(find $MDN_DIR -type f -name '*.html'); do
 done
 
 wait
+cp -r $DST_DIR/nss/*_release_notes $DST_DIR/nss/nss_releases
+rm -r $DST_DIR/nss/*_release_notes
 
 #convert_file "$MDN_DIR/http_delegation_clone/index.html"
 #convert_file "$MDN_DIR/reference/nss_cryptographic_module/fips_mode_of_operation/index.html"
