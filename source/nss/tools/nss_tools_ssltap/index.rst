@@ -636,5 +636,3 @@ Usage Tips
    certificate. If you are using the default BadCert callback, you can still connect through a
    dialog. If you are not using the default BadCert callback, the one you supply must allow for this
    possibility.
-
---------------

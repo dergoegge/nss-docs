@@ -23,7 +23,6 @@ NSS Technical Note: 5
    attempt to be an exhaustive survey of all possible ways to do a certain task; it merely tries to
    show a certain way.
 
---------------
 
 .. _EncryptDecrypt:
 
@@ -92,7 +91,6 @@ Encrypt/Decrypt
   keysize can vary and these keysizes are permitted: 16, 24, 32 bytes.
 | You can also look at a `sample program <../sample-code/sample2.html>`__ illustrating encryption
 
---------------
 
 .. _Hash_Digest:
 
@@ -118,7 +116,6 @@ Hash / Digest
 | 
 | You can also look at a `sample program <../sample-code/sample3.html>`__ illustrating this
 
---------------
 
 .. _Hash_Digest_with_secret_key_included:
 
@@ -173,7 +170,6 @@ Hash / Digest with secret key included
 
 You can also look at a `sample program <../sample-code/sample3.html>`__ illustrating this
 
---------------
 
 .. _HMAC:
 
@@ -232,7 +228,6 @@ HMAC
 | 
 | You can also look at a `sample program <../sample-code/sample3.html>`__ illustrating this
 
---------------
 
 .. _Symmetric_Key_WrappingUnwrapping_of_a_Symmetric_Key:
 
@@ -334,7 +329,6 @@ Symmetric Key Wrapping/Unwrapping of a Symmetric Key
    SECITEM_FreeItem(&WrappedKey, PR_TRUE);
    PK11_FreeSlot(slot); *
 
---------------
 
 .. _Symmetric_Key_WrappingUnwrapping_of_a_Private_Key:
 
@@ -439,7 +433,6 @@ Symmetric Key Wrapping/Unwrapping of a Private Key
    *if (ToBeWrappedPvtKey) SECKEY_DestroyPrivateKey(ToBeWrappedPvtKey);*
    *PK11_FreeSlot(slot);*
 
---------------
 
 .. _Public_Key_Wrapping_Private_Key_Unwrapping_of_a_Symmetric_Key_(PKI_based_key_transport):
 
@@ -517,7 +510,6 @@ Public Key Wrapping & Private Key Unwrapping of a Symmetric Key (PKI based key t
 
 Also look at a `sample program <../sample-code/sample1.html>`__ that uses the above functions.
 
---------------
 
 .. _Generate_a_Symmetric_Key_2:
 
@@ -565,7 +557,6 @@ Generating a persistent symmetric key
 | */\* find the symmetric key in the database \*/
   key = PK11_FindFixedKey(slot, cipherMech, &keyid, 0);*
 
---------------
 
 .. _Moving_a_Key_from_one_slot_to_another_2:
 
@@ -578,7 +569,6 @@ Moving a Key from one slot to another
 -  To move a Symmetric key
    *PK11SymKey \*destSymKey = pk11_CopyToSlot(destslot, wrapMech, CKA_UNWRAP?, origSymKey);*
 
---------------
 
 .. _Generate_an_RSA_Key_Pair:
 
@@ -588,7 +578,6 @@ Generate an RSA Key Pair
 *PK11_GenerateKeyPair*\ <big> is the function to use</big>. See a `sample
 program <../sample-code/sample1.html>`__ that uses this function.
 
---------------
 
 .. _<big>Sign_Verify_Data<big>:
 
@@ -602,7 +591,6 @@ program <../sample-code/sample1.html>`__ that uses this function.
 | *SECKeyPublicKey \*pubkey;*
 | *SECStatus s = PK11_Verify(pubkey, &signature, &data, NULL);*
 
---------------
 
 .. _Misc_Useful_Functions:
 
@@ -620,5 +608,3 @@ Misc Useful Functions
 #. Get the mechanism given a symmetric key
    *CK_MECHANISM_TYPE mech = PK11_GetMechanism(PK11SymKey \*key);*
     
-
---------------

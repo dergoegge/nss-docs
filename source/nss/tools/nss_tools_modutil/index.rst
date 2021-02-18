@@ -905,5 +905,3 @@ After you press Enter, the tool displays the following:
    Re-enter new password: 
    Token "Communicator Certificate DB" password changed successfully. 
    C:\modutil> 
-
---------------

@@ -409,5 +409,3 @@ or
 The CRL Management Tool extracts existing CRL from a database, will modify and sign with certificate
 *cert-nickname* and will store it in database. To modify while importing CRL from file user should
 supply ``-i``\ *import-crl-file* option.
-
---------------

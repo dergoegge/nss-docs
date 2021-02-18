@@ -17,7 +17,6 @@ sslerr
 NSS and SSL Error Codes
 =======================
 
---------------
 
 .. _Chapter_8_NSS_and_SSL_Error_Codes:
 

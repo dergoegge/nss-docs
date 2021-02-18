@@ -93,7 +93,6 @@ Distribution Information
    therefore the jss4.jar must be signed.
    https://archive.mozilla.org/pub/security/jss/releases/JSS_4_3_RTM/
 
---------------
 
 .. _Documentation:
 
@@ -123,7 +122,6 @@ Platform Information
 -  JSS 4.3 requires `NSPR 4.7.1 <https://www.mozilla.org/projects/nspr/release-notes/>`__ or higher.
 -  JSS only supports the native threading model (no green threads).
 
---------------
 
 .. _Known_Bugs_and_Issues:
 
@@ -134,7 +132,6 @@ Known Bugs and Issues
    here. <http://bugzilla.mozilla.org/buglist.cgi?bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&&product=JSS>`__
    Note that some bugs may have been fixed since JSS 4.3 was released. 
 
---------------
 
 .. _Compatibility:
 
@@ -149,7 +146,6 @@ Compatibility
    "System.out.println(org.mozilla.jss.CryptoManager.JAR_JSS_VERSION)" and to check the shared
    library: strings libjss4.so \| grep -i header  
 
---------------
 
 .. _Feedback:
 

@@ -28,7 +28,6 @@ Contents
 -  `Compatibility <#compatibility>`__
 -  `Feedback <#feedback>`__
 
---------------
 
 .. _Introduction:
 
@@ -40,7 +39,6 @@ are described in the "`Bugs Fixed <#bugs_fixed>`__" section below.
 
 NSS 3.12.3 is tri-licensed under the MPL 1.1/GPL 2.0/LGPL 2.1.
 
---------------
 
 .. _Distribution_Information:
 
@@ -71,7 +69,6 @@ You also need to download the NSPR 4.7.4 binary distributions to get the NSPR 4.
 shared libraries, which NSS 3.12.3 requires. NSPR 4.7.4 binary distributions are in
 https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.7.4/.
 
---------------
 
 .. _New_in_NSS_3.12.3:
 
@@ -216,7 +213,6 @@ New in NSS 3.12.3
 
    -  The file watcomfx.h is removed.
 
---------------
 
 .. _Bugs_Fixed:
 
@@ -385,7 +381,6 @@ The following bugs have been fixed in NSS 3.12.3.
 -  `Bug 486060 <https://bugzilla.mozilla.org/show_bug.cgi?id=486060>`__: sec_asn1d_parse_leaf uses
    argument uninitialized by caller pbe_PK11AlgidToParam
 
---------------
 
 .. _Documentation:
 
@@ -399,7 +394,6 @@ release of NSS 3.11 include the following:
 -  `Build Instructions for NSS 3.11.4 and above <../nss-3.11.4/nss-3.11.4-build.html>`__
 -  `NSS Shared DB <http://wiki.mozilla.org/NSS_Shared_DB>`__
 
---------------
 
 .. _Compatibility:
 
@@ -412,7 +406,6 @@ without recompiling or relinking.  Furthermore, applications that restrict thei
 the functions listed in `NSS Public Functions <../ref/nssfunctions.html>`__ will remain compatible
 with future versions of the NSS shared libraries.
 
---------------
 
 .. _Feedback:
 

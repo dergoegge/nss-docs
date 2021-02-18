@@ -17,7 +17,6 @@ sslfnc
 SSL Functions
 =============
 
---------------
 
 .. _Chapter_4_SSL_Functions:
 

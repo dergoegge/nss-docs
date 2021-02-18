@@ -56,6 +56,10 @@ replace_space_titles() {
 	printf "%s" "$1" | sed -E '/^ [a-zA-Z]*$/{N;s/ ([a-zA-Z]*)(\n\---*)/\1\2/;}'
 }
 
+remove_lonely_title_lines() {
+	printf "%s" "$1" | sed -E '/^$/{N;s/^\n----*//;}'
+}
+
 fix_bullet_lists() {
 	printf "%s" "$1" | sed -E 's/-   \`\`\`/-  \`\`\`/g'
 }
@@ -104,6 +108,7 @@ convert_file() {
     rst_content="$(replace_broken_NSSv2_links "$rst_content")"
     rst_content="$(replace_space_titles "$rst_content")"
     rst_content="$(fix_bullet_lists "$rst_content")"
+    rst_content="$(remove_lonely_title_lines "$rst_content")"
     #replace_internal_links "$rst_content"
     local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
     local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug)"

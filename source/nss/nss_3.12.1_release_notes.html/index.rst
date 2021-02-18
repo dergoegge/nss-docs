@@ -28,7 +28,6 @@ Contents
 -  `Compatibility <#compatibility>`__
 -  `Feedback <#feedback>`__
 
---------------
 
 .. _Introduction:
 
@@ -40,7 +39,6 @@ are described in the "`Bugs Fixed <#bugsfixed>`__" section below.
 
 NSS 3.12.1 is tri-licensed under the MPL 1.1/GPL 2.0/LGPL 2.1.
 
---------------
 
 .. _Distribution_Information:
 
@@ -71,7 +69,6 @@ download:
   and shared libraries, which NSS 3.12.1 requires. NSPR 4.7.1 binary distributions are in
   https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.7.1/.
 
---------------
 
 .. _New_in_NSS_3.12.1:
 
@@ -100,7 +97,6 @@ New in NSS 3.12.1
    CERT_N2A_INVERTIBLE
       (maximum invertibility)
 
---------------
 
 .. _Bugs_Fixed:
 
@@ -208,7 +204,6 @@ Bugs Fixed
 -  `Bug 453227 <https://bugzilla.mozilla.org/show_bug.cgi?id=453227>`__: installation of PEM-encoded
    certificate without trailing newline fails
 
---------------
 
 .. _Documentation:
 
@@ -222,7 +217,6 @@ release of NSS 3.11 include the following:
 -  `Build Instructions for NSS 3.11.4 and above <../nss-3.11.4/nss-3.11.4-build.html>`__
 -  `NSS Shared DB <http://wiki.mozilla.org/NSS_Shared_DB>`__
 
---------------
 
 .. _Compatibility:
 
@@ -235,7 +229,6 @@ without recompiling or relinking.  Furthermore, applications that restrict thei
 the functions listed in `NSS Public Functions <../ref/nssfunctions.html>`__ will remain compatible
 with future versions of the NSS shared libraries.
 
---------------
 
 .. _Feedback:
 

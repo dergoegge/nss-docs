@@ -17,7 +17,6 @@ sslintro
 Overview of an SSL Application
 ==============================
 
---------------
 
 .. _Chapter_1_Overview_of_an_SSL_Application:
 

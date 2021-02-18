@@ -33,7 +33,6 @@ Contents
 -  `Supported Classes <#supported-classes>`__
 -  `What's Not Supported <#not-supported>`__
 
---------------
 
 .. _Signed_JAR_file:
 

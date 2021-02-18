@@ -28,7 +28,6 @@ Contents
 -  `Compatibility <#compatibility>`__
 -  `Feedback <#feedback>`__
 
---------------
 
 .. _Introduction:
 
@@ -47,7 +46,6 @@ NSS 3.12 is tri-licensed under the MPL 1.1/GPL 2.0/LGPL 2.1.
 Note: Firefox 3 uses NSS 3.12, but not the new SQLite-based shareable certificate and key databases.
 We missed the deadline to enable that feature in Firefox 3.
 
---------------
 
 .. _Distribution_Information:
 
@@ -84,7 +82,6 @@ NSS 3.12 libraries have the following versions:
 -  softokn3 and freebl3: 3.12.0.3
 -  other NSS libraries: 3.12.0.3
 
---------------
 
 .. _New_in_NSS_3.12:
 
@@ -336,7 +333,6 @@ New in NSS 3.12
    -  TLS_ECDH_anon_WITH_AES_128_CBC_SHA
    -  TLS_ECDH_anon_WITH_AES_256_CBC_SHA
 
---------------
 
 .. _Bugs_Fixed:
 
@@ -864,7 +860,6 @@ Bugs Fixed
 -  `Bug 417392 <https://bugzilla.mozilla.org/show_bug.cgi?id=417392>`__: certutil -L -n reports
    bogus trust flags
 
---------------
 
 .. _Documentation:
 
@@ -880,7 +875,6 @@ release of NSS 3.11 include the following:
 -  `NSS Shared DB <http://wiki.mozilla.org/NSS_Shared_DB>`__
 -  `NSS environment variables </en-US/docs/NSS_reference/NSS_environment_variables>`__
 
---------------
 
 .. _Compatibility:
 
@@ -893,7 +887,6 @@ recompiling or relinking. Furthermore, applications that restrict their use of N
 functions listed in `NSS Public Functions <../ref/nssfunctions.html>`__ will remain compatible with
 future versions of the NSS shared libraries.
 
---------------
 
 .. _Feedback:
 
