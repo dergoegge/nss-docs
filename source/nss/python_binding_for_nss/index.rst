@@ -142,7 +142,7 @@ Documentation
 .. _python-nss_API_documentation:
 
 python-nss API documentation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The python-nss API documentation for the current release can be viewed at `python-nss API
 documentation <https://mozilla.github.io/python-nss-docs/>`__.
@@ -154,7 +154,7 @@ documentation in the python-nss packaging. Consult your distribution for more in
 .. _Example_Code:
 
 Example Code
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 The doc/examples directory contains numerous examples of python-nss programs and libraries you may
 wish to consult. They illustrate suggested usage and best practice.
@@ -162,7 +162,7 @@ wish to consult. They illustrate suggested usage and best practice.
 .. _Test_Code:
 
 Test Code
-^^^^^^^^^
+~~~~~~~~~
 
 In addition the test directory contains unit tests that also illustrate python-nss usage, however
 unlike the examples the unit tests are geared towards testing rather than expository illustration.
@@ -170,7 +170,7 @@ unlike the examples the unit tests are geared towards testing rather than exposi
 .. _Other_Documentation:
 
 Other Documentation
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 The doc directory contains other files you may wish to review.
 

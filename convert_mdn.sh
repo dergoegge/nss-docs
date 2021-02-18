@@ -18,7 +18,7 @@ replace_bug() {
 }
 
 replace_plain_bug() {
-	printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/[^\`]Bug ([0-9]*)/\`Bug \1 <https:\/\/bugzilla.mozilla.org\/show_bug.cgi\?id\=\1>\`__/g'
+    printf "%s" "$1" | iconv -t UTF-8 | sed -E 's/[^\`]Bug ([0-9]*)/\`Bug \1 <https:\/\/bugzilla.mozilla.org\/show_bug.cgi\?id\=\1>\`__/g'
 }
 
 # replaces rfc macros
