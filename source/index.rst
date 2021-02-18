@@ -7,10 +7,11 @@ Welcome to nss's documentation!
 ===============================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :glob:
 
-
+   nss/*
+   nss/*/*
 
 Indices and tables
 ==================
