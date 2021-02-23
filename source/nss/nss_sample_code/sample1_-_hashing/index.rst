@@ -8,8 +8,8 @@ Hashing - sample 1
 NSS sample code 1: hashing.
 ---------------------------
 
-The NSS same code below computes the hash of a file and saves it to another file, this illustrates
-the use of NSS message APIs.
+The NSS same code below computes the hash of a file and saves it to
+another file, this illustrates the use of NSS message APIs.
 
 .. code:: brush:
 

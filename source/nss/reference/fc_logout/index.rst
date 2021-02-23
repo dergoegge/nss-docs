@@ -51,4 +51,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_CloseSession </en-US/FC_CloseSession>`__, `NSC_Logout </en-US/NSC_Logout>`__
+-  `FC_CloseSession <https://developer.mozilla.org/en-US/FC_CloseSession>`__,
+   `NSC_Logout <https://developer.mozilla.org/en-US/NSC_Logout>`__

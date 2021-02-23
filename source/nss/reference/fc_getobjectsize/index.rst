@@ -33,7 +33,8 @@ Parameters
 ``hObject``
    [in] object handle.
 ``pusSize``
-   [out] pointer to location to receive the object's size.
+   [out] pointer to location to receive the
+   object's size.
 
 .. _Description:
 
@@ -42,8 +43,8 @@ Description
 
 ``FC_GetObjectSize`` gets the size of an object in bytes.
 
-A user must log into the token (to assume the NSS User role) before getting the size of a secret or
-private key object.
+A user must log into the token (to assume the NSS User role) before
+getting the size of a secret or private key object.
 
 .. _Return_value:
 
@@ -60,4 +61,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GetObjectSize </en-US/NSC_GetObjectSize>`__
+-  `NSC_GetObjectSize <https://developer.mozilla.org/en-US/NSC_GetObjectSize>`__

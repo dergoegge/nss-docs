@@ -8,8 +8,9 @@ NSS Sample Code Sample_1_Hashing
 NSS Sample Code 1: Hashing a file.
 ----------------------------------
 
-This is an example program that demonstrates how to compute the hash of a file and save it to
-another file.  This program illustrates the use of NSS message APIs.
+This is an example program that demonstrates how to compute the hash of
+a file and save it to another file.  This program illustrates the use of
+NSS message APIs.
 
 .. _Sample_Code_1:
 

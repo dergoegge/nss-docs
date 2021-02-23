@@ -29,14 +29,14 @@ Parameters
 ~~~~~~~~~~
 
 ``tokenPresent``
-   [in] If true only slots with a token present are included in the list,
-   otherwise all slots are included.
+   [in] If true only slots with a token
+   present are included in the list, otherwise all slots are included.
 ``pSlotList``
-   [out] Either null or a pointer to an existing array of ``CK_SLOT_ID``
-   objects.
+   [out] Either null or a pointer to an
+   existing array of ``CK_SLOT_ID`` objects.
 ``pulCount``
-   [out] Pointer to a ``CK_ULONG`` variable which receives the slot
-   count.;
+   [out] Pointer to a ``CK_ULONG`` variable
+   which receives the slot count.;
 
 .. _Description:
 
@@ -45,7 +45,8 @@ Description
 
 ``FC_GetSlotList`` obtains a list of slots in the system.
 
-A user may call ``FC_GetSlotList`` without logging into the token (to assume the NSS User role).
+A user may call ``FC_GetSlotList`` without logging into the token (to
+assume the NSS User role).
 
 .. _Return_value:
 
@@ -64,4 +65,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GetSlotList </en-US/NSC_GetSlotList>`__
+-  `NSC_GetSlotList <https://developer.mozilla.org/en-US/NSC_GetSlotList>`__

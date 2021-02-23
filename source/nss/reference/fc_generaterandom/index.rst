@@ -31,7 +31,8 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pRandomData``
-   [out] pointer to the location to receive the random data.
+   [out] pointer to the location to receive
+   the random data.
 ``ulRandomLen``
    [in] length of the buffer in bytes.
 
@@ -42,7 +43,8 @@ Description
 
 ``FC_GenerateRandom`` generates random data of the specified length.
 
-A user may call ``FC_GenerateRandom`` without logging into the token (to assume the NSS User role).
+A user may call ``FC_GenerateRandom`` without logging into the token (to
+assume the NSS User role).
 
 .. _Return_value:
 
@@ -59,4 +61,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GenerateRandom </en-US/NSC_GenerateRandom>`__
+-  `NSC_GenerateRandom <https://developer.mozilla.org/en-US/NSC_GenerateRandom>`__

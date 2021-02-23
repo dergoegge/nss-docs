@@ -32,21 +32,22 @@ Parameters
 Description
 -----------
 
-``FC_Initialize`` initializes the `NSS cryptographic
-module </en-US/docs/NSS_reference/NSS_cryptographic_module>`__ for the `FIPS mode of
-operation </en-US/docs/NSS_reference/NSS_cryptographic_module/FIPS_mode_of_operation>`__. In
-addition to creating the internal data structures, it performs the FIPS software integrity test and
-power-up self-tests.
+``FC_Initialize`` initializes the
+:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module` for the
+:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module_FIPS_mode_of_operation`.
+In addition to creating the internal data structures, it performs the
+FIPS software integrity test and power-up self-tests.
 
-The ``pInitArgs`` argument must point to a ``CK_C_INITIALIZE_ARGS`` structure whose members should
-have the following values:
+The ``pInitArgs`` argument must point to a ``CK_C_INITIALIZE_ARGS``
+structure whose members should have the following values:
 
 -  ``CreateMutex`` should be ``NULL``.
 -  ``DestroyMutex`` should be ``NULL``.
 -  ``LockMutex`` should be ``NULL``.
 -  ``UnlockMutex`` should be ``NULL``.
 -  ``flags`` should be ``CKF_OS_LOCKING_OK``.
--  ``LibraryParameters`` should point to a string that contains the library parameters.
+-  ``LibraryParameters`` should point to a string that contains the
+   library parameters.
 -  ``pReserved`` should be ``NULL``.
 
 The library parameters string has this format:
@@ -87,16 +88,19 @@ Return value
    -  ``pInitArgs->LibraryParameters`` is ``NULL``.
    -  only some of the lock functions were provided by the application.
 
--  ``CKR_CANT_LOCK``: the ``CKF_OS_LOCKING_OK`` flag is not set in ``pInitArgs->flags``. The NSS
-   cryptographic module always uses OS locking and doesn't know how to use the lock functions
-   provided by the application.
--  ``CKR_CRYPTOKI_ALREADY_INITIALIZED``: the library is already initialized.
+-  ``CKR_CANT_LOCK``: the ``CKF_OS_LOCKING_OK`` flag is not set in
+   ``pInitArgs->flags``. The NSS cryptographic module always uses OS
+   locking and doesn't know how to use the lock functions provided by
+   the application.
+-  ``CKR_CRYPTOKI_ALREADY_INITIALIZED``: the library is already
+   initialized.
 -  ``CKR_DEVICE_ERROR``
 
-   -  We failed to create the OID tables, random number generator, or internal locks. (Note: we
-      probably should return ``CKR_HOST_MEMORY`` instead.)
-   -  The software integrity test or power-up self-tests failed. The NSS cryptographic module is in
-      a fatal error state.
+   -  We failed to create the OID tables, random number generator, or
+      internal locks. (Note: we probably should return
+      ``CKR_HOST_MEMORY`` instead.)
+   -  The software integrity test or power-up self-tests failed. The NSS
+      cryptographic module is in a fatal error state.
 
 -  ``CKR_HOST_MEMORY``: we ran out of memory.
 
@@ -132,4 +136,4 @@ Examples
 See also
 --------
 
--  `FC_Finalize </en-US/docs/FC_Finalize>`__
+-  `FC_Finalize <https://developer.mozilla.org/en-US/docs/FC_Finalize>`__

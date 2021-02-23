@@ -5,12 +5,15 @@ pkfnc
 =====
 .. note::
 
-   -  This page is part of the `SSL Reference </en-US/docs/NSS/SSL_functions/OLD_SSL_Reference>`__
-      that we are migrating into the format described in the `MDN Style
-      Guide </en-US/docs/Project:MDC_style_guide>`__. If you are inclined to help with this
-      migration, your help would be very much appreciated.
+   -  This page is part of the
+      :ref:`Mozilla_Projects_SSL_functions_OLD_SSL_Reference` that we
+      are migrating into the format described in the `MDN Style
+      Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__.
+      If you are inclined to help with this migration, your help would
+      be very much appreciated.
 
-   -  Upgraded documentation may be found in the `Current NSS Reference </NSS_reference>`__
+   -  Upgraded documentation may be found in the
+      :ref:`Mozilla_Projects_NSS_reference`
 
 .. _PKCS_11_Functions:
 
@@ -24,9 +27,9 @@ Chapter 7
 PKCS #11 Functions
 ------------------
 
-This chapter describes the core PKCS #11 functions that an application needs for communicating with
-cryptographic modules. In particular, these functions are used for obtaining certificates, keys, and
-passwords.
+This chapter describes the core PKCS #11 functions that an application
+needs for communicating with cryptographic modules. In particular, these
+functions are used for obtaining certificates, keys, and passwords.
 
 |  ```PK11_FindCertFromNickname`` <#1035673>`__
 | ```PK11_FindKeyByAnyCert`` <#1026891>`__
@@ -67,19 +70,21 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the nickname in the certificate    |
-|                                                 | database or to the nickname in the token.       |
-|    nickname                                     |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to application data for the password  |
-|                                                 | callback function. This pointer is set with     |
-|    wincx                                        | ``                                              |
-|                                                 | `SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ |
-|                                                 | during SSL configuration. To retrieve its       |
-|                                                 | current value, use                              |
-|                                                 | ```SSL_RevealPinArg`` <sslfnc.html#1123385>`__. |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the nickname in the  |
+|                                   | certificate database or to the    |
+|    nickname                       | nickname in the token.            |
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to application data for |
+|                                   | the password callback function.   |
+|    wincx                          | This pointer is set with          |
+|                                   | ```SSL_SetPKCS11                  |
+|                                   | PinArg`` <sslfnc.html#1088040>`__ |
+|                                   | during SSL configuration. To      |
+|                                   | retrieve its current value, use   |
+|                                   | ```SSL_RevealP                    |
+|                                   | inArg`` <sslfnc.html#1123385>`__. |
++-----------------------------------+-----------------------------------+
 
 .. _Returns:
 
@@ -96,22 +101,25 @@ The function returns one of these values:
 Description
 '''''''''''
 
-A nickname is an alias for a certificate subject. There may be multiple certificates with the same
-subject, and hence the same nickname. This function will return the newest certificate that matches
-the subject, based on the NotBefore / NotAfter fields of the certificate. When you are finished with
-the certificate structure returned by ``PK11_FindCertFromNickname``, you must free it by calling
+A nickname is an alias for a certificate subject. There may be multiple
+certificates with the same subject, and hence the same nickname. This
+function will return the newest certificate that matches the subject,
+based on the NotBefore / NotAfter fields of the certificate. When you
+are finished with the certificate structure returned by
+``PK11_FindCertFromNickname``, you must free it by calling
 ```CERT_DestroyCertificate`` <sslcrt.html#1050532>`__.
 
-The ``PK11_FindCertFromNickname`` function calls the password callback function set with
-```PK11_SetPasswordFunc`` <#1023128>`__ and passes it the pointer specified by the ``wincx``
-parameter.
+The ``PK11_FindCertFromNickname`` function calls the password callback
+function set with ```PK11_SetPasswordFunc`` <#1023128>`__ and passes it
+the pointer specified by the ``wincx`` parameter.
 
 .. _PK11_FindKeyByAnyCert:
 
 PK11_FindKeyByAnyCert
 ^^^^^^^^^^^^^^^^^^^^^
 
-Finds the private key associated with a specified certificate in any available slot.
+Finds the private key associated with a specified certificate in any
+available slot.
 
 .. _Syntax_2:
 
@@ -137,19 +145,21 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a certificate structure in the     |
-|                                                 | certificate database.                           |
-|    cert                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to application data for the password  |
-|                                                 | callback function. This pointer is set with     |
-|    wincx                                        | ``                                              |
-|                                                 | `SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ |
-|                                                 | during SSL configuration. To retrieve its       |
-|                                                 | current value, use                              |
-|                                                 | ```SSL_RevealPinArg`` <sslfnc.html#1123385>`__. |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a certificate        |
+|                                   | structure in the certificate      |
+|    cert                           | database.                         |
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to application data for |
+|                                   | the password callback function.   |
+|    wincx                          | This pointer is set with          |
+|                                   | ```SSL_SetPKCS11                  |
+|                                   | PinArg`` <sslfnc.html#1088040>`__ |
+|                                   | during SSL configuration. To      |
+|                                   | retrieve its current value, use   |
+|                                   | ```SSL_RevealP                    |
+|                                   | inArg`` <sslfnc.html#1123385>`__. |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_2:
 
@@ -166,12 +176,13 @@ The function returns one of these values:
 Description
 '''''''''''
 
-When you are finished with the private key structure returned by ``PK11_FindKeyByAnyCert``, you must
-free it by calling ```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__.
+When you are finished with the private key structure returned by
+``PK11_FindKeyByAnyCert``, you must free it by calling
+```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__.
 
-The ``PK11_FindKeyByAnyCert`` function calls the password callback function set with
-```PK11_SetPasswordFunc`` <#1023128>`__ and passes it the pointer specified by the ``wincx``
-parameter.
+The ``PK11_FindKeyByAnyCert`` function calls the password callback
+function set with ```PK11_SetPasswordFunc`` <#1023128>`__ and passes it
+the pointer specified by the ``wincx`` parameter.
 
 .. _PK11_GetSlotName:
 
@@ -200,11 +211,11 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a slot info structure.             |
-|                                                 |                                                 |
-|    slot                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a slot info          |
+|                                   | structure.                        |
+|    slot                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_3:
 
@@ -221,8 +232,9 @@ The function returns one of these values:
 Description
 '''''''''''
 
-If the slot is freed, the string with the slot name may also be freed. If you want to preserve it,
-copy the string before freeing the slot. Do not try to free the string yourself.
+If the slot is freed, the string with the slot name may also be freed.
+If you want to preserve it, copy the string before freeing the slot. Do
+not try to free the string yourself.
 
 .. _PK11_GetTokenName:
 
@@ -251,11 +263,11 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a slot info structure.             |
-|                                                 |                                                 |
-|    slot                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a slot info          |
+|                                   | structure.                        |
+|    slot                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_4:
 
@@ -272,8 +284,9 @@ The function returns one of these values:
 Description
 '''''''''''
 
-If the slot is freed, the string with the token name may also be freed. If you want to preserve it,
-copy the string before freeing the slot. Do not try to free the string yourself.
+If the slot is freed, the string with the token name may also be freed.
+If you want to preserve it, copy the string before freeing the slot. Do
+not try to free the string yourself.
 
 .. _PK11_IsHW:
 
@@ -303,11 +316,11 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a slot info structure.             |
-|                                                 |                                                 |
-|    slot                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a slot info          |
+|                                   | structure.                        |
+|    slot                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_5:
 
@@ -347,11 +360,11 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a slot info structure.             |
-|                                                 |                                                 |
-|    slot                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a slot info          |
+|                                   | structure.                        |
+|    slot                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_6:
 
@@ -391,11 +404,11 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a slot info structure.             |
-|                                                 |                                                 |
-|    slot                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a slot info          |
+|                                   | structure.                        |
+|    slot                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_7:
 
@@ -412,8 +425,9 @@ The function returns one of these values:
 PK11_SetPasswordFunc
 ^^^^^^^^^^^^^^^^^^^^
 
-Defines a callback function used by the NSS libraries whenever information protected by a password
-needs to be retrieved from the key or certificate databases.
+Defines a callback function used by the NSS libraries whenever
+information protected by a password needs to be retrieved from the key
+or certificate databases.
 
 .. _Syntax_8:
 
@@ -436,24 +450,27 @@ Parameter
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the callback function to set.      |
-|                                                 |                                                 |
-|    func                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the callback         |
+|                                   | function to set.                  |
+|    func                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Description_5:
 
 Description
 '''''''''''
 
-During the course of an SSL operation, it may be necessary for the user to log in to a PKCS #11
-token (either a smart card or soft token) to access protected information, such as a private key.
-Such information is protected with a password that can be retrieved by calling an
-application-supplied callback function. The callback function is identified in a call to
-``PK11_SetPasswordFunc`` that takes place during NSS initialization.
+During the course of an SSL operation, it may be necessary for the user
+to log in to a PKCS #11 token (either a smart card or soft token) to
+access protected information, such as a private key. Such information is
+protected with a password that can be retrieved by calling an
+application-supplied callback function. The callback function is
+identified in a call to ``PK11_SetPasswordFunc`` that takes place during
+NSS initialization.
 
-The callback function set up by ``PK11_SetPasswordFunc`` has the following prototype:
+The callback function set up by ``PK11_SetPasswordFunc`` has the
+following prototype:
 
 ::
 
@@ -464,40 +481,48 @@ The callback function set up by ``PK11_SetPasswordFunc`` has the following proto
 
 This callback function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a slot info structure.             |
-|                                                 |                                                 |
-|    slot                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | Set to ``PR_TRUE`` if this is a retry. This     |
-|                                                 | implies that the callback has previously        |
-|    retry                                        | returned the wrong password.                    |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer supplied by the application that can  |
-|                                                 | be used to pass state information. Can be       |
-|    arg                                          | ``NULL``.                                       |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a slot info          |
+|                                   | structure.                        |
+|    slot                           |                                   |
++-----------------------------------+-----------------------------------+
+| ::                                | Set to ``PR_TRUE`` if this is a   |
+|                                   | retry. This implies that the      |
+|    retry                          | callback has previously returned  |
+|                                   | the wrong password.               |
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer supplied by the         |
+|                                   | application that can be used to   |
+|    arg                            | pass state information. Can be    |
+|                                   | ``NULL``.                         |
++-----------------------------------+-----------------------------------+
 
 This callback function returns one of these values:
 
--  If successful, a pointer to the password. This memory must have been allocated with
-   ```PR_Malloc`` <../../../../../nspr/reference/html/prmem2.html#21428>`__ or
+-  If successful, a pointer to the password. This memory must have been
+   allocated with
+   ```PR_Malloc`` <../../../../../nspr/reference/html/prmem2.html#21428>`__
+   or
    ```PL_strdup`` <../../../../../nspr/reference/html/plstr.html#21753>`__.
 -  If unsuccessful, returns ``NULL``.
 
-Many tokens keep track of the number of attempts to enter a password and do not allow further
-attempts after a certain point. Therefore, if the ``retry`` argument is ``PR_TRUE``, indicating that
-the password was tried and is wrong, the callback function should return ``NULL`` to indicate that
-it is unsuccessful, rather than attempting to return the same password again. Failing to terminate
-when the ``retry`` argument is ``PR_TRUE`` can result in an endless loop.
+Many tokens keep track of the number of attempts to enter a password and
+do not allow further attempts after a certain point. Therefore, if the
+``retry`` argument is ``PR_TRUE``, indicating that the password was
+tried and is wrong, the callback function should return ``NULL`` to
+indicate that it is unsuccessful, rather than attempting to return the
+same password again. Failing to terminate when the ``retry`` argument is
+``PR_TRUE`` can result in an endless loop.
 
-Several functions in the NSS libraries use the password callback function to obtain the password
-before performing operations that involve the protected information. The third parameter to the
-password callback function is application-defined and can be used for any purpose. For example,
-Communicator uses the parameter to pass information about which window is associated with the modal
-dialog box requesting the password from the user. When NSS libraries call the password callback
-function, the value they pass in the third parameter is determined by
-```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__.
+Several functions in the NSS libraries use the password callback
+function to obtain the password before performing operations that
+involve the protected information. The third parameter to the password
+callback function is application-defined and can be used for any
+purpose. For example, Communicator uses the parameter to pass
+information about which window is associated with the modal dialog box
+requesting the password from the user. When NSS libraries call the
+password callback function, the value they pass in the third parameter
+is determined by ```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__.
 
 .. _See_Also:
 
@@ -505,4 +530,4 @@ See Also
 ''''''''
 
 For examples of password callback functions, see the samples in the
-`Samples </NSS/NSS_Sample_Code>`__ directory.
+:ref:`Mozilla_Projects_NSS_Sample_Code` directory.

@@ -51,5 +51,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_FindObjects </en-US/FC_FindObjects>`__,
-   `NSC_FindObjectsFinal </en-US/NSC_FindObjectsFinal>`__
+-  `FC_FindObjects <https://developer.mozilla.org/en-US/FC_FindObjects>`__,
+   `NSC_FindObjectsFinal <https://developer.mozilla.org/en-US/NSC_FindObjectsFinal>`__

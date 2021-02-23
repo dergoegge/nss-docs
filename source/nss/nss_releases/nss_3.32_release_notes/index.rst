@@ -8,16 +8,19 @@ NSS 3.32 release notes
 Introduction
 ------------
 
-The Network Security Services (NSS) team has released NSS 3.32, which is a minor release.
+The Network Security Services (NSS) team has released NSS 3.32, which is
+a minor release.
 
 .. _Distribution_information:
 
 Distribution information
 ------------------------
 
-The hg tag is NSS_3_32_RTM. NSS 3.32 requires Netscape Portable Runtime (NSPR) 4.16, or newer.
+The hg tag is NSS_3_32_RTM. NSS 3.32 requires Netscape Portable Runtime
+(NSPR) 4.16, or newer.
 
-NSS 3.32 source distributions are available on ftp.mozilla.org, for secure HTTPS download:
+NSS 3.32 source distributions are available on ftp.mozilla.org, for
+secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_32_RTM/src/
@@ -28,8 +31,10 @@ Notable Changes in NSS 3.32
 ---------------------------
 
 -  Various minor improvements and correctness fixes.
--  The Code Signing trust bit was **turned off** for all, included root certificates.
--  The Websites (TLS/SSL) trust bit was **turned off** for the following root certificates.
+-  The Code Signing trust bit was **turned off** for all, included root
+   certificates.
+-  The Websites (TLS/SSL) trust bit was **turned off** for the following
+   root certificates.
 
    -  CN = AddTrust Class 1 CA Root
 
@@ -53,7 +58,8 @@ Notable Changes in NSS 3.32
       -  SHA-256 Fingerprint:
          80:95:21:08:05:DB:4B:BC:35:5E:44:28:D8:FD:6E:C2:CD:E3:AB:5F:B9:7A:99:42:98:8E:B8:F4:DC:D0:60:16
 
-   -  CN = China Internet Network Information Center EV Certificates Root
+   -  CN = China Internet Network Information Center EV Certificates
+      Root
 
       -  SHA-256 Fingerprint:
          1C:01:C6:F4:DB:B2:FE:FC:22:55:8B:2B:CA:32:56:3F:49:84:4A:CF:C3:2B:7B:E4:B0:FF:59:9F:9E:8C:7A:F7
@@ -108,8 +114,9 @@ Notable Changes in NSS 3.32
 Bugs fixed in NSS 3.32
 ----------------------
 
-NSS versions 3.28.x, 3.29.x. 3.30.x and 3.31.x contained a bug in function CERT_CompareName, which
-caused the first RDN to be ignored. NSS version 3.32 fixed this bug. (CVE-2018-5149, `Bug
+NSS versions 3.28.x, 3.29.x. 3.30.x and 3.31.x contained a bug in
+function CERT_CompareName, which caused the first RDN to be ignored. NSS
+version 3.32 fixed this bug. (CVE-2018-5149, `Bug
 1361197 <https://bugzilla.mozilla.org/show_bug.cgi?id=1361197>`__)
 
 This Bugzilla query returns all the bugs fixed in NSS 3.32:
@@ -121,11 +128,12 @@ https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Compone
 Compatibility
 -------------
 
-NSS 3.32 shared libraries are backward compatible with all older NSS 3.x shared libraries. A program
-linked with older NSS 3.x shared libraries will work with NSS 3.32 shared libraries, without
-recompiling, or relinking. Furthermore, applications that restrict their use of NSS APIs to the
-functions listed in NSS Public Functions will remain compatible with future versions of the NSS
-shared libraries.
+NSS 3.32 shared libraries are backward compatible with all older NSS 3.x
+shared libraries. A program linked with older NSS 3.x shared libraries
+will work with NSS 3.32 shared libraries, without recompiling, or
+relinking. Furthermore, applications that restrict their use of NSS APIs
+to the functions listed in NSS Public Functions will remain compatible
+with future versions of the NSS shared libraries.
 
 .. _Feedback:
 
@@ -133,5 +141,5 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (select the
-product 'NSS').
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
+(select the product 'NSS').

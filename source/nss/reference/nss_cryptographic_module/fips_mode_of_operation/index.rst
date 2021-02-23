@@ -145,8 +145,8 @@ Key management functions
    and ECDSA. Performs pair-wise consistency test.
 -  :ref:`Mozilla_Projects_NSS_Reference_FC_WrapKey`: RSA Key Wrapping
 -  :ref:`Mozilla_Projects_NSS_Reference_FC_UnwrapKey`: RSA Key Wrapping
--  :ref:`Mozilla_Projects_NSS_Reference_FC_DeriveKey`: Diffie-Hellman, EC
-   Diffie-Hellman
+-  :ref:`Mozilla_Projects_NSS_Reference_FC_DeriveKey`: Diffie-Hellman,
+   EC Diffie-Hellman
 
 .. _Random_number_generation_functions:
 

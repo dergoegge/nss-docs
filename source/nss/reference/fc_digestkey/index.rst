@@ -37,10 +37,13 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_DigestKey`` continues a multi-part digest operation by digesting the value of a secret key. The
-digest for the entire message is returned by a call to `FC_DigestFinal </en-US/FC_DigestFinal>`__.
+``FC_DigestKey`` continues a multi-part digest operation by digesting
+the value of a secret key. The digest for the entire message is returned
+by a call to
+`FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_DigestKey``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_DigestKey``.
 
 .. _Return_value:
 
@@ -57,5 +60,6 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DigestInit </en-US/FC_DigestInit>`__, `FC_DigestFinal </en-US/FC_DigestFinal>`__,
-   `NSC_DigestKey </en-US/NSC_DigestKey>`__
+-  `FC_DigestInit <https://developer.mozilla.org/en-US/FC_DigestInit>`__,
+   `FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__,
+   `NSC_DigestKey <https://developer.mozilla.org/en-US/NSC_DigestKey>`__

@@ -8,7 +8,8 @@ FC_VerifyUpdate
 Name
 ~~~~
 
-FC_VerifyUpdate - process the next block of a multi-part verify operation.
+FC_VerifyUpdate - process the next block of a multi-part verify
+operation.
 
 .. _Syntax:
 
@@ -31,7 +32,8 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pPart``
-   [in] pointer to the next block of the data to be verified.
+   [in] pointer to the next block of the data
+   to be verified.
 ``usPartLen``
    [in] length of data block in bytes.
 
@@ -40,11 +42,14 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_VerifyUpdate`` starts or continues a multi-part signature verification operation where the
-signature is an appendix to the data. One or more blocks may be part of the signature. The result
-for the entire message is returned by a call to `FC_VerifyFinal </en-US/FC_VerifyFinal>`__.
+``FC_VerifyUpdate`` starts or continues a multi-part signature
+verification operation where the signature is an appendix to the data.
+One or more blocks may be part of the signature. The result for the
+entire message is returned by a call to
+`FC_VerifyFinal <https://developer.mozilla.org/en-US/FC_VerifyFinal>`__.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyUpdate``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_VerifyUpdate``.
 
 .. _Return_value:
 
@@ -61,4 +66,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_VerifyFinal </en-US/FC_VerifyFinal>`__, `NSC_VerifyUpdate </en-US/NSC_VerifyUpdate>`__
+-  `FC_VerifyFinal <https://developer.mozilla.org/en-US/FC_VerifyFinal>`__,
+   `NSC_VerifyUpdate <https://developer.mozilla.org/en-US/NSC_VerifyUpdate>`__

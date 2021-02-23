@@ -8,7 +8,8 @@ NSS Sample Code Utilities_1
 NSS Sample Code Common: Utilities
 ---------------------------------
 
-This is a library of utilities used by many of the samples.  This code shows the following:
+This is a library of utilities used by many of the samples.  This code
+shows the following:
 
 -  Extract seed from noise file
 -  Read DER encoding from a file

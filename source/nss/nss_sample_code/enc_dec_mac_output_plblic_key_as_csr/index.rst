@@ -8,7 +8,8 @@ Enc Dec MAC Output Public Key as CSR
 NSS Sample Code 5: Encryption/Decryption and MAC and output Public as a CSR.
 ----------------------------------------------------------------------------
 
-Generates encryption/mac keys and outputs public key as certificate signing request
+Generates encryption/mac keys and outputs public key as certificate
+signing request
 
 .. code:: brush:
 

@@ -32,17 +32,19 @@ Parameters
 ``slotID``
    [in]
 ``pInfo``
-   [out] The address of a ``CK_SLOT_INFO`` structure.
+   [out] The address of a ``CK_SLOT_INFO``
+   structure.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_GetSlotInfo`` stores the information about the slot in the ``CK_SLOT_INFO`` structure that
-``pInfo`` points to.
+``FC_GetSlotInfo`` stores the information about the slot in the
+``CK_SLOT_INFO`` structure that ``pInfo`` points to.
 
-A user may call ``FC_GetSlotInfo`` without logging into the token (to assume the NSS User role).
+A user may call ``FC_GetSlotInfo`` without logging into the token (to
+assume the NSS User role).
 
 .. _Return_value:
 
@@ -64,4 +66,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GetSlotInfo </en-US/NSC_GetSlotInfo>`__
+-  `NSC_GetSlotInfo <https://developer.mozilla.org/en-US/NSC_GetSlotInfo>`__

@@ -8,17 +8,19 @@ NSS 3.25 release notes
 Introduction
 ------------
 
-The Network Security Services (NSS) team has released NSS 3.25, which is a minor release.
+The Network Security Services (NSS) team has released NSS 3.25, which is
+a minor release.
 
 .. _Distribution_information:
 
 Distribution information
 ------------------------
 
-The hg tag is NSS_3_25_RTM. NSS 3.25 requires Netscape Portable Runtime(NSPR) 4.12 or newer.
+The hg tag is NSS_3_25_RTM. NSS 3.25 requires Netscape Portable
+Runtime(NSPR) 4.12 or newer.
 
-NSS 3.25 source distributions are available on ftp.mozilla.org for secure HTTPS download at the
-following location.
+NSS 3.25 source distributions are available on ftp.mozilla.org for
+secure HTTPS download at the following location.
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_25_RTM/src/
@@ -36,9 +38,11 @@ New Functionality
 -  Implemented DHE key agreement for TLS 1.3.
 -  Added support for ChaCha with TLS 1.3.
 -  Added support for TLS 1.2 ciphersuites that use SHA384 as the PRF.
--  Removed the limitation that allowed NSS to only support certificate_verify messages that used the
-   same signature hash algorithm as the PRF when using TLS 1.2 client authentication.
--  Several functions have been added to the public API of the NSS Cryptoki Framework.
+-  Removed the limitation that allowed NSS to only support
+   certificate_verify messages that used the same signature hash
+   algorithm as the PRF when using TLS 1.2 client authentication.
+-  Several functions have been added to the public API of the NSS
+   Cryptoki Framework.
 
 .. _New_Functions:
 
@@ -57,9 +61,10 @@ New Functions
 Notable Changes in NSS 3.25
 ---------------------------
 
--  An SSL socket can no longer be configured to allow both TLS 1.3 and SSL v3.
--  Regression fix: NSS no longer reports a failure if an application attempts to disable the SSL v2
-   protocol.
+-  An SSL socket can no longer be configured to allow both TLS 1.3 and
+   SSL v3.
+-  Regression fix: NSS no longer reports a failure if an application
+   attempts to disable the SSL v2 protocol.
 -  The trusted CA certificate list has been updated to version 2.8.
 -  The following CA certificate was **Removed**
 
@@ -119,11 +124,12 @@ https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Compone
 Compatibility
 -------------
 
-NSS 3.25 shared libraries are backward compatible with all older NSS 3.x shared libraries. A program
-linked with older NSS 3.x shared libraries will work with NSS 3.25 shared libraries without
-recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs to the
-functions listed in NSS Public Functions will remain compatible with future versions of the NSS
-shared libraries.
+NSS 3.25 shared libraries are backward compatible with all older NSS 3.x
+shared libraries. A program linked with older NSS 3.x shared libraries
+will work with NSS 3.25 shared libraries without recompiling or
+relinking. Furthermore, applications that restrict their use of NSS APIs
+to the functions listed in NSS Public Functions will remain compatible
+with future versions of the NSS shared libraries.
 
 .. _Feedback:
 
@@ -131,4 +137,5 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
+(product NSS).

@@ -39,8 +39,8 @@ Description
 
 ``FC_DestroyObject`` destroys an object.
 
-A user must log into the token (to assume the NSS User role) before destroying a secret or private
-key object.
+A user must log into the token (to assume the NSS User role) before
+destroying a secret or private key object.
 
 .. _Return_value:
 
@@ -57,4 +57,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_DestroyObject </en-US/NSC_DestroyObject>`__
+-  `NSC_DestroyObject <https://developer.mozilla.org/en-US/NSC_DestroyObject>`__

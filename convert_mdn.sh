@@ -97,21 +97,21 @@ convert_file() {
     local top_yaml="$(cat $html_file | awk '/</ {exit} {print}' | sed 's/---//g')"
     local html_content="$(cat $html_file | awk '/</,EOF')"
     # Convert the html file to rst.
-    local rst_content=$(printf "%s" "$html_content" | pandoc --columns 100 --from html --to rst)
+    local rst_content=$(printf "%s" "$html_content" | pandoc --from html --to rst --filter link_filter.js)
 
     rst_content="$(replace_bug "$rst_content")"
     rst_content="$(replace_plain_bug "$rst_content")"
     rst_content="$(replace_rfc "$rst_content")"
     rst_content="$(replace_mediawiki "$rst_content")"
-    rst_content="$(replace_internal_links "$rst_content")"
-    rst_content="$(replace_broken_NSS_links "$rst_content")"
-    rst_content="$(replace_broken_NSSv2_links "$rst_content")"
+    #rst_content="$(replace_internal_links "$rst_content")"
+    #rst_content="$(replace_broken_NSS_links "$rst_content")"
+    #rst_content="$(replace_broken_NSSv2_links "$rst_content")"
     rst_content="$(replace_space_titles "$rst_content")"
     rst_content="$(fix_bullet_lists "$rst_content")"
     rst_content="$(remove_lonely_title_lines "$rst_content")"
     #replace_internal_links "$rst_content"
-    local title="$(printf "%s" "$top_yaml" | shyaml get-value title)"
-    local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug)"
+    local title="$(printf "%s" "$top_yaml" | shyaml get-value title 2> /dev/null)"
+    local slug="$(printf "%s" "$top_yaml" | shyaml get-value slug 2> /dev/null)"
 
     local title_label="$(print_rst_title_label "$slug")"
     title="$(print_rst_title "$title")"
@@ -130,7 +130,7 @@ cp -r $DST_DIR/nss/*_release_notes $DST_DIR/nss/nss_releases
 rm -r $DST_DIR/nss/*_release_notes
 
 # apply some nits
-git apply ./nits1.patch
+#git apply ./nits1.patch
 
 #convert_file "$MDN_DIR/http_delegation_clone/index.html"
 #convert_file "$MDN_DIR/reference/nss_cryptographic_module/fips_mode_of_operation/index.html"

@@ -32,20 +32,22 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pTemplate``
-   [out] pointer to location to receive the object handles.
+   [out] pointer to location to receive the
+   object handles.
 ``usMaxObjectCount``
    [in] maximum number of handles to retrieve.
 ``pusObjectCount``
-   [out] pointer to location to receive the number of returned handles.
+   [out] pointer to location to receive the
+   number of returned handles.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_FindObjects`` returns the next set of object handles matching the criteria set up by the
-previous call to ``FC_FindObjectsInit`` and sets the object count variable to their number or to
-zero if there are none.
+``FC_FindObjects`` returns the next set of object handles matching the
+criteria set up by the previous call to ``FC_FindObjectsInit`` and sets
+the object count variable to their number or to zero if there are none.
 
 .. _Return_value:
 
@@ -62,4 +64,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_FindObjectsInit </en-US/FC_FindObjectsInit>`__, `NSC_FindObjects </en-US/NSC_FindObjects>`__
+-  `FC_FindObjectsInit <https://developer.mozilla.org/en-US/FC_FindObjectsInit>`__,
+   `NSC_FindObjects <https://developer.mozilla.org/en-US/NSC_FindObjects>`__

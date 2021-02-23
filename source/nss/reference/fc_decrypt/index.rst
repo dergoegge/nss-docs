@@ -37,20 +37,22 @@ Parameters
 ``usEncryptedDataLen``
    [in] length of the data in bytes.
 ``pData``
-   [out] pointer to location where recovered data is to be stored.
+   [out] pointer to location where recovered
+   data is to be stored.
 ``pusDataLen``
-   [in,out] pointer to location where the length of recovered data is to
-   be stored.
+   [in,out] pointer to location where the
+   length of recovered data is to be stored.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_Decrypt`` decrypts a block of data according to the attributes of the previous call to
-``FC_DecryptInit``.
+``FC_Decrypt`` decrypts a block of data according to the attributes of
+the previous call to ``FC_DecryptInit``.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_Decrypt``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_Decrypt``.
 
 .. _Return_value:
 
@@ -67,4 +69,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DecryptInit </en-US/FC_DecryptInit>`__, `NSC_Decrypt </en-US/NSC_Decrypt>`__
+-  `FC_DecryptInit <https://developer.mozilla.org/en-US/FC_DecryptInit>`__,
+   `NSC_Decrypt <https://developer.mozilla.org/en-US/NSC_Decrypt>`__

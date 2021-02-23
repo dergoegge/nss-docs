@@ -46,17 +46,19 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_Verify`` verifies a signature in a single-part operation, where the signature is an appendix to
-the data.
+``FC_Verify`` verifies a signature in a single-part operation, where the
+signature is an appendix to the data.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_Verify``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_Verify``.
 
 .. _Return_value:
 
 Return value
 ~~~~~~~~~~~~
 
-``CKR_OK`` is returned on success. ``CKR_SIGNATURE_INVALID`` is returned for signature mismatch.
+``CKR_OK`` is returned on success. ``CKR_SIGNATURE_INVALID`` is returned
+for signature mismatch.
 
 .. _Examples:
 
@@ -68,4 +70,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_VerifyInit </en-US/FC_VerifyInit>`__, `NSC_Verify </en-US/NSC_Verify>`__
+-  `FC_VerifyInit <https://developer.mozilla.org/en-US/FC_VerifyInit>`__,
+   `NSC_Verify <https://developer.mozilla.org/en-US/NSC_Verify>`__

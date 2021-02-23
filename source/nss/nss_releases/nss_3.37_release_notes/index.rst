@@ -8,7 +8,8 @@ NSS 3.37 release notes
 Introduction
 ------------
 
-The NSS team has released Network Security Services (NSS) 3.37, which is a minor release.
+The NSS team has released Network Security Services (NSS) 3.37, which is
+a minor release.
 
 .. _Distribution_Information:
 
@@ -17,7 +18,8 @@ Distribution Information
 
 The HG tag is NSS_3_37_RTM. NSS 3.37 requires NSPR 4.19 or newer.
 
-NSS 3.37 source distributions are available on ftp.mozilla.org for secure HTTPS download:
+NSS 3.37 source distributions are available on ftp.mozilla.org for
+secure HTTPS download:
 
 -  Source tarballs:
    https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_37_RTM/src/
@@ -29,34 +31,40 @@ Notable Changes in NSS 3.37
 
 -  The TLS 1.3 implementation was updated to Draft 28.
 
--  An issue where NSS erroneously accepted HRR requests was resolved. This issue was found by `OSS
+-  An issue where NSS erroneously accepted HRR requests was resolved.
+   This issue was found by `OSS
    fuzz <https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7159>`__.
 
 -  Added HACL\* Poly1305 32-bit
 
--  The code to support the NPN protocol, which had already been disabled in a previous release, has
-   been fully removed.
+-  The code to support the NPN protocol, which had already been disabled
+   in a previous release, has been fully removed.
 
--  NSS allows servers now to register ALPN handling callbacks to select a protocol.
+-  NSS allows servers now to register ALPN handling callbacks to select
+   a protocol.
 
--  NSS supports opening SQL databases in read-only mode. NSS now requires the SQLite APIs of version
-   3.5.0 or newer.
+-  NSS supports opening SQL databases in read-only mode. NSS now
+   requires the SQLite APIs of version 3.5.0 or newer.
 
--  Starting with NSS version 3.31, an alternative implementation for RNG seeding on the Linux/UNIX
-   platform was available (bug 1346735), which performed seeding exclusively based on /dev/urandom.
-   This alternative implementation is selected at build time by defining the SEED_ONLY_DEV_URANDOM
-   symbol.
+-  Starting with NSS version 3.31, an alternative implementation for RNG
+   seeding on the Linux/UNIX platform was available (bug 1346735), which
+   performed seeding exclusively based on /dev/urandom. This alternative
+   implementation is selected at build time by defining the
+   SEED_ONLY_DEV_URANDOM symbol.
 
-   (The classic implementation for RNG seeding on the Linux/Unix platform, which may use additional
-   sources for the default seeding, is still available and will be used if SEED_ONLY_DEV_URANDOM is
+   (The classic implementation for RNG seeding on the Linux/Unix
+   platform, which may use additional sources for the default seeding,
+   is still available and will be used if SEED_ONLY_DEV_URANDOM is
    undefined.)
 
-   With NSS 3.37, this alternative implementation for Linux/Unix can be selected in "make" builds by
-   defining the environment variable NSS_SEED_ONLY_DEV_URANDOM.
+   With NSS 3.37, this alternative implementation for Linux/Unix can be
+   selected in "make" builds by defining the environment variable
+   NSS_SEED_ONLY_DEV_URANDOM.
 
-   With NSS 3.37, this alternative implementation for Linux has been enhanced to use the glibc
-   function getentropy(), instead of reading from /dev/urandom directly, if the build and runtime
-   Linux platform supports it.
+   With NSS 3.37, this alternative implementation for Linux has been
+   enhanced to use the glibc function getentropy(), instead of reading
+   from /dev/urandom directly, if the build and runtime Linux platform
+   supports it.
 
 -  The CA certificates list was updated to version 2.24.
 
@@ -91,11 +99,12 @@ https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Compone
 Compatibility
 -------------
 
-NSS 3.37 shared libraries are backward compatible with all older NSS 3.x shared libraries. A program
-linked with older NSS 3.x shared libraries will work with NSS 3.37 shared libraries without
-recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs to the
-functions listed in NSS Public Functions will remain compatible with future versions of the NSS
-shared libraries.
+NSS 3.37 shared libraries are backward compatible with all older NSS 3.x
+shared libraries. A program linked with older NSS 3.x shared libraries
+will work with NSS 3.37 shared libraries without recompiling or
+relinking. Furthermore, applications that restrict their use of NSS APIs
+to the functions listed in NSS Public Functions will remain compatible
+with future versions of the NSS shared libraries.
 
 .. _Feedback:
 
@@ -103,4 +112,5 @@ Feedback
 --------
 
 Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).
+`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
+(product NSS).

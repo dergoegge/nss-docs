@@ -3,14 +3,15 @@
 ========================================
 Release notes for recent versions of NSS
 ========================================
-The current **Stable** release of NSS is 3.61, which was released on **22 January 2021**. (`NSS 3.61
-release notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.61_release_notes>`__)
+The current **Stable** release of NSS is 3.61, which was released on
+**22 January 2021**.
+(:ref:`Mozilla_Projects_NSS_NSS_3_61_release_notes`)
 
-The current **ESR** releases of NSS are 3.44.4 (`NSS 3.44.4 release
-notes </en-US/docs/Mozilla/Projects/NSS/NSS_3.44.4_release_notes>`__), intended for Firefox ESR 68,
-which was released on **19 May 2020**, and  3.53.1 `(NSS 3.53.1 release
-notes) </en-US/docs/Mozilla/Projects/NSS/NSS_3.53.1_release_notes>`__, intended for Firefox ESR 78,
-which was released on **16 June 2020**.
+The current **ESR** releases of NSS are 3.44.4
+(:ref:`Mozilla_Projects_NSS_NSS_3_44_4_release_notes`), intended for
+Firefox ESR 68, which was released on **19 May 2020**, and  3.53.1
+:ref:`Mozilla_Projects_NSS_NSS_3_53_1_release_notes`, intended for
+Firefox ESR 78, which was released on **16 June 2020**.
 
 .. _Past_releases:
 
@@ -127,25 +128,26 @@ Past releases
 -  :ref:`Mozilla_Projects_NSS_NSS_3_16_2_1_release_notes`
 -  :ref:`Mozilla_Projects_NSS_NSS_3_16_2_release_notes`
 -  :ref:`Mozilla_Projects_NSS_NSS_3_16_1_release_notes`
--  `NSS 3.16 release notes </en-US/docs/NSS/NSS_3.16_release_notes>`__
--  `NSS 3.15.5 release notes </en-US/docs/NSS/NSS_3.15.5_release_notes>`__
--  `NSS 3.15.4 release notes </en-US/docs/NSS/NSS_3.15.4_release_notes>`__
--  `NSS 3.15.3.1 release notes </en-US/docs/NSS/NSS_3.15.3.1_release_notes>`__
--  `NSS 3.15.3 release notes </en-US/docs/NSS/NSS_3.15.3_release_notes>`__
--  `NSS 3.15.2 release notes </en-US/docs/NSS/NSS_3.15.2_release_notes>`__
--  `NSS 3.15.1 release notes </en-US/docs/NSS/NSS_3.15.1_release_notes>`__
--  `NSS 3.15 release notes </en-US/docs/NSS/NSS_3.15_release_notes>`__
--  `NSS 3.14.5 release notes </en-US/docs/NSS/NSS_3.14.5_release_notes>`__
--  `NSS 3.14.4 release notes </en-US/docs/NSS/NSS_3.14.4_release_notes>`__
--  `NSS 3.14.3 release notes </en-US/docs/NSS/NSS_3.14.3_release_notes>`__
--  `NSS 3.14.2 release notes </en-US/docs/NSS/NSS_3.14.2_release_notes>`__
--  `NSS 3.14.1 release notes </en-US/docs/NSS/NSS_3.14.1_release_notes>`__
--  `NSS 3.14 release notes </en-US/docs/NSS/NSS_3.14_release_notes>`__
--  `Older release notes </en-US/docs/NSS/release_notes.html>`__
+-  :ref:`Mozilla_Projects_NSS_3_16_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_5_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_3_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_15_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_14_5_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_14_4_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_14_3_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_14_2_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_14_1_release_notes`
+-  :ref:`Mozilla_Projects_NSS_3_14_release_notes`
+-  :ref:`Mozilla_Projects_release_notes_html`
 
 .. _Future_releases:
 
 Future releases
 ---------------
 
-Release planning is done on the Mozilla wiki: {{interwiki("wikimo", "NSS:Release Versions")}}.
+Release planning is done on the Mozilla wiki: {{interwiki("wikimo",
+"NSS:Release Versions")}}.

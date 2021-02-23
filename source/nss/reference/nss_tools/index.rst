@@ -3,21 +3,21 @@
 ======================================
 NSS Tools Man Pages - work in progress
 ======================================
-certutil `certutil </en-US/NSS_reference/NSS_tools_:_certutil>`__
+certutil :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_certutil`
 
-pk12util `pk12util </en-US/NSS_reference/NSS_tools_:_pk12util>`__
+pk12util :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_pk12util`
 
-modutil `modutil </en-US/NSS_reference/NSS_tools_:_modutil>`__
+modutil :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_modutil`
 
-crlutil `crlutil </en-US/NSS_reference/NSS_tools_:_crlutil>`__
+crlutil :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_crlutil`
 
-cmsutil `cmsutil </en-US/NSS_reference/NSS_tools_:_cmsutil>`__
+cmsutil :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_cmsutil`
 
-vfychain `vfychain </en-US/NSS_reference/NSS_tools_:_vfychain>`__
+vfychain :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_vfychain`
 
-vfyserv `vfyserv </en-US/NSS_reference/NSS_tools_:_vfyserv>`__
+vfyserv :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_vfyserv`
 
-ssltap `ssltap </en-US/NSS_reference/NSS_tools_:_ssltab>`__
+ssltap :ref:`Mozilla_Projects_NSS_reference_NSS_tools_:_ssltab`
 
 This is still a work in progress and in early stages. 
 

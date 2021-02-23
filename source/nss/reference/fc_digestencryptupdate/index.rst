@@ -8,7 +8,8 @@ FC_DigestEncryptUpdate
 Name
 ~~~~
 
-FC_DigestEncryptUpdate - continue a multi-part digest and encryption operation
+FC_DigestEncryptUpdate - continue a multi-part digest and encryption
+operation
 
 .. _Syntax:
 
@@ -37,23 +38,25 @@ Parameters
 ``ulPartLen``
    [in] length of data in bytes.
 ``pEncryptedPart``
-   [in] pointer to the location which receives the digested and encrypted
-   part or NULL.
+   [in] pointer to the location which receives
+   the digested and encrypted part or NULL.
 ``pulEncryptedPartLen``
-   [in] pointer to the length of the encrypted part buffer.
+   [in] pointer to the length of the encrypted
+   part buffer.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_DigestEncryptUpdate`` continues a multi-part digest and encryption operation. After calling
-both ``FC_DigestInit`` and ``FC_EncryptInit`` to set up the operations this function may be called
-multiple times. The operation is finished by calls to ``FC_DigestFinal`` and ``FC_EncryptFinal`` in
-that order.
+``FC_DigestEncryptUpdate`` continues a multi-part digest and encryption
+operation. After calling both ``FC_DigestInit`` and ``FC_EncryptInit``
+to set up the operations this function may be called multiple times. The
+operation is finished by calls to ``FC_DigestFinal`` and
+``FC_EncryptFinal`` in that order.
 
-A user must log into the token (to assume the NSS User role) before calling
-``FC_DigestEncryptUpdate``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_DigestEncryptUpdate``.
 
 .. _Return_value:
 
@@ -70,4 +73,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_DigestEncryptUpdate </en-US/NSC_DigestEncryptUpdate>`__
+-  `NSC_DigestEncryptUpdate <https://developer.mozilla.org/en-US/NSC_DigestEncryptUpdate>`__

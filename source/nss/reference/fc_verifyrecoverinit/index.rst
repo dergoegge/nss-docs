@@ -8,7 +8,8 @@ FC_VerifyRecoverInit
 Name
 ~~~~
 
-FC_VerifyRecoverInit - initialize a verification operation where data is recoverable.
+FC_VerifyRecoverInit - initialize a verification operation where data is
+recoverable.
 
 .. _Syntax:
 
@@ -40,11 +41,11 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_VerifyRecoverInit`` initializes a signature verification operation where the (digest) data can
-be recovered from the signature.
+``FC_VerifyRecoverInit`` initializes a signature verification operation
+where the (digest) data can be recovered from the signature.
 
-A user must log into the token (to assume the NSS User role) before calling
-``FC_VerifyRecoverInit``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_VerifyRecoverInit``.
 
 .. _Return_value:
 
@@ -61,4 +62,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_VerifyRecoverInit </en-US/NSC_VerifyRecoverInit>`__
+-  `NSC_VerifyRecoverInit <https://developer.mozilla.org/en-US/NSC_VerifyRecoverInit>`__

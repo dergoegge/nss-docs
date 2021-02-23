@@ -8,15 +8,16 @@ NSS Sample Code Sample1
 NSS Sample Code 1: Key Generation and Transport Between Servers.
 ----------------------------------------------------------------
 
-This is an example program that demonstrates how to do key generation and transport between
-cooperating servers.  This program shows the following:
+This is an example program that demonstrates how to do key generation
+and transport between cooperating servers.  This program shows the
+following:
 
 -  RSA key pair generation
 -  Naming RSA key pairs
 -  Looking up a previously generated key pair by name
 -  Creating AES and MAC keys (or encryption and MAC keys in general)
--  Wrapping symmetric keys using your own RSA key pair so that they can be stored on disk or in a
-   database.
+-  Wrapping symmetric keys using your own RSA key pair so that they can
+   be stored on disk or in a database.
 
    -  As an alternative to TOKEN symmetric keys
 
@@ -25,9 +26,10 @@ cooperating servers.  This program shows the following:
 -  Wrapping symmetric keys using an RSA key from another server
 -  Unwrapping keys using your own RSA key pair
 
-| The main part of the program shows a typical sequence of events for two servers that are trying to
-  extablish a shared key pair.
-| We will add message protection (encryption and MACing) examples to this program in the future.
+| The main part of the program shows a typical sequence of events for
+  two servers that are trying to extablish a shared key pair.
+| We will add message protection (encryption and MACing) examples to
+  this program in the future.
 
 .. _Sample_Code:
 

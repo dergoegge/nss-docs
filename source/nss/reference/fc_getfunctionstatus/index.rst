@@ -34,7 +34,8 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_GetFunctionStatus`` is a legacy function that simply returns ``CKR_FUNCTION_NOT_PARALLEL``.
+``FC_GetFunctionStatus`` is a legacy function that simply returns
+``CKR_FUNCTION_NOT_PARALLEL``.
 
 .. _Return_value:
 
@@ -53,4 +54,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GetFunctionStatus </en-US/NSC_GetFunctionStatus>`__
+-  `NSC_GetFunctionStatus <https://developer.mozilla.org/en-US/NSC_GetFunctionStatus>`__

@@ -8,41 +8,62 @@ NSS tools : ssltap
 | Synopsis
 |    libssltap [-vhfsxl] [-p port] [hostname:port]
 | Description
-|    The SSL Debugging Tool ssltap is an SSL-aware command-line proxy. It
-|    watches TCP connections and displays the data going by. If a connection is
-|    SSL, the data display includes interpreted SSL records and handshaking
+|    The SSL Debugging Tool ssltap is an SSL-aware command-line proxy.
+  It
+|    watches TCP connections and displays the data going by. If a
+  connection is
+|    SSL, the data display includes interpreted SSL records and
+  handshaking
 | Options
 |    -v
 |            Print a version string for the tool.
 |    -h
-|            Turn on hex/ASCII printing. Instead of outputting raw data, the
-|            command interprets each record as a numbered line of hex values,
-|            followed by the same data as ASCII characters. The two parts are
-|            separated by a vertical bar. Nonprinting characters are replaced
+|            Turn on hex/ASCII printing. Instead of outputting raw data,
+  the
+|            command interprets each record as a numbered line of hex
+  values,
+|            followed by the same data as ASCII characters. The two
+  parts are
+|            separated by a vertical bar. Nonprinting characters are
+  replaced
 |            by dots.
 |    -f
-|            Turn on fancy printing. Output is printed in colored HTML. Data
-|            sent from the client to the server is in blue; the server's reply
-|            is in red. When used with looping mode, the different connections
-|            are separated with horizontal lines. You can use this option to
+|            Turn on fancy printing. Output is printed in colored HTML.
+  Data
+|            sent from the client to the server is in blue; the server's
+  reply
+|            is in red. When used with looping mode, the different
+  connections
+|            are separated with horizontal lines. You can use this
+  option to
 |            upload the output into a browser.
 |    -s
-|            Turn on SSL parsing and decoding. The tool does not automatically
-|            detect SSL sessions. If you are intercepting an SSL connection,
+|            Turn on SSL parsing and decoding. The tool does not
+  automatically
+|            detect SSL sessions. If you are intercepting an SSL
+  connection,
 |            use this option so that the tool can detect and decode SSL
 |            structures.
-|            If the tool detects a certificate chain, it saves the DER-encoded
-|            certificates into files in the current directory. The files are
-|            named cert.0x, where x is the sequence number of the certificate.
-|            If the -s option is used with -h, two separate parts are printed
-|            for each record: the plain hex/ASCII output, and the parsed SSL
+|            If the tool detects a certificate chain, it saves the
+  DER-encoded
+|            certificates into files in the current directory. The files
+  are
+|            named cert.0x, where x is the sequence number of the
+  certificate.
+|            If the -s option is used with -h, two separate parts are
+  printed
+|            for each record: the plain hex/ASCII output, and the parsed
+  SSL
 |            output.
 |    -x
-|            Turn on hex/ASCII printing of undecoded data inside parsed SSL
-|            records. Used only with the -s option. This option uses the same
+|            Turn on hex/ASCII printing of undecoded data inside parsed
+  SSL
+|            records. Used only with the -s option. This option uses the
+  same
 |            output format as the -h option.
 |    -l prefix
-|            Turn on looping; that is, continue to accept connections rather
+|            Turn on looping; that is, continue to accept connections
+  rather
 |            than stopping after the first connection is complete.
 |    -p port
 |            Change the default rendezvous port (1924) to another port.
@@ -57,30 +78,51 @@ NSS tools : ssltap
 |            \* NNTPS 563 (NNTP over SSL)
 | Usage and Examples
 |    You can use the SSL Debugging Tool to intercept any connection
-|    information. Although you can run the tool at its most basic by issuing
+|    information. Although you can run the tool at its most basic by
+  issuing
 |    the ssltap command with no options other than hostname:port, the
-|    information you get in this way is not very useful. For example, assume
-|    your development machine is called intercept. The simplest way to use the
-|    debugging tool is to execute the following command from a command shell:
+|    information you get in this way is not very useful. For example,
+  assume
+|    your development machine is called intercept. The simplest way to
+  use the
+|    debugging tool is to execute the following command from a command
+  shell:
 |  $ ssltap www.netscape.com
-|    The program waits for an incoming connection on the default port 1924. In
-|    your browser window, enter the URL http://intercept:1924. The browser
-|    retrieves the requested page from the server at www.netscape.com, but the
-|    page is intercepted and passed on to the browser by the debugging tool on
-|    intercept. On its way to the browser, the data is printed to the command
-|    shell from which you issued the command. Data sent from the client to the
-|    server is surrounded by the following symbols: --> [ data ] Data sent from
-|    the server to the client is surrounded by the following symbols: "left
-|    arrow"-- [ data ] The raw data stream is sent to standard output and is
-|    not interpreted in any way. This can result in peculiar effects, such as
-|    sounds, flashes, and even crashes of the command shell window. To output a
-|    basic, printable interpretation of the data, use the -h option, or, if you
-|    are looking at an SSL connection, the -s option. You will notice that the
-|    page you retrieved looks incomplete in the browser. This is because, by
-|    default, the tool closes down after the first connection is complete, so
-|    the browser is not able to load images. To make the tool continue to
+|    The program waits for an incoming connection on the default port
+  1924. In
+|    your browser window, enter the URL http://intercept:1924. The
+  browser
+|    retrieves the requested page from the server at www.netscape.com,
+  but the
+|    page is intercepted and passed on to the browser by the debugging
+  tool on
+|    intercept. On its way to the browser, the data is printed to the
+  command
+|    shell from which you issued the command. Data sent from the client
+  to the
+|    server is surrounded by the following symbols: --> [ data ] Data
+  sent from
+|    the server to the client is surrounded by the following symbols:
+  "left
+|    arrow"-- [ data ] The raw data stream is sent to standard output
+  and is
+|    not interpreted in any way. This can result in peculiar effects,
+  such as
+|    sounds, flashes, and even crashes of the command shell window. To
+  output a
+|    basic, printable interpretation of the data, use the -h option, or,
+  if you
+|    are looking at an SSL connection, the -s option. You will notice
+  that the
+|    page you retrieved looks incomplete in the browser. This is
+  because, by
+|    default, the tool closes down after the first connection is
+  complete, so
+|    the browser is not able to load images. To make the tool continue
+  to
 |    accept connections, switch on looping mode with the -l option. The
-|    following examples show the output from commonly used combinations of
+|    following examples show the output from commonly used combinations
+  of
 |    options.
 |    Example 1
 |  $ ssltap.exe -sx -p 444 interzone.mcom.com:443 > sx.txt
@@ -109,7 +151,8 @@ NSS tools : ssltap
 |                    (0x000006) SSL3/RSA/RC2CBC40/MD5
 |                    }
 |              session-id = { }
-|              challenge = { 0xec5d 0x8edb 0x37c9 0xb5c9 0x7b70 0x8fe9 0xd1d3
+|              challenge = { 0xec5d 0x8edb 0x37c9 0xb5c9 0x7b70 0x8fe9
+  0xd1d3
 |  0x2592 }
 |  }
 |  ]
@@ -133,8 +176,10 @@ NSS tools : ssltap
 |                    session ID = {
 |                    length = 32
 |                  contents = {..}
-|     0: 14 11 07 a8  2a 31 91 29  11 94 40 37  57 10 a7 32  \| ...¨*1.)..@7W.§2
-|     10: 56 6f 52 62  fe 3d b3 65  b1 e4 13 0f  52 a3 c8 f6  \| VoRbþ=³e±...R£È.
+|     0: 14 11 07 a8  2a 31 91 29  11 94 40 37  57 10 a7 32  \|
+  ...¨*1.)..@7W.§2
+|     10: 56 6f 52 62  fe 3d b3 65  b1 e4 13 0f  52 a3 c8 f6  \|
+  VoRbþ=³e±...R£È.
 |           }
 |                 cipher_suite = (0x0003) SSL3/RSA/RC4-40/MD5
 |           }
@@ -243,8 +288,10 @@ NSS tools : ssltap
 |  ]
 |  Server socket closed.
 |    Example 2
-|    The -s option turns on SSL parsing. Because the -x option is not used in
-|    this example, undecoded values are output as raw data. The output is
+|    The -s option turns on SSL parsing. Because the -x option is not
+  used in
+|    this example, undecoded values are output as raw data. The output
+  is
 |    routed to a text file.
 |  $ ssltap -s  -p 444 interzone.mcom.com:443 > s.txt
 |    Output
@@ -270,7 +317,8 @@ NSS tools : ssltap
 |                    (0x000003) SSL3/RSA/RC4-40/MD5
 |                    }
 |                 session-id = { }
-|              challenge = { 0x713c 0x9338 0x30e1 0xf8d6 0xb934 0x7351 0x200c
+|              challenge = { 0x713c 0x9338 0x30e1 0xf8d6 0xb934 0x7351
+  0x200c
 |  0x3fd0 }
 |  ]
 |  >-- [
@@ -380,51 +428,78 @@ NSS tools : ssltap
 |  ]
 |  Server socket closed.
 |    Example 3
-|    In this example, the -h option turns hex/ASCII format. There is no SSL
+|    In this example, the -h option turns hex/ASCII format. There is no
+  SSL
 |    parsing or decoding. The output is routed to a text file.
 |  $ ssltap -h  -p 444 interzone.mcom.com:443 > h.txt
 |    Output
 |  Connected to interzone.mcom.com:443
 |  --> [
-|     0: 80 40 01 03  00 00 27 00  00 00 10 01  00 80 02 00  \| .@....'.........
-|     10: 80 03 00 80  04 00 80 06  00 40 07 00  c0 00 00 04  \| .........@......
-|     20: 00 ff e0 00  00 0a 00 ff  e1 00 00 09  00 00 03 00  \| ........á.......
-|     30: 00 06 9b fe  5b 56 96 49  1f 9f ca dd  d5 ba b9 52  \| ..þ[V.I.\xd9 ...º¹R
+|     0: 80 40 01 03  00 00 27 00  00 00 10 01  00 80 02 00  \|
+  .@....'.........
+|     10: 80 03 00 80  04 00 80 06  00 40 07 00  c0 00 00 04  \|
+  .........@......
+|     20: 00 ff e0 00  00 0a 00 ff  e1 00 00 09  00 00 03 00  \|
+  ........á.......
+|     30: 00 06 9b fe  5b 56 96 49  1f 9f ca dd  d5 ba b9 52  \|
+  ..þ[V.I.\xd9 ...º¹R
 |     40: 6f 2d                                            \|o-
 |  ]
 |  <-- [
-|     0: 16 03 00 03  e5 02 00 00  46 03 00 7f  e5 0d 1b 1d  \| ........F.......
-|     10: 68 7f 3a 79  60 d5 17 3c  1d 9c 96 b3  88 d2 69 3b  \| h.:y`..<..³.Òi;
-|     20: 78 e2 4b 8b  a6 52 12 4b  46 e8 c2 20  14 11 89 05  \| x.K.¦R.KFè. ...
-|     30: 4d 52 91 fd  93 e0 51 48  91 90 08 96  c1 b6 76 77  \| MR.ý..QH.....¶vw
-|     40: 2a f4 00 08  a1 06 61 a2  64 1f 2e 9b  00 03 00 0b  \| \*ô..¡.a¢d......
-|     50: 00 02 c5 00  02 c2 00 02  bf 30 82 02  bb 30 82 02  \| ..Å......0...0..
-|     60: 24 a0 03 02  01 02 02 02  01 36 30 0d  06 09 2a 86  \| $ .......60...*.
-|     70: 48 86 f7 0d  01 01 04 05  00 30 77 31  0b 30 09 06  \| H.÷......0w1.0..
-|     80: 03 55 04 06  13 02 55 53  31 2c 30 2a  06 03 55 04  \| .U....US1,0*..U.
-|     90: 0a 13 23 4e  65 74 73 63  61 70 65 20  43 6f 6d 6d  \| ..#Netscape Comm
-|     a0: 75 6e 69 63  61 74 69 6f  6e 73 20 43  6f 72 70 6f  \| unications Corpo
-|     b0: 72 61 74 69  6f 6e 31 11  30 0f 06 03  55 04 0b 13  \| ration1.0...U...
-|     c0: 08 48 61 72  64 63 6f 72  65 31 27 30  25 06 03 55  \| .Hardcore1'0%..U
-|     d0: 04 03 13 1e  48 61 72 64  63 6f 72 65  20 43 65 72  \| ....Hardcore Cer
-|     e0: 74 69 66 69  63 61 74 65  20 53 65 72  76 65 72 20  \| tificate Server
-|     f0: 49 49 30 1e  17 0d 39 38  30 35 31 36  30 31 30 33  \| II0...9805160103
+|     0: 16 03 00 03  e5 02 00 00  46 03 00 7f  e5 0d 1b 1d  \|
+  ........F.......
+|     10: 68 7f 3a 79  60 d5 17 3c  1d 9c 96 b3  88 d2 69 3b  \|
+  h.:y`..<..³.Òi;
+|     20: 78 e2 4b 8b  a6 52 12 4b  46 e8 c2 20  14 11 89 05  \|
+  x.K.¦R.KFè. ...
+|     30: 4d 52 91 fd  93 e0 51 48  91 90 08 96  c1 b6 76 77  \|
+  MR.ý..QH.....¶vw
+|     40: 2a f4 00 08  a1 06 61 a2  64 1f 2e 9b  00 03 00 0b  \|
+  \*ô..¡.a¢d......
+|     50: 00 02 c5 00  02 c2 00 02  bf 30 82 02  bb 30 82 02  \|
+  ..Å......0...0..
+|     60: 24 a0 03 02  01 02 02 02  01 36 30 0d  06 09 2a 86  \| $
+  .......60...*.
+|     70: 48 86 f7 0d  01 01 04 05  00 30 77 31  0b 30 09 06  \|
+  H.÷......0w1.0..
+|     80: 03 55 04 06  13 02 55 53  31 2c 30 2a  06 03 55 04  \|
+  .U....US1,0*..U.
+|     90: 0a 13 23 4e  65 74 73 63  61 70 65 20  43 6f 6d 6d  \|
+  ..#Netscape Comm
+|     a0: 75 6e 69 63  61 74 69 6f  6e 73 20 43  6f 72 70 6f  \|
+  unications Corpo
+|     b0: 72 61 74 69  6f 6e 31 11  30 0f 06 03  55 04 0b 13  \|
+  ration1.0...U...
+|     c0: 08 48 61 72  64 63 6f 72  65 31 27 30  25 06 03 55  \|
+  .Hardcore1'0%..U
+|     d0: 04 03 13 1e  48 61 72 64  63 6f 72 65  20 43 65 72  \|
+  ....Hardcore Cer
+|     e0: 74 69 66 69  63 61 74 65  20 53 65 72  76 65 72 20  \|
+  tificate Server
+|     f0: 49 49 30 1e  17 0d 39 38  30 35 31 36  30 31 30 33  \|
+  II0...9805160103
 |  <additional data lines>
 |  ]
 |  <additional records in same format>
 |  Server socket closed.
 |    Example 4
-|    In this example, the -s option turns on SSL parsing, and the -h option
-|    turns on hex/ASCII format. Both formats are shown for each record. The
+|    In this example, the -s option turns on SSL parsing, and the -h
+  option
+|    turns on hex/ASCII format. Both formats are shown for each record.
+  The
 |    output is routed to a text file.
 |  $ ssltap -hs -p 444 interzone.mcom.com:443 > hs.txt
 |    Output
 |  Connected to interzone.mcom.com:443
 |  --> [
-|     0: 80 3d 01 03  00 00 24 00  00 00 10 01  00 80 02 00  \| .=....$.........
-|     10: 80 03 00 80  04 00 80 06  00 40 07 00  c0 00 00 04  \| .........@......
-|     20: 00 ff e0 00  00 0a 00 ff  e1 00 00 09  00 00 03 03  \| ........á.......
-|     30: 55 e6 e4 99  79 c7 d7 2c  86 78 96 5d  b5 cf e9     \|U..yÇ\xb0 ,.x.]µÏé
+|     0: 80 3d 01 03  00 00 24 00  00 00 10 01  00 80 02 00  \|
+  .=....$.........
+|     10: 80 03 00 80  04 00 80 06  00 40 07 00  c0 00 00 04  \|
+  .........@......
+|     20: 00 ff e0 00  00 0a 00 ff  e1 00 00 09  00 00 03 03  \|
+  ........á.......
+|     30: 55 e6 e4 99  79 c7 d7 2c  86 78 96 5d  b5 cf e9    
+  \|U..yÇ\xb0 ,.x.]µÏé
 |  alloclen = 63 bytes
 |     [ssl2]  ClientHelloV2 {
 |              version = {0x03, 0x00}
@@ -446,31 +521,41 @@ NSS tools : ssltap
 |                    (0x000003) SSL3/RSA/RC4-40/MD5
 |                    }
 |              session-id = { }
-|              challenge = { 0x0355 0xe6e4 0x9979 0xc7d7 0x2c86 0x7896 0x5db
+|              challenge = { 0x0355 0xe6e4 0x9979 0xc7d7 0x2c86 0x7896
+  0x5db
 |  0xcfe9 }
 |  }
 |  ]
 |  <additional records in same formats>
 |  Server socket closed.
 | Usage Tips
-|    When SSL restarts a previous session, it makes use of cached information
-|    to do a partial handshake. If you wish to capture a full SSL handshake,
+|    When SSL restarts a previous session, it makes use of cached
+  information
+|    to do a partial handshake. If you wish to capture a full SSL
+  handshake,
 |    restart the browser to clear the session id cache.
-|    If you run the tool on a machine other than the SSL server to which you
-|    are trying to connect, the browser will complain that the host name you
-|    are trying to connect to is different from the certificate. If you are
+|    If you run the tool on a machine other than the SSL server to which
+  you
+|    are trying to connect, the browser will complain that the host name
+  you
+|    are trying to connect to is different from the certificate. If you
+  are
 |    using the default BadCert callback, you can still connect through a
-|    dialog. If you are not using the default BadCert callback, the one you
+|    dialog. If you are not using the default BadCert callback, the one
+  you
 |    supply must allow for this possibility.
 | See Also
 |    The NSS Security Tools are also documented at
 |   
   [1]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
 | Additional Resources
-|    NSS is maintained in conjunction with PKI and security-related projects
-|    through Mozilla dn Fedora. The most closely-related project is Dogtag PKI,
+|    NSS is maintained in conjunction with PKI and security-related
+  projects
+|    through Mozilla dn Fedora. The most closely-related project is
+  Dogtag PKI,
 |    with a project wiki at [2]\ http://pki.fedoraproject.org/wiki/.
-|    For information specifically about NSS, the NSS project wiki is located at
+|    For information specifically about NSS, the NSS project wiki is
+  located at
 |   
   [3]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
   The NSS site relates
@@ -478,12 +563,14 @@ NSS tools : ssltap
 |    Mailing lists: pki-devel@redhat.com and pki-users@redhat.com
 |    IRC: Freenode at #dogtag-pki
 | Authors
-|    The NSS tools were written and maintained by developers with Netscape and
+|    The NSS tools were written and maintained by developers with
+  Netscape and
 |    now with Red Hat and Sun.
 |    Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey
 |    <dlackey@redhat.com>.
 | Copyright
-|    (c) 2010, Red Hat, Inc. Licensed under the GNU Public License version 2.
+|    (c) 2010, Red Hat, Inc. Licensed under the GNU Public License
+  version 2.
 | References
 |    Visible links
 |    1.

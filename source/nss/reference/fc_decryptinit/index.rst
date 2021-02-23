@@ -31,7 +31,8 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pMechanism``
-   [in] mechanism to be used for the subsequent decryption operation.
+   [in] mechanism to be used for the
+   subsequent decryption operation.
 ``hKey``
    [in] handle of the key to be used.
 
@@ -42,7 +43,8 @@ Description
 
 ``FC_DecryptInit`` initializes a decryption operation.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_DecryptInit``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_DecryptInit``.
 
 .. _Return_value:
 
@@ -59,4 +61,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_DecryptInit </en-US/NSC_DecryptInit>`__
+-  `NSC_DecryptInit <https://developer.mozilla.org/en-US/NSC_DecryptInit>`__

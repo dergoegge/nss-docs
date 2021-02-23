@@ -8,7 +8,8 @@ FC_GetMechanismList
 Name
 ~~~~
 
-FC_GetMechanismList - get a list of mechanism types supported by a token.
+FC_GetMechanismList - get a list of mechanism types supported by a
+token.
 
 .. _Syntax:
 
@@ -33,18 +34,19 @@ Parameters
 ``slotID``
    [Input]
 ``pInfo``
-   [Output] The address of a variable that will receive a pointer to the
-   list of function pointers.
+   [Output] The address of a variable that
+   will receive a pointer to the list of function pointers.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_GetMechanismList`` obtains a list of mechanism types supported by a token.
+``FC_GetMechanismList`` obtains a list of mechanism types supported by a
+token.
 
-A user may call ``FC_GetMechanismList`` without logging into the token (to assume the NSS User
-role).
+A user may call ``FC_GetMechanismList`` without logging into the token
+(to assume the NSS User role).
 
 .. _Return_value:
 
@@ -63,4 +65,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GetMechanismList </en-US/NSC_GetMechanismList>`__
+-  `NSC_GetMechanismList <https://developer.mozilla.org/en-US/NSC_GetMechanismList>`__

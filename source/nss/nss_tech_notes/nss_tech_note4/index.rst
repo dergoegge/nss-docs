@@ -13,10 +13,11 @@ Pulling certificate extension information out of SSL certificates
 NSS Technical Note: 4
 ~~~~~~~~~~~~~~~~~~~~~
 
-| **Note:** This document contains code snippets that focus on essential aspects of the task and
-  often do not illustrate all the cleanup that needs to be done. Also, this document does not
-  attempt to be an exhaustive survey of all possible ways to do a certain task; it merely tries to
-  show a certain way.
+| **Note:** This document contains code snippets that focus on essential
+  aspects of the task and often do not illustrate all the cleanup that
+  needs to be done. Also, this document does not attempt to be an
+  exhaustive survey of all possible ways to do a certain task; it merely
+  tries to show a certain way.
 
 .. _Include_these_files:
 
@@ -34,9 +35,11 @@ Get the handle of the cert associated with an SSL connection
 | 
 | *CERTCertificate\*  cert =  SSL_PeerCertificate(PRFileDesc \*fd);*
 |         If SSL client, this will get you the server's cert handle;
-|         If SSL server, this will get you the client's cert handle IF client auth is enabled
+|         If SSL server, this will get you the client's cert handle IF
+  client auth is enabled
 | *CERTCertificate\* cert = SSL_LocalCertificate(PRFileDesc \*fd);*
-|         If SSL client, this will get you the client cert's handle, IF client auth happened
+|         If SSL client, this will get you the client cert's handle, IF
+  client auth happened
 |         If SSL server, this will get you the server's cert handle
 
 .. _Don't_forget_to_clean_up_the_cert_handle_when_you're_done_with_it:
@@ -54,7 +57,8 @@ Some info is readily available 
 | cert->subjectName (char*)
 | cert->issuerName (char*)
 | cert->emailAddr (char*)
-|      OR char \*CERT_GetCertificateEmailAddress(CERTCertificate \*cert);
+|      OR char \*CERT_GetCertificateEmailAddress(CERTCertificate
+  \*cert);
 | cert->keyUsage (unsigned int)
 
 .. _To_break_the_issuer_and_subject_names_into_components:
@@ -84,12 +88,14 @@ Background on cert extensions
 
 | An extension has the following attributes
 
--  Object Id (OID) : A unique OID represents an algorithm, a mechanism, a piece of information, etc.
-   Examples: X500 RSA Encryption,  Certificate Basic Constraints, PKCS#7 Digested Data, etc.
-   There is a long list of pre-defined OIDs, and new ones can be *added dynamically by an
-   application.*
-   The OID data structure contains an array of identifier bytes (each byte is a "level" in a
-   hierarchical namespace), a text description, and some other things.
+-  Object Id (OID) : A unique OID represents an algorithm, a mechanism,
+   a piece of information, etc. Examples: X500 RSA Encryption, 
+   Certificate Basic Constraints, PKCS#7 Digested Data, etc.
+   There is a long list of pre-defined OIDs, and new ones can be *added
+   dynamically by an application.*
+   The OID data structure contains an array of identifier bytes (each
+   byte is a "level" in a hierarchical namespace), a text description,
+   and some other things.
 -  Critical : indicates whether the extension is critical
 -  Value : The value of the extension
 
@@ -113,8 +119,8 @@ Looping through all extensions
    *        if (oiddata == NULL)*
    *        {*
    */\* OID not found \*/*
-   */\* SECItem ext_oid has type (SECItemType), data (unsigned char \*) and len (unsigned int)
-   fields*
+   */\* SECItem ext_oid has type (SECItemType), data (unsigned char \*)
+   and len (unsigned int) fields*
    *   - the application interprets these \*/*
    *.......*
    *        }*
@@ -132,8 +138,8 @@ Looping through all extensions
    *    /\* the extension is not critical \*/*
    *        }*
    *        /\* value attribute of the extension \*/*
-   *        /\* SECItem ext_value has type (SECItemType), data (unsigned char \*) and len (unsigned
-   int) fields*
+   *        /\* SECItem ext_value has type (SECItemType), data (unsigned
+   char \*) and len (unsigned int) fields*
    *- the application interprets these \*/*
    *        SECOidTag oidtag = SECOID_FindOIDTag(ext_oid);*
    *        switch (oidtag)*
@@ -168,26 +174,35 @@ An example custom cert extension
    *const SEC_ASN1Template myCertExtTemplate[] = {*
    *    { SEC_ASN1_SEQUENCE, 0, NULL, sizeof( myCertExtData ) },*
    *    { SEC_ASN1_INTEGER, offsetof(myCertExtData, version) },*
-   *    { SEC_ASN1_OCTET_STRING, offsetof( myCertExtData, streetaddress ) },*
+   *    { SEC_ASN1_OCTET_STRING, offsetof( myCertExtData, streetaddress
+   ) },*
    *    { SEC_ASN1_OCTET_STRING, offsetof( myCertExtData, phonenum ) },*
-   *    { SEC_ASN1_OCTET_STRING, offsetof( myCertExtData, rfc822name ) },*
+   *    { SEC_ASN1_OCTET_STRING, offsetof( myCertExtData, rfc822name )
+   },*
    *    { SEC_ASN1_OCTET_STRING, offsetof( myCertExtData, id ) },*
    *    { SEC_ASN1_INTEGER, offsetof(myCertExtData, maxusers ) },*
    *    { 0 }*
    *};*
-   */\* OID for my cert extension - replace 0xff with appropriate values*/*
-   *static const unsigned char myoid[] = { 0xff, 0xff, 0xff, 0xff, .... };*
-   *static const SECItem myoidItem = { (SECItemType) 0, (unsigned char \*)myoid, sizeof(myoid) };*
+   */\* OID for my cert extension - replace 0xff with appropriate
+   values*/*
+   *static const unsigned char myoid[] = { 0xff, 0xff, 0xff, 0xff, ....
+   };*
+   *static const SECItem myoidItem = { (SECItemType) 0, (unsigned char
+   \*)myoid, sizeof(myoid) };*
    *SECItem myextvalue;
    myCertExtData data;*
-   *SECStatus rv = CERT_FindCertExtensionByOID(cert, &myoidItem, &myextvalue);
+   *SECStatus rv = CERT_FindCertExtensionByOID(cert, &myoidItem,
+   &myextvalue);
    if (rv == SECSuccess)
    {
-       SEC_ASN1DecoderContext \* context = SEC_ASN1DecoderStart(NULL, &data, myCertExtTemplate);
-       rv = SEC_ASN1DecoderUpdate( context, (const char \*)(myextvalue.data), myextvalue.len);
+       SEC_ASN1DecoderContext \* context = SEC_ASN1DecoderStart(NULL,
+   &data, myCertExtTemplate);
+       rv = SEC_ASN1DecoderUpdate( context, (const char
+   \*)(myextvalue.data), myextvalue.len);
        if (rv == SECSuccess)
        {
-           /\* Now you can extract info from SECItem fields of your extension data structure \*/
+           /\* Now you can extract info from SECItem fields of your
+   extension data structure \*/
            /\* See "Misc helper functions" below \*/
            .......
            /\* free the SECItem fields \*/
@@ -210,7 +225,8 @@ Some miscellaneous helper functions
 -  Interpreting a SECItem value as an integer
    If SECItem \*item->len <=4, then int value = *DER_GetInteger(item)*;
 -  Interpreting a SECItem value as a string
-   Use string copy functions to copy item->len bytes from item->data and null terminate explicitly
+   Use string copy functions to copy item->len bytes from item->data and
+   null terminate explicitly
 
 | 
 
@@ -219,20 +235,29 @@ Some miscellaneous helper functions
 Some higher level extension functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Get a specific extension from the list of extensions, given the extension tag
-   *SECStatus CERT_FindCertExtension  (CERTCertificate \*cert, int tag, SECItem \*value);*
+-  Get a specific extension from the list of extensions, given the
+   extension tag
+   *SECStatus CERT_FindCertExtension  (CERTCertificate \*cert, int tag,
+   SECItem \*value);*
 -  Get a specific extension from the ISSUER's cert\ *
-   SECStatus CERT_FindIssuerCertExtension  (CERTCertificate \*cert, int tag, SECItem \*value);*
+   SECStatus CERT_FindIssuerCertExtension  (CERTCertificate \*cert, int
+   tag, SECItem \*value);*
 -  Get the value of an extension with the given OID
-   *SECStatus CERT_FindCertExtensionByOID (CERTCertificate \*cert, SECItem \*oid, SECItem \*value);*
+   *SECStatus CERT_FindCertExtensionByOID (CERTCertificate \*cert,
+   SECItem \*oid, SECItem \*value);*
 -  Get the decoded value of the "Basic Constraints" extension
-   *SECStatus CERT_FindBasicConstraintExten (CERTCertificate \*cert, CERTBasicConstraints \*value);*
--  Get value of the keyUsage extension.  This uses PR_Alloc to allocate buffer for the decoded
-   value, The  caller should free up the storage allocated in value->data.
-   *SECStatus CERT_FindKeyUsageExtension (CERTCertificate \*cert, SECItem \*value);*
--  Get decoded value of the subjectKeyID extension.  This uses PR_Alloc to allocate buffer for the
-   decoded value, The  caller should free up the storage allocated in value->data.
-   *SECStatus CERT_FindSubjectKeyIDExten (CERTCertificate \*cert, SECItem \*retItem);*
+   *SECStatus CERT_FindBasicConstraintExten (CERTCertificate \*cert,
+   CERTBasicConstraints \*value);*
+-  Get value of the keyUsage extension.  This uses PR_Alloc to allocate
+   buffer for the decoded value, The  caller should free up the storage
+   allocated in value->data.
+   *SECStatus CERT_FindKeyUsageExtension (CERTCertificate \*cert,
+   SECItem \*value);*
+-  Get decoded value of the subjectKeyID extension.  This uses PR_Alloc
+   to allocate buffer for the decoded value, The  caller should free up
+   the storage allocated in value->data.
+   *SECStatus CERT_FindSubjectKeyIDExten (CERTCertificate \*cert,
+   SECItem \*retItem);*
 
 *
 *
@@ -242,8 +267,9 @@ Some higher level extension functions
 For more information
 --------------------
 
--  Browse through the NSS source code online at http://lxr.mozilla.org/mozilla/source/security/nss/
-    and http://lxr.mozilla.org/security/
+-  Browse through the NSS source code online at
+   http://lxr.mozilla.org/mozilla/source/security/nss/  and
+   http://lxr.mozilla.org/security/
 -  documentation on some cert funcs
    `http://www.mozilla.org/projects/security/pki/nss/ref/ssl/sslcrt.html <https://www.mozilla.org/projects/security/pki/nss/ref/ssl/sslcrt.html>`__
 

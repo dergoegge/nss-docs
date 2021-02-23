@@ -8,7 +8,8 @@ FC_DigestUpdate
 Name
 ~~~~
 
-FC_DigestUpdate - process the next block of a multi-part digest operation.
+FC_DigestUpdate - process the next block of a multi-part digest
+operation.
 
 .. _Syntax:
 
@@ -31,7 +32,8 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pPart``
-   [in] pointer to the next block of data to be digested.
+   [in] pointer to the next block of data to
+   be digested.
 ``usPartLen``
    [in] length of data block in bytes.
 
@@ -40,11 +42,13 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_DigestUpdate`` starts or continues a multi-part digest operation. One or more blocks may be
-part of the message digest operation. The digest for the entire message is returned by a call to
-`FC_DigestFinal </en-US/FC_DigestFinal>`__.
+``FC_DigestUpdate`` starts or continues a multi-part digest operation.
+One or more blocks may be part of the message digest operation. The
+digest for the entire message is returned by a call to
+`FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__.
 
-A user may call ``FC_DigestUpdate`` without logging into the token (to assume the NSS User role).
+A user may call ``FC_DigestUpdate`` without logging into the token (to
+assume the NSS User role).
 
 .. _Return_value:
 
@@ -61,5 +65,6 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DigestInit </en-US/FC_DigestInit>`__, `FC_DigestFinal </en-US/FC_DigestFinal>`__,
-   `NSC_DigestUpdate </en-US/NSC_DigestUpdate>`__
+-  `FC_DigestInit <https://developer.mozilla.org/en-US/FC_DigestInit>`__,
+   `FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__,
+   `NSC_DigestUpdate <https://developer.mozilla.org/en-US/NSC_DigestUpdate>`__

@@ -31,7 +31,8 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pMechanism``
-   [in] mechanism to be used for the subsequent signing operation.
+   [in] mechanism to be used for the
+   subsequent signing operation.
 ``hKey``
    [in] handle of the key to be used .
 
@@ -42,7 +43,8 @@ Description
 
 ``FC_SignInit`` initializes a signature operation.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_SignInit``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_SignInit``.
 
 .. _Return_value:
 
@@ -59,5 +61,7 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_SignInit </en-US/NSC_SignInit>`__ `FC_Sign </en-US/FC_Sign>`__
-   `FC_SignUpdate </en-US/FC_SignUpdate>`__ `FC_SignFinal </en-US/FC_SignFinal>`__
+-  `NSC_SignInit <https://developer.mozilla.org/en-US/NSC_SignInit>`__
+   `FC_Sign <https://developer.mozilla.org/en-US/FC_Sign>`__
+   `FC_SignUpdate <https://developer.mozilla.org/en-US/FC_SignUpdate>`__
+   `FC_SignFinal <https://developer.mozilla.org/en-US/FC_SignFinal>`__

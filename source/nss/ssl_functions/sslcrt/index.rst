@@ -5,12 +5,15 @@ sslcrt
 ======
 .. note::
 
-   -  This page is part of the `SSL Reference </en-US/docs/NSS/SSL_functions/OLD_SSL_Reference>`__
-      that we are migrating into the format described in the `MDN Style
-      Guide </en-US/docs/Project:MDC_style_guide>`__. If you are inclined to help with this
-      migration, your help would be very much appreciated.
+   -  This page is part of the
+      :ref:`Mozilla_Projects_SSL_functions_OLD_SSL_Reference` that we
+      are migrating into the format described in the `MDN Style
+      Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__.
+      If you are inclined to help with this migration, your help would
+      be very much appreciated.
 
-   -  Upgraded documentation may be found in the `Current NSS Reference </NSS_reference>`__
+   -  Upgraded documentation may be found in the
+      :ref:`Mozilla_Projects_NSS_reference`
 
 .. _Certificate_Functions:
 
@@ -24,8 +27,9 @@ Chapter 5
 Certificate Functions
 ---------------------
 
-This chapter describes the functions and related types used to work with a certificate database such
-as the ``cert7.db`` database provided with Communicator.
+This chapter describes the functions and related types used to work with
+a certificate database such as the ``cert7.db`` database provided with
+Communicator.
 
 |  `Validating Certificates <#1060423>`__
 | `Manipulating Certificates <#1056436>`__
@@ -47,8 +51,8 @@ Validating Certificates
 CERT_VerifyCertNow
 ^^^^^^^^^^^^^^^^^^
 
-Checks that the current date is within the certificate's validity period and that the CA signature
-on the certificate is valid.
+Checks that the current date is within the certificate's validity period
+and that the CA signature on the certificate is valid.
 
 .. _Syntax:
 
@@ -75,38 +79,41 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate database handle.   |
-|                                                 |                                                 |
-|    handle                                       |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate to be checked.     |
-|                                                 |                                                 |
-|    cert                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | Indicates whether certificate signatures are to |
-|                                                 | be checked. ``PR_TRUE`` means certificate       |
-|    checkSig                                     | signatures are to be checked. ``PR_FALSE``      |
-|                                                 | means certificate signatures will not be        |
-|                                                 | checked.                                        |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | One of these values:                            |
-|                                                 |                                                 |
-|    certUsage                                    | -  ``certUsageSSLClient``                       |
-|                                                 | -  ``certUsageSSLServer``                       |
-|                                                 | -  ``certUsageSSLServerWithStepUp``             |
-|                                                 | -  ``certUsageSSLCA``                           |
-|                                                 | -  ``certUsageEmailSigner``                     |
-|                                                 | -  ``certUsageEmailRecipient``                  |
-|                                                 | -  ``certUsageObjectSigner``                    |
-|                                                 | -  ``certUsageUserCertImport``                  |
-|                                                 | -  ``certUsageVerifyCA``                        |
-|                                                 | -  ``certUsageProtectedObjectSigner``           |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | The PIN argument value to pass to PK11          |
-|                                                 | functions. See description below for more       |
-|    wincx                                        | information.                                    |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | database handle.                  |
+|    handle                         |                                   |
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate to   |
+|                                   | be checked.                       |
+|    cert                           |                                   |
++-----------------------------------+-----------------------------------+
+| ::                                | Indicates whether certificate     |
+|                                   | signatures are to be checked.     |
+|    checkSig                       | ``PR_TRUE`` means certificate     |
+|                                   | signatures are to be checked.     |
+|                                   | ``PR_FALSE`` means certificate    |
+|                                   | signatures will not be checked.   |
++-----------------------------------+-----------------------------------+
+| ::                                | One of these values:              |
+|                                   |                                   |
+|    certUsage                      | -  ``certUsageSSLClient``         |
+|                                   | -  ``certUsageSSLServer``         |
+|                                   | -                                 |
+|                                   |  ``certUsageSSLServerWithStepUp`` |
+|                                   | -  ``certUsageSSLCA``             |
+|                                   | -  ``certUsageEmailSigner``       |
+|                                   | -  ``certUsageEmailRecipient``    |
+|                                   | -  ``certUsageObjectSigner``      |
+|                                   | -  ``certUsageUserCertImport``    |
+|                                   | -  ``certUsageVerifyCA``          |
+|                                   | -  `                              |
+|                                   | `certUsageProtectedObjectSigner`` |
++-----------------------------------+-----------------------------------+
+| ::                                | The PIN argument value to pass to |
+|                                   | PK11 functions. See description   |
+|    wincx                          | below for more information.       |
++-----------------------------------+-----------------------------------+
 
 .. _Returns:
 
@@ -117,18 +124,20 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__ to obtain the error
-   code.
+   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__
+   to obtain the error code.
 
 .. _Description:
 
 Description
 '''''''''''
 
-The ``CERT_VerifyCertNow`` function must call one or more PK11 functions to obtain the services of a
-PKCS #11 module. Some of the PK11 functions require a PIN argument (see
-```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ for details), which must be specified in the
-``wincx`` parameter. To obtain the value to pass in the ``wincx`` parameter, call
+The ``CERT_VerifyCertNow`` function must call one or more PK11 functions
+to obtain the services of a PKCS #11 module. Some of the PK11 functions
+require a PIN argument (see
+```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ for details), which
+must be specified in the ``wincx`` parameter. To obtain the value to
+pass in the ``wincx`` parameter, call
 ```SSL_RevealPinArg`` <sslfnc.html#1123385>`__.
 
 .. _CERT_VerifyCertName:
@@ -136,7 +145,8 @@ PKCS #11 module. Some of the PK11 functions require a PIN argument (see
 CERT_VerifyCertName
 ^^^^^^^^^^^^^^^^^^^
 
-Compares the common name specified in the subject DN for a certificate with a specified hostname.
+Compares the common name specified in the subject DN for a certificate
+with a specified hostname.
 
 .. _Syntax_2:
 
@@ -160,15 +170,16 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate against which to   |
-|                                                 | check the hostname referenced by ``hostname``.  |
-|    cert                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | The hostname to be checked.                     |
-|                                                 |                                                 |
-|    hostname                                     |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | against which to check the        |
+|    cert                           | hostname referenced by            |
+|                                   | ``hostname``.                     |
++-----------------------------------+-----------------------------------+
+| ::                                | The hostname to be checked.       |
+|                                   |                                   |
+|    hostname                       |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_2:
 
@@ -177,41 +188,44 @@ Returns
 
 The function returns one of these values:
 
--  If the common name in the subject DN for the certificate matches the domain name passed in the
-   ``hostname`` parameter, ``SECSuccess``.
--  If the common name in the subject DN for the certificate is not identical to the domain name
-   passed in the ``hostname`` parameter, ``SECFailure``. Use
-   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__ to obtain the error
-   code.
+-  If the common name in the subject DN for the certificate matches the
+   domain name passed in the ``hostname`` parameter, ``SECSuccess``.
+-  If the common name in the subject DN for the certificate is not
+   identical to the domain name passed in the ``hostname`` parameter,
+   ``SECFailure``. Use
+   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__
+   to obtain the error code.
 
 .. _Description_2:
 
 Description
 '''''''''''
 
-The comparison performed by CERT_VerifyCertName is not a simple string comparison. Instead, it takes
-account of the following rules governing the construction of common names in SSL server
-certificates:
+The comparison performed by CERT_VerifyCertName is not a simple string
+comparison. Instead, it takes account of the following rules governing
+the construction of common names in SSL server certificates:
 
 -  ``*`` matches anything
 -  ``?`` matches one character
 -  ``\`` escapes a special character
 -  ``$`` matches the end of the string
--  ``[abc]`` matches one occurrence of ``a``, ``b``, or ``c``. The only character that needs to be
-   escaped in this is ``]``, all others are not special.
+-  ``[abc]`` matches one occurrence of ``a``, ``b``, or ``c``. The only
+   character that needs to be escaped in this is ``]``, all others are
+   not special.
 -  ``[a-z]`` matches any character between ``a`` and ``z``
 -  ``[^az]`` matches any character except ``a`` or ``z``
--  ``~`` followed by another shell expression removes any pattern matching the shell expression from
-   the match list
--  ``(foo|bar)`` matches either the substring ``foo`` or the substring ``bar``. These can be shell
-   expressions as well.
+-  ``~`` followed by another shell expression removes any pattern
+   matching the shell expression from the match list
+-  ``(foo|bar)`` matches either the substring ``foo`` or the substring
+   ``bar``. These can be shell expressions as well.
 
 .. _CERT_CheckCertValidTimes:
 
 CERT_CheckCertValidTimes
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Checks whether a specified time is within a certificate's validity period.
+Checks whether a specified time is within a certificate's validity
+period.
 
 .. _Syntax_3:
 
@@ -236,15 +250,16 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate whose validity     |
-|                                                 | period you want to check against.               |
-|    cert                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | The time to check against the certificate's     |
-|                                                 | validity period. For more information, see the  |
-|    t                                            | NSPR header ``pr_time.h``.                      |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | whose validity period you want to |
+|    cert                           | check against.                    |
++-----------------------------------+-----------------------------------+
+| ::                                | The time to check against the     |
+|                                   | certificate's validity period.    |
+|    t                              | For more information, see the     |
+|                                   | NSPR header ``pr_time.h``.        |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_3:
 
@@ -266,8 +281,8 @@ The function returns an enumerator of type ``SECCertTimeValidity``:
 NSS_CmpCertChainWCANames
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Determines whether any of the signers in the certificate chain for a specified certificate are on a
-specified list of CA names.
+Determines whether any of the signers in the certificate chain for a
+specified certificate are on a specified list of CA names.
 
 .. _Syntax_4:
 
@@ -291,16 +306,18 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate structure for the  |
-|                                                 | certificate whose certificate chain is to be    |
-|    cert                                         | checked.                                        |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to a structure that contains a list   |
-|                                                 | of distinguished names (DNs) against which to   |
-|    caNames                                      | check the DNs for the signers in the            |
-|                                                 | certificate chain.                              |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | structure for the certificate     |
+|    cert                           | whose certificate chain is to be  |
+|                                   | checked.                          |
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to a structure that     |
+|                                   | contains a list of distinguished  |
+|    caNames                        | names (DNs) against which to      |
+|                                   | check the DNs for the signers in  |
+|                                   | the certificate chain.            |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_4:
 
@@ -311,8 +328,8 @@ The function returns one of these values:
 
 -  If successful, ``SECSuccess``.
 -  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__ to obtain the error
-   code.
+   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__
+   to obtain the error code.
 
 .. _Manipulating_Certificates:
 
@@ -349,27 +366,27 @@ Parameter
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate object to be       |
-|                                                 | duplicated.                                     |
-|    c                                            |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | object to be duplicated.          |
+|    c                              |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_5:
 
 Returns
 '''''''
 
-If successful, the function returns a pointer to a certificate object of type
-```CERTCertificate`` <ssltyp.html#1027387>`__.
+If successful, the function returns a pointer to a certificate object of
+type ```CERTCertificate`` <ssltyp.html#1027387>`__.
 
 .. _Description_3:
 
 Description
 '''''''''''
 
-The ``CERT_DupCertificate`` function increments the reference count for the certificate passed in
-the ``c`` parameter.
+The ``CERT_DupCertificate`` function increments the reference count for
+the certificate passed in the ``c`` parameter.
 
 .. _CERT_DestroyCertificate:
 
@@ -399,28 +416,31 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate to destroy.        |
-|                                                 |                                                 |
-|    cert                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate to   |
+|                                   | destroy.                          |
+|    cert                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Description_4:
 
 Description
 '''''''''''
 
-Certificate and key structures are shared objects. When an application makes a copy of a particular
-certificate or key structure that already exists in memory, SSL makes a *shallow* copy--that is, it
-increments the reference count for that object rather than making a whole new copy. When you call
-```CERT_DestroyCertificate`` <#1050532>`__ or
-```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__, the function decrements the reference count
-and, if the reference count reaches zero as a result, both frees the memory and sets all the bits to
-zero. The use of the word "destroy" in function names or in the description of a function implies
-reference counting.
+Certificate and key structures are shared objects. When an application
+makes a copy of a particular certificate or key structure that already
+exists in memory, SSL makes a *shallow* copy--that is, it increments the
+reference count for that object rather than making a whole new copy.
+When you call ```CERT_DestroyCertificate`` <#1050532>`__ or
+```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__, the function
+decrements the reference count and, if the reference count reaches zero
+as a result, both frees the memory and sets all the bits to zero. The
+use of the word "destroy" in function names or in the description of a
+function implies reference counting.
 
-Never alter the contents of a certificate or key structure. If you attempt to do so, the change
-affects all the shallow copies of that structure and can cause severe problems.
+Never alter the contents of a certificate or key structure. If you
+attempt to do so, the change affects all the shallow copies of that
+structure and can cause severe problems.
 
 .. _Getting_Certificate_Information:
 
@@ -462,15 +482,15 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate database handle.   |
-|                                                 |                                                 |
-|    handle                                       |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | The subject DN of the certificate you wish to   |
-|                                                 | find.                                           |
-|    name                                         |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | database handle.                  |
+|    handle                         |                                   |
++-----------------------------------+-----------------------------------+
+| ::                                | The subject DN of the certificate |
+|                                   | you wish to find.                 |
+|    name                           |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_6:
 
@@ -485,7 +505,8 @@ If successful, the function returns a certificate object of type
 CERT_GetCertNicknames
 ^^^^^^^^^^^^^^^^^^^^^
 
-Returns the nicknames of the certificates in a specified certificate database.
+Returns the nicknames of the certificates in a specified certificate
+database.
 
 .. _Syntax_8:
 
@@ -511,39 +532,41 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the certificate database handle.   |
-|                                                 |                                                 |
-|    handle                                       |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | One of these values:                            |
-|                                                 |                                                 |
-|    what                                         | -  ``SEC_CERT_NICKNAMES_ALL``                   |
-|                                                 | -  ``SEC_CERT_NICKNAMES_USER``                  |
-|                                                 | -  ``SEC_CERT_NICKNAMES_SERVER``                |
-|                                                 | -  ``SEC_CERT_NICKNAMES_CA``                    |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | The PIN argument value to pass to PK11          |
-|                                                 | functions. See description below for more       |
-|    wincx                                        | information.                                    |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the certificate      |
+|                                   | database handle.                  |
+|    handle                         |                                   |
++-----------------------------------+-----------------------------------+
+| ::                                | One of these values:              |
+|                                   |                                   |
+|    what                           | -  ``SEC_CERT_NICKNAMES_ALL``     |
+|                                   | -  ``SEC_CERT_NICKNAMES_USER``    |
+|                                   | -  ``SEC_CERT_NICKNAMES_SERVER``  |
+|                                   | -  ``SEC_CERT_NICKNAMES_CA``      |
++-----------------------------------+-----------------------------------+
+| ::                                | The PIN argument value to pass to |
+|                                   | PK11 functions. See description   |
+|    wincx                          | below for more information.       |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_7:
 
 Returns
 '''''''
 
-The function returns a ``CERTCertNicknames`` object containing the requested nicknames.
+The function returns a ``CERTCertNicknames`` object containing the
+requested nicknames.
 
 .. _Description_5:
 
 Description
 '''''''''''
 
-``CERT_GetCertNicknames`` must call one or more PK11 functions to obtain the services of a PKCS #11
-module. Some of the PK11 functions require a PIN argument (see
-```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ for details), which must be specified in the
-``wincx`` parameter. To obtain the value to pass in the ``wincx`` parameter, call
+``CERT_GetCertNicknames`` must call one or more PK11 functions to obtain
+the services of a PKCS #11 module. Some of the PK11 functions require a
+PIN argument (see ```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ for
+details), which must be specified in the ``wincx`` parameter. To obtain
+the value to pass in the ``wincx`` parameter, call
 ```SSL_RevealPinArg`` <sslfnc.html#1123385>`__.
 
 .. _CERT_FreeNicknames:
@@ -574,11 +597,11 @@ Parameters
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to the ``CERTCertNicknames``          |
-|                                                 | structure to be freed.                          |
-|    nicknames                                    |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to the                  |
+|                                   | ``CERTCertNicknames`` structure   |
+|    nicknames                      | to be freed.                      |
++-----------------------------------+-----------------------------------+
 
 .. _CERT_GetDefaultCertDB:
 
@@ -605,15 +628,16 @@ Syntax
 Returns
 '''''''
 
-The function returns the ```CERTCertDBHandle`` <ssltyp.html#1028465>`__ for the default certificate
-database.
+The function returns the ```CERTCertDBHandle`` <ssltyp.html#1028465>`__
+for the default certificate database.
 
 .. _Description_6:
 
 Description
 '''''''''''
 
-This function is useful for determining whether the default certificate database has been opened.
+This function is useful for determining whether the default certificate
+database has been opened.
 
 .. _NSS_FindCertKEAType:
 
@@ -642,11 +666,11 @@ Parameter
 
 This function has the following parameter:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | The certificate to check.                       |
-|                                                 |                                                 |
-|    a                                            |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | The certificate to check.         |
+|                                   |                                   |
+|    a                              |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_9:
 
@@ -671,8 +695,8 @@ Comparing SecItem Objects
 SECITEM_CompareItem
 ^^^^^^^^^^^^^^^^^^^
 
-Compares two ```SECItem`` <ssltyp.html#1026076>`__ objects and returns a ``SECComparison``
-enumerator that shows the difference between them.
+Compares two ```SECItem`` <ssltyp.html#1026076>`__ objects and returns a
+``SECComparison`` enumerator that shows the difference between them.
 
 .. _Syntax_12:
 
@@ -697,15 +721,15 @@ Parameters
 
 This function has the following parameters:
 
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to one of the items to be compared.   |
-|                                                 |                                                 |
-|    a                                            |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
-| ::                                              | A pointer to one of the items to be compared.   |
-|                                                 |                                                 |
-|    b                                            |                                                 |
-+-------------------------------------------------+-------------------------------------------------+
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to one of the items to  |
+|                                   | be compared.                      |
+|    a                              |                                   |
++-----------------------------------+-----------------------------------+
+| ::                                | A pointer to one of the items to  |
+|                                   | be compared.                      |
+|    b                              |                                   |
++-----------------------------------+-----------------------------------+
 
 .. _Returns_10:
 

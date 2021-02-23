@@ -8,8 +8,8 @@ NSS Sample Code Sample_2_Initialization of NSS
 NSS Sample Code 2: Initializing NSS
 -----------------------------------
 
-This example program demonstrates how to initialize the NSS Database.  This program illustrates
-password handling.
+This example program demonstrates how to initialize the NSS Database. 
+This program illustrates password handling.
 
 .. _Sample_Code_1:
 

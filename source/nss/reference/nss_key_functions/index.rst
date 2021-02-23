@@ -3,13 +3,13 @@
 =================
 NSS Key Functions
 =================
-This chapter describes two functions used to manipulate private keys and key databases such as the
-key3.db database provided with NSS. This was converted from `"Chapter 6: Key
-Functions" </en-US/docs/NSS/SSL_functions/sslkey.html>`__.
+This chapter describes two functions used to manipulate private keys and
+key databases such as the key3.db database provided with NSS. This was
+converted from :ref:`Mozilla_Projects_SSL_functions_sslkey_html`.
 
--  `Back to the NSS reference main page. </en-US/NSS_reference>`__
--  `SECKEY_GetDefaultKeyDB </en-US/NSS_Key_Functions#SECKEY_GetDefaultKeyDB>`__
--  `SECKEY_DestroyPrivateKey </en-US/NSS_Key_Functions#SECKEY_DestroyPrivateKey>`__
+-  :ref:`Mozilla_Projects_NSS_reference`
+-  :ref:`Mozilla_Projects_NSS_Key_Functions#SECKEY_GetDefaultKeyDB`
+-  :ref:`Mozilla_Projects_NSS_Key_Functions#SECKEY_DestroyPrivateKey`
 
 .. _SECKEY_GetDefaultKeyDB:
 
@@ -27,8 +27,9 @@ SECKEYKeyDBHandle \*SECKEY_GetDefaultKeyDB(void);
 
 Returns The function returns a handle of type SECKEYKeyDBHandle.
 
-Description NSS_Init opens the certificate, key, and security module databases that you specify for
-use with NSS. SECKEYKeyDBHandle returns a handle to the key database opened by NSS_Init.
+Description NSS_Init opens the certificate, key, and security module
+databases that you specify for use with NSS. SECKEYKeyDBHandle returns a
+handle to the key database opened by NSS_Init.
 
 .. _SECKEY_DestroyPrivateKey:
 
@@ -50,13 +51,17 @@ key
 
 A pointer to the private key structure to destroy.
 
-Description Certificate and key structures are shared objects. When an application makes a copy of a
-particular certificate or key structure that already exists in memory, SSL makes a shallow
-copy--that is, it increments the reference count for that object rather than making a whole new
-copy. When you call CERT_DestroyCertificate or SECKEY_DestroyPrivateKey, the function decrements the
-reference count and, if the reference count reaches zero as a result, both frees the memory and sets
-all the bits to zero. The use of the word "destroy" in function names or in the description of a
-function implies reference counting.
+Description Certificate and key structures are shared objects. When an
+application makes a copy of a particular certificate or key structure
+that already exists in memory, SSL makes a shallow copy--that is, it
+increments the reference count for that object rather than making a
+whole new copy. When you call CERT_DestroyCertificate or
+SECKEY_DestroyPrivateKey, the function decrements the reference count
+and, if the reference count reaches zero as a result, both frees the
+memory and sets all the bits to zero. The use of the word "destroy" in
+function names or in the description of a function implies reference
+counting.
 
-Never alter the contents of a certificate or key structure. If you attempt to do so, the change
-affects all the shallow copies of that structure and can cause severe problems.
+Never alter the contents of a certificate or key structure. If you
+attempt to do so, the change affects all the shallow copies of that
+structure and can cause severe problems.

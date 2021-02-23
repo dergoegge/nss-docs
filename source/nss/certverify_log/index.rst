@@ -8,10 +8,10 @@ NSS CERTVerify Log
 CERTVerifyLog
 ~~~~~~~~~~~~~
 
-All the NSS verify functions except, the \*VerifyNow() functions, take a parameter called
-'CERTVerifyLog'. If you supply the log parameter, NSS will continue chain validation after each
-error . The log tells you what the problem was with the chain and what certificate in the chain
-failed.
+All the NSS verify functions except, the \*VerifyNow() functions, take a
+parameter called 'CERTVerifyLog'. If you supply the log parameter, NSS
+will continue chain validation after each error . The log tells you what
+the problem was with the chain and what certificate in the chain failed.
 
 To create a log:
 
@@ -26,7 +26,8 @@ To create a log:
    log =  PORT_ArenaZNew(arena,log);
    log->arena = arena;
 
-You can then pass this log into your favorite cert verify function. On return:
+You can then pass this log into your favorite cert verify function. On
+return:
 
 -  log->count is the number of entries.
 -  log->head is the first entry;
@@ -50,6 +51,6 @@ Each entry is a CERTVerifyLogNode. Defined in certt.h:
      struct CERTVerifyLogNodeStr *prev; /* next in the list */
    };
 
-The list is a doubly linked NULL terminated list sorted from low to high based on depth into the
-cert chain. When you are through, you will need to walk the list and free all the cert entries, then
-free the arena.
+The list is a doubly linked NULL terminated list sorted from low to high
+based on depth into the cert chain. When you are through, you will need
+to walk the list and free all the cert entries, then free the arena.

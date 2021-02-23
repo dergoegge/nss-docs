@@ -40,12 +40,12 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_FindObjectsInit`` sets the attribute list for an object search. If ``FC_FindObjectsInit`` is
-successful ``FC_FindObjects`` may be called one or more times to retrieve handles of matching
-objects.
+``FC_FindObjectsInit`` sets the attribute list for an object search. If
+``FC_FindObjectsInit`` is successful ``FC_FindObjects`` may be called
+one or more times to retrieve handles of matching objects.
 
-A user must log into the token (to assume the NSS User role) before searching for secret or private
-key objects.
+A user must log into the token (to assume the NSS User role) before
+searching for secret or private key objects.
 
 .. _Return_value:
 
@@ -62,4 +62,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_FindObjects </en-US/FC_FindObjects>`__, `NSC_FindObjectsInit </en-US/NSC_FindObjectsInit>`__
+-  `FC_FindObjects <https://developer.mozilla.org/en-US/FC_FindObjects>`__,
+   `NSC_FindObjectsInit <https://developer.mozilla.org/en-US/NSC_FindObjectsInit>`__

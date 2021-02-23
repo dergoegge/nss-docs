@@ -31,20 +31,22 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pLastEncryptedPart``
-   [out] pointer to the location that receives the last encrypted data
-   part, if any
+   [out] pointer to the location that receives
+   the last encrypted data part, if any
 ``pusLastEncryptedPartLen``
-   [in,out] pointer to location where the number of bytes of the last
-   encrypted data part is to be stored.
+   [in,out] pointer to location where the
+   number of bytes of the last encrypted data part is to be stored.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_EncryptFinal`` returns the last block of data of a multi-part encryption operation.
+``FC_EncryptFinal`` returns the last block of data of a multi-part
+encryption operation.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_EncryptFinal``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_EncryptFinal``.
 
 .. _Return_value:
 
@@ -61,4 +63,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_EncryptInit </en-US/FC_EncryptInit>`__, `NSC_EncryptFinal </en-US/NSC_EncryptFinal>`__
+-  `FC_EncryptInit <https://developer.mozilla.org/en-US/FC_EncryptInit>`__,
+   `NSC_EncryptFinal <https://developer.mozilla.org/en-US/NSC_EncryptFinal>`__

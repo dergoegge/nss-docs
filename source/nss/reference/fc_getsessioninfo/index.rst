@@ -30,7 +30,8 @@ Parameters
 ``hSession``
    [in] the open session handle.
 ``pInfo``
-   [out] pointer to the `CK_SESSION_INFO </en-US/CK_SESSION_INFO>`__
+   [out] pointer to the
+   `CK_SESSION_INFO <https://developer.mozilla.org/en-US/CK_SESSION_INFO>`__
    structure to be returned.
 
 .. _Description:
@@ -38,21 +39,22 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_GetSessionInfo`` obtains information about a session. A user may call ``FC_GetSessionInfo``
-without logging into the token (to assume the NSS User role).
+``FC_GetSessionInfo`` obtains information about a session. A user may
+call ``FC_GetSessionInfo`` without logging into the token (to assume the
+NSS User role).
 
-If the NSS cryptographic module is in the error state, ``FC_GetSessionInfo`` returns
-``CKR_DEVICE_ERROR``. Otherwise, it fills in the ``CK_SESSION_INFO`` structure with the following
-information:
+If the NSS cryptographic module is in the error state,
+``FC_GetSessionInfo`` returns ``CKR_DEVICE_ERROR``. Otherwise, it fills
+in the ``CK_SESSION_INFO`` structure with the following information:
 
--  ``state``: the state of the session, i.e., no role is assumed, the User role is assumed, or the
-   Crypto Officer role is assumed
+-  ``state``: the state of the session, i.e., no role is assumed, the
+   User role is assumed, or the Crypto Officer role is assumed
 -  ``flags``: bit flags that define the type of session
 
-   -  ``CKF_RW_SESSION (0x00000002)``: true if the session is read/write; false if the session is
-      read-only.
-   -  ``CKF_SERIAL_SESSION (0x00000004)``: this flag is provided for backward compatibility and is
-      always set to true.
+   -  ``CKF_RW_SESSION (0x00000002)``: true if the session is
+      read/write; false if the session is read-only.
+   -  ``CKF_SERIAL_SESSION (0x00000004)``: this flag is provided for
+      backward compatibility and is always set to true.
 
 .. _Return_value:
 
@@ -69,4 +71,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_CloseSession </en-US/FC_CloseSession>`__, `NSC_OpenSession </en-US/NSC_OpenSession>`__
+-  `FC_CloseSession <https://developer.mozilla.org/en-US/FC_CloseSession>`__,
+   `NSC_OpenSession <https://developer.mozilla.org/en-US/NSC_OpenSession>`__

@@ -8,7 +8,8 @@ FC_SignEncryptUpdate
 Name
 ~~~~
 
-FC_SignEncryptUpdate - continue a multi-part signing and encryption operation
+FC_SignEncryptUpdate - continue a multi-part signing and encryption
+operation
 
 .. _Syntax:
 
@@ -37,22 +38,25 @@ Parameters
 ``ulPartLen``
    [in] length of data in bytes.
 ``pEncryptedPart``
-   [in] pointer to the location which receives the signed and encrypted
-   data part or NULL.
+   [in] pointer to the location which receives
+   the signed and encrypted data part or NULL.
 ``pulEncryptedPartLen``
-   [in] pointer to the length of the encrypted part buffer.
+   [in] pointer to the length of the encrypted
+   part buffer.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_SignEncryptUpdate`` continues a multi-part signature and encryption operation. After calling
-both ``FC_SignInit`` and ``FC_EncryptInit`` to set up the operations this function may be called
-multiple times. The operation is finished by calls to ``FC_SignFinal`` and ``FC_EncryptFinal``.
+``FC_SignEncryptUpdate`` continues a multi-part signature and encryption
+operation. After calling both ``FC_SignInit`` and ``FC_EncryptInit`` to
+set up the operations this function may be called multiple times. The
+operation is finished by calls to ``FC_SignFinal`` and
+``FC_EncryptFinal``.
 
-A user must log into the token (to assume the NSS User role) before calling
-``FC_SignEncryptUpdate``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_SignEncryptUpdate``.
 
 .. _Return_value:
 
@@ -69,4 +73,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_SignEncryptUpdate </en-US/NSC_SignEncryptUpdate>`__
+-  `NSC_SignEncryptUpdate <https://developer.mozilla.org/en-US/NSC_SignEncryptUpdate>`__

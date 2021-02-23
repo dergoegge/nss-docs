@@ -8,7 +8,8 @@ Initialize NSS database - sample 2
 NSS sample code 2: initialize the NSS database.
 -----------------------------------------------
 
-The NSS sample code below demonstrates how to initialize the NSS database.
+The NSS sample code below demonstrates how to initialize the NSS
+database.
 
 .. code:: brush:
 

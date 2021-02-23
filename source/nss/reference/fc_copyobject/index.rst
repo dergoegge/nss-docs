@@ -39,17 +39,19 @@ Parameters
 ``usCount``
    [in] number of attributes in the template.
 ``phnewObject``
-   [out] pointer to location to receive the new object's handle.
+   [out] pointer to location to receive the
+   new object's handle.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_CopyObject`` creates a copy of an object using the attributes specified in the template.
+``FC_CopyObject`` creates a copy of an object using the attributes
+specified in the template.
 
-A user must log into the token (to assume the NSS User role) before copying a secret or private key
-object.
+A user must log into the token (to assume the NSS User role) before
+copying a secret or private key object.
 
 .. _Return_value:
 
@@ -66,4 +68,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_DestroyObject </en-US/FC_DestroyObject>`__, `NSC_CopyObject </en-US/NSC_CopyObject>`__
+-  `FC_DestroyObject <https://developer.mozilla.org/en-US/FC_DestroyObject>`__,
+   `NSC_CopyObject <https://developer.mozilla.org/en-US/NSC_CopyObject>`__

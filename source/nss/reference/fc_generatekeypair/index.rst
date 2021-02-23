@@ -40,27 +40,30 @@ Parameters
 ``pPublicKeyTemplate``
    [in] pointer to the public key template.
 ``usPublicKeyAttributeCount``
-   [in] number of attributes in the public key template.
+   [in] number of attributes in the public key
+   template.
 ``pPrivateKeyTemplate``
    [in] pointer to the private key template.
 ``usPrivateKeyAttributeCount``
-   [in] number of attributes in the private key template.
+   [in] number of attributes in the private
+   key template.
 ``phPublicKey``
-   [out] pointer to the location to receive the handle of the new public
-   key.
+   [out] pointer to the location to receive
+   the handle of the new public key.
 ``phPrivateKey``
-   [out] pointer to the location to receive the handle of the new private
-   key.
+   [out] pointer to the location to receive
+   the handle of the new private key.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_GenerateKeyPair`` generates a public/private key pair, creating new key objects. The handles of
-new keys are returned.
+``FC_GenerateKeyPair`` generates a public/private key pair, creating new
+key objects. The handles of new keys are returned.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_GenerateKeyPair``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_GenerateKeyPair``.
 
 .. _Return_value:
 
@@ -77,4 +80,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GenerateKeyPair </en-US/NSC_GenerateKeyPair>`__
+-  `NSC_GenerateKeyPair <https://developer.mozilla.org/en-US/NSC_GenerateKeyPair>`__

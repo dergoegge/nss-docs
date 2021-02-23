@@ -8,10 +8,12 @@ Build instructions for JSS 4.4.x
 Build Instructions for JSS 4.4.x
 --------------------------------
 
-Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
+Newsgroup:
+`mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 
 To build JSS see `Upstream JSS Build/Test
 Instructions <https://hg.mozilla.org/projects/jss/file/tip/README>`__
 
-`Next, you should read the instructions on <https://hg.mozilla.org/projects/jss/file/tip/README>`__
-:ref:`Mozilla_Projects_NSS_Using_JSS`.
+`Next, you should read the instructions
+on <https://hg.mozilla.org/projects/jss/file/tip/README>`__ `using
+JSS <Using_JSS>`__.

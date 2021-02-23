@@ -43,10 +43,11 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_GetAttributeValue`` gets the value of one or more attributes of an object.
+``FC_GetAttributeValue`` gets the value of one or more attributes of an
+object.
 
-A user must log into the token (to assume the NSS User role) before getting the attribute values of
-a secret or private key object.
+A user must log into the token (to assume the NSS User role) before
+getting the attribute values of a secret or private key object.
 
 .. _Return_value:
 
@@ -63,4 +64,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GetAttributeValue </en-US/NSC_GetAttributeValue>`__
+-  `NSC_GetAttributeValue <https://developer.mozilla.org/en-US/NSC_GetAttributeValue>`__

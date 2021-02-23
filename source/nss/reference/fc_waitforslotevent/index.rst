@@ -8,7 +8,8 @@ FC_WaitForSlotEvent
 Name
 ~~~~
 
-FC_WaitForSlotEvent - waits for a slot event, such as token insertion or token removal, to occur.
+FC_WaitForSlotEvent - waits for a slot event, such as token insertion or
+token removal, to occur.
 
 .. _Syntax:
 
@@ -54,4 +55,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_WaitForSlotEvent </en-US/FC_WaitForSlotEvent>`__
+-  `FC_WaitForSlotEvent <https://developer.mozilla.org/en-US/FC_WaitForSlotEvent>`__

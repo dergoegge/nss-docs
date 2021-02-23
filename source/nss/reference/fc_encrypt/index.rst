@@ -37,7 +37,8 @@ Parameters
 ``usDataLen``
    [in] length of the data buffer in bytes.
 ``pEncryptedData``
-   [out] pointer to location where encrypted data is to be stored.
+   [out] pointer to location where encrypted
+   data is to be stored.
 ``pusEncryptedDataLen``
    [in/out] number of bytes.
 
@@ -46,10 +47,11 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_Encrypt`` encrypts a block of data according to the attributes of the previous call to
-``FC_EncryptInit``.
+``FC_Encrypt`` encrypts a block of data according to the attributes of
+the previous call to ``FC_EncryptInit``.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_Encrypt``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_Encrypt``.
 
 .. _Return_value:
 
@@ -66,4 +68,5 @@ Examples
 See also
 ~~~~~~~~
 
--  `FC_EncryptInit </en-US/FC_EncryptInit>`__, `NSC_Encrypt </en-US/NSC_Encrypt>`__
+-  `FC_EncryptInit <https://developer.mozilla.org/en-US/FC_EncryptInit>`__,
+   `NSC_Encrypt <https://developer.mozilla.org/en-US/NSC_Encrypt>`__

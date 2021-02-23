@@ -18,7 +18,8 @@ Example:
 NSS Sample Code 3: Enc/Dec/MAC Using Token Object ID.
 -----------------------------------------------------
 
-Computes the hash of a file and saves it to another file, illustrates the use of NSS message APIs.
+Computes the hash of a file and saves it to another file, illustrates
+the use of NSS message APIs.
 
 .. code:: brush:
 

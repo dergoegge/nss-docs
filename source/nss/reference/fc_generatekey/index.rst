@@ -35,21 +35,24 @@ Parameters
 ``pMechanism``
    [in] pointer to the mechanism to use.
 ``pTemplate``
-   [in] pointer to the template for the new key.
+   [in] pointer to the template for the new
+   key.
 ``ulCount``
    [in] number of attributes in the template.
 ``phKey``
-   [out] pointer to the location to receive the handle of the new key.
+   [out] pointer to the location to receive
+   the handle of the new key.
 
 .. _Description:
 
 Description
 ~~~~~~~~~~~
 
-``FC_GenerateKey`` generates a secret key, creating a new key object. The handle of new key is
-returned.
+``FC_GenerateKey`` generates a secret key, creating a new key object.
+The handle of new key is returned.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_GenerateKey``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_GenerateKey``.
 
 .. _Return_value:
 
@@ -66,4 +69,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_GenerateKey </en-US/NSC_GenerateKey>`__
+-  `NSC_GenerateKey <https://developer.mozilla.org/en-US/NSC_GenerateKey>`__

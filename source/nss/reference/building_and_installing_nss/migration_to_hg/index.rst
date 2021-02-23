@@ -3,20 +3,24 @@
 ===============
 Migration to HG
 ===============
-| The NSPR, NSS and related projects have stopped using Mozilla'a CVS server, but have migrated to
+| The NSPR, NSS and related projects have stopped using Mozilla'a CVS
+  server, but have migrated to
 | Mozilla's HG (Mercurial) server.
-| Each project now lives in its own separate space, they can be found at:
+| Each project now lives in its own separate space, they can be found
+  at:
 |    https://hg.mozilla.org/projects/nspr/
 |    https://hg.mozilla.org/projects/nss/
 |    https://hg.mozilla.org/projects/jss/
 |   https://hg.mozilla.org/projects/python-nss/
 
-| This migration has been used as an opportunity to change the layout of the
+| This migration has been used as an opportunity to change the layout of
+  the
 | source directories.
 | For NSPR, "mozilla/nsprpub" has been removed from the directory
 | hierarchy, all files now live in the top directory of the NSPR
 | repository.
-| Likewise for NSS and JSS, "mozilla/security" has been removed and files
+| Likewise for NSS and JSS, "mozilla/security" has been removed and
+  files
 | now live at the top level. In addition for NSS, we have merged the
 | contents of directories mozilla/dbm and mozilla/security/dbm into the
 | new directory lib/dbm.
@@ -24,7 +28,7 @@ Migration to HG
 | the NSS build instructions remain valid, especially the instructions
 | about setting environment variables.
 | Updated instructions for building NSS with NSPR can be found at:
-| `https://developer.mozilla.org/en-US/docs/NSS_reference/Building_and_installing_NSS/Build_instructions </en-US/docs/NSS_reference/Building_and_installing_NSS/Build_instructions>`__
+| :ref:`Mozilla_Projects_NSS_reference_Building_and_installing_NSS_Build_instructions`
 | It's best to refer to the above document to learn about the various
 | environment variables that you might have to set to build on your
 | platform (this part hasn't changed).
@@ -42,5 +46,6 @@ Migration to HG
 | mozilla/security/coreconf directory, allowing it to remain stable,
 | and only update its build system as necessary.
 | Because of the changes described above, we have decided to use a new
-| series of (minor) version numbers. The first releases using the new code
+| series of (minor) version numbers. The first releases using the new
+  code
 | layout will be NSPR 4.10 and NSS 3.15

@@ -31,7 +31,8 @@ Parameters
 ``hSession``
    [in] session handle.
 ``pMechanism``
-   [in] mechanism to be used for the verification operation.
+   [in] mechanism to be used for the
+   verification operation.
 ``hKey``
    [in] handle of the key to be used.
 
@@ -40,10 +41,11 @@ Parameters
 Description
 ~~~~~~~~~~~
 
-``FC_VerifyInit`` initializes a verification operation where the signature is an appendix to the
-data.
+``FC_VerifyInit`` initializes a verification operation where the
+signature is an appendix to the data.
 
-A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyInit``.
+A user must log into the token (to assume the NSS User role) before
+calling ``FC_VerifyInit``.
 
 .. _Return_value:
 
@@ -60,4 +62,4 @@ Examples
 See also
 ~~~~~~~~
 
--  `NSC_VerifyInit </en-US/NSC_VerifyInit>`__
+-  `NSC_VerifyInit <https://developer.mozilla.org/en-US/NSC_VerifyInit>`__
