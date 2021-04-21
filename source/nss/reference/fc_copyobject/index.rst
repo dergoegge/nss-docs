@@ -1,72 +1,74 @@
 .. _Mozilla_Projects_NSS_Reference_FC_CopyObject:
 
-=============
 FC_CopyObject
 =============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_CopyObject - create a copy of an object.
+.. container::
 
-.. _Syntax:
+   FC_CopyObject - create a copy of an object.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_CopyObject(
-     CK_SESSION_HANDLE hSession,
-     CK_OBJECT_HANDLE hObject,
-     CK_ATTRIBUTE_PTR pTemplate,
-     CK_ULONG usCount,
-     CK_OBJECT_HANDLE_PTR phNewObject
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_CopyObject(
+        CK_SESSION_HANDLE hSession,
+        CK_OBJECT_HANDLE hObject,
+        CK_ATTRIBUTE_PTR pTemplate,
+        CK_ULONG usCount,
+        CK_OBJECT_HANDLE_PTR phNewObject
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``hObject``
-   [in] object handle.
-``pTemplate``
-   [in] object template.
-``usCount``
-   [in] number of attributes in the template.
-``phnewObject``
-   [out] pointer to location to receive the
-   new object's handle.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``hObject``
+      [in] object handle.
+   ``pTemplate``
+      [in] object template.
+   ``usCount``
+      [in] number of attributes in the template.
+   ``phnewObject``
+      [out] pointer to location to receive the new object's handle.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_CopyObject`` creates a copy of an object using the attributes
-specified in the template.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-copying a secret or private key object.
+   ``FC_CopyObject`` creates a copy of an object using the attributes specified in the template.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before copying a secret or private
+   key object.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_DestroyObject <https://developer.mozilla.org/en-US/FC_DestroyObject>`__,
-   `NSC_CopyObject <https://developer.mozilla.org/en-US/NSC_CopyObject>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_DestroyObject`,
+      `NSC_CopyObject </en-US/NSC_CopyObject>`__

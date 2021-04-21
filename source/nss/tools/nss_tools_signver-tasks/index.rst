@@ -1,20 +1,22 @@
 .. _Mozilla_Projects_NSS_tools_NSS_Tools_signver-tasks:
 
-=======================
 NSS Tools signver-tasks
 =======================
-.. _NSS_Security_Tools_signver_Tasks:
 
-NSS Security Tools: signver Tasks
----------------------------------
+.. _nss_security_tools_signver_tasks:
 
-| Newsgroup:
-  `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
+`NSS Security Tools: signver Tasks <#nss_security_tools_signver_tasks>`__
+-------------------------------------------------------------------------
 
-.. _Task_List:
+.. container::
 
-Task List
-~~~~~~~~~
+   Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 
-#. Remove private hash algortihms and replace with code in lib/hash,
-   lib/crypto, and
+.. _task_list:
+
+`Task List <#task_list>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   #. Remove private hash algortihms and replace with code in lib/hash, lib/crypto, and

@@ -1,76 +1,76 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SetOperationState:
 
-====================
 FC_SetOperationState
 ====================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SetOperationState - restore the cryptographic operation state of a
-session.
+.. container::
 
-.. _Syntax:
+   FC_SetOperationState - restore the cryptographic operation state of a session.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SetOperationState(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pOperationState,
-     CK_ULONG ulOperationStateLen,
-     CK_OBJECT_HANDLE hEncryptionKey,
-     CK_OBJECT_HANDLE hAuthenticationKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SetOperationState(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pOperationState,
+        CK_ULONG ulOperationStateLen,
+        CK_OBJECT_HANDLE hEncryptionKey,
+        CK_OBJECT_HANDLE hAuthenticationKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] handle of the open session.
-``pOperationState``
-   [in] pointer to a byte array containing the
-   operation state.
-``ulOperationStateLen``
-   [in] contains the total length (in bytes)
-   of the operation state.
-``hEncryptionKey``
-   [in] handle of the encryption or decryption
-   key to be used in a stored session or zero if no key is needed.
-``hAuthenticationKey``
-   [in] handle of the authentication key to be
-   used in the stored session or zero if none is needed.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] handle of the open session.
+   ``pOperationState``
+      [in] pointer to a byte array containing the operation state.
+   ``ulOperationStateLen``
+      [in] contains the total length (in bytes) of the operation state.
+   ``hEncryptionKey``
+      [in] handle of the encryption or decryption key to be used in a stored session or zero if no
+      key is needed.
+   ``hAuthenticationKey``
+      [in] handle of the authentication key to be used in the stored session or zero if none is
+      needed.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SetOperationState`` restores the cryptographic operations state of
-a session from an array of bytes obtained with ``FC_GetOperationState``.
-This function only works for digest operations for now. Therefore, a
-user may call ``FC_SetOperationState`` without logging into the token
-(to assume the NSS User role).
+.. container::
 
-.. _Return_value:
+   ``FC_SetOperationState`` restores the cryptographic operations state of a session from an array
+   of bytes obtained with ``FC_GetOperationState``. This function only works for digest operations
+   for now. Therefore, a user may call ``FC_SetOperationState`` without logging into the token (to
+   assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_GetOperationState <https://developer.mozilla.org/en-US/FC_GetOperationState>`__,
-   `NSC_SetOperationState <https://developer.mozilla.org/en-US/NSC_SetOperationState>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_GetOperationState`,
+      `NSC_SetOperationState </en-US/NSC_SetOperationState>`__

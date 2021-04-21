@@ -1,69 +1,71 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetSlotInfo:
 
-==============
 FC_GetSlotInfo
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetSlotInfo - get information about a particular slot in the system.
+.. container::
 
-.. _Syntax:
+   FC_GetSlotInfo - get information about a particular slot in the system.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetSlotInfo(
-     CK_SLOT_ID slotID,
-     CK_SLOT_INFO_PTR pInfo
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetSlotInfo(
+        CK_SLOT_ID slotID,
+        CK_SLOT_INFO_PTR pInfo
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetSlotInfo`` takes two parameters:
+.. container::
 
-``slotID``
-   [in]
-``pInfo``
-   [out] The address of a ``CK_SLOT_INFO``
-   structure.
+   ``FC_GetSlotInfo`` takes two parameters:
 
-.. _Description:
+   ``slotID``
+      [in]
+   ``pInfo``
+      [out] The address of a ``CK_SLOT_INFO`` structure.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetSlotInfo`` stores the information about the slot in the
-``CK_SLOT_INFO`` structure that ``pInfo`` points to.
+.. container::
 
-A user may call ``FC_GetSlotInfo`` without logging into the token (to
-assume the NSS User role).
+   ``FC_GetSlotInfo`` stores the information about the slot in the ``CK_SLOT_INFO`` structure that
+   ``pInfo`` points to.
 
-.. _Return_value:
+   A user may call ``FC_GetSlotInfo`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK``
-   Slot information was successfully copied.
-``CKR_SLOT_ID_INVALID``
-   The specified slot number is out of the defined range of values.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK``
+      Slot information was successfully copied.
+   ``CKR_SLOT_ID_INVALID``
+      The specified slot number is out of the defined range of values.
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GetSlotInfo <https://developer.mozilla.org/en-US/NSC_GetSlotInfo>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetSlotInfo </en-US/NSC_GetSlotInfo>`__

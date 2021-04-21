@@ -1,64 +1,66 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DecryptInit:
 
-==============
 FC_DecryptInit
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DecryptInit - initialize a decryption operation.
+.. container::
 
-.. _Syntax:
+   FC_DecryptInit - initialize a decryption operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DecryptInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DecryptInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] mechanism to be used for the
-   subsequent decryption operation.
-``hKey``
-   [in] handle of the key to be used.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] mechanism to be used for the subsequent decryption operation.
+   ``hKey``
+      [in] handle of the key to be used.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DecryptInit`` initializes a decryption operation.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DecryptInit``.
+   ``FC_DecryptInit`` initializes a decryption operation.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_DecryptInit``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_DecryptInit <https://developer.mozilla.org/en-US/NSC_DecryptInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_DecryptInit </en-US/NSC_DecryptInit>`__

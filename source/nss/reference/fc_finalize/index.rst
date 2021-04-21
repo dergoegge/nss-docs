@@ -1,87 +1,88 @@
 .. _Mozilla_Projects_NSS_Reference_FC_Finalize:
 
-===========
 FC_Finalize
 ===========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_Finalize - indicate that an application is done with the PKCS #11
-library.
+.. container::
 
-.. _Syntax:
+   FC_Finalize - indicate that an application is done with the PKCS #11 library.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_Finalize (CK_VOID_PTR pReserved);
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_Finalize (CK_VOID_PTR pReserved);
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_Finalize`` has one parameter:
+.. container::
 
-``pReserved``
-   must be ``NULL``
+   ``FC_Finalize`` has one parameter:
 
-.. _Description:
+   ``pReserved``
+      must be ``NULL``
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_Finalize`` shuts down the
-:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module` in the
-:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module_FIPS_mode_of_operation`.
-If the library is not initialized, it does nothing.
+.. container::
 
-The ``pReserved`` argument is not used and must be ``NULL``.
+   ``FC_Finalize`` shuts down the :ref:`Mozilla_Projects_NSS_Reference_NSS_cryptographic_module` in
+   the :ref:`Mozilla_Projects_NSS_Reference_NSS_cryptographic_module_FIPS_mode_of_operation`. If the
+   library is not initialized, it does nothing.
 
-.. _Return_value:
+   The ``pReserved`` argument is not used and must be ``NULL``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``FC_Finalize`` always returns ``CKR_OK``.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note::
+.. container::
 
-   ``FC_Finalize`` should check the ``pReserved`` argument and return
-   ``CKR_ARGUMENTS_BAD`` if ``pReserved`` is not ``NULL``.
+   ``FC_Finalize`` always returns ``CKR_OK``.
 
-   ``FC_Finalize`` should return ``CKR_CRYPTOKI_NOT_INITIALIZED`` if the
-   library is not initialized.
+   .. note::
 
-.. _Examples:
+      ``FC_Finalize`` should check the ``pReserved`` argument and return ``CKR_ARGUMENTS_BAD`` if
+      ``pReserved`` is not ``NULL``.
 
-Examples
-~~~~~~~~
+      ``FC_Finalize`` should return ``CKR_CRYPTOKI_NOT_INITIALIZED`` if the library is not
+      initialized.
 
-.. code:: eval
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-   #include <assert.h>
+.. container::
 
-   CK_FUNCTION_LIST_PTR pFunctionList;
-   CK_RV crv;
+   .. code:: eval
 
-   crv = FC_GetFunctionList(&pFunctionList);
-   assert(crv == CKR_OK);
+      #include <assert.h>
 
-   ...
+      CK_FUNCTION_LIST_PTR pFunctionList;
+      CK_RV crv;
 
-   /* invoke FC_Finalize as pFunctionList->C_Finalize */
-   crv = pFunctionList->C_Finalize(NULL);
+      crv = FC_GetFunctionList(&pFunctionList);
+      assert(crv == CKR_OK);
 
-.. _See_also:
+      ...
 
-See also
-~~~~~~~~
+      /* invoke FC_Finalize as pFunctionList->C_Finalize */
+      crv = pFunctionList->C_Finalize(NULL);
 
--  `FC_Initialize <https://developer.mozilla.org/en-US/FC_Initialize>`__,
-   `NSC_Initialize <https://developer.mozilla.org/en-US/NSC_Initialize>`__,
-   `NSC_Finalize <https://developer.mozilla.org/en-US/NSC_Finalize>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_Initialize`,
+      `NSC_Initialize </en-US/NSC_Initialize>`__, `NSC_Finalize </en-US/NSC_Finalize>`__

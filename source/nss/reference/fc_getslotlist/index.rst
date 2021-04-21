@@ -1,68 +1,69 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetSlotList:
 
-==============
 FC_GetSlotList
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetSlotList - Obtain a list of slots in the system.
+.. container::
 
-.. _Syntax:
+   FC_GetSlotList - Obtain a list of slots in the system.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetSlotList(
-     CK_BBOOL tokenPresent,
-     CK_SLOT_ID_PTR pSlotList,
-     CK_ULONG_PTR pulCount
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetSlotList(
+        CK_BBOOL tokenPresent,
+        CK_SLOT_ID_PTR pSlotList,
+        CK_ULONG_PTR pulCount
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``tokenPresent``
-   [in] If true only slots with a token
-   present are included in the list, otherwise all slots are included.
-``pSlotList``
-   [out] Either null or a pointer to an
-   existing array of ``CK_SLOT_ID`` objects.
-``pulCount``
-   [out] Pointer to a ``CK_ULONG`` variable
-   which receives the slot count.;
+.. container::
 
-.. _Description:
+   ``tokenPresent``
+      [in] If true only slots with a token present are included in the list, otherwise all slots are
+      included.
+   ``pSlotList``
+      [out] Either null or a pointer to an existing array of ``CK_SLOT_ID`` objects.
+   ``pulCount``
+      [out] Pointer to a ``CK_ULONG`` variable which receives the slot count.;
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetSlotList`` obtains a list of slots in the system.
+.. container::
 
-A user may call ``FC_GetSlotList`` without logging into the token (to
-assume the NSS User role).
+   ``FC_GetSlotList`` obtains a list of slots in the system.
 
-.. _Return_value:
+   A user may call ``FC_GetSlotList`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK``
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK``
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GetSlotList <https://developer.mozilla.org/en-US/NSC_GetSlotList>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetSlotList </en-US/NSC_GetSlotList>`__

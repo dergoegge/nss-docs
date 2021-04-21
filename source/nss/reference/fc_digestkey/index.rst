@@ -1,65 +1,66 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DigestKey:
 
-============
 FC_DigestKey
 ============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DigestKey - add the digest of a key to a multi-part digest operation.
+.. container::
 
-.. _Syntax:
+   FC_DigestKey - add the digest of a key to a multi-part digest operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DigestKey(
-     CK_SESSION_HANDLE hSession,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DigestKey(
+        CK_SESSION_HANDLE hSession,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``hKey``
-   [in] handle of the key to be digested.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``hKey``
+      [in] handle of the key to be digested.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DigestKey`` continues a multi-part digest operation by digesting
-the value of a secret key. The digest for the entire message is returned
-by a call to
-`FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DigestKey``.
+   ``FC_DigestKey`` continues a multi-part digest operation by digesting the value of a secret key.
+   The digest for the entire message is returned by a call to
+   :ref:`Mozilla_Projects_NSS_Reference_FC_DigestFinal`.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_DigestKey``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_DigestInit <https://developer.mozilla.org/en-US/FC_DigestInit>`__,
-   `FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__,
-   `NSC_DigestKey <https://developer.mozilla.org/en-US/NSC_DigestKey>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_DigestInit`,
+      :ref:`Mozilla_Projects_NSS_Reference_FC_DigestFinal`, `NSC_DigestKey </en-US/NSC_DigestKey>`__

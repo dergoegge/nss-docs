@@ -1,74 +1,75 @@
 .. _Mozilla_Projects_NSS_Reference_FC_Verify:
 
-=========
 FC_Verify
 =========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_Verify - sign a block of data.
+.. container::
 
-.. _Syntax:
+   FC_Verify - sign a block of data.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_Verify(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pData,
-     CK_ULONG usDataLen,
-     CK_BYTE_PTR pSignature,
-     CK_ULONG usSignatureLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_Verify(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pData,
+        CK_ULONG usDataLen,
+        CK_BYTE_PTR pSignature,
+        CK_ULONG usSignatureLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pData``
-   [in] pointer to data block.
-``usDataLen``
-   [in] length of the data in bytes.
-``pSignature``
-   [in] pointer to the signature.
-``usSignatureLen``
-   [in] length of the signature in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pData``
+      [in] pointer to data block.
+   ``usDataLen``
+      [in] length of the data in bytes.
+   ``pSignature``
+      [in] pointer to the signature.
+   ``usSignatureLen``
+      [in] length of the signature in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_Verify`` verifies a signature in a single-part operation, where the
-signature is an appendix to the data.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_Verify``.
+   ``FC_Verify`` verifies a signature in a single-part operation, where the signature is an appendix
+   to the data.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_Verify``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK`` is returned on success. ``CKR_SIGNATURE_INVALID`` is returned
-for signature mismatch.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK`` is returned on success. ``CKR_SIGNATURE_INVALID`` is returned for signature mismatch.
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_VerifyInit <https://developer.mozilla.org/en-US/FC_VerifyInit>`__,
-   `NSC_Verify <https://developer.mozilla.org/en-US/NSC_Verify>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_VerifyInit`, `NSC_Verify </en-US/NSC_Verify>`__

@@ -1,39 +1,45 @@
 .. _Mozilla_Projects_NSS_NSS_Third-Party_Code:
 
-====================
 NSS Third-Party Code
 ====================
-This is a list of third-party code included in the NSS repository,
-broken into two lists: Code that can be compiled into the NSS libraries,
-and code that is only used for testing.
 
-Note that not all code that can be compiled into the NSS libraries
-necessarily *is*. Often this is configurable at build time, with various
-trade-offs.
+.. container::
 
-.. _Compiled_In:
+   This is a list of third-party code included in the NSS repository, broken into two lists: Code
+   that can be compiled into the NSS libraries, and code that is only used for testing.
 
-Compiled In
------------
+   Note that not all code that can be compiled into the NSS libraries necessarily *is*. Often this
+   is configurable at build time, with various trade-offs.
 
--  sqlite [/lib/sqlite]
--  BerkleyDB [/lib/dbm]
--  zlib [/lib/zlib]
--  libjar [/lib/jar]
--  Fiat-Crypto, Ring [lib/freebl/ecl]
+.. _compiled_in:
 
-.. _Used_for_Tests:
+`Compiled In <#compiled_in>`__
+------------------------------
 
-Used for Tests
---------------
+.. container::
 
--  GTest [/gtests]
+   -  sqlite [/lib/sqlite]
+   -  BerkleyDB [/lib/dbm]
+   -  zlib [/lib/zlib]
+   -  libjar [/lib/jar]
+   -  Fiat-Crypto, Ring [lib/freebl/ecl]
 
-.. _Downloaded_by_certain_test_tooling:
+.. _used_for_tests:
 
-Downloaded by certain test tooling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`Used for Tests <#used_for_tests>`__
+------------------------------------
 
--  TLSFuzzer [/tests/tlsfuzzer]
--  BoGo tests [/tests/bogo]
--  BoringSSL, OpenSSL [/tests/interop]
+.. container::
+
+   -  GTest [/gtests]
+
+.. _downloaded_by_certain_test_tooling:
+
+`Downloaded by certain test tooling <#downloaded_by_certain_test_tooling>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  TLSFuzzer [/tests/tlsfuzzer]
+   -  BoGo tests [/tests/bogo]
+   -  BoringSSL, OpenSSL [/tests/interop]

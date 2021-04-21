@@ -1,407 +1,343 @@
 .. _Mozilla_Projects_NSS_SSL_functions_ssltyp:
 
-======
 ssltyp
 ======
-.. note::
 
-   -  This page is part of the
-      :ref:`Mozilla_Projects_SSL_functions_OLD_SSL_Reference` that we
-      are migrating into the format described in the `MDN Style
-      Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__.
-      If you are inclined to help with this migration, your help would
-      be very much appreciated.
+.. container::
 
-   -  Upgraded documentation may be found in the
-      :ref:`Mozilla_Projects_NSS_reference`
+   .. note::
 
-.. _Selected_SSL_Types_and_Structures:
+      -  This page is part of the :ref:`Mozilla_Projects_NSS_SSL_functions_OLD_SSL_Reference` that
+         we are migrating into the format described in the `MDN Style
+         Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__. If you are
+         inclined to help with this migration, your help would be very much appreciated.
 
-Selected SSL Types and Structures
-=================================
+      -  Upgraded documentation may be found in the `Current NSS Reference </NSS_reference>`__
 
+   .. rubric:: Selected SSL Types and Structures
+      :name: Selected_SSL_Types_and_Structures
 
-.. _Chapter_3_Selected_SSL_Types_and_Structures:
+   --------------
 
-Chapter 3
-Selected SSL Types and Structures
----------------------------------
+.. _chapter_3_selected_ssl_types_and_structures:
 
-This chapter describes some of the most important types and structures
-used with the functions described in the rest of this document, and how
-to manage the memory used for them. Additional types are described with
-the functions that use them or in the header files.
+`Chapter 3
+ <#chapter_3_selected_ssl_types_and_structures>`__ Selected SSL Types and Structures
+------------------------------------------------------------------------------------
 
-|  `Types and Structures <#1030559>`__
-| `Managing SECItem Memory <#1029645>`__
+.. container::
 
-.. _Types_and_Structures:
+   This chapter describes some of the most important types and structures used with the functions
+   described in the rest of this document, and how to manage the memory used for them. Additional
+   types are described with the functions that use them or in the header files.
 
-Types and Structures
---------------------
+   |  `Types and Structures <#1030559>`__
+   | `Managing SECItem Memory <#1029645>`__
 
-These types and structures are described here:
+.. _types_and_structures:
 
-|  ```CERTCertDBHandle`` <#1028465>`__
-| ```CERTCertificate`` <#1027387>`__
-| ```PK11SlotInfo`` <#1028593>`__
-| ```SECItem`` <#1026076>`__
-| ```SECKEYPrivateKey`` <#1026727>`__
-| ```SECStatus`` <#1026722>`__
+`Types and Structures <#types_and_structures>`__
+------------------------------------------------
 
-Additional types used by a single function only are described with the
-function's entry in each chapter. Some of these functions also use types
-defined by NSPR and described in the `NSPR
-Reference <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference>`__.
+.. container::
 
-<a id="> Many of the structures presented here
-(```CERTCertDBHandle`` <#1028465>`__,
-```CERTCertificate`` <#1027387>`__, ```PK11SlotInfo`` <#1028593>`__, and
-```SECKEYPrivateKey`` <#1026727>`__) are opaque--that is, they are types
-defined as structures (for example, ``CERTCertDBHandleStr``) that may
-change in future releases of Network Security Services. As long as you
-use the form shown here, your code will not need revision.
+   These types and structures are described here:
 
-.. _CERTCertDBHandle:
+   |  ```CERTCertDBHandle`` <#1028465>`__
+   | ```CERTCertificate`` <#1027387>`__
+   | ```PK11SlotInfo`` <#1028593>`__
+   | ```SECItem`` <#1026076>`__
+   | ```SECKEYPrivateKey`` <#1026727>`__
+   | ```SECStatus`` <#1026722>`__
 
-CERTCertDBHandle
-^^^^^^^^^^^^^^^^
+   Additional types used by a single function only are described with the function's entry in each
+   chapter. Some of these functions also use types defined by NSPR and described in the `NSPR
+   Reference <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference>`__.
 
-An opaque handle structure for open certificate databases.
+   <a id="> Many of the structures presented here (```CERTCertDBHandle`` <#1028465>`__,
+   ```CERTCertificate`` <#1027387>`__, ```PK11SlotInfo`` <#1028593>`__, and
+   ```SECKEYPrivateKey`` <#1026727>`__) are opaque--that is, they are types defined as structures
+   (for example, ``CERTCertDBHandleStr``) that may change in future releases of Network Security
+   Services. As long as you use the form shown here, your code will not need revision.
 
-.. _Syntax:
+   .. rubric:: CERTCertDBHandle
+      :name: certcertdbhandle
 
-Syntax
-''''''
+   An opaque handle structure for open certificate databases.
 
-::
+   .. rubric:: Syntax
+      :name: syntax
 
-   #include <certt.h>
+   .. code:: notranslate
 
-::
+      #include <certt.h>
 
-   typedef struct CERTCertDBHandleStr CERTCertDBHandle;
+   .. code:: notranslate
 
-.. _CERTCertificate:
+      typedef struct CERTCertDBHandleStr CERTCertDBHandle;
 
-CERTCertificate
-^^^^^^^^^^^^^^^
+   .. rubric:: CERTCertificate
+      :name: certcertificate
 
-An opaque X.509 certificate object.
+   An opaque X.509 certificate object.
 
-.. _Syntax_2:
+   .. rubric:: Syntax
+      :name: syntax_2
 
-Syntax
-''''''
+   .. code:: notranslate
 
-::
+      #include <certt.h>
 
-   #include <certt.h>
+   .. code:: notranslate
 
-::
+      typedef struct CERTCertificateStr CERTCertificate;
 
-   typedef struct CERTCertificateStr CERTCertificate;
+   .. rubric:: Description
+      :name: description
 
-.. _Description:
+   Certificate structures are shared objects. When an application makes a copy of a particular
+   certificate structure that already exists in memory, SSL makes a *shallow* copy--that is, it
+   increments the reference count for that object rather than making a whole new copy. When you call
+   ```CERT_DestroyCertificate`` <sslcrt.html#1050532>`__, the function decrements the reference
+   count and, if the reference count reaches zero as a result, frees the memory. The use of the word
+   "destroy" in function names or in the description of a function often implies reference counting.
 
-Description
-'''''''''''
+   Never alter the contents of a certificate structure. If you attempt to do so, the change affects
+   all the shallow copies of that structure and can cause severe problems.
 
-Certificate structures are shared objects. When an application makes a
-copy of a particular certificate structure that already exists in
-memory, SSL makes a *shallow* copy--that is, it increments the reference
-count for that object rather than making a whole new copy. When you call
-```CERT_DestroyCertificate`` <sslcrt.html#1050532>`__, the function
-decrements the reference count and, if the reference count reaches zero
-as a result, frees the memory. The use of the word "destroy" in function
-names or in the description of a function often implies reference
-counting.
+   .. rubric:: PK11SlotInfo
+      :name: pk11slotinfo
 
-Never alter the contents of a certificate structure. If you attempt to
-do so, the change affects all the shallow copies of that structure and
-can cause severe problems.
+   An opaque structure representing a physical or logical PKCS #11 slot.
 
-.. _PK11SlotInfo:
+   .. rubric:: Syntax
+      :name: syntax_3
 
-PK11SlotInfo
-^^^^^^^^^^^^
+   .. code:: notranslate
 
-An opaque structure representing a physical or logical PKCS #11 slot.
+      #include <pk11expt.h>
 
-.. _Syntax_3:
+   ``typedef struct PK11SlotInfo``\ Str ``PK11SlotInfo``;
 
-Syntax
-''''''
+   .. rubric:: SECItem
+      :name: secitem
 
-::
+   A structure that points to other structures.
 
-   #include <pk11expt.h>
+   .. rubric:: Syntax
+      :name: syntax_4
 
-``typedef struct PK11SlotInfo``\ Str ``PK11SlotInfo``;
+   .. code:: notranslate
 
-.. _SECItem:
+      #include <seccomon.h>
+      #include <prtypes.h>
+      #include <secport.h>
 
-SECItem
-^^^^^^^
+   .. code:: notranslate
 
-A structure that points to other structures.
+      typedef enum {
+          siBuffer,
+          siClearDataBuffer,
+          siCipherDataBuffer,
+          siDERCertBuffer,
+          siEncodedCertBuffer,
+          siDERNameBuffer,
+          siEncodedNameBuffer,
+          siAsciiNameString,
+          siAsciiString,
+          siDEROID
+      } SECItemType;
 
-.. _Syntax_4:
+   .. code:: notranslate
 
-Syntax
-''''''
+      typedef struct SECItemStr SECItem;
 
-::
+   .. code:: notranslate
 
-   #include <seccomon.h>
-   #include <prtypes.h>
-   #include <secport.h>
+      struct SECItemStr {
+          SECItemType type;
+          unsigned char *data;
+          unsigned int len;
+      };
 
-::
+   .. rubric:: Description
+      :name: description_2
 
-   typedef enum {
-       siBuffer,
-       siClearDataBuffer,
-       siCipherDataBuffer,
-       siDERCertBuffer,
-       siEncodedCertBuffer,
-       siDERNameBuffer,
-       siEncodedNameBuffer,
-       siAsciiNameString,
-       siAsciiString,
-       siDEROID
-   } SECItemType;
+   A ``SECItem`` structure can be used to associate your own data with an SSL socket.
 
-::
+   To free a structure pointed to by a ``SECItem``, and, if desired, the ``SECItem`` structure
+   itself, use one the functions ```SECItem_FreeItem`` <#1030620>`__ or
+   ```SECItem_ZfreeItem`` <#1030773>`__.
 
-   typedef struct SECItemStr SECItem;
+   .. rubric:: SECKEYPrivateKey
+      :name: seckeyprivatekey
 
-::
+   An opaque, generic key structure.
 
-   struct SECItemStr {
-       SECItemType type;
-       unsigned char *data;
-       unsigned int len;
-   };
+   .. rubric:: Syntax
+      :name: syntax_5
 
-.. _Description_2:
+   .. code:: notranslate
 
-Description
-'''''''''''
+      #include <keyt.h>
 
-A ``SECItem`` structure can be used to associate your own data with an
-SSL socket.
+   .. code:: notranslate
 
-To free a structure pointed to by a ``SECItem``, and, if desired, the
-``SECItem`` structure itself, use one the functions
-```SECItem_FreeItem`` <#1030620>`__ or
-```SECItem_ZfreeItem`` <#1030773>`__.
+      typedef struct SECKEYPrivateKeyStr SECKEYPrivateKey;
 
-.. _SECKEYPrivateKey:
+   .. rubric:: Description
+      :name: description_3
 
-SECKEYPrivateKey
-^^^^^^^^^^^^^^^^
+   Key structures are not shared objects. When an application makes a copy of a particular key
+   structure that already exists in memory, SSL makes a *deep* copy--that is, it makes a whole new
+   copy of that object. When you call ```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__, the
+   function both frees the memory and sets all the bits to zero.
 
-An opaque, generic key structure.
+   Never alter the contents of a key structure. Treat the structure as read only.
 
-.. _Syntax_5:
+   .. rubric:: SECStatus
+      :name: secstatus
 
-Syntax
-''''''
+   The return value for many SSL functions.
 
-::
+   .. rubric:: Syntax
+      :name: syntax_6
 
-   #include <keyt.h>
+   .. code:: notranslate
 
-::
+      #include <seccomon.h>
 
-   typedef struct SECKEYPrivateKeyStr SECKEYPrivateKey;
+   .. code:: notranslate
 
-.. _Description_3:
+      typedef enum {
+          SECWouldBlock = -2,
+          SECFailure = -1,
+          SECSuccess = 0
+      } SECStatus;
 
-Description
-'''''''''''
+   .. rubric:: Enumerators
+      :name: enumerators
 
-Key structures are not shared objects. When an application makes a copy
-of a particular key structure that already exists in memory, SSL makes a
-*deep* copy--that is, it makes a whole new copy of that object. When you
-call ```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__, the
-function both frees the memory and sets all the bits to zero.
+   The enum includes the following enumerators:
 
-Never alter the contents of a key structure. Treat the structure as read
-only.
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | Reserved for internal use.                      |
+   |                                                 |                                                 |
+   |    SECWouldBlock                                |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The operation failed. To find out why, call     |
+   |                                                 | ``PR_GetError``.                                |
+   |    SECFailure                                   |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The operation succeeded. In this case the value |
+   |                                                 | returned by ``PR_GetError`` is meaningless.     |
+   |    SECSuccess                                   |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-.. _SECStatus:
+.. _managing_secitem_memory:
 
-SECStatus
-^^^^^^^^^
+`Managing SECItem Memory <#managing_secitem_memory>`__
+------------------------------------------------------
 
-The return value for many SSL functions.
+.. container::
 
-.. _Syntax_6:
+   These functions are available for managing the memory associated with ``SECItem`` structures and
+   the structures to which they point.
 
-Syntax
-''''''
+   |  ```SECItem_FreeItem`` <#1030620>`__
+   | ```SECItem_ZfreeItem`` <#1030773>`__
 
-::
+   .. rubric:: SECItem_FreeItem
+      :name: secitem_freeitem
 
-   #include <seccomon.h>
+   Frees the memory associated with a ``SECItem`` structure.
 
-::
+   .. rubric:: Syntax
+      :name: syntax_7
 
-   typedef enum {
-       SECWouldBlock = -2,
-       SECFailure = -1,
-       SECSuccess = 0
-   } SECStatus;
+   .. code:: notranslate
 
-.. _Enumerators:
+      #include <prtypes.h> 
 
-Enumerators
-'''''''''''
+   .. code:: notranslate
 
-The enum includes the following enumerators:
+      SECStatus SECItem_FreeItem (
+         SECItem *item,
+         PRBool freeItem)
 
-+-----------------------------------+-----------------------------------+
-| ::                                | Reserved for internal use.        |
-|                                   |                                   |
-|    SECWouldBlock                  |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | The operation failed. To find out |
-|                                   | why, call ``PR_GetError``.        |
-|    SECFailure                     |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | The operation succeeded. In this  |
-|                                   | case the value returned by        |
-|    SECSuccess                     | ``PR_GetError`` is meaningless.   |
-+-----------------------------------+-----------------------------------+
+   .. rubric:: Parameter
+      :name: parameter
 
-.. _Managing_SECItem_Memory:
+   This function has the following parameter:
 
-Managing SECItem Memory
------------------------
+   +----------+--------------------------------------------------------------------------------------+
+   | ``item`` | A pointer to a ``SECItem`` structure.                                                |
+   +----------+--------------------------------------------------------------------------------------+
+   | freeItem | When ``PR_FALSE``, free only the structure pointed to. Otherwise, free both the      |
+   |          | structure pointed to and the ``SECItem`` structure itself.                           |
+   +----------+--------------------------------------------------------------------------------------+
 
-These functions are available for managing the memory associated with
-``SECItem`` structures and the structures to which they point.
+   .. rubric:: Returns
+      :name: returns
 
-|  ```SECItem_FreeItem`` <#1030620>`__
-| ```SECItem_ZfreeItem`` <#1030773>`__
+   The function returns one of these value\ ``s``:
 
-.. _SECItem_FreeItem:
+   -  If successful, ``SECSuccess``.
+   -  If unsuccessful, ``SECFailure``. Use
+      `PR_GetError <../../../../../nspr/reference/html/prerr.html#26127>`__ to retrieve the error
+      code.
 
-SECItem_FreeItem
-^^^^^^^^^^^^^^^^
+   .. rubric:: Description
+      :name: description_4
 
-Frees the memory associated with a ``SECItem`` structure.
+   This function frees the memory associated with the structure to which the specified item points,
+   when that structure is no longer used. When ``freeItem`` is not ``PR_FALSE``, also frees the item
+   structure itself.
 
-.. _Syntax_7:
+   .. rubric:: SECItem_ZfreeItem
+      :name: secitem_zfreeitem
 
-Syntax
-''''''
+   Zeroes and frees the memory associated with a ``SECItem`` structure.
 
-::
+   .. rubric:: Syntax
+      :name: syntax_8
 
-   #include <prtypes.h> 
+   .. code:: notranslate
 
-::
+      #include <prtypes.h> 
 
-   SECStatus SECItem_FreeItem (
-      SECItem *item,
-      PRBool freeItem)
+   .. code:: notranslate
 
-.. _Parameter:
+      SECStatus SECItem_ZfreeItem (
+         SECItem *item,
+         PRBool freeItem)
 
-Parameter
-'''''''''
+   .. rubric:: Parameter
+      :name: parameter_2
 
-This function has the following parameter:
+   This function has the following parameter:
 
-+----------+----------------------------------------------------------+
-| ``item`` | A pointer to a ``SECItem``\ structure.                   |
-+----------+----------------------------------------------------------+
-| freeItem | When ``PR_FALSE``, free only the structure pointed to.   |
-|          | Otherwise, free both the structure pointed to and the    |
-|          | ``SECItem`` structure itself.                            |
-+----------+----------------------------------------------------------+
+   +----------+--------------------------------------------------------------------------------------+
+   | ``item`` | A pointer to a ``SECItem`` structure.                                                |
+   +----------+--------------------------------------------------------------------------------------+
+   | freeItem | When ``PR_FALSE``, free only the structure pointed to. Otherwise, free both the      |
+   |          | structure pointed to and the ``SECItem`` structure itself.                           |
+   +----------+--------------------------------------------------------------------------------------+
 
-.. _Returns:
+   .. rubric:: Returns
+      :name: returns_2
 
-Returns
-'''''''
+   The function returns one of these value\ ``s``:
 
-The function returns one of these value\ ``s``:
+   -  If successful, ``SECSuccess``.
+   -  If unsuccessful, ``SECFailure``. Use
+      `PR_GetError <../../../../../nspr/reference/html/prerr.html#26127>`__ to retrieve the error
+      code.
 
--  If successful, ``SECSuccess``.
--  If unsuccessful, ``SECFailure``. Use
-   `PR_GetError <../../../../../nspr/reference/html/prerr.html#26127>`__
-   to retrieve the error code.
+   .. rubric:: Description
+      :name: description_5
 
-.. _Description_4:
-
-Description
-'''''''''''
-
-This function frees the memory associated with the structure to which
-the specified item points, when that structure is no longer used. When
-``freeItem`` is not ``PR_FALSE``, also frees the item structure itself.
-
-.. _SECItem_ZfreeItem:
-
-SECItem_ZfreeItem
-^^^^^^^^^^^^^^^^^
-
-Zeroes and frees the memory associated with a ``SECItem`` structure.
-
-.. _Syntax_8:
-
-Syntax
-''''''
-
-::
-
-   #include <prtypes.h> 
-
-::
-
-   SECStatus SECItem_ZfreeItem (
-      SECItem *item,
-      PRBool freeItem)
-
-.. _Parameter_2:
-
-Parameter
-'''''''''
-
-This function has the following parameter:
-
-+----------+----------------------------------------------------------+
-| ``item`` | A pointer to a ``SECItem``\ structure.                   |
-+----------+----------------------------------------------------------+
-| freeItem | When ``PR_FALSE``, free only the structure pointed to.   |
-|          | Otherwise, free both the structure pointed to and the    |
-|          | ``SECItem`` structure itself.                            |
-+----------+----------------------------------------------------------+
-
-.. _Returns_2:
-
-Returns
-'''''''
-
-The function returns one of these value\ ``s``:
-
--  If successful, ``SECSuccess``.
--  If unsuccessful, ``SECFailure``. Use
-   `PR_GetError <../../../../../nspr/reference/html/prerr.html#26127>`__
-   to retrieve the error code.
-
-.. _Description_5:
-
-Description
-'''''''''''
-
-This function is similar to ```SECItem_FreeItem`` <#1030620>`__, except
-that it overwrites the structures to be freed with zeroes before it
-frees them. Zeros and frees the memory associated with the structure to
-which the specified item points, when that structure is no longer used.
-When ``freeItem`` is not ``PR_FALSE``, also zeroes and frees the item
-structure itself.
+   This function is similar to ```SECItem_FreeItem`` <#1030620>`__, except that it overwrites the
+   structures to be freed with zeroes before it frees them. Zeros and frees the memory associated
+   with the structure to which the specified item points, when that structure is no longer used.
+   When ``freeItem`` is not ``PR_FALSE``, also zeroes and frees the item structure itself.

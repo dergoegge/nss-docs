@@ -1,70 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_VerifyUpdate:
 
-===============
 FC_VerifyUpdate
 ===============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_VerifyUpdate - process the next block of a multi-part verify
-operation.
+.. container::
 
-.. _Syntax:
+   FC_VerifyUpdate - process the next block of a multi-part verify operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_VerifyUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pPart,
-     CK_ULONG usPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_VerifyUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pPart,
+        CK_ULONG usPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pPart``
-   [in] pointer to the next block of the data
-   to be verified.
-``usPartLen``
-   [in] length of data block in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pPart``
+      [in] pointer to the next block of the data to be verified.
+   ``usPartLen``
+      [in] length of data block in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_VerifyUpdate`` starts or continues a multi-part signature
-verification operation where the signature is an appendix to the data.
-One or more blocks may be part of the signature. The result for the
-entire message is returned by a call to
-`FC_VerifyFinal <https://developer.mozilla.org/en-US/FC_VerifyFinal>`__.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_VerifyUpdate``.
+   ``FC_VerifyUpdate`` starts or continues a multi-part signature verification operation where the
+   signature is an appendix to the data. One or more blocks may be part of the signature. The result
+   for the entire message is returned by a call to
+   :ref:`Mozilla_Projects_NSS_Reference_FC_VerifyFinal`.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyUpdate``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_VerifyFinal <https://developer.mozilla.org/en-US/FC_VerifyFinal>`__,
-   `NSC_VerifyUpdate <https://developer.mozilla.org/en-US/NSC_VerifyUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_VerifyFinal`,
+      `NSC_VerifyUpdate </en-US/NSC_VerifyUpdate>`__

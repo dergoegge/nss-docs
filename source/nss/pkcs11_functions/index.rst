@@ -1,704 +1,554 @@
 .. _Mozilla_Projects_NSS_PKCS11_Functions:
 
-====================
 NSS PKCS11 Functions
 ====================
-.. _PKCS_.2311_Functions:
 
-PKCS #11 Functions
-~~~~~~~~~~~~~~~~~~
+.. _pkcs_.2311_functions:
 
-This chapter describes the core PKCS #11 functions that an application
-needs for communicating with cryptographic modules. In particular, these
-functions are used for obtaining certificates, keys, and passwords. This
-was converted from `"Chapter 7: PKCS #11
-Functions" <https://www.mozilla.org/projects/security/pki/nss/ref/ssl/pkfnc.html>`__.
+`PKCS #11 Functions <#pkcs_.2311_functions>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :ref:`Mozilla_Projects_NSS_reference`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#SECMOD_LoadUserModule`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#SECMOD_UnloadUserModule`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#SECMOD_OpenUserDB`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#SECMOD_CloseUserDB`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_FindCertFromNickname`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_FindKeyByAnyCert`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_GetSlotName`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_GetTokenName`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_IsHW`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_IsPresent`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_IsReadOnly`
--  :ref:`Mozilla_Projects_NSS_PKCS11_Functions#PK11_SetPasswordFunc`
+.. container::
 
-.. _SECMOD_LoadUserModule:
+   This chapter describes the core PKCS #11 functions that an application needs for communicating
+   with cryptographic modules. In particular, these functions are used for obtaining certificates,
+   keys, and passwords. This was converted from `"Chapter 7: PKCS #11
+   Functions" <https://www.mozilla.org/projects/security/pki/nss/ref/ssl/pkfnc.html>`__.
 
-SECMOD_LoadUserModule
-'''''''''''''''''''''
+   -  :ref:`Mozilla_Projects_NSS_Reference`
+   -  `SECMOD_LoadUserModule <#secmod_loadusermodule>`__
+   -  `SECMOD_UnloadUserModule <#secmod_unloadusermodule>`__
+   -  `SECMOD_OpenUserDB <#secmod_openuserdb>`__
+   -  `SECMOD_CloseUserDB <#secmod_closeuserdb>`__
+   -  `PK11_FindCertFromNickname <#pk11_findcertfromnickname>`__
+   -  `PK11_FindKeyByAnyCert <#pk11_findkeybyanycert>`__
+   -  `PK11_GetSlotName <#pk11_getslotname>`__
+   -  `PK11_GetTokenName <#pk11_gettokenname>`__
+   -  `PK11_IsHW <#pk11_ishw>`__
+   -  `PK11_IsPresent <#pk11_ispresent>`__
+   -  `PK11_IsReadOnly <#pk11_isreadonly>`__
+   -  `PK11_SetPasswordFunc <#pk11_setpasswordfunc>`__
 
-Load a new PKCS #11 module based on a moduleSpec.
+   .. rubric:: SECMOD_LoadUserModule
+      :name: secmod_loadusermodule
 
-.. _Syntax:
+   Load a new PKCS #11 module based on a moduleSpec.
 
-Syntax
-      
+   .. rubric:: Syntax
+      :name: syntax
 
-::
+   .. code:: notranslate
 
-    #include "secmod.h"
+       #include "secmod.h"
 
-    extern SECMODModule *SECMOD_LoadUserModule(char *moduleSpec, SECMODModule *parent, PRBool recurse);
+       extern SECMODModule *SECMOD_LoadUserModule(char *moduleSpec, SECMODModule *parent, PRBool recurse);
 
-.. _Parameters:
+   .. rubric:: Parameters
+      :name: parameters
 
-Parameters
-          
+   This function has the following parameters:
 
-This function has the following parameters:
+   *moduleSpec* is a pkcs #11 moduleSpec. *parent* is the moduleDB that presented this module spec.
+   For applications this value should be NULL. *recurse* is a boolean indicates whether or not the
+   module should also launch additional pkcs #11 modules. This is only applicable if the loaded
+   module is actually a moduleDB rather than a PKCS #11 module (see
+   :ref:`Mozilla_Projects_NSS_PKCS11_Module_Specs`).
 
-*moduleSpec* is a pkcs #11 moduleSpec. *parent* is the moduleDB that
-presented this module spec. For applications this value should be NULL.
-*recurse* is a boolean indicates whether or not the module should also
-launch additional pkcs #11 modules. This is only applicable if the
-loaded module is actually a moduleDB rather than a PKCS #11 module (see
-`PKCS11_Module_Specs <https://developer.mozilla.org/en-US/PKCS11_Module_Specs>`__).
+   .. rubric:: Returns
+      :name: returns
 
-.. _Returns:
+   The function returns one of these values:
 
-Returns
-       
+   -  If successful, a pointer to a SECMODModule. Caller owns the reference
+   -  If unsuccessful, NULL.
 
-The function returns one of these values:
+   .. rubric:: Description
+      :name: description
 
--  If successful, a pointer to a SECMODModule. Caller owns the reference
--  If unsuccessful, NULL.
+   SECMOD_LoadUserModule loads a new PKCS #11 module into NSS and connects it to the current NSS
+   trust infrastructure. Once the module has been successfully loaded, other NSS calls will use it
+   in the normal course of searching.
 
-.. _Description:
+   *modulespec* specifies how the module should be loaded. More information about module spec is
+   available at :ref:`Mozilla_Projects_NSS_PKCS11_Module_Specs`. NSS parameters may be specified in
+   module specs used by SECMOD_LoadUserModule.
 
-Description
-           
+   Module will continue to function in the NSS infrastructure until unloaded with
+   SECMOD_UnloadUserModule.
 
-SECMOD_LoadUserModule loads a new PKCS #11 module into NSS and connects
-it to the current NSS trust infrastructure. Once the module has been
-successfully loaded, other NSS calls will use it in the normal course of
-searching.
+   .. rubric:: SECMOD_UnloadUserModule
+      :name: secmod_unloadusermodule
 
-*modulespec* specifies how the module should be loaded. More information
-about module spec is available at
-`PKCS11_Module_Specs <https://developer.mozilla.org/en-US/PKCS11_Module_Specs>`__.
-NSS parameters may be specified in module specs used by
-SECMOD_LoadUserModule.
+   Unload a PKCS #11 module.
 
-Module will continue to function in the NSS infrastructure until
-unloaded with SECMOD_UnloadUserModule.
+   .. rubric:: Syntax
+      :name: syntax_2
 
-.. _SECMOD_UnloadUserModule:
+   .. code:: notranslate
 
-SECMOD_UnloadUserModule
-'''''''''''''''''''''''
+       #include "secmod.h"
 
-Unload a PKCS #11 module.
+       extern SECStatus SECMOD_UnloadUserModule(SECMODModule *module);
 
-.. _Syntax_2:
+   .. rubric:: Parameters
+      :name: parameters_2
 
-Syntax
-      
+   This function has the following parameters:
 
-::
+   *module* is the module to be unloaded.
 
-    #include "secmod.h"
+   .. rubric:: Returns
+      :name: returns_2
 
-    extern SECStatus SECMOD_UnloadUserModule(SECMODModule *module);
+   The function returns one of these values:
 
-.. _Parameters_2:
+   -  If successful, SECSuccess.
+   -  If unsuccessful, SECFailure.
 
-Parameters
-          
+   .. rubric:: Description
+      :name: description_2
 
-This function has the following parameters:
+   SECMOD_UnloadUserModule detaches a module from the nss trust domain and unloads it. The module
+   should have previously been loaded by SECMOD_LoadUserModule.
 
-*module* is the module to be unloaded.
+   .. rubric:: SECMOD_CloseUserDB
+      :name: secmod_closeuserdb
 
-.. _Returns_2:
+   Close an already opened user database. NOTE: the database must be in the internal token, and must
+   be one created with SECMOD_OpenUserDB(). Once the database is closed, the slot will remain as an
+   empty slot until it's used again with SECMOD_OpenUserDB().
 
-Returns
-       
+   .. rubric:: Syntax
+      :name: syntax_3
 
-The function returns one of these values:
+   .. code:: notranslate
 
--  If successful, SECSuccess.
--  If unsuccessful, SECFailure.
+       #include <pk11pub.h>
 
-.. _Description_2:
+       SECStatus SECMOD_CloseUserDB(PK11SlotInfo *slot)
 
-Description
-           
+   .. rubric:: Parameters
+      :name: parameters_3
 
-SECMOD_UnloadUserModule detaches a module from the nss trust domain and
-unloads it. The module should have previously been loaded by
-SECMOD_LoadUserModule.
+   This function has the following parameter:
 
-.. _SECMOD_CloseUserDB:
+   *slot* A pointer to a slot info structure. This slot must a slot created by SECMOD_OpenUserDB()
+   at some point in the past.
 
-SECMOD_CloseUserDB
-''''''''''''''''''
+   .. rubric:: Returns
+      :name: returns_3
 
-Close an already opened user database. NOTE: the database must be in the
-internal token, and must be one created with SECMOD_OpenUserDB(). Once
-the database is closed, the slot will remain as an empty slot until it's
-used again with SECMOD_OpenUserDB().
+   The function returns one of these values:
 
-.. _Syntax_3:
+   -  If successful, SECSuccess).
+   -  If unsuccessful, SECFailure.
 
-Syntax
-      
+   .. rubric:: SECMOD_OpenUserDB
+      :name: secmod_openuserdb
 
-::
+   Open a new database using the softoken.
 
-    #include <pk11pub.h>
+   .. rubric:: Syntax
+      :name: syntax_4
 
-    SECStatus SECMOD_CloseUserDB(PK11SlotInfo *slot)
+   .. code:: notranslate
 
-.. _Parameters_3:
+       #include "pk11pub.h"
 
-Parameters
-          
+       PK11SlotInfo *SECMOD_OpenUserDB(const char *moduleSpec)
 
-This function has the following parameter:
+   .. rubric:: Parameters
+      :name: parameters_4
 
-*slot* A pointer to a slot info structure. This slot must a slot created
-by SECMOD_OpenUserDB() at some point in the past.
+   This function has the following parameters:
 
-.. _Returns_3:
+   *moduleSpec* is the same data that you would pass to softoken at initialization time under the
+   'tokens' options.
 
-Returns
-       
+   .. rubric:: Returns
+      :name: returns_4
 
-The function returns one of these values:
+   The function returns one of these values:
 
--  If successful, SECSuccess).
--  If unsuccessful, SECFailure.
+   -  If successful, a pointer to a slot.
+   -  If unsuccessful, NULL.
 
-.. _SECMOD_OpenUserDB:
+   .. rubric:: Description
+      :name: description_3
 
-SECMOD_OpenUserDB
-'''''''''''''''''
+   Open a new database using the softoken. The caller is responsible for making sure the module spec
+   is correct and usable. The caller should ask for one new database per call if the caller wants to
+   get meaningful information about the new database.
 
-Open a new database using the softoken.
+   moduleSpec is the same data that you would pass to softoken at initialization time under the
+   'tokens' options. For example, if you would normally specify *tokens=<0x4=[configdir='./mybackup'
+   tokenDescription='Backup']>* to softoken if you at init time, then you could specify
+   "*configdir='./mybackup' tokenDescription='Backup'*" as your module spec here to open the
+   database ./mybackup on the fly. The slot ID will be calculated for you by SECMOD_OpenUserDB().
 
-.. _Syntax_4:
+   Typical parameters here are configdir, tokenDescription and flags. a Full list is below:
 
-Syntax
-      
+   *configDir* The location of the databases for this token. If configDir is not specified, and
+   noCertDB and noKeyDB is not specified, the load will fail.
 
-::
+   *certPrefix* Cert prefix for this token.
 
-    #include "pk11pub.h"
+   *keyPrefix* Prefix for the key database for this token. (if not specified, certPrefix will be
+   used).
 
-    PK11SlotInfo *SECMOD_OpenUserDB(const char *moduleSpec)
+   *tokenDescription* The label value for this token returned in the CK_TOKEN_INFO structure with an
+   internationalize string (UTF8). This value will be truncated at 32 bytes (no NULL, partial UTF8
+   characters dropped). You should specify a user friendly name here as this is the value the token
+   will be referred to in most application UI's. You should make sure tokenDescription is unique.
 
-.. _Parameters_4:
+   *slotDescription* The slotDescription value for this token returned in the CK_SLOT_INFO structure
+   with an internationalize string (UTF8). This value will be truncated at 64 bytes (no NULL,
+   partialUTF8 characters dropped). This name will not change after thedatabase is closed. It should
+   have some number to make this unique.
 
-Parameters
-          
+   *minPWLen* Then minimum password length for this token.
 
-This function has the following parameters:
+   | *flags* A comma separated list of flag values, parsed case-insensitive.
+   | Valid flags are:
 
-*moduleSpec* is the same data that you would pass to softoken at
-initialization time under the 'tokens' options.
+   -  *readOnly* - Databases should be opened read only.
+   -  *noCertDB* - Don't try to open a certificate database.
+   -  *noKeyDB* - Don't try to open a key database.
+   -  *forceOpen* - Don't fail to initialize the token if thedatabases could not be opened.
+   -  *passwordRequired* - zero length passwords are not acceptable(valid only if there is a keyDB).
+   -  *optimizeSpace* - allocate smaller hash tables and lock tables.When this flag is not
+      specified, Softoken will allocatelarge tables to prevent lock contention.
 
-.. _Returns_4:
+   For more info on module strings see :ref:`Mozilla_Projects_NSS_PKCS11_Module_Specs`.
 
-Returns
-       
+   This function will return a reference to a slot. The caller is responsible for freeing the slot
+   reference when it is through. Freeing the slot reference will not unload the slot. That happens
+   with the corresponding SECMOD_CloseUserDB() function. Until the SECMOD_CloseUserDB function is
+   called, the newly opened database will be visible to any NSS calls search for keys or certs.
 
-The function returns one of these values:
+   .. rubric:: PK11_FindCertFromNickname
+      :name: pk11_findcertfromnickname
 
--  If successful, a pointer to a slot.
--  If unsuccessful, NULL.
+   Finds a certificate from its nickname.
 
-.. _Description_3:
+   .. rubric:: Syntax
+      :name: syntax_5
 
-Description
-           
+   .. code:: notranslate
 
-Open a new database using the softoken. The caller is responsible for
-making sure the module spec is correct and usable. The caller should ask
-for one new database per call if the caller wants to get meaningful
-information about the new database.
+       #include <pk11pub.h>
+       #include <certt.h>
 
-moduleSpec is the same data that you would pass to softoken at
-initialization time under the 'tokens' options. For example, if you
-would normally specify *tokens=<0x4={{
-mediawiki.external('configdir=\'./mybackup\'
-tokenDescription=\'Backup\'') }}>* to softoken if you at init time, then
-you could specify "*configdir='./mybackup' tokenDescription='Backup'*"
-as your module spec here to open the database ./mybackup on the fly. The
-slot ID will be calculated for you by SECMOD_OpenUserDB().
+       CERTCertificate *PK11_FindCertFromNickname(
+         char *nickname,
+         void *passwordArg);
 
-Typical parameters here are configdir, tokenDescription and flags. a
-Full list is below:
+   .. rubric:: Parameters
+      :name: parameters_5
 
-*configDir* The location of the databases for this token. If configDir
-is not specified, and noCertDB and noKeyDB is not specified, the load
-will fail.
+   This function has the following parameters:
 
-*certPrefix* Cert prefix for this token.
+   *nickname* A pointer to the nickname in the certificate database or to the nickname in the token.
 
-*keyPrefix* Prefix for the key database for this token. (if not
-specified, certPrefix will be used).
+   *passwordArg* A pointer to application data for the password callback function. This pointer is
+   set with SSL_SetPKCS11PinArg during SSL configuration. To retrieve its current value, use
+   SSL_RevealPinArg.
 
-*tokenDescription* The label value for this token returned in the
-CK_TOKEN_INFO structure with an internationalize string (UTF8). This
-value will be truncated at 32 bytes (no NULL, partial UTF8 characters
-dropped). You should specify a user friendly name here as this is the
-value the token will be referred to in most application UI's. You should
-make sure tokenDescription is unique.
+   .. rubric:: Returns
+      :name: returns_5
 
-*slotDescription* The slotDescription value for this token returned in
-the CK_SLOT_INFO structure with an internationalize string (UTF8). This
-value will be truncated at 64 bytes (no NULL, partialUTF8 characters
-dropped). This name will not change after thedatabase is closed. It
-should have some number to make this unique.
+   The function returns one of these values:
 
-*minPWLen* Then minimum password length for this token.
+   -  If successful, a pointer to a certificate structure.
+   -  If unsuccessful, NULL.
 
-| *flags* A comma separated list of flag values, parsed
-  case-insensitive.
-| Valid flags are:
+   .. rubric:: Description
+      :name: description_4
 
--  *readOnly* - Databases should be opened read only.
--  *noCertDB* - Don't try to open a certificate database.
--  *noKeyDB* - Don't try to open a key database.
--  *forceOpen* - Don't fail to initialize the token if thedatabases
-   could not be opened.
--  *passwordRequired* - zero length passwords are not acceptable(valid
-   only if there is a keyDB).
--  *optimizeSpace* - allocate smaller hash tables and lock tables.When
-   this flag is not specified, Softoken will allocatelarge tables to
-   prevent lock contention.
+   When you are finished with the certificate structure returned by PK11_FindCertFromNickname, you
+   must free it by calling CERT_DestroyCertificate.
 
-For more info on module strings see
-`PKCS11_Module_Specs <https://developer.mozilla.org/en-US/PKCS11_Module_Specs>`__.
+   The PK11_FindCertFromNickname function calls the password callback function set with
+   PK11_SetPasswordFunc and passes it the pointer specified by the wincx parameter.
 
-This function will return a reference to a slot. The caller is
-responsible for freeing the slot reference when it is through. Freeing
-the slot reference will not unload the slot. That happens with the
-corresponding SECMOD_CloseUserDB() function. Until the
-SECMOD_CloseUserDB function is called, the newly opened database will be
-visible to any NSS calls search for keys or certs.
+   .. rubric:: PK11_FindKeyByAnyCert
+      :name: pk11_findkeybyanycert
 
-.. _PK11_FindCertFromNickname:
+   Finds the private key associated with a specified certificate in any available slot.
 
-PK11_FindCertFromNickname
-'''''''''''''''''''''''''
+   .. rubric:: Syntax
+      :name: syntax_6
 
-Finds a certificate from its nickname.
+   .. code:: notranslate
 
-.. _Syntax_5:
+       #include <pk11pub.h>
+       #include <certt.h>
+       #include <keyt.h>
 
-Syntax
-      
+       SECKEYPrivateKey *PK11_FindKeyByAnyCert(
+         CERTCertificate *cert,
+         void *passwordArg);
 
-::
+   .. rubric:: Parameters
+      :name: parameters_6
 
-    #include <pk11pub.h>
-    #include <certt.h>
+   This function has the following parameters:
 
-    CERTCertificate *PK11_FindCertFromNickname(
-      char *nickname,
-      void *passwordArg);
+   *cert* A pointer to a certificate structure in the certificate database.
 
-.. _Parameters_5:
+   *passwordArg* A pointer to application data for the password callback function. This pointer is
+   set with SSL_SetPKCS11PinArg during SSL configuration. To retrieve its current value, use
+   SSL_RevealPinArg.
 
-Parameters
-          
+   .. rubric:: Returns
+      :name: returns_6
 
-This function has the following parameters:
+   The function returns one of these values:
 
-*nickname* A pointer to the nickname in the certificate database or to
-the nickname in the token.
+   -  If successful, a pointer to a private key structure.
+   -  If unsuccessful, NULL.
 
-*passwordArg* A pointer to application data for the password callback
-function. This pointer is set with SSL_SetPKCS11PinArg during SSL
-configuration. To retrieve its current value, use SSL_RevealPinArg.
+   .. rubric:: Description
+      :name: description_5
 
-.. _Returns_5:
+   When you are finished with the private key structure returned by PK11_FindKeyByAnyCert, you must
+   free it by calling SECKEY_DestroyPrivateKey.
 
-Returns
-       
+   The PK11_FindKeyByAnyCert function calls the password callback function set with
+   PK11_SetPasswordFunc and passes it the pointer specified by the wincx parameter.
 
-The function returns one of these values:
+   .. rubric:: PK11_GetSlotName
+      :name: pk11_getslotname
 
--  If successful, a pointer to a certificate structure.
--  If unsuccessful, NULL.
+   Gets the name of a slot.
 
-.. _Description_4:
+   .. rubric:: Syntax
+      :name: syntax_7
 
-Description
-           
+   .. code:: notranslate
 
-When you are finished with the certificate structure returned by
-PK11_FindCertFromNickname, you must free it by calling
-CERT_DestroyCertificate.
+       #include <pk11pub.h>
 
-The PK11_FindCertFromNickname function calls the password callback
-function set with PK11_SetPasswordFunc and passes it the pointer
-specified by the wincx parameter.
+       char *PK11_GetSlotName(PK11SlotInfo *slot);
 
-.. _PK11_FindKeyByAnyCert:
+   .. rubric:: Parameters
+      :name: parameters_7
 
-PK11_FindKeyByAnyCert
-'''''''''''''''''''''
+   This function has the following parameter:
 
-Finds the private key associated with a specified certificate in any
-available slot.
+   *slot* A pointer to a slot info structure.
 
-.. _Syntax_6:
+   .. rubric:: Returns
+      :name: returns_7
 
-Syntax
-      
+   The function returns one of these values:
 
-::
+   -  If successful, a pointer to the name of the slot (a string).
+   -  If unsuccessful, NULL.
 
-    #include <pk11pub.h>
-    #include <certt.h>
-    #include <keyt.h>
+   .. rubric:: Description
+      :name: description_6
 
-    SECKEYPrivateKey *PK11_FindKeyByAnyCert(
-      CERTCertificate *cert,
-      void *passwordArg);
+   If the slot is freed, the string with the slot name may also be freed. If you want to preserve
+   it, copy the string before freeing the slot. Do not try to free the string yourself.
 
-.. _Parameters_6:
+   .. rubric:: PK11_GetTokenName
+      :name: pk11_gettokenname
 
-Parameters
-          
+   Gets the name of the token.
 
-This function has the following parameters:
+   .. rubric:: Syntax
+      :name: syntax_8
 
-*cert* A pointer to a certificate structure in the certificate database.
+   .. code:: notranslate
 
-*passwordArg* A pointer to application data for the password callback
-function. This pointer is set with SSL_SetPKCS11PinArg during SSL
-configuration. To retrieve its current value, use SSL_RevealPinArg.
+       #include <pk11pub.h>
 
-.. _Returns_6:
+       char *PK11_GetTokenName(PK11SlotInfo *slot);
 
-Returns
-       
+   .. rubric:: Parameters
+      :name: parameters_8
 
-The function returns one of these values:
+   This function has the following parameter:
 
--  If successful, a pointer to a private key structure.
--  If unsuccessful, NULL.
+   *slot* A pointer to a slot info structure.
 
-.. _Description_5:
+   .. rubric:: Returns
+      :name: returns_8
 
-Description
-           
+   The function returns one of these values:
 
-When you are finished with the private key structure returned by
-PK11_FindKeyByAnyCert, you must free it by calling
-SECKEY_DestroyPrivateKey.
+   -  If successful, a pointer to the name of the token (a string).
+   -  If unsuccessful, NULL.
 
-The PK11_FindKeyByAnyCert function calls the password callback function
-set with PK11_SetPasswordFunc and passes it the pointer specified by the
-wincx parameter.
+   .. rubric:: Description
+      :name: description_7
 
-.. _PK11_GetSlotName:
+   If the slot is freed, the string with the token name may also be freed. If you want to preserve
+   it, copy the string before freeing the slot. Do not try to free the string yourself.
 
-PK11_GetSlotName
-''''''''''''''''
+   .. rubric:: PK11_IsHW
+      :name: pk11_ishw
 
-Gets the name of a slot.
+   Finds out whether a slot is implemented in hardware or software.
 
-.. _Syntax_7:
+   .. rubric:: Syntax
+      :name: syntax_9
 
-Syntax
-      
+   .. code:: notranslate
 
-::
+       #include <pk11pub.h>
+       #include <prtypes.h>
 
-    #include <pk11pub.h>
+       PRBool PK11_IsHW(PK11SlotInfo *slot);
 
-    char *PK11_GetSlotName(PK11SlotInfo *slot);
+   .. rubric:: Parameters
+      :name: parameters_9
 
-.. _Parameters_7:
+   This function has the following parameter:
 
-Parameters
-          
+   *slot* A pointer to a slot info structure.
 
-This function has the following parameter:
+   .. rubric:: Returns
+      :name: returns_9
 
-*slot* A pointer to a slot info structure.
+   The function returns one of these values:
 
-.. _Returns_7:
+   -  If the slot is implemented in hardware, PR_TRUE.
+   -  If the slot is implemented in software, PR_FALSE.
 
-Returns
-       
+   .. rubric:: PK11_IsPresent
+      :name: pk11_ispresent
 
-The function returns one of these values:
+   Finds out whether the token for a slot is available.
 
--  If successful, a pointer to the name of the slot (a string).
--  If unsuccessful, NULL.
+   .. rubric:: Syntax
+      :name: syntax_10
 
-.. _Description_6:
+   .. code:: notranslate
 
-Description
-           
+       #include <pk11pub.h>
+       #include <prtypes.h>
 
-If the slot is freed, the string with the slot name may also be freed.
-If you want to preserve it, copy the string before freeing the slot. Do
-not try to free the string yourself.
+       PRBool PK11_IsPresent(PK11SlotInfo *slot);
 
-.. _PK11_GetTokenName:
+   .. rubric:: Parameters
+      :name: parameters_10
 
-PK11_GetTokenName
-'''''''''''''''''
+   This function has the following parameter:
 
-Gets the name of the token.
+   *slot* A pointer to a slot info structure.
 
-.. _Syntax_8:
+   .. rubric:: Returns
+      :name: returns_10
 
-Syntax
-      
+   The function returns one of these values:
 
-::
+   -  If token is available, PR_TRUE.
+   -  If token is disabled or missing, PR_FALSE.
 
-    #include <pk11pub.h>
+   .. rubric:: PK11_IsReadOnly
+      :name: pk11_isreadonly
 
-    char *PK11_GetTokenName(PK11SlotInfo *slot);
+   Finds out whether a slot is read-only.
 
-.. _Parameters_8:
+   .. rubric:: Syntax
+      :name: syntax_11
 
-Parameters
-          
+   .. code:: notranslate
 
-This function has the following parameter:
+       #include <pk11pub.h>
+       #include <prtypes.h>
 
-*slot* A pointer to a slot info structure.
+       PRBool PK11_IsReadOnly(PK11SlotInfo *slot);
 
-.. _Returns_8:
+   .. rubric:: Parameters
+      :name: parameters_11
 
-Returns
-       
+   This function has the following parameter:
 
-The function returns one of these values:
+   *slot* A pointer to a slot info structure.
 
--  If successful, a pointer to the name of the token (a string).
--  If unsuccessful, NULL.
+   .. rubric:: Returns
+      :name: returns_11
 
-.. _Description_7:
+   The function returns one of these values:
 
-Description
-           
+   -  If slot is read-only, PR_TRUE.
+   -  Otherwise, PR_FALSE.
 
-If the slot is freed, the string with the token name may also be freed.
-If you want to preserve it, copy the string before freeing the slot. Do
-not try to free the string yourself.
+   .. rubric:: PK11_SetPasswordFunc
+      :name: pk11_setpasswordfunc
 
-.. _PK11_IsHW:
+   Defines a callback function used by the NSS libraries whenever information protected by a
+   password needs to be retrieved from the key or certificate databases.
 
-PK11_IsHW
-'''''''''
+   .. rubric:: Syntax
+      :name: syntax_12
 
-Finds out whether a slot is implemented in hardware or software.
+   .. code:: notranslate
 
-.. _Syntax_9:
+       #include <pk11pub.h>
+       #include <prtypes.h>
 
-Syntax
-      
+       void PK11_SetPasswordFunc(PK11PasswordFunc func);
 
-::
+   .. rubric:: Parameter
+      :name: parameter
 
-    #include <pk11pub.h>
-    #include <prtypes.h>
+   This function has the following parameter:
 
-    PRBool PK11_IsHW(PK11SlotInfo *slot);
+   *func* A pointer to the callback function to set.
 
-.. _Parameters_9:
+   .. rubric:: Description
+      :name: description_8
 
-Parameters
-          
+   During the course of an SSL operation, it may be necessary for the user to log in to a PKCS #11
+   token (either a smart card or soft token) to access protected information, such as a private key.
+   Such information is protected with a password that can be retrieved by calling an
+   application-supplied callback function. The callback function is identified in a call to
+   PK11_SetPasswordFunc that takes place during NSS initialization.
 
-This function has the following parameter:
+   The callback function set up by PK11_SetPasswordFunc has the following prototype:
 
-*slot* A pointer to a slot info structure.
+   .. code:: eval
 
-.. _Returns_9:
+      typedef char *(*PK11PasswordFunc)(
+        PK11SlotInfo *slot,
+        PRBool retry,
+        void *arg);
 
-Returns
-       
+   This callback function has the following parameters:
 
-The function returns one of these values:
+   *slot* A pointer to a slot info structure.
 
--  If the slot is implemented in hardware, PR_TRUE.
--  If the slot is implemented in software, PR_FALSE.
+   *retry* Set to PR_TRUE if this is a retry. This implies that the callback has previously returned
+   the wrong password.
 
-.. _PK11_IsPresent:
+   *arg* A pointer supplied by the application that can be used to pass state information. Can be
+   NULL.
 
-PK11_IsPresent
-''''''''''''''
+   This callback function returns one of these values:
 
-Finds out whether the token for a slot is available.
+   -  If successful, a pointer to the password. This memory must have been allocated with PR_Malloc
+      or PL_strdup.
+   -  If unsuccessful, returns NULL.
 
-.. _Syntax_10:
+   Many tokens keep track of the number of attempts to enter a password and do not allow further
+   attempts after a certain point. Therefore, if the retry argument is PR_TRUE, indicating that the
+   password was tried and is wrong, the callback function should return NULL to indicate that it is
+   unsuccessful, rather than attempting to return the same password again. Failing to terminate when
+   the retry argument is PR_TRUE can result in an endless loop.
 
-Syntax
-      
+   Several functions in the NSS libraries use the password callback function to obtain the password
+   before performing operations that involve the protected information. The third parameter to the
+   password callback function is application-defined and can be used for any purpose. For example,
+   Mozilla uses the parameter to pass information about which window is associated with the modal
+   dialog box requesting the password from the user. When NSS SSL libraries call the password
+   callback function, the value they pass in the third parameter is determined by
+   SSL_SetPKCS11PinArg.
 
-::
+   .. rubric:: See Also
+      :name: see_also
 
-    #include <pk11pub.h>
-    #include <prtypes.h>
-
-    PRBool PK11_IsPresent(PK11SlotInfo *slot);
-
-.. _Parameters_10:
-
-Parameters
-          
-
-This function has the following parameter:
-
-*slot* A pointer to a slot info structure.
-
-.. _Returns_10:
-
-Returns
-       
-
-The function returns one of these values:
-
--  If token is available, PR_TRUE.
--  If token is disabled or missing, PR_FALSE.
-
-.. _PK11_IsReadOnly:
-
-PK11_IsReadOnly
-'''''''''''''''
-
-Finds out whether a slot is read-only.
-
-.. _Syntax_11:
-
-Syntax
-      
-
-::
-
-    #include <pk11pub.h>
-    #include <prtypes.h>
-
-    PRBool PK11_IsReadOnly(PK11SlotInfo *slot);
-
-.. _Parameters_11:
-
-Parameters
-          
-
-This function has the following parameter:
-
-*slot* A pointer to a slot info structure.
-
-.. _Returns_11:
-
-Returns
-       
-
-The function returns one of these values:
-
--  If slot is read-only, PR_TRUE.
--  Otherwise, PR_FALSE.
-
-.. _PK11_SetPasswordFunc:
-
-PK11_SetPasswordFunc
-''''''''''''''''''''
-
-Defines a callback function used by the NSS libraries whenever
-information protected by a password needs to be retrieved from the key
-or certificate databases.
-
-.. _Syntax_12:
-
-Syntax
-      
-
-::
-
-    #include <pk11pub.h>
-    #include <prtypes.h>
-
-    void PK11_SetPasswordFunc(PK11PasswordFunc func);
-
-.. _Parameter:
-
-Parameter
-         
-
-This function has the following parameter:
-
-*func* A pointer to the callback function to set.
-
-.. _Description_8:
-
-Description
-           
-
-During the course of an SSL operation, it may be necessary for the user
-to log in to a PKCS #11 token (either a smart card or soft token) to
-access protected information, such as a private key. Such information is
-protected with a password that can be retrieved by calling an
-application-supplied callback function. The callback function is
-identified in a call to PK11_SetPasswordFunc that takes place during NSS
-initialization.
-
-The callback function set up by PK11_SetPasswordFunc has the following
-prototype:
-
-.. code:: eval
-
-   typedef char *(*PK11PasswordFunc)(
-     PK11SlotInfo *slot,
-     PRBool retry,
-     void *arg);
-
-This callback function has the following parameters:
-
-*slot* A pointer to a slot info structure.
-
-*retry* Set to PR_TRUE if this is a retry. This implies that the
-callback has previously returned the wrong password.
-
-*arg* A pointer supplied by the application that can be used to pass
-state information. Can be NULL.
-
-This callback function returns one of these values:
-
--  If successful, a pointer to the password. This memory must have been
-   allocated with PR_Malloc or PL_strdup.
--  If unsuccessful, returns NULL.
-
-Many tokens keep track of the number of attempts to enter a password and
-do not allow further attempts after a certain point. Therefore, if the
-retry argument is PR_TRUE, indicating that the password was tried and is
-wrong, the callback function should return NULL to indicate that it is
-unsuccessful, rather than attempting to return the same password again.
-Failing to terminate when the retry argument is PR_TRUE can result in an
-endless loop.
-
-Several functions in the NSS libraries use the password callback
-function to obtain the password before performing operations that
-involve the protected information. The third parameter to the password
-callback function is application-defined and can be used for any
-purpose. For example, Mozilla uses the parameter to pass information
-about which window is associated with the modal dialog box requesting
-the password from the user. When NSS SSL libraries call the password
-callback function, the value they pass in the third parameter is
-determined by SSL_SetPKCS11PinArg.
-
-.. _See_Also:
-
-See Also
-        
-
-For examples of password callback functions, see the samples in the
-Samples directory.
+   For examples of password callback functions, see the samples in the Samples directory.

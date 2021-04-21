@@ -1,72 +1,73 @@
 .. _Mozilla_Projects_NSS_Reference_FC_Encrypt:
 
-==========
 FC_Encrypt
 ==========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_Encrypt - Encrypt a block of data.
+.. container::
 
-.. _Syntax:
+   FC_Encrypt - Encrypt a block of data.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_Encrypt(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pData,
-     CK_ULONG usDataLen,
-     CK_BYTE_PTR pEncryptedData,
-     CK_ULONG_PTR pusEncryptedDataLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_Encrypt(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pData,
+        CK_ULONG usDataLen,
+        CK_BYTE_PTR pEncryptedData,
+        CK_ULONG_PTR pusEncryptedDataLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pData``
-   [in] pointer to the data buffer
-``usDataLen``
-   [in] length of the data buffer in bytes.
-``pEncryptedData``
-   [out] pointer to location where encrypted
-   data is to be stored.
-``pusEncryptedDataLen``
-   [in/out] number of bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pData``
+      [in] pointer to the data buffer
+   ``usDataLen``
+      [in] length of the data buffer in bytes.
+   ``pEncryptedData``
+      [out] pointer to location where encrypted data is to be stored.
+   ``pusEncryptedDataLen``
+      [in/out] number of bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_Encrypt`` encrypts a block of data according to the attributes of
-the previous call to ``FC_EncryptInit``.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_Encrypt``.
+   ``FC_Encrypt`` encrypts a block of data according to the attributes of the previous call to
+   ``FC_EncryptInit``.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_Encrypt``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_EncryptInit <https://developer.mozilla.org/en-US/FC_EncryptInit>`__,
-   `NSC_Encrypt <https://developer.mozilla.org/en-US/NSC_Encrypt>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_EncryptInit`, `NSC_Encrypt </en-US/NSC_Encrypt>`__

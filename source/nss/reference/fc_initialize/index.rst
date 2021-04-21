@@ -1,139 +1,140 @@
 .. _Mozilla_Projects_NSS_Reference_FC_Initialize:
 
-=============
 FC_Initialize
 =============
-.. _Name:
 
-Summary
--------
+.. _name:
 
-FC_Initialize - initialize the PKCS #11 library.
+`Summary <#name>`__
+-------------------
 
-.. _Syntax:
+.. container::
 
-Syntax
-------
+   FC_Initialize - initialize the PKCS #11 library.
 
-.. code:: notranslate
+`Syntax <#syntax>`__
+--------------------
 
-   CK_RV FC_Initialize(CK_VOID_PTR pInitArgs);
+.. container::
 
-.. _Parameters:
+   .. code:: brush:
 
-Parameters
-~~~~~~~~~~
+      CK_RV FC_Initialize(CK_VOID_PTR pInitArgs);
 
-``pInitArgs``
-   Points to a ``CK_C_INITIALIZE_ARGS`` structure.
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Description:
+.. container::
 
-Description
------------
+   ``pInitArgs``
+      Points to a ``CK_C_INITIALIZE_ARGS`` structure.
 
-``FC_Initialize`` initializes the
-:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module` for the
-:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module_FIPS_mode_of_operation`.
-In addition to creating the internal data structures, it performs the
-FIPS software integrity test and power-up self-tests.
+`Description <#description>`__
+------------------------------
 
-The ``pInitArgs`` argument must point to a ``CK_C_INITIALIZE_ARGS``
-structure whose members should have the following values:
+.. container::
 
--  ``CreateMutex`` should be ``NULL``.
--  ``DestroyMutex`` should be ``NULL``.
--  ``LockMutex`` should be ``NULL``.
--  ``UnlockMutex`` should be ``NULL``.
--  ``flags`` should be ``CKF_OS_LOCKING_OK``.
--  ``LibraryParameters`` should point to a string that contains the
-   library parameters.
--  ``pReserved`` should be ``NULL``.
+   ``FC_Initialize`` initializes the :ref:`Mozilla_Projects_NSS_Reference_NSS_cryptographic_module`
+   for the :ref:`Mozilla_Projects_NSS_Reference_NSS_cryptographic_module_FIPS_mode_of_operation`. In
+   addition to creating the internal data structures, it performs the FIPS software integrity test
+   and power-up self-tests.
 
-The library parameters string has this format:
+   The ``pInitArgs`` argument must point to a ``CK_C_INITIALIZE_ARGS`` structure whose members
+   should have the following values:
 
-::
+   -  ``CreateMutex`` should be ``NULL``.
+   -  ``DestroyMutex`` should be ``NULL``.
+   -  ``LockMutex`` should be ``NULL``.
+   -  ``UnlockMutex`` should be ``NULL``.
+   -  ``flags`` should be ``CKF_OS_LOCKING_OK``.
+   -  ``LibraryParameters`` should point to a string that contains the library parameters.
+   -  ``pReserved`` should be ``NULL``.
 
-   "configdir='dir' certPrefix='prefix1' keyPrefix='prefix2' secmod='file' flags= "
+   The library parameters string has this format:
 
-Here are some examples.
+   .. code:: notranslate
 
-``NSS_NoDB_Init("")``, which initializes NSS with no databases:
+      "configdir='dir' certPrefix='prefix1' keyPrefix='prefix2' secmod='file' flags= "
 
-::
+   Here are some examples.
 
-    "configdir='' certPrefix='' keyPrefix='' secmod='' flags=readOnly,noCertDB,noMod
-   DB,forceOpen,optimizeSpace "
+   ``NSS_NoDB_Init("")``, which initializes NSS with no databases:
 
-Mozilla Firefox initializes NSS with this string (on Windows):
+   .. code:: notranslate
 
-::
+       "configdir='' certPrefix='' keyPrefix='' secmod='' flags=readOnly,noCertDB,noMod
+      DB,forceOpen,optimizeSpace "
 
-    "configdir='C:\\Documents and Settings\\wtc\\Application Data\\Mozilla\\Firefox\\Profiles\\default.7tt' certPrefix='' keyPrefix='' secmod='secmod.db' flags=optimizeSpace  manufacturerID='Mozilla.org' libraryDescription='PSM Internal Crypto Services' cryptoTokenDescription='Generic Crypto Services' dbTokenDescription='Software Security Device' cryptoSlotDescription='PSM Internal Cryptographic Services' dbSlotDescription='PSM Private Keys' FIPSSlotDescription='PSM Internal FIPS-140-1 Cryptographic Services' FIPSTokenDescription='PSM FIPS-140-1 User Private Key Services' minPS=0"
+   Mozilla Firefox initializes NSS with this string (on Windows):
 
-See :ref:`Mozilla_Projects_NSS_PKCS11_Module_Specs` for complete
-documentation of the library parameters string.
+   .. code:: notranslate
 
-.. _Return_value:
+       "configdir='C:\\Documents and Settings\\wtc\\Application Data\\Mozilla\\Firefox\\Profiles\\default.7tt' certPrefix='' keyPrefix='' secmod='secmod.db' flags=optimizeSpace  manufacturerID='Mozilla.org' libraryDescription='PSM Internal Crypto Services' cryptoTokenDescription='Generic Crypto Services' dbTokenDescription='Software Security Device' cryptoSlotDescription='PSM Internal Cryptographic Services' dbSlotDescription='PSM Private Keys' FIPSSlotDescription='PSM Internal FIPS-140-1 Cryptographic Services' FIPSTokenDescription='PSM FIPS-140-1 User Private Key Services' minPS=0"
 
-Return value
-~~~~~~~~~~~~
+   See :ref:`Mozilla_Projects_NSS_PKCS11_Module_Specs` for complete documentation of the library
+   parameters string.
 
-``FC_Initialize`` returns the following return codes.
+.. _return_value:
 
--  ``CKR_OK``: library initialization succeeded.
--  ``CKR_ARGUMENTS_BAD``
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  ``pInitArgs`` is ``NULL``.
-   -  ``pInitArgs->LibraryParameters`` is ``NULL``.
-   -  only some of the lock functions were provided by the application.
+.. container::
 
--  ``CKR_CANT_LOCK``: the ``CKF_OS_LOCKING_OK`` flag is not set in
-   ``pInitArgs->flags``. The NSS cryptographic module always uses OS
-   locking and doesn't know how to use the lock functions provided by
-   the application.
--  ``CKR_CRYPTOKI_ALREADY_INITIALIZED``: the library is already
-   initialized.
--  ``CKR_DEVICE_ERROR``
+   ``FC_Initialize`` returns the following return codes.
 
-   -  We failed to create the OID tables, random number generator, or
-      internal locks. (Note: we probably should return
-      ``CKR_HOST_MEMORY`` instead.)
-   -  The software integrity test or power-up self-tests failed. The NSS
-      cryptographic module is in a fatal error state.
+   -  ``CKR_OK``: library initialization succeeded.
+   -  ``CKR_ARGUMENTS_BAD``
 
--  ``CKR_HOST_MEMORY``: we ran out of memory.
+      -  ``pInitArgs`` is ``NULL``.
+      -  ``pInitArgs->LibraryParameters`` is ``NULL``.
+      -  only some of the lock functions were provided by the application.
 
-.. _Examples:
+   -  ``CKR_CANT_LOCK``: the ``CKF_OS_LOCKING_OK`` flag is not set in ``pInitArgs->flags``. The NSS
+      cryptographic module always uses OS locking and doesn't know how to use the lock functions
+      provided by the application.
+   -  ``CKR_CRYPTOKI_ALREADY_INITIALIZED``: the library is already initialized.
+   -  ``CKR_DEVICE_ERROR``
 
-Examples
---------
+      -  We failed to create the OID tables, random number generator, or internal locks. (Note: we
+         probably should return ``CKR_HOST_MEMORY`` instead.)
+      -  The software integrity test or power-up self-tests failed. The NSS cryptographic module is
+         in a fatal error state.
 
-.. code:: eval
+   -  ``CKR_HOST_MEMORY``: we ran out of memory.
 
-   #include <assert.h>
+`Examples <#examples>`__
+------------------------
 
-   CK_FUNCTION_LIST_PTR pFunctionList;
-   CK_RV crv;
-   CK_C_INITIALIZE_ARGS initArgs;
+.. container::
 
-   crv = FC_GetFunctionList(&pFunctionList);
-   assert(crv == CKR_OK);
+   .. code:: eval
 
-   initArgs.CreateMutex = NULL;
-   initArgs.DestroyMutex = NULL;
-   initArgs.LockMutex = NULL;
-   initArgs.UnlockMutex = NULL;
-   initArgs.flags = CKF_OS_LOCKING_OK;
-   initArgs.LibraryParameters = "...";
-   initArgs.pReserved = NULL;
+      #include <assert.h>
 
-   /* invoke FC_Initialize as pFunctionList->C_Initialize */
-   crv = pFunctionList->C_Initialize(&initArgs);
+      CK_FUNCTION_LIST_PTR pFunctionList;
+      CK_RV crv;
+      CK_C_INITIALIZE_ARGS initArgs;
 
-.. _See_also:
+      crv = FC_GetFunctionList(&pFunctionList);
+      assert(crv == CKR_OK);
 
-See also
---------
+      initArgs.CreateMutex = NULL;
+      initArgs.DestroyMutex = NULL;
+      initArgs.LockMutex = NULL;
+      initArgs.UnlockMutex = NULL;
+      initArgs.flags = CKF_OS_LOCKING_OK;
+      initArgs.LibraryParameters = "...";
+      initArgs.pReserved = NULL;
 
--  `FC_Finalize <https://developer.mozilla.org/en-US/docs/FC_Finalize>`__
+      /* invoke FC_Initialize as pFunctionList->C_Initialize */
+      crv = pFunctionList->C_Initialize(&initArgs);
+
+.. _see_also:
+
+`See also <#see_also>`__
+------------------------
+
+.. container::
+
+   -  `FC_Finalize <https://developer.mozilla.org/en-US/docs/FC_Finalize>`__

@@ -1,75 +1,74 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DecryptUpdate:
 
-================
 FC_DecryptUpdate
 ================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DecryptUpdate - decrypt a block of a multi-part encryption operation.
+.. container::
 
-.. _Syntax:
+   FC_DecryptUpdate - decrypt a block of a multi-part encryption operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DecryptUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pEncryptedPart,
-     CK_ULONG usEncryptedPartLen,
-     CK_BYTE_PTR pPart,
-     CK_ULONG_PTR pusPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DecryptUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pEncryptedPart,
+        CK_ULONG usEncryptedPartLen,
+        CK_BYTE_PTR pPart,
+        CK_ULONG_PTR pusPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pEncryptedPart``
-   [in] pointer to the next block of data to
-   be decrypted.
-``usEncryptedPartLen``
-   [in] length of data block in bytes.
-``pPart``
-   [out] pointer to location where recovered
-   block is to be stored.
-``pusPartLen``
-   [in,out] pointer the location where the
-   number of bytes of recovered data is to be stored.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pEncryptedPart``
+      [in] pointer to the next block of data to be decrypted.
+   ``usEncryptedPartLen``
+      [in] length of data block in bytes.
+   ``pPart``
+      [out] pointer to location where recovered block is to be stored.
+   ``pusPartLen``
+      [in,out] pointer the location where the number of bytes of recovered data is to be stored.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DecryptUpdate`` decrypts a block of data according to the
-attributes of the previous call to ``FC_DecryptInit``. The block may be
-part of a multi-part decryption operation.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DecryptUpdate``.
+   ``FC_DecryptUpdate`` decrypts a block of data according to the attributes of the previous call to
+   ``FC_DecryptInit``. The block may be part of a multi-part decryption operation.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_DecryptUpdate``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_DecryptInit <https://developer.mozilla.org/en-US/FC_DecryptInit>`__,
-   `NSC_DecryptUpdate <https://developer.mozilla.org/en-US/NSC_DecryptUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_DecryptInit`,
+      `NSC_DecryptUpdate </en-US/NSC_DecryptUpdate>`__

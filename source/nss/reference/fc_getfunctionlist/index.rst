@@ -1,76 +1,79 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetFunctionList:
 
-==================
 FC_GetFunctionList
 ==================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetFunctionList - get a pointer to the list of function pointers in
-the FIPS mode of operation.
+.. container::
 
-.. _Syntax:
+   FC_GetFunctionList - get a pointer to the list of function pointers in the FIPS mode of
+   operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetFunctionList(CK_FUNCTION_LIST_PTR *ppFunctionList);
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetFunctionList(CK_FUNCTION_LIST_PTR *ppFunctionList);
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetFunctionList`` has one parameter:
+.. container::
 
-``ppFunctionList``
-   [Output] The address of a variable that
-   will receive a pointer to the list of function pointers.
+   ``FC_GetFunctionList`` has one parameter:
 
-.. _Description:
+   ``ppFunctionList``
+      [Output] The address of a variable that will receive a pointer to the list of function
+      pointers.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetFunctionList`` stores in ``*ppFunctionList`` a pointer to the
-:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module`'s list of
-function pointers in the
-:ref:`Mozilla_Projects_NSS_reference_NSS_cryptographic_module_FIPS_mode_of_operation`.
+.. container::
 
-A user may call ``FC_GetFunctionList`` without logging into the token
-(to assume the NSS User role).
+   ``FC_GetFunctionList`` stores in ``*ppFunctionList`` a pointer to the
+   :ref:`Mozilla_Projects_NSS_Reference_NSS_cryptographic_module`'s list of function pointers in the
+   :ref:`Mozilla_Projects_NSS_Reference_NSS_cryptographic_module_FIPS_mode_of_operation`.
 
-.. _Return_value:
+   A user may call ``FC_GetFunctionList`` without logging into the token (to assume the NSS User
+   role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``FC_GetFunctionList`` always returns ``CKR_OK``.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``FC_GetFunctionList`` always returns ``CKR_OK``.
 
-.. code:: eval
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-   #include <assert.h>
+.. container::
 
-   CK_FUNCTION_LIST_PTR pFunctionList;
-   CK_RV crv;
+   .. code:: eval
 
-   crv = FC_GetFunctionList(&pFunctionList);
-   assert(crv == CKR_OK);
+      #include <assert.h>
 
-   /* invoke the FC_XXX function as pFunctionList->C_XXX */
+      CK_FUNCTION_LIST_PTR pFunctionList;
+      CK_RV crv;
 
-.. _See_also:
+      crv = FC_GetFunctionList(&pFunctionList);
+      assert(crv == CKR_OK);
 
-See also
-~~~~~~~~
+      /* invoke the FC_XXX function as pFunctionList->C_XXX */
 
--  `NSC_GetFunctionList <https://developer.mozilla.org/en-US/NSC_GetFunctionList>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetFunctionList </en-US/NSC_GetFunctionList>`__

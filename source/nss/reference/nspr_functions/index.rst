@@ -1,124 +1,126 @@
 .. _Mozilla_Projects_NSS_Reference_NSPR_functions:
 
-==============
 NSPR functions
 ==============
-`NSPR <https://www.mozilla.org/projects/nspr/>`__ is a platform
-abstraction library that provides a cross-platform API to common OS
-services.  NSS uses NSPR internally as the porting layer.  However, a
-small number of NSPR functions are required for using the certificate
-verification and SSL functions in NSS.  These NSPR functions are listed
-in this section.
 
-.. _NSPR_initialization_and_shutdown:
+.. container::
 
-NSPR initialization and shutdown
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   `NSPR <https://www.mozilla.org/projects/nspr/>`__ is a platform abstraction library that provides
+   a cross-platform API to common OS services.  NSS uses NSPR internally as the porting layer. 
+   However, a small number of NSPR functions are required for using the certificate verification and
+   SSL functions in NSS.  These NSPR functions are listed in this section.
 
-NSPR is automatically initialized by the first NSPR function called by
-the application.  Call
-```PR_Cleanup`` <https://developer.mozilla.org/en-US/PR_Cleanup>`__ to
-shut down NSPR and clean up its resources.\ `
- <https://developer.mozilla.org/en-US/PR_Init>`__
+.. _nspr_initialization_and_shutdown:
 
--  `PR_Cleanup <https://developer.mozilla.org/en-US/PR_Cleanup>`__
+`NSPR initialization and shutdown <#nspr_initialization_and_shutdown>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Error_reporting:
+.. container::
 
-Error reporting
-~~~~~~~~~~~~~~~
+   NSPR is automatically initialized by the first NSPR function called by the application.  Call
+   ```PR_Cleanup`` </en-US/PR_Cleanup>`__ to shut down NSPR and clean up its resources.\ `
+    </en-US/PR_Init>`__
 
-NSS uses NSPR's thread-specific error code to report errors.  Call
-```PR_GetError`` <https://developer.mozilla.org/en-US/PR_GetError>`__ to
-get the error code of the last failed NSS or NSPR function.  Call
-```PR_SetError`` <https://developer.mozilla.org/en-US/PR_SetError>`__ to
-set the error code, which can be retrieved with ``PR_GetError`` later.
+   -  `PR_Cleanup </en-US/PR_Cleanup>`__
 
-The NSS functions ``PORT_GetError`` and ``PORT_SetError`` are simply
-wrappers of ``PR_GetError`` and ``PR_SetError``.
+.. _error_reporting:
 
--  `PR_GetError <https://developer.mozilla.org/en-US/PR_GetError>`__
--  `PR_SetError <https://developer.mozilla.org/en-US/PR_SetError>`__
+`Error reporting <#error_reporting>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Calendar_time:
+.. container::
 
-Calendar time
-~~~~~~~~~~~~~
+   NSS uses NSPR's thread-specific error code to report errors.  Call
+   ```PR_GetError`` </en-US/PR_GetError>`__ to get the error code of the last failed NSS or NSPR
+   function.  Call ```PR_SetError`` </en-US/PR_SetError>`__ to set the error code, which can be
+   retrieved with ``PR_GetError`` later.
 
-NSS certificate verification functions take a ``PRTime`` parameter that
-specifies the time instant at which the validity of the certificate
-should verified.  The NSPR function
-```PR_Now`` <https://developer.mozilla.org/en-US/PR_Now>`__ returns the
-current time in ``PRTime``.
+   The NSS functions ``PORT_GetError`` and ``PORT_SetError`` are simply wrappers of ``PR_GetError``
+   and ``PR_SetError``.
 
--  `PR_Now <https://developer.mozilla.org/en-US/PR_Now>`__
+   -  `PR_GetError </en-US/PR_GetError>`__
+   -  `PR_SetError </en-US/PR_SetError>`__
 
-.. _Interval_time:
+.. _calendar_time:
 
-Interval time
-~~~~~~~~~~~~~
+`Calendar time <#calendar_time>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The NSPR socket I/O functions
-```PR_Recv`` <https://developer.mozilla.org/en-US/PR_Recv>`__ and
-```PR_Send`` <https://developer.mozilla.org/en-US/PR_Send>`__ (used by
-the NSS SSL functions) take a ``PRIntervalTime`` timeout parameter. 
-``PRIntervalTime`` has an abstract, platform-dependent time unit.  Call
-```PR_SecondsToInterval`` <https://developer.mozilla.org/en-US/PR_SecondsToInterval>`__
-or ``PR_MillisecondsToInterval``\ to convert a time interval in seconds
-or milliseconds to ``PRIntervalTime``.
+.. container::
 
--  `PR_SecondsToInterval <https://developer.mozilla.org/en-US/PR_SecondsToInterval>`__
--  `PR_MillisecondsToInterval <https://developer.mozilla.org/en-US/PR_MillisecondsToInterval>`__
+   NSS certificate verification functions take a ``PRTime`` parameter that specifies the time
+   instant at which the validity of the certificate should verified.  The NSPR function
+   ```PR_Now`` </en-US/PR_Now>`__ returns the current time in ``PRTime``.
 
-.. _NSPR_IO_layering:
+   -  `PR_Now </en-US/PR_Now>`__
 
-NSPR I/O layering
-~~~~~~~~~~~~~~~~~
+.. _interval_time:
 
-NSPR file descriptors can be layered, corresponding to the layers in the
-network stack.  The SSL library in NSS implements the SSL protocol as an
-NSPR I/O layer, which sits on top of another NSPR I/O layer that
-represents TCP.
+`Interval time <#interval_time>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can implement an NSPR I/O layer that wraps your own TCP socket
-code.  The following NSPR functions allow you to create your own NSPR
-I/O layer and manipulate it.
+.. container::
 
--  `PR_GetUniqueIdentity <https://developer.mozilla.org/en-US/PR_GetUniqueIdentity>`__
--  `PR_CreateIOLayerStub <https://developer.mozilla.org/en-US/PR_CreateIOLayerStub>`__
--  `PR_GetDefaultIOMethods <https://developer.mozilla.org/en-US/PR_GetDefaultIOMethods>`__
--  `PR_GetIdentitiesLayer <https://developer.mozilla.org/en-US/PR_GetIdentitiesLayer>`__
--  `PR_GetLayersIdentity <https://developer.mozilla.org/en-US/PR_GetLayersIdentity>`__
--  `PR_PushIOLayer <https://developer.mozilla.org/en-US/PR_PushIOLayer>`__
--  `PR_PopIOLayer <https://developer.mozilla.org/en-US/PR_PopIOLayer>`__
+   The NSPR socket I/O functions ```PR_Recv`` </en-US/PR_Recv>`__ and
+   ```PR_Send`` </en-US/PR_Send>`__ (used by the NSS SSL functions) take a ``PRIntervalTime``
+   timeout parameter.  ``PRIntervalTime`` has an abstract, platform-dependent time unit.  Call
+   ```PR_SecondsToInterval`` </en-US/PR_SecondsToInterval>`__ or ``PR_MillisecondsToInterval`` to
+   convert a time interval in seconds or milliseconds to ``PRIntervalTime``.
 
-.. _Wrapping_a_native_file_descriptor:
+   -  `PR_SecondsToInterval </en-US/PR_SecondsToInterval>`__
+   -  `PR_MillisecondsToInterval </en-US/PR_MillisecondsToInterval>`__
 
-Wrapping a native file descriptor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _nspr_io_layering:
 
-If your current TCP socket code uses the standard BSD socket API, a
-lighter-weight method than creating your own NSPR I/O layer is to simply
-import a native file descriptor into NSPR.  This method is convenient
-and works for most applications.
+`NSPR I/O layering <#nspr_io_layering>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `PR_ImportTCPSocket <https://developer.mozilla.org/en-US/PR_ImportTCPSocket>`__
+.. container::
 
-.. _Socket_IO_functions:
+   NSPR file descriptors can be layered, corresponding to the layers in the network stack.  The SSL
+   library in NSS implements the SSL protocol as an NSPR I/O layer, which sits on top of another
+   NSPR I/O layer that represents TCP.
 
-Socket I/O functions
-~~~~~~~~~~~~~~~~~~~~
+   You can implement an NSPR I/O layer that wraps your own TCP socket code.  The following NSPR
+   functions allow you to create your own NSPR I/O layer and manipulate it.
 
-As mentioned above, the SSL library in NSS implements the SSL protocol
-as an NSPR I/O layer.  Users call NSPR socket I/O functions to read
-from, write to, and shut down an SSL connection, and to close an NSPR
-file descriptor.
+   -  `PR_GetUniqueIdentity </en-US/PR_GetUniqueIdentity>`__
+   -  `PR_CreateIOLayerStub </en-US/PR_CreateIOLayerStub>`__
+   -  `PR_GetDefaultIOMethods </en-US/PR_GetDefaultIOMethods>`__
+   -  `PR_GetIdentitiesLayer </en-US/PR_GetIdentitiesLayer>`__
+   -  `PR_GetLayersIdentity </en-US/PR_GetLayersIdentity>`__
+   -  `PR_PushIOLayer </en-US/PR_PushIOLayer>`__
+   -  `PR_PopIOLayer </en-US/PR_PopIOLayer>`__
 
--  `PR_Read <https://developer.mozilla.org/en-US/PR_Read>`__
--  `PR_Write <https://developer.mozilla.org/en-US/PR_Write>`__
--  `PR_Recv <https://developer.mozilla.org/en-US/PR_Recv>`__
--  `PR_Send <https://developer.mozilla.org/en-US/PR_Send>`__
--  `PR_GetSocketOption <https://developer.mozilla.org/en-US/PR_GetSocketOption>`__
--  `PR_SetSocketOption <https://developer.mozilla.org/en-US/PR_SetSocketOption>`__
--  `PR_Shutdown <https://developer.mozilla.org/en-US/PR_Shutdown>`__
--  `PR_Close <https://developer.mozilla.org/en-US/PR_Close>`__
+.. _wrapping_a_native_file_descriptor:
+
+`Wrapping a native file descriptor <#wrapping_a_native_file_descriptor>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   If your current TCP socket code uses the standard BSD socket API, a lighter-weight method than
+   creating your own NSPR I/O layer is to simply import a native file descriptor into NSPR.  This
+   method is convenient and works for most applications.
+
+   -  `PR_ImportTCPSocket </en-US/PR_ImportTCPSocket>`__
+
+.. _socket_io_functions:
+
+`Socket I/O functions <#socket_io_functions>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   As mentioned above, the SSL library in NSS implements the SSL protocol as an NSPR I/O layer. 
+   Users call NSPR socket I/O functions to read from, write to, and shut down an SSL connection, and
+   to close an NSPR file descriptor.
+
+   -  `PR_Read </en-US/PR_Read>`__
+   -  `PR_Write </en-US/PR_Write>`__
+   -  `PR_Recv </en-US/PR_Recv>`__
+   -  `PR_Send </en-US/PR_Send>`__
+   -  `PR_GetSocketOption </en-US/PR_GetSocketOption>`__
+   -  `PR_SetSocketOption </en-US/PR_SetSocketOption>`__
+   -  `PR_Shutdown </en-US/PR_Shutdown>`__
+   -  `PR_Close </en-US/PR_Close>`__

@@ -1,70 +1,68 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SignFinal:
 
-============
 FC_SignFinal
 ============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SignFinal - finish a multi-part signing operation.
+.. container::
 
-.. _Syntax:
+   FC_SignFinal - finish a multi-part signing operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SignFinal(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pSignature,
-     CK_ULONG_PTR pusSignatureLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SignFinal(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pSignature,
+        CK_ULONG_PTR pusSignatureLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pSignature``
-   [out] pointer to the buffer which will
-   receive the digest or NULL.
-``pusSignatureLen``
-   [in, out] pointer to location containing
-   the maximum buffer size.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pSignature``
+      [out] pointer to the buffer which will receive the digest or NULL.
+   ``pusSignatureLen``
+      [in, out] pointer to location containing the maximum buffer size.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SignFinal`` finishes a multi-part signing operation by returning
-the complete signature and clearing the operation context. If
-``pSignature`` is NULL the length of the signature is returned and
-``FC_SignFinal`` may be called again with ``pSignature`` set to retrieve
-the signature.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignFinal``.
+   ``FC_SignFinal`` finishes a multi-part signing operation by returning the complete signature and
+   clearing the operation context. If ``pSignature`` is NULL the length of the signature is returned
+   and ``FC_SignFinal`` may be called again with ``pSignature`` set to retrieve the signature.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_SignFinal``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_SignUpdate <https://developer.mozilla.org/en-US/FC_SignUpdate>`__,
-   `NSC_SignFinal <https://developer.mozilla.org/en-US/NSC_SignFinal>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_SignUpdate`, `NSC_SignFinal </en-US/NSC_SignFinal>`__

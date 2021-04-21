@@ -1,90 +1,105 @@
 .. _Mozilla_Projects_NSS_Reference_NSS_functions:
 
-=============
 NSS functions
 =============
-This page lists all exported functions in NSS 3.11.7 It was ported from
-`here <http://www-archive.mozilla.org/projects/security/pki/nss/ref/nssfunctions.html>`__.
-
-This is a `composite
-page <http://meta.wikimedia.org/wiki/Help:Template#Composite_pages>`__.
-Section headings are links to the individual pages where you can edit
-them.
-
-Keywords:
-
--  Deprecated - function should no longer be used.
--  Updated - function has new arguments such as new flag or addition to
-   structure.
-
-.. _SSL_functions:
-
-:ref:`Mozilla_Projects_SSL_functions`
--------------------------------------
 
 .. container::
 
-   {{page("/en-US/docs/NSS/SSL_functions")}}
+   This page lists all exported functions in NSS 3.11.7 It was ported from
+   `here <http://www-archive.mozilla.org/projects/security/pki/nss/ref/nssfunctions.html>`__.
 
-.. _Deprecated_SSL_functions:
+   This is a `composite page <http://meta.wikimedia.org/wiki/Help:Template#Composite_pages>`__.
+   Section headings are links to the individual pages where you can edit them.
 
-:ref:`Mozilla_Projects_Deprecated_SSL_functions`
-------------------------------------------------
+   Keywords:
+
+   -  Deprecated - function should no longer be used.
+   -  Updated - function has new arguments such as new flag or addition to structure.
+
+.. _ssl_functions:
+
+`SSL functions <#ssl_functions>`__
+----------------------------------
 
 .. container::
 
-   {{page("/en-US/docs/NSS/Deprecated_SSL_functions")}}
+   .. container::
 
-.. _Certificate_functions:
+      {{page("/en-US/docs/NSS/SSL_functions")}}
 
-:ref:`Mozilla_Projects_Certificate_functions`
----------------------------------------------
+.. _deprecated_ssl_functions:
+
+`Deprecated SSL functions <#deprecated_ssl_functions>`__
+--------------------------------------------------------
 
 .. container::
 
-   {{page("/en-US/docs/NSS/Certificate_functions")}}
+   .. container::
 
-.. _Cryptography_functions:
+      {{page("/en-US/docs/NSS/Deprecated_SSL_functions")}}
 
-:ref:`Mozilla_Projects_Cryptography_functions`
+.. _certificate_functions:
+
+`Certificate functions <#certificate_functions>`__
+--------------------------------------------------
+
+.. container::
+
+   .. container::
+
+      {{page("/en-US/docs/NSS/Certificate_functions")}}
+
+.. _cryptography_functions:
+
+`Cryptography functions <#cryptography_functions>`__
+----------------------------------------------------
+
+.. container::
+
+   .. container::
+
+      {{page("/en-US/docs/NSS/Cryptography_functions")}}
+
+.. _utility_functions:
+
+`Utility functions <#utility_functions>`__
+------------------------------------------
+
+.. container::
+
+   .. container::
+
+      {{page("/en-US/docs/NSS/Utility_functions")}}
+
+.. _s.2fmime_functions:
+
+`S/MIME functions <#s.2fmime_functions>`__
+------------------------------------------
+
+.. container::
+
+   .. container::
+
+      {{page("/en-US/docs/NSS/S//MIME_functions")}}
+
+.. _pkcs_.237_functions:
+
+`PKCS #7 functions <#pkcs_.237_functions>`__
+--------------------------------------------
+
+.. container::
+
+   .. container::
+
+      {{page("/en-US/docs/NSS/PKCS_7_functions")}}
+
+.. _pkcs_.2312_functions:
+
+`PKCS #12 functions <#pkcs_.2312_functions>`__
 ----------------------------------------------
 
 .. container::
 
-   {{page("/en-US/docs/NSS/Cryptography_functions")}}
+   .. container::
 
-.. _Utility_functions:
-
-:ref:`Mozilla_Projects_Utility_functions`
------------------------------------------
-
-.. container::
-
-   {{page("/en-US/docs/NSS/Utility_functions")}}
-
-.. _S.2FMIME_functions:
-
-:ref:`Mozilla_Projects_S_MIME_functions`
-----------------------------------------
-
-.. container::
-
-   {{page("/en-US/docs/NSS/S//MIME_functions")}}
-
-.. _PKCS_.237_functions:
-
-:ref:`Mozilla_Projects_PKCS_7_functions`
-----------------------------------------
-
-.. container::
-
-   {{page("/en-US/docs/NSS/PKCS_7_functions")}}
-
-.. _PKCS_.2312_functions:
-
-:ref:`Mozilla_Projects_PKCS_12_functions`
------------------------------------------
-
-.. container::
-
-   {{page("/en-US/docs/NSS/PKCS_12_functions")}}
+      {{page("/en-US/docs/NSS/PKCS_12_functions")}}

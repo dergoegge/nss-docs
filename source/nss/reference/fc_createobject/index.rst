@@ -1,69 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_CreateObject:
 
-===============
 FC_CreateObject
 ===============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_CreateObject - create a new object.
+.. container::
 
-.. _Syntax:
+   FC_CreateObject - create a new object.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_CreateObject(
-     CK_SESSION_HANDLE hSession,
-     CK_ATTRIBUTE_PTR pTemplate,
-     CK_ULONG ulCount,
-     CK_OBJECT_HANDLE_PTR phObject
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_CreateObject(
+        CK_SESSION_HANDLE hSession,
+        CK_ATTRIBUTE_PTR pTemplate,
+        CK_ULONG ulCount,
+        CK_OBJECT_HANDLE_PTR phObject
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pTemplate``
-   [in] object template.
-``ulCount``
-   [in] number of attributes in the template.
-``phObject``
-   [out] pointer to location to receive the
-   new objects handle.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pTemplate``
+      [in] object template.
+   ``ulCount``
+      [in] number of attributes in the template.
+   ``phObject``
+      [out] pointer to location to receive the new objects handle.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_CreateObject`` creates an object using the attributes specified in
-the template.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_CreateObject``.
+   ``FC_CreateObject`` creates an object using the attributes specified in the template.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_CreateObject``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_DestroyObject <https://developer.mozilla.org/en-US/FC_DestroyObject>`__,
-   `NSC_CreateObject <https://developer.mozilla.org/en-US/NSC_CreateObject>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_DestroyObject`,
+      `NSC_CreateObject </en-US/NSC_CreateObject>`__

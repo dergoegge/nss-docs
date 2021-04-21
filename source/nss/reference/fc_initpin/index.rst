@@ -1,78 +1,78 @@
 .. _Mozilla_Projects_NSS_Reference_FC_InitPIN:
 
-==========
 FC_InitPIN
 ==========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-``FC_InitPIN()`` - Initialize the user's PIN.
+.. container::
 
-.. _Syntax:
+   ``FC_InitPIN()`` - Initialize the user's PIN.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_InitPIN(
-     CK_SESSION_HANDLE hSession,
-     CK_CHAR_PTR pPin,
-     CK_ULONG ulPinLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_InitPIN(
+        CK_SESSION_HANDLE hSession,
+        CK_CHAR_PTR pPin,
+        CK_ULONG ulPinLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_InitPIN()`` takes three parameters:
+.. container::
 
-``hSession``
-   [Input] Session handle.
-``pPin``
-   [Input] Pointer to the PIN being set.
-``ulPinLen``
-   [Input] Length of the PIN.
+   ``FC_InitPIN()`` takes three parameters:
 
-.. _Description:
+   ``hSession``
+      [Input] Session handle.
+   ``pPin``
+      [Input] Pointer to the PIN being set.
+   ``ulPinLen``
+      [Input] Length of the PIN.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_InitPIN()`` initializes the normal user's PIN.
+.. container::
 
-``FC_InitPIN()`` must be called when the PKCS #11 Security Officer (SO)
-is logged into the token and the session is read/write, that is, the
-session must be in the "R/W SO Functions" state
-(``CKS_RW_SO_FUNCTIONS``). The role of the PKCS #11 SO is to initialize
-a token and to initialize the normal user's PIN. In the NSS
-cryptographic module, one uses the empty string password ("") to log in
-as the PKCS #11 SO. The module only allows the PKCS #11 SO to log in if
-the normal user's PIN has not yet been set or has been reset.
+   ``FC_InitPIN()`` initializes the normal user's PIN.
 
-.. _Return_value:
+   ``FC_InitPIN()`` must be called when the PKCS #11 Security Officer (SO) is logged into the token
+   and the session is read/write, that is, the session must be in the "R/W SO Functions" state
+   (``CKS_RW_SO_FUNCTIONS``). The role of the PKCS #11 SO is to initialize a token and to initialize
+   the normal user's PIN. In the NSS cryptographic module, one uses the empty string password ("")
+   to log in as the PKCS #11 SO. The module only allows the PKCS #11 SO to log in if the normal
+   user's PIN has not yet been set or has been reset.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``FC_InitPIN()`` returns the following return codes.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``CKR_OK``: normal user's PIN initialization succeeded.
--  ``CKR_SESSION_HANDLE_INVALID``: the session handle is invalid.
--  ``CKR_USER_NOT_LOGGED_IN``: the session is not in the "R/W SO
-   Functions" state.
--  ``CKR_PIN_INVALID``: the PIN has an invalid UTF-8 character.
--  ``CKR_PIN_LEN_RANGE``: the PIN is too short, too long, or too weak
-   (doesn't have enough character types).
--  ``CKR_DEVICE_ERROR``: normal user's PIN is already initialized.
+.. container::
 
-.. _See_also:
+   ``FC_InitPIN()`` returns the following return codes.
 
-See also
-~~~~~~~~
+   -  ``CKR_OK``: normal user's PIN initialization succeeded.
+   -  ``CKR_SESSION_HANDLE_INVALID``: the session handle is invalid.
+   -  ``CKR_USER_NOT_LOGGED_IN``: the session is not in the "R/W SO Functions" state.
+   -  ``CKR_PIN_INVALID``: the PIN has an invalid UTF-8 character.
+   -  ``CKR_PIN_LEN_RANGE``: the PIN is too short, too long, or too weak (doesn't have enough
+      character types).
+   -  ``CKR_DEVICE_ERROR``: normal user's PIN is already initialized.
 
--  `NSC_InitPIN <https://developer.mozilla.org/en-US/NSC_InitPIN>`__,
-   `FC_SetPIN <https://developer.mozilla.org/en-US/FC_SetPIN>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_InitPIN </en-US/NSC_InitPIN>`__, :ref:`Mozilla_Projects_NSS_Reference_FC_SetPIN`

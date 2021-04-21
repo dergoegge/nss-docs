@@ -1,70 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DigestUpdate:
 
-===============
 FC_DigestUpdate
 ===============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DigestUpdate - process the next block of a multi-part digest
-operation.
+.. container::
 
-.. _Syntax:
+   FC_DigestUpdate - process the next block of a multi-part digest operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DigestUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pPart,
-     CK_ULONG usPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DigestUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pPart,
+        CK_ULONG usPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pPart``
-   [in] pointer to the next block of data to
-   be digested.
-``usPartLen``
-   [in] length of data block in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pPart``
+      [in] pointer to the next block of data to be digested.
+   ``usPartLen``
+      [in] length of data block in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DigestUpdate`` starts or continues a multi-part digest operation.
-One or more blocks may be part of the message digest operation. The
-digest for the entire message is returned by a call to
-`FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__.
+.. container::
 
-A user may call ``FC_DigestUpdate`` without logging into the token (to
-assume the NSS User role).
+   ``FC_DigestUpdate`` starts or continues a multi-part digest operation. One or more blocks may be
+   part of the message digest operation. The digest for the entire message is returned by a call to
+   :ref:`Mozilla_Projects_NSS_Reference_FC_DigestFinal`.
 
-.. _Return_value:
+   A user may call ``FC_DigestUpdate`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_DigestInit <https://developer.mozilla.org/en-US/FC_DigestInit>`__,
-   `FC_DigestFinal <https://developer.mozilla.org/en-US/FC_DigestFinal>`__,
-   `NSC_DigestUpdate <https://developer.mozilla.org/en-US/NSC_DigestUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_DigestInit`,
+      :ref:`Mozilla_Projects_NSS_Reference_FC_DigestFinal`,
+      `NSC_DigestUpdate </en-US/NSC_DigestUpdate>`__

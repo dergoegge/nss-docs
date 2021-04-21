@@ -1,68 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_FindObjects:
 
-==============
 FC_FindObjects
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_FindObjects - Search for one or more objects
+.. container::
 
-.. _Syntax:
+   FC_FindObjects - Search for one or more objects
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_FindObjects(
-     CK_SESSION_HANDLE hSession,
-     CK_OBJECT_HANDLE_PTR phObject,
-     CK_ULONG usMaxObjectCount,
-     CK_ULONG_PTR pusObjectCount
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_FindObjects(
+        CK_SESSION_HANDLE hSession,
+        CK_OBJECT_HANDLE_PTR phObject,
+        CK_ULONG usMaxObjectCount,
+        CK_ULONG_PTR pusObjectCount
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pTemplate``
-   [out] pointer to location to receive the
-   object handles.
-``usMaxObjectCount``
-   [in] maximum number of handles to retrieve.
-``pusObjectCount``
-   [out] pointer to location to receive the
-   number of returned handles.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pTemplate``
+      [out] pointer to location to receive the object handles.
+   ``usMaxObjectCount``
+      [in] maximum number of handles to retrieve.
+   ``pusObjectCount``
+      [out] pointer to location to receive the number of returned handles.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_FindObjects`` returns the next set of object handles matching the
-criteria set up by the previous call to ``FC_FindObjectsInit`` and sets
-the object count variable to their number or to zero if there are none.
+.. container::
 
-.. _Return_value:
+   ``FC_FindObjects`` returns the next set of object handles matching the criteria set up by the
+   previous call to ``FC_FindObjectsInit`` and sets the object count variable to their number or to
+   zero if there are none.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_FindObjectsInit <https://developer.mozilla.org/en-US/FC_FindObjectsInit>`__,
-   `NSC_FindObjects <https://developer.mozilla.org/en-US/NSC_FindObjects>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_FindObjectsInit`,
+      `NSC_FindObjects </en-US/NSC_FindObjects>`__

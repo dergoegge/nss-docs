@@ -1,64 +1,67 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetObjectSize:
 
-================
 FC_GetObjectSize
 ================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetObjectSize - create a copy of an object.
+.. container::
 
-.. _Syntax:
+   FC_GetObjectSize - create a copy of an object.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetObjectSize(
-     CK_SESSION_HANDLE hSession,
-     CK_OBJECT_HANDLE hObject,
-     CK_ULONG_PTR pusSize
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetObjectSize(
+        CK_SESSION_HANDLE hSession,
+        CK_OBJECT_HANDLE hObject,
+        CK_ULONG_PTR pusSize
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``hObject``
-   [in] object handle.
-``pusSize``
-   [out] pointer to location to receive the
-   object's size.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``hObject``
+      [in] object handle.
+   ``pusSize``
+      [out] pointer to location to receive the object's size.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetObjectSize`` gets the size of an object in bytes.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-getting the size of a secret or private key object.
+   ``FC_GetObjectSize`` gets the size of an object in bytes.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before getting the size of a secret
+   or private key object.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GetObjectSize <https://developer.mozilla.org/en-US/NSC_GetObjectSize>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetObjectSize </en-US/NSC_GetObjectSize>`__

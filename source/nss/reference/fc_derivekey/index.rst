@@ -1,76 +1,77 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DeriveKey:
 
-============
 FC_DeriveKey
 ============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DeriveKey - derive a key from a base key
+.. container::
 
-.. _Syntax:
+   FC_DeriveKey - derive a key from a base key
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DeriveKey(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hBaseKey,
-     CK_ATTRIBUTE_PTR pTemplate,
-     CK_ULONG usAttributeCount,
-     CK_OBJECT_HANDLE_PTR phKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DeriveKey(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hBaseKey,
+        CK_ATTRIBUTE_PTR pTemplate,
+        CK_ULONG usAttributeCount,
+        CK_OBJECT_HANDLE_PTR phKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] pointer to the mechanism to use.
-``hBaseKey``
-   [in] handle of the base key.
-``pWrappedKey``
-   [in] pointer to the wrapped key.
-``pTemplate``
-   [in] pointer to the list of attributes for
-   the new key.
-``usAttributeCount``
-   [in] number of attributes in the template.
-``phKey``
-   [out] pointer to the location to receive
-   the handle of the new key.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] pointer to the mechanism to use.
+   ``hBaseKey``
+      [in] handle of the base key.
+   ``pWrappedKey``
+      [in] pointer to the wrapped key.
+   ``pTemplate``
+      [in] pointer to the list of attributes for the new key.
+   ``usAttributeCount``
+      [in] number of attributes in the template.
+   ``phKey``
+      [out] pointer to the location to receive the handle of the new key.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DeriveKey`` derives (decrypts) a key and creates a new key object.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DeriveKey``.
+   ``FC_DeriveKey`` derives (decrypts) a key and creates a new key object.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_DeriveKey``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_DeriveKey <https://developer.mozilla.org/en-US/NSC_DeriveKey>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_DeriveKey </en-US/NSC_DeriveKey>`__

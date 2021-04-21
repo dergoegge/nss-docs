@@ -1,66 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_FindObjectsInit:
 
-==================
 FC_FindObjectsInit
 ==================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_FindObjectsInit - initialize the parameters for an object search.
+.. container::
 
-.. _Syntax:
+   FC_FindObjectsInit - initialize the parameters for an object search.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_FindObjectsInit(
-     CK_SESSION_HANDLE hSession,
-     CK_ATTRIBUTE_PTR pTemplate,
-     CK_ULONG usCount
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_FindObjectsInit(
+        CK_SESSION_HANDLE hSession,
+        CK_ATTRIBUTE_PTR pTemplate,
+        CK_ULONG usCount
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pTemplate``
-   [in] pointer to template.
-``usCount``
-   [in] number of attributes in the template.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pTemplate``
+      [in] pointer to template.
+   ``usCount``
+      [in] number of attributes in the template.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_FindObjectsInit`` sets the attribute list for an object search. If
-``FC_FindObjectsInit`` is successful ``FC_FindObjects`` may be called
-one or more times to retrieve handles of matching objects.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-searching for secret or private key objects.
+   ``FC_FindObjectsInit`` sets the attribute list for an object search. If ``FC_FindObjectsInit`` is
+   successful ``FC_FindObjects`` may be called one or more times to retrieve handles of matching
+   objects.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before searching for secret or
+   private key objects.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_FindObjects <https://developer.mozilla.org/en-US/FC_FindObjects>`__,
-   `NSC_FindObjectsInit <https://developer.mozilla.org/en-US/NSC_FindObjectsInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_FindObjects`,
+      `NSC_FindObjectsInit </en-US/NSC_FindObjectsInit>`__

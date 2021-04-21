@@ -1,20 +1,23 @@
 .. _Mozilla_Projects_NSS_tools_NSS_Tools_pk12util-tasks:
 
-========================
 NSS Tools pk12util-tasks
 ========================
-.. _NSS_Security_Tools_pk12util_Tasks:
 
-NSS Security Tools: pk12util Tasks
-----------------------------------
+.. _nss_security_tools_pk12util_tasks:
 
-Newsgroup:
-`mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
+`NSS Security Tools: pk12util Tasks <#nss_security_tools_pk12util_tasks>`__
+---------------------------------------------------------------------------
 
-.. _Task_List:
+.. container::
 
-Task List
-~~~~~~~~~
+   Newsgroup: `mozilla.dev.tech.crypto <news://news.mozilla.org/mozilla.dev.tech.crypto>`__
 
-#. Need to migrate code to use an up-to-date version of NSS.
-#. Use NSS functions in pcertdb for handling older database
+.. _task_list:
+
+`Task List <#task_list>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   #. Need to migrate code to use an up-to-date version of NSS.
+   #. Use NSS functions in pcertdb for handling older database

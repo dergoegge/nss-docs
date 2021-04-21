@@ -1,68 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SeedRandom:
 
-=============
 FC_SeedRandom
 =============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-``FC_SeedRandom()`` - mix additional seed material into the random
-number generator.
+.. container::
 
-.. _Syntax:
+   ``FC_SeedRandom()`` - mix additional seed material into the random number generator.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SeedRandom(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pSeed,
-     CK_ULONG usSeedLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SeedRandom(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pSeed,
+        CK_ULONG usSeedLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pSeed``
-   [in] pointer to the seed material
-``usSeedLen``
-   [in] length of the seed material in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pSeed``
+      [in] pointer to the seed material
+   ``usSeedLen``
+      [in] length of the seed material in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SeedRandom()`` mixes additional seed material into the token's
-random number generator. Note that ``FC_SeedRandom()`` doesn't provide
-the initial seed material for the random number generator. The initial
-seed material is provided by the NSS cryptographic module itself.
+.. container::
 
-| 
-| A user may call ``FC_SeedRandom()`` without logging into the token (to
-  assume the NSS User role).
+   ``FC_SeedRandom()`` mixes additional seed material into the token's random number generator. Note
+   that ``FC_SeedRandom()`` doesn't provide the initial seed material for the random number
+   generator. The initial seed material is provided by the NSS cryptographic module itself.
 
-.. _Return_value:
+   | 
+   | A user may call ``FC_SeedRandom()`` without logging into the token (to assume the NSS User
+     role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_SeedRandom <https://developer.mozilla.org/en-US/NSC_SeedRandom>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_SeedRandom </en-US/NSC_SeedRandom>`__

@@ -1,58 +1,60 @@
 .. _Mozilla_Projects_NSS_Reference_FC_CloseSession:
 
-===============
 FC_CloseSession
 ===============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_CloseSession - close a session opened between an application and a
-token.
+.. container::
 
-.. _Syntax:
+   FC_CloseSession - close a session opened between an application and a token.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_CloseSession(
-     CK_SESSION_HANDLE hSession
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_CloseSession(
+        CK_SESSION_HANDLE hSession
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] the session handle to be closed.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] the session handle to be closed.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_CloseSession`` closes a session between an application and a token.
+.. container::
 
-A user may call ``FC_CloseSession`` without logging into the token (to
-assume the NSS User role).
+   ``FC_CloseSession`` closes a session between an application and a token.
 
-.. _Return_value:
+   A user may call ``FC_CloseSession`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_OpenSession <https://developer.mozilla.org/en-US/FC_OpenSession>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_OpenSession`

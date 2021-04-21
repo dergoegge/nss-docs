@@ -1,76 +1,78 @@
 .. _Mozilla_Projects_NSS_Reference_FC_OpenSession:
 
-==============
 FC_OpenSession
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_OpenSession - open a session between an application and a token.
+.. container::
 
-.. _Syntax:
+   FC_OpenSession - open a session between an application and a token.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_OpenSession(
-     CK_SLOT_ID slotID,
-     CK_FLAGS flags,
-     CK_VOID_PTR pApplication,
-     CK_NOTIFY Notify,
-     CK_SESSION_HANDLE_PTR phSession
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_OpenSession(
+        CK_SLOT_ID slotID,
+        CK_FLAGS flags,
+        CK_VOID_PTR pApplication,
+        CK_NOTIFY Notify,
+        CK_SESSION_HANDLE_PTR phSession
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_OpenSession`` has the following parameters:
+.. container::
 
-``slotID``
-   [in] the ID of the token's slot.
-``flags``
-   [in]
-``pApplication``
-``Notify``
-   [in] pointer to a notification callback
-   function. Not currently supported.
-``phSession``
-   [out] pointer to a session handle.
+   ``FC_OpenSession`` has the following parameters:
 
-.. _Description:
+   ``slotID``
+      [in] the ID of the token's slot.
+   ``flags``
+      [in]
+   ``pApplication``
+   ``Notify``
+      [in] pointer to a notification callback function. Not currently supported.
+   ``phSession``
+      [out] pointer to a session handle.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_OpenSession`` opens a session between an application and the token
-in the slot with the ID ``slotID``.
+.. container::
 
-The NSS cryptographic module currently doesn't call the surrender
-callback function ``Notify``. (See PKCS #11 v2.20 section 11.17.1.)
+   ``FC_OpenSession`` opens a session between an application and the token in the slot with the ID
+   ``slotID``.
 
-A user may call ``FC_OpenSession`` without logging into the token (to
-assume the NSS User role).
+   The NSS cryptographic module currently doesn't call the surrender callback function ``Notify``.
+   (See PKCS #11 v2.20 section 11.17.1.)
 
-.. _Return_value:
+   A user may call ``FC_OpenSession`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_CloseSession <https://developer.mozilla.org/en-US/FC_CloseSession>`__,
-   `NSC_OpenSession <https://developer.mozilla.org/en-US/NSC_OpenSession>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_CloseSession`,
+      `NSC_OpenSession </en-US/NSC_OpenSession>`__

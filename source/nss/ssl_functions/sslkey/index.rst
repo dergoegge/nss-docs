@@ -1,128 +1,107 @@
 .. _Mozilla_Projects_NSS_SSL_functions_sslkey:
 
-======
 sslkey
 ======
-.. note::
 
-   -  This page is part of the
-      :ref:`Mozilla_Projects_SSL_functions_OLD_SSL_Reference` that we
-      are migrating into the format described in the `MDN Style
-      Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__.
-      If you are inclined to help with this migration, your help would
-      be very much appreciated.
+.. container::
 
-   -  Upgraded documentation may be found in the
-      :ref:`Mozilla_Projects_NSS_reference`
+   .. note::
 
-.. _Key_Functions:
+      -  This page is part of the :ref:`Mozilla_Projects_NSS_SSL_functions_OLD_SSL_Reference` that
+         we are migrating into the format described in the `MDN Style
+         Guide <https://developer.mozilla.org/en-US/docs/MDN/Guidelines>`__. If you are inclined to
+         help with this migration, your help would be very much appreciated.
 
-Key Functions
-=============
+      -  Upgraded documentation may be found in the `Current NSS Reference </NSS_reference>`__
 
+   .. rubric:: Key Functions
+      :name: Key_Functions
 
-.. _Chapter_6_Key_Functions:
+   --------------
 
-Chapter 6
-Key Functions
--------------
+.. _chapter_6_key_functions:
 
-This chapter describes two functions used to manipulate private keys and
-key databases such as the ``key3.db`` database provided with
-Communicator.
+`Chapter 6
+ <#chapter_6_key_functions>`__ Key Functions
+--------------------------------------------
 
-|  ```SECKEY_GetDefaultKeyDB`` <#1051479>`__
-| ```SECKEY_DestroyPrivateKey`` <#1051017>`__
+.. container::
 
-.. _SECKEY_GetDefaultKeyDB:
+   This chapter describes two functions used to manipulate private keys and key databases such as
+   the ``key3.db`` database provided with Communicator.
 
-SECKEY_GetDefaultKeyDB
-^^^^^^^^^^^^^^^^^^^^^^
+   |  ```SECKEY_GetDefaultKeyDB`` <#1051479>`__
+   | ```SECKEY_DestroyPrivateKey`` <#1051017>`__
 
-Returns a handle to the default key database opened by
-```NSS_Init`` <sslfnc.html#1067601>`__.
+   .. rubric:: SECKEY_GetDefaultKeyDB
+      :name: seckey_getdefaultkeydb
 
-.. _Syntax:
+   Returns a handle to the default key database opened by
+   :ref:`Mozilla_Projects_NSS_SSL_functions_sslfnc#1067601`.
 
-Syntax
-''''''
+   .. rubric:: Syntax
+      :name: syntax
 
-::
+   .. code:: notranslate
 
-   #include <key.h>
-   #include <keyt.h>
+      #include <key.h>
+      #include <keyt.h>
 
-::
+   .. code:: notranslate
 
-   SECKEYKeyDBHandle *SECKEY_GetDefaultKeyDB(void);
+      SECKEYKeyDBHandle *SECKEY_GetDefaultKeyDB(void);
 
-.. _Returns:
+   .. rubric:: Returns
+      :name: returns
 
-Returns
-'''''''
+   The function returns a handle of type ``SECKEYKeyDBHandle``.
 
-The function returns a handle of type ``SECKEYKeyDBHandle``.
+   .. rubric:: Description
+      :name: description
 
-.. _Description:
+   :ref:`Mozilla_Projects_NSS_SSL_functions_sslfnc#1067601` opens the certificate, key, and security
+   module databases that you specify for use with NSS. ``SECKEYKeyDBHandle`` returns a handle to the
+   key database opened by ``NSS_Init``.
 
-Description
-'''''''''''
+   .. rubric:: SECKEY_DestroyPrivateKey
+      :name: seckey_destroyprivatekey
 
-```NSS_Init`` <sslfnc.html#1067601>`__ opens the certificate, key, and
-security module databases that you specify for use with NSS.
-``SECKEYKeyDBHandle`` returns a handle to the key database opened by
-``NSS_Init``.
+   Destroys a private key structure.
 
-.. _SECKEY_DestroyPrivateKey:
+   .. rubric:: Syntax
+      :name: syntax_2
 
-SECKEY_DestroyPrivateKey
-^^^^^^^^^^^^^^^^^^^^^^^^
+   .. code:: notranslate
 
-Destroys a private key structure.
+      #include <key.h>
+      #include <keyt.h>
 
-.. _Syntax_2:
+   .. code:: notranslate
 
-Syntax
-''''''
+      void SECKEY_DestroyPrivateKey(SECKEYPrivateKey *key);
 
-::
+   .. rubric:: Parameter
+      :name: parameter
 
-   #include <key.h>
-   #include <keyt.h>
+   This function has the following parameter:
 
-::
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the private key structure to       |
+   |                                                 | destroy.                                        |
+   |    key                                          |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-   void SECKEY_DestroyPrivateKey(SECKEYPrivateKey *key);
+   .. rubric:: Description
+      :name: description_2
 
-.. _Parameter:
+   Certificate and key structures are shared objects. When an application makes a copy of a
+   particular certificate or key structure that already exists in memory, SSL makes a *shallow*
+   copy--that is, it increments the reference count for that object rather than making a whole new
+   copy. When you call ```CERT_DestroyCertificate`` <sslcrt.html#1050532>`__ or
+   ```SECKEY_DestroyPrivateKey`` <#1051017>`__, the function decrements the reference count and, if
+   the reference count reaches zero as a result, both frees the memory and sets all the bits to
+   zero. The use of the word "destroy" in function names or in the description of a function implies
+   reference counting.
 
-Parameter
-'''''''''
-
-This function has the following parameter:
-
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the private key      |
-|                                   | structure to destroy.             |
-|    key                            |                                   |
-+-----------------------------------+-----------------------------------+
-
-.. _Description_2:
-
-Description
-'''''''''''
-
-Certificate and key structures are shared objects. When an application
-makes a copy of a particular certificate or key structure that already
-exists in memory, SSL makes a *shallow* copy--that is, it increments the
-reference count for that object rather than making a whole new copy.
-When you call ```CERT_DestroyCertificate`` <sslcrt.html#1050532>`__ or
-```SECKEY_DestroyPrivateKey`` <#1051017>`__, the function decrements the
-reference count and, if the reference count reaches zero as a result,
-both frees the memory and sets all the bits to zero. The use of the word
-"destroy" in function names or in the description of a function implies
-reference counting.
-
-Never alter the contents of a certificate or key structure. If you
-attempt to do so, the change affects all the shallow copies of that
-structure and can cause severe problems.
+   Never alter the contents of a certificate or key structure. If you attempt to do so, the change
+   affects all the shallow copies of that structure and can cause severe problems.

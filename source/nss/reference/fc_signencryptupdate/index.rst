@@ -1,76 +1,75 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SignEncryptUpdate:
 
-====================
 FC_SignEncryptUpdate
 ====================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SignEncryptUpdate - continue a multi-part signing and encryption
-operation
+.. container::
 
-.. _Syntax:
+   FC_SignEncryptUpdate - continue a multi-part signing and encryption operation
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SignEncryptUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pPart,
-     CK_ULONG ulPartLen,
-     CK_BYTE_PTR pEncryptedPart,
-     CK_ULONG_PTR pulEncryptedPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SignEncryptUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pPart,
+        CK_ULONG ulPartLen,
+        CK_BYTE_PTR pEncryptedPart,
+        CK_ULONG_PTR pulEncryptedPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pPart``
-   [in] pointer to the data part.
-``ulPartLen``
-   [in] length of data in bytes.
-``pEncryptedPart``
-   [in] pointer to the location which receives
-   the signed and encrypted data part or NULL.
-``pulEncryptedPartLen``
-   [in] pointer to the length of the encrypted
-   part buffer.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pPart``
+      [in] pointer to the data part.
+   ``ulPartLen``
+      [in] length of data in bytes.
+   ``pEncryptedPart``
+      [in] pointer to the location which receives the signed and encrypted data part or NULL.
+   ``pulEncryptedPartLen``
+      [in] pointer to the length of the encrypted part buffer.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SignEncryptUpdate`` continues a multi-part signature and encryption
-operation. After calling both ``FC_SignInit`` and ``FC_EncryptInit`` to
-set up the operations this function may be called multiple times. The
-operation is finished by calls to ``FC_SignFinal`` and
-``FC_EncryptFinal``.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignEncryptUpdate``.
+   ``FC_SignEncryptUpdate`` continues a multi-part signature and encryption operation. After calling
+   both ``FC_SignInit`` and ``FC_EncryptInit`` to set up the operations this function may be called
+   multiple times. The operation is finished by calls to ``FC_SignFinal`` and ``FC_EncryptFinal``.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling
+   ``FC_SignEncryptUpdate``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_SignEncryptUpdate <https://developer.mozilla.org/en-US/NSC_SignEncryptUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_SignEncryptUpdate </en-US/NSC_SignEncryptUpdate>`__

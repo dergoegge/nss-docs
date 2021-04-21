@@ -1,67 +1,68 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SignInit:
 
-===========
 FC_SignInit
 ===========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SignInit - initialize a signing operation.
+.. container::
 
-.. _Syntax:
+   FC_SignInit - initialize a signing operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SignInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SignInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] mechanism to be used for the
-   subsequent signing operation.
-``hKey``
-   [in] handle of the key to be used .
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] mechanism to be used for the subsequent signing operation.
+   ``hKey``
+      [in] handle of the key to be used .
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SignInit`` initializes a signature operation.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignInit``.
+   ``FC_SignInit`` initializes a signature operation.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_SignInit``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_SignInit <https://developer.mozilla.org/en-US/NSC_SignInit>`__
-   `FC_Sign <https://developer.mozilla.org/en-US/FC_Sign>`__
-   `FC_SignUpdate <https://developer.mozilla.org/en-US/FC_SignUpdate>`__
-   `FC_SignFinal <https://developer.mozilla.org/en-US/FC_SignFinal>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_SignInit </en-US/NSC_SignInit>`__ :ref:`Mozilla_Projects_NSS_Reference_FC_Sign`
+      :ref:`Mozilla_Projects_NSS_Reference_FC_SignUpdate`
+      :ref:`Mozilla_Projects_NSS_Reference_FC_SignFinal`

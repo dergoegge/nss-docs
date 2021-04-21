@@ -1,50 +1,50 @@
 .. _Mozilla_Projects_NSS_Reference_NSS_tools_:_vfyserv:
 
-===================
 NSS tools : vfyserv
 ===================
-Name
 
-vfyserv — TBD
+.. container::
 
-Synopsis
+   Name
 
-vfyserv
+   vfyserv — TBD
 
-Description
+   Synopsis
 
-The vfyserv tool verifies a certificate chain
+   vfyserv
 
-Options
+   Description
 
-Additional Resources
+   The vfyserv tool verifies a certificate chain
 
-| For information about NSS and other tools related to NSS (like JSS),
-  check
-| out the NSS project wiki at
-| [1]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
-  The NSS site relates
-| directly to NSS code changes and releases.
+   Options
 
-Mailing lists: https://lists.mozilla.org/listinfo/dev-tech-crypto
+   Additional Resources
 
-IRC: Freenode at #dogtag-pki
+   | For information about NSS and other tools related to NSS (like JSS), check
+   | out the NSS project wiki at
+   | [1]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
+     The NSS site relates
+   | directly to NSS code changes and releases.
 
-Authors
+   Mailing lists: https://lists.mozilla.org/listinfo/dev-tech-crypto
 
-| The NSS tools were written and maintained by developers with Netscape,
-  Red
-| Hat, and Sun.
+   IRC: Freenode at #dogtag-pki
 
-| Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey
-| <dlackey@redhat.com>.
+   Authors
 
-Copyright
+   | The NSS tools were written and maintained by developers with Netscape, Red
+   | Hat, and Sun.
 
-(c) 2010, Red Hat, Inc. Licensed under the GNU Public License version 2.
+   | Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey
+   | <dlackey@redhat.com>.
 
-References
+   Copyright
 
-| Visible links
-| 1.
-  `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__
+   (c) 2010, Red Hat, Inc. Licensed under the GNU Public License version 2.
+
+   References
+
+   | Visible links
+   | 1.
+     `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__

@@ -1,65 +1,68 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SignRecoverInit:
 
-==================
 FC_SignRecoverInit
 ==================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SignRecoverInit - initialize a sign recover operation.
+.. container::
 
-.. _Syntax:
+   FC_SignRecoverInit - initialize a sign recover operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SignRecoverInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SignRecoverInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] mechanism to be used for the signing
-   operation.
-``hKey``
-   [in] handle of the key to be used.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] mechanism to be used for the signing operation.
+   ``hKey``
+      [in] handle of the key to be used.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SignRecoverInit`` initializes a initializes a signature operation
-where the (digest) data can be recovered from the signature.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignRecoverInit``.
+   ``FC_SignRecoverInit`` initializes a initializes a signature operation where the (digest) data
+   can be recovered from the signature.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling
+   ``FC_SignRecoverInit``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_SignRecoverInit <https://developer.mozilla.org/en-US/NSC_SignRecoverInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_SignRecoverInit </en-US/NSC_SignRecoverInit>`__

@@ -1,230 +1,234 @@
 .. _Mozilla_Projects_NSS_NSS_Tech_Notes_nss_tech_note3:
 
-==============
 nss tech note3
 ==============
-.. _All_About_Certificate_Extensions:
 
-All About Certificate Extensions
---------------------------------
+.. _all_about_certificate_extensions:
 
-.. _NSS_Technical_Note_3:
+`All About Certificate Extensions <#all_about_certificate_extensions>`__
+------------------------------------------------------------------------
 
-NSS Technical Note: 3
-~~~~~~~~~~~~~~~~~~~~~
+.. container::
 
-::
+.. _nss_technical_note_3:
 
-   09 May 2002
-   Nelson B. Bolyard
+`NSS Technical Note: 3 <#nss_technical_note_3>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   This week at least 5 different people came to me with variants of the
-   same question:
+.. container::
 
-     What certificate extensions do I have to put into my cert for NSS to
-     allow it to be used for purpose <x>??
+   .. code:: notranslate
 
-   This message attempts to answer that question, and to document NSS's
-   approach to validating certificates for certain purposes.
+      09 May 2002
+      Nelson B. Bolyard
 
-   When NSS is asked to verify the validity of a certificate chain, it
-   verifies the validity of that cert chain for a particular purpose,
-   known as a SECCertUsage, as of a specific date and time.
+      This week at least 5 different people came to me with variants of the
+      same question:
 
-   The list of known SECCertUsages is short:
+        What certificate extensions do I have to put into my cert for NSS to
+        allow it to be used for purpose <x>??
 
-   certUsageSSLClient ...........  An SSL client authentication cert
-   certUsageSSLServer ...........  An ordinary SSL server cert
-   certUsageSSLServerWithStepUp..  An SSL server cert that allows export
-                   clients to use strong crypto.
-   certUsageSSLCA ...............  An intermediate or root CA cert allowed
-                   to issue SSL client or SSL server certs
-                   or other intermediate SSL CA certs.
-   certUsageEmailSigner .........  Used to verify S/MIME email signatures
-   certUsageEmailRecipient ......  Used to encrypt S/MIME emails.
-   certUsageObjectSigner ........  Used to verify signatures on files of
-                   executable code, e.g. jar files.
-   certUsageStatusResponder .....  Used by an OCSP responder
-   certUsageVerifyCA ............  A CA of any kind.
+      This message attempts to answer that question, and to document NSS's
+      approach to validating certificates for certain purposes.
 
-   Each cert has a "type" and a "key usage", each of which may contain one
-   or more valid values.
+      When NSS is asked to verify the validity of a certificate chain, it
+      verifies the validity of that cert chain for a particular purpose,
+      known as a SECCertUsage, as of a specific date and time.
 
-   Each of the above SECCertUsages translates into a required set of
-   cert type and key usage for the certificate itself, and into another
-   set of required cert type and key usage for all the CA certs in the
-   cert chain.
+      The list of known SECCertUsages is short:
 
-   To determine if a cert is valid for a given cert usage, it must have the
-   the cert type and key usage required for that cert usage, and all the
-   CA certs in the cert chain must have the cert type and key usage required
-   for CA certs for that cert usage.
+      certUsageSSLClient ...........  An SSL client authentication cert
+      certUsageSSLServer ...........  An ordinary SSL server cert
+      certUsageSSLServerWithStepUp..  An SSL server cert that allows export
+                      clients to use strong crypto.
+      certUsageSSLCA ...............  An intermediate or root CA cert allowed
+                      to issue SSL client or SSL server certs
+                      or other intermediate SSL CA certs.
+      certUsageEmailSigner .........  Used to verify S/MIME email signatures
+      certUsageEmailRecipient ......  Used to encrypt S/MIME emails.
+      certUsageObjectSigner ........  Used to verify signatures on files of
+                      executable code, e.g. jar files.
+      certUsageStatusResponder .....  Used by an OCSP responder
+      certUsageVerifyCA ............  A CA of any kind.
 
-   There are 8 Key Usages:
-       CERT_SIGN
-       CRL_SIGN
-       DATA_ENCIPHERMENT
-       DIGITAL_SIGNATURE
-       GOVT_APPROVED
-       KEY_AGREEMENT
-       KEY_ENCIPHERMENT
-       NON_REPUDIATION
+      Each cert has a "type" and a "key usage", each of which may contain one
+      or more valid values.
 
-   There are 9 Cert types:
-       EMAIL
-       EMAIL_CA
-       OBJECT_SIGNING
-       OBJECT_SIGNING_CA
-       SSL_CA
-       SSL_CLIENT
-       SSL_SERVER
-       STATUS_RESPONDER
-       TIME_STAMP
+      Each of the above SECCertUsages translates into a required set of
+      cert type and key usage for the certificate itself, and into another
+      set of required cert type and key usage for all the CA certs in the
+      cert chain.
 
+      To determine if a cert is valid for a given cert usage, it must have the
+      the cert type and key usage required for that cert usage, and all the
+      CA certs in the cert chain must have the cert type and key usage required
+      for CA certs for that cert usage.
 
-   For the cert being checked, the requirements are:
+      There are 8 Key Usages:
+          CERT_SIGN
+          CRL_SIGN
+          DATA_ENCIPHERMENT
+          DIGITAL_SIGNATURE
+          GOVT_APPROVED
+          KEY_AGREEMENT
+          KEY_ENCIPHERMENT
+          NON_REPUDIATION
 
-   Cert Usage      Requried Key Usage      Required Cert Type
-   --------------------    --------------------        -----------------------
-   SSLClient:      DIGITAL_SIGNATURE;      SSL_CLIENT;
-
-   SSLServer:      KEY_AGREEMENT OR
-               KEY_ENCIPHERMENT;       SSL_SERVER;
-
-   SSLServerWithStepUp:    GOVT_APPROVED  AND      SSL_SERVER
-               KEY_AGREEMENT  or
-               KEY_ENCIPHERMENT
-
-   SSLCA:          CERT_SIGN;          SSL_CA;
-
-   EmailSigner:        DIGITAL_SIGNATURE;      EMAIL;
-
-   EmailRecipient:     KEY_AGREEMENT OR
-               KEY_ENCIPHERMENT;       EMAIL;
-
-   ObjectSigner:       DIGITAL_SIGNATURE;      OBJECT_SIGNING;
-
-   StatusResponder:    DIGITAL_SIGNATURE;      STATUS_RESPONDER;
-
-   VerifyCA        CERT_SIGN           SSL_CA OR
-                               EMAIL_CA OR
-                               OBJECT_SIGNING_CA OR
-                               STATUS_RESPONDER
-
-   For CA certs in the cert chain, the requirements are:
-
-   Cert Usage      Requried Key Usage  Required Cert Type
-   --------------------    --------------------    -----------------------
-   SSLServerWithStepUp:    GOVT_APPROVED AND
-               CERT_SIGN;      SSL_CA;
-
-   SSLClient:      CERT_SIGN;      SSL_CA;
-
-   SSLServer:      CERT_SIGN;      SSL_CA;
-
-   SSLCA:          CERT_SIGN;      SSL_CA;
-
-   EmailSigner:        CERT_SIGN;      EMAIL_CA or SSL_CA
-
-   EmailRecipient:     CERT_SIGN;      EMAIL_CA or SSL_CA
-
-   ObjectSigner:       CERT_SIGN;      OBJECT_SIGNING_CA;
-
-   UsageAnyCA:     CERT_SIGN;      OBJECT_SIGNING_CA OR
-                               EMAIL_CA OR
-                               SSL_CA;
-
-   StatusResponder:    CERT_SIGN;      OBJECT_SIGNING_CA OR
-                               EMAIL_CA OR
-                               SSL_CA;
-
-   Note:  When the required key usage is KEY_AGREEMENT OR KEY_ENCIPHERMENT,
-   the actual key usage required depends on the key's algorithm.  For
-   RSA keys, the required usage is KEY_ENCIPHERMENT. For other types of
-   keys, it is KEY_AGREEMENT.
+      There are 9 Cert types:
+          EMAIL
+          EMAIL_CA
+          OBJECT_SIGNING
+          OBJECT_SIGNING_CA
+          SSL_CA
+          SSL_CLIENT
+          SSL_SERVER
+          STATUS_RESPONDER
+          TIME_STAMP
 
 
-   Cert Extensions:
+      For the cert being checked, the requirements are:
 
-   One vital Certificate extension is the "Basic Constraints" extension.
-   It tells NSS whether the cert is a CA cert, or not, and affects every
-   other aspect of how the cert is interpreted by NSS.  The OID for this
-   extension is { 2 5 29 19 }, encoded in hex as 0x55, 0x1d, 0x13.
-   If the extension is present and has the value TRUE, then this cert is
-   taken to be a CA cert.  Otherwise it is not (except that trust flags
-   may override this, see discussion of trust flags farther below).
+      Cert Usage      Requried Key Usage      Required Cert Type
+      --------------------    --------------------        -----------------------
+      SSLClient:      DIGITAL_SIGNATURE;      SSL_CLIENT;
 
-   Netscape has its own openly defined Cert Type extension, which can be used
-   to explicitly set the Cert Type in any Cert.  The Cert Type extension has
-   bits in it that correspond directly to the cert types named above.
-   The OID for this extension is { 2 16 840 1 113730 1 1 }
-   encoded in hex as  0x60, 0x86, 0x48, 0x01, 0x86, 0xf8, 0x42, 0x01, 0x01
+      SSLServer:      KEY_AGREEMENT OR
+                  KEY_ENCIPHERMENT;       SSL_SERVER;
 
-   In addition to Netscape's own Cert Type extension, NSS recognizes various
-   X.509 extensions.
+      SSLServerWithStepUp:    GOVT_APPROVED  AND      SSL_SERVER
+                  KEY_AGREEMENT  or
+                  KEY_ENCIPHERMENT
 
-   The X.509 key usage extension has OID { 2 5 29 0F } encoded in hex as
-   0x55, 0x1d, 0x0f.  If present, this extension directly determines the
-   values of the 8 key usages defined above.  If absent, the cert is
-   assumed to be valid for all key usages.
+      SSLCA:          CERT_SIGN;          SSL_CA;
 
-   The X.509v3 extended Key usage extension as OID { 2 5 29 37 } encoded in
-   hex as 0x55, 0x1d, 0x25.  That extension contains a sequence of OIDs, each
-   of which signifies one or more Cert Types, depending on the presence or
-   absence of of the True Basic Constraints extension; that is, the
-   interpretation of the extended Key Usage extension is controlled by
-   whether the cert is a CA cert, or not.
+      EmailSigner:        DIGITAL_SIGNATURE;      EMAIL;
 
-   The following table shows the OIDs recognized in the extended key usage
-   extension, and how they map to cert types and key usages for CA and non-CA
-   certs.
+      EmailRecipient:     KEY_AGREEMENT OR
+                  KEY_ENCIPHERMENT;       EMAIL;
 
-   extended key usage OID          non-CA cert CA cert
-   ----------------------------------- --------------  ----------------
-   SEC_OID_EXT_KEY_USAGE_EMAIL_PROTECT     EMAIL_CA    EMAIL_CA
-   SEC_OID_EXT_KEY_USAGE_SERVER_AUTH   SSL_SERVER  SSL_CA
-   SEC_OID_EXT_KEY_USAGE_CLIENT_AUTH   SSL_CLIENT  SSL_CA
-   SEC_OID_EXT_KEY_USAGE_CODE_SIGN     OBJECT_SIGNING  OBJECT_SIGNING_CA
-   SEC_OID_EXT_KEY_USAGE_TIME_STAMP    TIME_STAMP  TIME_STAMP
-   SEC_OID_OCSP_RESPONDER          OCSP_RESPONDER  OCSP_RESPONDER
+      ObjectSigner:       DIGITAL_SIGNATURE;      OBJECT_SIGNING;
 
-   SEC_OID_NS_KEY_USAGE_GOVT_APPROVED  GOVT_APPROVED   GOVT_APPROVED
+      StatusResponder:    DIGITAL_SIGNATURE;      STATUS_RESPONDER;
 
-   If the extended key usage extension is absent, the cert is assumed to have
-   the cert types SSL_CLIENT, SSL_SERVER and EMAIL, and if the cert is a CA
-   cert (as indicated by the presence of a true basic constraints extension),
-   the cert is also assumed to have the cert types SSL_CA, EMAIL_CA and
-   STATUS_RESPONDER.  If the basic constraints extension is missing, but the
-   user has trusted the cert as a CA cert, the cert also gets the
-   STATUS_RESPONDER cert type.  If the cert has a Fortezza type public key
-   with the magic bits that signify that it is a CA, it is given cert types
-   SSL_CA and EMAIL_CA.
+      VerifyCA        CERT_SIGN           SSL_CA OR
+                                  EMAIL_CA OR
+                                  OBJECT_SIGNING_CA OR
+                                  STATUS_RESPONDER
 
-   A cert with the extended key usage extension and the Netscape cert type
-   extension that has the cert type SSL_CLIENT and also has an email address
-   in the subject is also given the cert type EMAIL.  This allows all SSL
-   client authentication certs with email addresses to also be used as email
-   certs (provded they have adequate key usage).
+      For CA certs in the cert chain, the requirements are:
 
-   A cert with the extended key usage extension  and the Netscape cert type
-   extension that as cert type SSL_CA is also always given cert type EMAIL_CA.
-   This allows all SSL intermediate CAs to also be used as email intermediate CAs.
+      Cert Usage      Requried Key Usage  Required Cert Type
+      --------------------    --------------------    -----------------------
+      SSLServerWithStepUp:    GOVT_APPROVED AND
+                  CERT_SIGN;      SSL_CA;
 
-   /* X.509 v3 Key Usage Extension flags */
-   #define KU_DIGITAL_SIGNATURE            (0x80)  /* bit 0 */
-   #define KU_NON_REPUDIATION              (0x40)  /* bit 1 */
-   #define KU_KEY_ENCIPHERMENT             (0x20)  /* bit 2 */
-   #define KU_DATA_ENCIPHERMENT            (0x10)  /* bit 3 */
-   #define KU_KEY_AGREEMENT                (0x08)  /* bit 4 */
-   #define KU_KEY_CERT_SIGN                (0x04)  /* bit 5 */
-   #define KU_CRL_SIGN                     (0x02)  /* bit 6 */
+      SSLClient:      CERT_SIGN;      SSL_CA;
 
-   #define NS_CERT_TYPE_SSL_CLIENT         (0x80)  /* bit 0 */
-   #define NS_CERT_TYPE_SSL_SERVER         (0x40)  /* bit 1 */
-   #define NS_CERT_TYPE_EMAIL              (0x20)  /* bit 2 */
-   #define NS_CERT_TYPE_OBJECT_SIGNING     (0x10)  /* bit 3 */
-   #define NS_CERT_TYPE_RESERVED           (0x08)  /* bit 4 */
-   #define NS_CERT_TYPE_SSL_CA             (0x04)  /* bit 5 */
-   #define NS_CERT_TYPE_EMAIL_CA           (0x02)  /* bit 6 */
-   #define NS_CERT_TYPE_OBJECT_SIGNING_CA  (0x01)  /* bit 7 */
-   </x>
+      SSLServer:      CERT_SIGN;      SSL_CA;
+
+      SSLCA:          CERT_SIGN;      SSL_CA;
+
+      EmailSigner:        CERT_SIGN;      EMAIL_CA or SSL_CA
+
+      EmailRecipient:     CERT_SIGN;      EMAIL_CA or SSL_CA
+
+      ObjectSigner:       CERT_SIGN;      OBJECT_SIGNING_CA;
+
+      UsageAnyCA:     CERT_SIGN;      OBJECT_SIGNING_CA OR
+                                  EMAIL_CA OR
+                                  SSL_CA;
+
+      StatusResponder:    CERT_SIGN;      OBJECT_SIGNING_CA OR
+                                  EMAIL_CA OR
+                                  SSL_CA;
+
+      Note:  When the required key usage is KEY_AGREEMENT OR KEY_ENCIPHERMENT,
+      the actual key usage required depends on the key's algorithm.  For
+      RSA keys, the required usage is KEY_ENCIPHERMENT. For other types of
+      keys, it is KEY_AGREEMENT.
+
+
+      Cert Extensions:
+
+      One vital Certificate extension is the "Basic Constraints" extension.
+      It tells NSS whether the cert is a CA cert, or not, and affects every
+      other aspect of how the cert is interpreted by NSS.  The OID for this
+      extension is { 2 5 29 19 }, encoded in hex as 0x55, 0x1d, 0x13.
+      If the extension is present and has the value TRUE, then this cert is
+      taken to be a CA cert.  Otherwise it is not (except that trust flags
+      may override this, see discussion of trust flags farther below).
+
+      Netscape has its own openly defined Cert Type extension, which can be used
+      to explicitly set the Cert Type in any Cert.  The Cert Type extension has
+      bits in it that correspond directly to the cert types named above.
+      The OID for this extension is { 2 16 840 1 113730 1 1 }
+      encoded in hex as  0x60, 0x86, 0x48, 0x01, 0x86, 0xf8, 0x42, 0x01, 0x01
+
+      In addition to Netscape's own Cert Type extension, NSS recognizes various
+      X.509 extensions.
+
+      The X.509 key usage extension has OID { 2 5 29 0F } encoded in hex as
+      0x55, 0x1d, 0x0f.  If present, this extension directly determines the
+      values of the 8 key usages defined above.  If absent, the cert is
+      assumed to be valid for all key usages.
+
+      The X.509v3 extended Key usage extension as OID { 2 5 29 37 } encoded in
+      hex as 0x55, 0x1d, 0x25.  That extension contains a sequence of OIDs, each
+      of which signifies one or more Cert Types, depending on the presence or
+      absence of of the True Basic Constraints extension; that is, the
+      interpretation of the extended Key Usage extension is controlled by
+      whether the cert is a CA cert, or not.
+
+      The following table shows the OIDs recognized in the extended key usage
+      extension, and how they map to cert types and key usages for CA and non-CA
+      certs.
+
+      extended key usage OID          non-CA cert CA cert
+      ----------------------------------- --------------  ----------------
+      SEC_OID_EXT_KEY_USAGE_EMAIL_PROTECT     EMAIL_CA    EMAIL_CA
+      SEC_OID_EXT_KEY_USAGE_SERVER_AUTH   SSL_SERVER  SSL_CA
+      SEC_OID_EXT_KEY_USAGE_CLIENT_AUTH   SSL_CLIENT  SSL_CA
+      SEC_OID_EXT_KEY_USAGE_CODE_SIGN     OBJECT_SIGNING  OBJECT_SIGNING_CA
+      SEC_OID_EXT_KEY_USAGE_TIME_STAMP    TIME_STAMP  TIME_STAMP
+      SEC_OID_OCSP_RESPONDER          OCSP_RESPONDER  OCSP_RESPONDER
+
+      SEC_OID_NS_KEY_USAGE_GOVT_APPROVED  GOVT_APPROVED   GOVT_APPROVED
+
+      If the extended key usage extension is absent, the cert is assumed to have
+      the cert types SSL_CLIENT, SSL_SERVER and EMAIL, and if the cert is a CA
+      cert (as indicated by the presence of a true basic constraints extension),
+      the cert is also assumed to have the cert types SSL_CA, EMAIL_CA and
+      STATUS_RESPONDER.  If the basic constraints extension is missing, but the
+      user has trusted the cert as a CA cert, the cert also gets the
+      STATUS_RESPONDER cert type.  If the cert has a Fortezza type public key
+      with the magic bits that signify that it is a CA, it is given cert types
+      SSL_CA and EMAIL_CA.
+
+      A cert with the extended key usage extension and the Netscape cert type
+      extension that has the cert type SSL_CLIENT and also has an email address
+      in the subject is also given the cert type EMAIL.  This allows all SSL
+      client authentication certs with email addresses to also be used as email
+      certs (provded they have adequate key usage).
+
+      A cert with the extended key usage extension  and the Netscape cert type
+      extension that as cert type SSL_CA is also always given cert type EMAIL_CA.
+      This allows all SSL intermediate CAs to also be used as email intermediate CAs.
+
+      /* X.509 v3 Key Usage Extension flags */
+      #define KU_DIGITAL_SIGNATURE            (0x80)  /* bit 0 */
+      #define KU_NON_REPUDIATION              (0x40)  /* bit 1 */
+      #define KU_KEY_ENCIPHERMENT             (0x20)  /* bit 2 */
+      #define KU_DATA_ENCIPHERMENT            (0x10)  /* bit 3 */
+      #define KU_KEY_AGREEMENT                (0x08)  /* bit 4 */
+      #define KU_KEY_CERT_SIGN                (0x04)  /* bit 5 */
+      #define KU_CRL_SIGN                     (0x02)  /* bit 6 */
+
+      #define NS_CERT_TYPE_SSL_CLIENT         (0x80)  /* bit 0 */
+      #define NS_CERT_TYPE_SSL_SERVER         (0x40)  /* bit 1 */
+      #define NS_CERT_TYPE_EMAIL              (0x20)  /* bit 2 */
+      #define NS_CERT_TYPE_OBJECT_SIGNING     (0x10)  /* bit 3 */
+      #define NS_CERT_TYPE_RESERVED           (0x08)  /* bit 4 */
+      #define NS_CERT_TYPE_SSL_CA             (0x04)  /* bit 5 */
+      #define NS_CERT_TYPE_EMAIL_CA           (0x02)  /* bit 6 */
+      #define NS_CERT_TYPE_OBJECT_SIGNING_CA  (0x01)  /* bit 7 */
+      </x>

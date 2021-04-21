@@ -1,68 +1,72 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetMechanismInfo:
 
-===================
 FC_GetMechanismInfo
 ===================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetMechanismInfo - get information on a particular mechanism.
+.. container::
 
-.. _Syntax:
+   FC_GetMechanismInfo - get information on a particular mechanism.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetMechanismInfo(
-     CK_SLOT_ID slotID,
-     CK_MECHANISM_TYPE type,
-     CK_MECHANISM_INFO_PTR pInfo
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetMechanismInfo(
+        CK_SLOT_ID slotID,
+        CK_MECHANISM_TYPE type,
+        CK_MECHANISM_INFO_PTR pInfo
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetMechanismInfo`` takes three parameters:
+.. container::
 
-``slotID``
-   [Input]
-``type``
-   [Input] .
-``pInfo``
-   [Output] .
+   ``FC_GetMechanismInfo`` takes three parameters:
 
-.. _Description:
+   ``slotID``
+      [Input]
+   ``type``
+      [Input] .
+   ``pInfo``
+      [Output] .
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetMechanismInfo`` obtains information about a particular mechanism
-possibly supported by a token.
+.. container::
 
-A user may call ``FC_GetMechanismInfo`` without logging into the token
-(to assume the NSS User role).
+   ``FC_GetMechanismInfo`` obtains information about a particular mechanism possibly supported by a
+   token.
 
-.. _Return_value:
+   A user may call ``FC_GetMechanismInfo`` without logging into the token (to assume the NSS User
+   role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK``
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK``
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GetMechanismInfo <https://developer.mozilla.org/en-US/NSC_GetMechanismInfo>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetMechanismInfo </en-US/NSC_GetMechanismInfo>`__

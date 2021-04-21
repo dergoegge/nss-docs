@@ -1,55 +1,59 @@
 .. _Mozilla_Projects_NSS_Reference_FC_FindObjectsFinal:
 
-===================
 FC_FindObjectsFinal
 ===================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_FindObjectsFinal - terminate an object search.
+.. container::
 
-.. _Syntax:
+   FC_FindObjectsFinal - terminate an object search.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_FindObjectsFinal(
-     CK_SESSION_HANDLE hSession,
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_FindObjectsFinal(
+        CK_SESSION_HANDLE hSession,
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Clears the object search criteria for a session.
+.. container::
 
-.. _Return_value:
+   Clears the object search criteria for a session.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_FindObjects <https://developer.mozilla.org/en-US/FC_FindObjects>`__,
-   `NSC_FindObjectsFinal <https://developer.mozilla.org/en-US/NSC_FindObjectsFinal>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_FindObjects`,
+      `NSC_FindObjectsFinal </en-US/NSC_FindObjectsFinal>`__

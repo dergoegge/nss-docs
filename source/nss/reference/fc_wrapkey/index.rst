@@ -1,78 +1,77 @@
 .. _Mozilla_Projects_NSS_Reference_FC_WrapKey:
 
-==========
 FC_WrapKey
 ==========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_WrapKey - wrap a key
+.. container::
 
-.. _Syntax:
+   FC_WrapKey - wrap a key
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_WrapKey(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hWrappingKey,
-     CK_OBJECT_HANDLE hKey,
-     CK_BYTE_PTR pWrappedKey,
-     CK_ULONG_PTR pusWrappedKeyLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_WrapKey(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hWrappingKey,
+        CK_OBJECT_HANDLE hKey,
+        CK_BYTE_PTR pWrappedKey,
+        CK_ULONG_PTR pusWrappedKeyLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] pointer to the mechanism to use.
-``hWrappingKey``
-   [in] pointer to the public key template.
-``hKey``
-   [in] number of attributes in the public key
-   template.
-``pWrappedKey``
-   [out] pointer to the location to receive
-   the wrapped key or NULL.
-``pusWrappedKeyLen``
-   [in, out] pointer to length of wrapped key
-   buffer.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] pointer to the mechanism to use.
+   ``hWrappingKey``
+      [in] pointer to the public key template.
+   ``hKey``
+      [in] number of attributes in the public key template.
+   ``pWrappedKey``
+      [out] pointer to the location to receive the wrapped key or NULL.
+   ``pusWrappedKeyLen``
+      [in, out] pointer to length of wrapped key buffer.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_WrapKey`` wraps (encrypts) a key. If ``pWrappedKey`` is NULL the
-length of the wrapped key is returned in ``pusWrappedKeyLen`` and
-FC_WrapKey may be called again with ``pWrappedKey`` set to retrieve the
-wrapped key.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_WrapKey``.
+   ``FC_WrapKey`` wraps (encrypts) a key. If ``pWrappedKey`` is NULL the length of the wrapped key
+   is returned in ``pusWrappedKeyLen`` and FC_WrapKey may be called again with ``pWrappedKey`` set
+   to retrieve the wrapped key.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_WrapKey``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_WrapKey <https://developer.mozilla.org/en-US/NSC_WrapKey>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_WrapKey </en-US/NSC_WrapKey>`__

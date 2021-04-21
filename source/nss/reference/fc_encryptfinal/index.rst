@@ -1,67 +1,68 @@
 .. _Mozilla_Projects_NSS_Reference_FC_EncryptFinal:
 
-===============
 FC_EncryptFinal
 ===============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_EncryptFinal - finish a multi-part encryption operation.
+.. container::
 
-.. _Syntax:
+   FC_EncryptFinal - finish a multi-part encryption operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_EncryptFinal(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pLastEncryptedPart,
-     CK_ULONG_PTR pusLastEncryptedPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_EncryptFinal(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pLastEncryptedPart,
+        CK_ULONG_PTR pusLastEncryptedPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pLastEncryptedPart``
-   [out] pointer to the location that receives
-   the last encrypted data part, if any
-``pusLastEncryptedPartLen``
-   [in,out] pointer to location where the
-   number of bytes of the last encrypted data part is to be stored.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pLastEncryptedPart``
+      [out] pointer to the location that receives the last encrypted data part, if any
+   ``pusLastEncryptedPartLen``
+      [in,out] pointer to location where the number of bytes of the last encrypted data part is to
+      be stored.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_EncryptFinal`` returns the last block of data of a multi-part
-encryption operation.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_EncryptFinal``.
+   ``FC_EncryptFinal`` returns the last block of data of a multi-part encryption operation.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_EncryptFinal``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_EncryptInit <https://developer.mozilla.org/en-US/FC_EncryptInit>`__,
-   `NSC_EncryptFinal <https://developer.mozilla.org/en-US/NSC_EncryptFinal>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_EncryptInit`,
+      `NSC_EncryptFinal </en-US/NSC_EncryptFinal>`__

@@ -1,68 +1,69 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetOperationState:
 
-====================
 FC_GetOperationState
 ====================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetOperationState - get the cryptographic operation state of a
-session.
+.. container::
 
-.. _Syntax:
+   FC_GetOperationState - get the cryptographic operation state of a session.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetOperationState(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR  pOperationState,
-     CK_ULONG_PTR pulOperationStateLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetOperationState(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR  pOperationState,
+        CK_ULONG_PTR pulOperationStateLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] handle of the open session.
-``pOperationState``
-   [out] pointer to a byte array of a length
-   sufficient for containing the operation state or NULL.
-``pulOperationStateLen``
-   [out] pointer to
-   `CK_ULONG <https://developer.mozilla.org/en-US/CK_ULONG>`__ which
-   receives the total length (in bytes) of the operation state.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] handle of the open session.
+   ``pOperationState``
+      [out] pointer to a byte array of a length sufficient for containing the operation state or
+      NULL.
+   ``pulOperationStateLen``
+      [out] pointer to `CK_ULONG </en-US/CK_ULONG>`__ which receives the total length (in bytes) of
+      the operation state.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetOperationState`` saves the state of the cryptographic operation
-in a session. This function only works for digest operations for now.
-Therefore, a user may call ``FC_GetOperationState`` without logging into
-the token (to assume the NSS User role).
+.. container::
 
-.. _Return_value:
+   ``FC_GetOperationState`` saves the state of the cryptographic operation in a session. This
+   function only works for digest operations for now. Therefore, a user may call
+   ``FC_GetOperationState`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_SetOperationState <https://developer.mozilla.org/en-US/FC_SetOperationState>`__,
-   `NSC_GetOperationState <https://developer.mozilla.org/en-US/NSC_GetOperationState>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_SetOperationState`,
+      `NSC_GetOperationState </en-US/NSC_GetOperationState>`__

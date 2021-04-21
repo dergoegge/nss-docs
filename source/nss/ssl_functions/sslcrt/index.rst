@@ -1,747 +1,632 @@
 .. _Mozilla_Projects_NSS_SSL_functions_sslcrt:
 
-======
 sslcrt
 ======
-.. note::
-
-   -  This page is part of the
-      :ref:`Mozilla_Projects_SSL_functions_OLD_SSL_Reference` that we
-      are migrating into the format described in the `MDN Style
-      Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__.
-      If you are inclined to help with this migration, your help would
-      be very much appreciated.
-
-   -  Upgraded documentation may be found in the
-      :ref:`Mozilla_Projects_NSS_reference`
-
-.. _Certificate_Functions:
-
-Certificate Functions
-=====================
-
-
-.. _Chapter_5_Certificate_Functions:
-
-Chapter 5
-Certificate Functions
----------------------
-
-This chapter describes the functions and related types used to work with
-a certificate database such as the ``cert7.db`` database provided with
-Communicator.
-
-|  `Validating Certificates <#1060423>`__
-| `Manipulating Certificates <#1056436>`__
-| `Getting Certificate Information <#1056475>`__
-| `Comparing SecItem Objects <#1055384>`__
-
-.. _Validating_Certificates:
-
-Validating Certificates
------------------------
-
-|  ```CERT_VerifyCertNow`` <#1058011>`__
-| ```CERT_VerifyCertName`` <#1050342>`__
-| ```CERT_CheckCertValidTimes`` <#1056662>`__
-| ```NSS_CmpCertChainWCANames`` <#1056760>`__
-
-.. _CERT_VerifyCertNow:
-
-CERT_VerifyCertNow
-^^^^^^^^^^^^^^^^^^
 
-Checks that the current date is within the certificate's validity period
-and that the CA signature on the certificate is valid.
+.. container::
+
+   .. note::
+
+      -  This page is part of the :ref:`Mozilla_Projects_NSS_SSL_functions_OLD_SSL_Reference` that
+         we are migrating into the format described in the `MDN Style
+         Guide <https://developer.mozilla.org/en-US/docs/Project:MDC_style_guide>`__. If you are
+         inclined to help with this migration, your help would be very much appreciated.
+
+      -  Upgraded documentation may be found in the `Current NSS Reference </NSS_reference>`__
 
-.. _Syntax:
+   .. rubric:: Certificate Functions
+      :name: Certificate_Functions
+
+   --------------
 
-Syntax
-''''''
+.. _chapter_5_certificate_functions:
 
-::
+`Chapter 5
+ <#chapter_5_certificate_functions>`__ Certificate Functions
+------------------------------------------------------------
+
+.. container::
 
-   #include <cert.h> 
+   This chapter describes the functions and related types used to work with a certificate database
+   such as the ``cert7.db`` database provided with Communicator.
 
-::
+   |  `Validating Certificates <#1060423>`__
+   | `Manipulating Certificates <#1056436>`__
+   | `Getting Certificate Information <#1056475>`__
+   | `Comparing SecItem Objects <#1055384>`__
 
-   SECStatus CERT_VerifyCertNow(
-      CERTCertDBHandle *handle,
-      CERTCertificate *cert,
-      PRBool checkSig,
-      SECCertUsage certUsage,
-      void *wincx);
+.. _validating_certificates:
 
-.. _Parameters:
+`Validating Certificates <#validating_certificates>`__
+------------------------------------------------------
 
-Parameters
-''''''''''
+.. container::
 
-This function has the following parameters:
+   |  ```CERT_VerifyCertNow`` <#1058011>`__
+   | ```CERT_VerifyCertName`` <#1050342>`__
+   | ```CERT_CheckCertValidTimes`` <#1056662>`__
+   | ```NSS_CmpCertChainWCANames`` <#1056760>`__
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | database handle.                  |
-|    handle                         |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate to   |
-|                                   | be checked.                       |
-|    cert                           |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | Indicates whether certificate     |
-|                                   | signatures are to be checked.     |
-|    checkSig                       | ``PR_TRUE`` means certificate     |
-|                                   | signatures are to be checked.     |
-|                                   | ``PR_FALSE`` means certificate    |
-|                                   | signatures will not be checked.   |
-+-----------------------------------+-----------------------------------+
-| ::                                | One of these values:              |
-|                                   |                                   |
-|    certUsage                      | -  ``certUsageSSLClient``         |
-|                                   | -  ``certUsageSSLServer``         |
-|                                   | -                                 |
-|                                   |  ``certUsageSSLServerWithStepUp`` |
-|                                   | -  ``certUsageSSLCA``             |
-|                                   | -  ``certUsageEmailSigner``       |
-|                                   | -  ``certUsageEmailRecipient``    |
-|                                   | -  ``certUsageObjectSigner``      |
-|                                   | -  ``certUsageUserCertImport``    |
-|                                   | -  ``certUsageVerifyCA``          |
-|                                   | -  `                              |
-|                                   | `certUsageProtectedObjectSigner`` |
-+-----------------------------------+-----------------------------------+
-| ::                                | The PIN argument value to pass to |
-|                                   | PK11 functions. See description   |
-|    wincx                          | below for more information.       |
-+-----------------------------------+-----------------------------------+
+   .. rubric:: CERT_VerifyCertNow
+      :name: cert_verifycertnow
 
-.. _Returns:
-
-Returns
-'''''''
+   Checks that the current date is within the certificate's validity period and that the CA
+   signature on the certificate is valid.
 
-The function returns one of these values:
+   .. rubric:: Syntax
+      :name: syntax
 
--  If successful, ``SECSuccess``.
--  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__
-   to obtain the error code.
+   .. code:: notranslate
 
-.. _Description:
+      #include <cert.h> 
 
-Description
-'''''''''''
+   .. code:: notranslate
 
-The ``CERT_VerifyCertNow`` function must call one or more PK11 functions
-to obtain the services of a PKCS #11 module. Some of the PK11 functions
-require a PIN argument (see
-```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ for details), which
-must be specified in the ``wincx`` parameter. To obtain the value to
-pass in the ``wincx`` parameter, call
-```SSL_RevealPinArg`` <sslfnc.html#1123385>`__.
+      SECStatus CERT_VerifyCertNow(
+         CERTCertDBHandle *handle,
+         CERTCertificate *cert,
+         PRBool checkSig,
+         SECCertUsage certUsage,
+         void *wincx);
 
-.. _CERT_VerifyCertName:
+   .. rubric:: Parameters
+      :name: parameters
 
-CERT_VerifyCertName
-^^^^^^^^^^^^^^^^^^^
+   This function has the following parameters:
 
-Compares the common name specified in the subject DN for a certificate
-with a specified hostname.
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate database handle.   |
+   |                                                 |                                                 |
+   |    handle                                       |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate to be checked.     |
+   |                                                 |                                                 |
+   |    cert                                         |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | Indicates whether certificate signatures are to |
+   |                                                 | be checked. ``PR_TRUE`` means certificate       |
+   |    checkSig                                     | signatures are to be checked. ``PR_FALSE``      |
+   |                                                 | means certificate signatures will not be        |
+   |                                                 | checked.                                        |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | One of these values:                            |
+   |                                                 |                                                 |
+   |    certUsage                                    | -  ``certUsageSSLClient``                       |
+   |                                                 | -  ``certUsageSSLServer``                       |
+   |                                                 | -  ``certUsageSSLServerWithStepUp``             |
+   |                                                 | -  ``certUsageSSLCA``                           |
+   |                                                 | -  ``certUsageEmailSigner``                     |
+   |                                                 | -  ``certUsageEmailRecipient``                  |
+   |                                                 | -  ``certUsageObjectSigner``                    |
+   |                                                 | -  ``certUsageUserCertImport``                  |
+   |                                                 | -  ``certUsageVerifyCA``                        |
+   |                                                 | -  ``certUsageProtectedObjectSigner``           |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The PIN argument value to pass to PK11          |
+   |                                                 | functions. See description below for more       |
+   |    wincx                                        | information.                                    |
+   +-------------------------------------------------+-------------------------------------------------+
 
-.. _Syntax_2:
+   .. rubric:: Returns
+      :name: returns
 
-Syntax
-''''''
+   The function returns one of these values:
 
-::
+   -  If successful, ``SECSuccess``.
+   -  If unsuccessful, ``SECFailure``. Use
+      ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__ to obtain the error
+      code.
 
-   #include <cert.h>
+   .. rubric:: Description
+      :name: description
 
-::
+   The ``CERT_VerifyCertNow`` function must call one or more PK11 functions to obtain the services
+   of a PKCS #11 module. Some of the PK11 functions require a PIN argument (see
+   :ref:`Mozilla_Projects_NSS_SSL_functions_sslfnc#1088040` for details), which must be specified in
+   the ``wincx`` parameter. To obtain the value to pass in the ``wincx`` parameter, call
+   :ref:`Mozilla_Projects_NSS_SSL_functions_sslfnc#1123385`.
 
-   SECStatus CERT_VerifyCertName(
-      CERTCertificate *cert,
-      char *hostname);
+   .. rubric:: CERT_VerifyCertName
+      :name: cert_verifycertname
 
-.. _Parameters_2:
+   Compares the common name specified in the subject DN for a certificate with a specified hostname.
 
-Parameters
-''''''''''
+   .. rubric:: Syntax
+      :name: syntax_2
 
-This function has the following parameters:
+   .. code:: notranslate
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | against which to check the        |
-|    cert                           | hostname referenced by            |
-|                                   | ``hostname``.                     |
-+-----------------------------------+-----------------------------------+
-| ::                                | The hostname to be checked.       |
-|                                   |                                   |
-|    hostname                       |                                   |
-+-----------------------------------+-----------------------------------+
+      #include <cert.h>
 
-.. _Returns_2:
+   .. code:: notranslate
 
-Returns
-'''''''
+      SECStatus CERT_VerifyCertName(
+         CERTCertificate *cert,
+         char *hostname);
 
-The function returns one of these values:
+   .. rubric:: Parameters
+      :name: parameters_2
 
--  If the common name in the subject DN for the certificate matches the
-   domain name passed in the ``hostname`` parameter, ``SECSuccess``.
--  If the common name in the subject DN for the certificate is not
-   identical to the domain name passed in the ``hostname`` parameter,
-   ``SECFailure``. Use
-   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__
-   to obtain the error code.
+   This function has the following parameters:
 
-.. _Description_2:
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate against which to   |
+   |                                                 | check the hostname referenced by ``hostname``.  |
+   |    cert                                         |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The hostname to be checked.                     |
+   |                                                 |                                                 |
+   |    hostname                                     |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-Description
-'''''''''''
+   .. rubric:: Returns
+      :name: returns_2
 
-The comparison performed by CERT_VerifyCertName is not a simple string
-comparison. Instead, it takes account of the following rules governing
-the construction of common names in SSL server certificates:
+   The function returns one of these values:
 
--  ``*`` matches anything
--  ``?`` matches one character
--  ``\`` escapes a special character
--  ``$`` matches the end of the string
--  ``[abc]`` matches one occurrence of ``a``, ``b``, or ``c``. The only
-   character that needs to be escaped in this is ``]``, all others are
-   not special.
--  ``[a-z]`` matches any character between ``a`` and ``z``
--  ``[^az]`` matches any character except ``a`` or ``z``
--  ``~`` followed by another shell expression removes any pattern
-   matching the shell expression from the match list
--  ``(foo|bar)`` matches either the substring ``foo`` or the substring
-   ``bar``. These can be shell expressions as well.
+   -  If the common name in the subject DN for the certificate matches the domain name passed in the
+      ``hostname`` parameter, ``SECSuccess``.
+   -  If the common name in the subject DN for the certificate is not identical to the domain name
+      passed in the ``hostname`` parameter, ``SECFailure``. Use
+      ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__ to obtain the error
+      code.
 
-.. _CERT_CheckCertValidTimes:
+   .. rubric:: Description
+      :name: description_2
 
-CERT_CheckCertValidTimes
-^^^^^^^^^^^^^^^^^^^^^^^^
+   The comparison performed by CERT_VerifyCertName is not a simple string comparison. Instead, it
+   takes account of the following rules governing the construction of common names in SSL server
+   certificates:
 
-Checks whether a specified time is within a certificate's validity
-period.
+   -  ``*`` matches anything
+   -  ``?`` matches one character
+   -  ``\`` escapes a special character
+   -  ``$`` matches the end of the string
+   -  ``[abc]`` matches one occurrence of ``a``, ``b``, or ``c``. The only character that needs to
+      be escaped in this is ``]``, all others are not special.
+   -  ``[a-z]`` matches any character between ``a`` and ``z``
+   -  ``[^az]`` matches any character except ``a`` or ``z``
+   -  ``~`` followed by another shell expression removes any pattern matching the shell expression
+      from the match list
+   -  ``(foo|bar)`` matches either the substring ``foo`` or the substring ``bar``. These can be
+      shell expressions as well.
 
-.. _Syntax_3:
+   .. rubric:: CERT_CheckCertValidTimes
+      :name: cert_checkcertvalidtimes
 
-Syntax
-''''''
+   Checks whether a specified time is within a certificate's validity period.
 
-::
+   .. rubric:: Syntax
+      :name: syntax_3
 
-   #include <cert.h>
-   #include <certt.h>
+   .. code:: notranslate
 
-::
+      #include <cert.h>
+      #include <certt.h>
 
-   SECCertTimeValidity CERT_CheckCertValidTimes(
-      CERTCertificate *cert,
-      int64 t);
+   .. code:: notranslate
 
-.. _Parameters_3:
+      SECCertTimeValidity CERT_CheckCertValidTimes(
+         CERTCertificate *cert,
+         int64 t);
 
-Parameters
-''''''''''
+   .. rubric:: Parameters
+      :name: parameters_3
 
-This function has the following parameters:
+   This function has the following parameters:
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | whose validity period you want to |
-|    cert                           | check against.                    |
-+-----------------------------------+-----------------------------------+
-| ::                                | The time to check against the     |
-|                                   | certificate's validity period.    |
-|    t                              | For more information, see the     |
-|                                   | NSPR header ``pr_time.h``.        |
-+-----------------------------------+-----------------------------------+
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate whose validity     |
+   |                                                 | period you want to check against.               |
+   |    cert                                         |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The time to check against the certificate's     |
+   |                                                 | validity period. For more information, see the  |
+   |    t                                            | NSPR header ``pr_time.h``.                      |
+   +-------------------------------------------------+-------------------------------------------------+
 
-.. _Returns_3:
+   .. rubric:: Returns
+      :name: returns_3
 
-Returns
-'''''''
+   The function returns an enumerator of type ``SECCertTimeValidity``:
 
-The function returns an enumerator of type ``SECCertTimeValidity``:
+   .. code:: notranslate
 
-::
+      typedef enum {
+         secCertTimeValid,
+         secCertTimeExpired,
+         secCertTimeNotValidYet
+      } SECCertTimeValidity;
 
-   typedef enum {
-      secCertTimeValid,
-      secCertTimeExpired,
-      secCertTimeNotValidYet
-   } SECCertTimeValidity;
+   .. rubric:: NSS_CmpCertChainWCANames
+      :name: nss_cmpcertchainwcanames
 
-.. _NSS_CmpCertChainWCANames:
+   Determines whether any of the signers in the certificate chain for a specified certificate are on
+   a specified list of CA names.
 
-NSS_CmpCertChainWCANames
-^^^^^^^^^^^^^^^^^^^^^^^^
+   .. rubric:: Syntax
+      :name: syntax_4
 
-Determines whether any of the signers in the certificate chain for a
-specified certificate are on a specified list of CA names.
+   .. code:: notranslate
 
-.. _Syntax_4:
+      #include <nss.h>
 
-Syntax
-''''''
+   .. code:: notranslate
 
-::
+      SECStatus NSS_CmpCertChainWCANames(
+         CERTCertificate *cert,
+         CERTDistNames *caNames);
 
-   #include <nss.h>
+   .. rubric:: Parameters
+      :name: parameters_4
 
-::
+   This function has the following parameters:
 
-   SECStatus NSS_CmpCertChainWCANames(
-      CERTCertificate *cert,
-      CERTDistNames *caNames);
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate structure for the  |
+   |                                                 | certificate whose certificate chain is to be    |
+   |    cert                                         | checked.                                        |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to a structure that contains a list   |
+   |                                                 | of distinguished names (DNs) against which to   |
+   |    caNames                                      | check the DNs for the signers in the            |
+   |                                                 | certificate chain.                              |
+   +-------------------------------------------------+-------------------------------------------------+
 
-.. _Parameters_4:
+   .. rubric:: Returns
+      :name: returns_4
 
-Parameters
-''''''''''
+   The function returns one of these values:
 
-This function has the following parameters:
+   -  If successful, ``SECSuccess``.
+   -  If unsuccessful, ``SECFailure``. Use
+      ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__ to obtain the error
+      code.
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | structure for the certificate     |
-|    cert                           | whose certificate chain is to be  |
-|                                   | checked.                          |
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to a structure that     |
-|                                   | contains a list of distinguished  |
-|    caNames                        | names (DNs) against which to      |
-|                                   | check the DNs for the signers in  |
-|                                   | the certificate chain.            |
-+-----------------------------------+-----------------------------------+
+.. _manipulating_certificates:
 
-.. _Returns_4:
+`Manipulating Certificates <#manipulating_certificates>`__
+----------------------------------------------------------
 
-Returns
-'''''''
+.. container::
 
-The function returns one of these values:
+   |  ```CERT_DupCertificate`` <#1058344>`__
+   | ```CERT_DestroyCertificate`` <#1050532>`__
 
--  If successful, ``SECSuccess``.
--  If unsuccessful, ``SECFailure``. Use
-   ```PR_GetError`` <../../../../../nspr/reference/html/prerr.html#26127>`__
-   to obtain the error code.
+   .. rubric:: CERT_DupCertificate
+      :name: cert_dupcertificate
 
-.. _Manipulating_Certificates:
+   Makes a shallow copy of a specified certificate.
 
-Manipulating Certificates
--------------------------
+   .. rubric:: Syntax
+      :name: syntax_5
 
-|  ```CERT_DupCertificate`` <#1058344>`__
-| ```CERT_DestroyCertificate`` <#1050532>`__
+   .. code:: notranslate
 
-.. _CERT_DupCertificate:
+      #include <cert.h>
 
-CERT_DupCertificate
-^^^^^^^^^^^^^^^^^^^
+   .. code:: notranslate
 
-Makes a shallow copy of a specified certificate.
+      CERTCertificate *CERT_DupCertificate(CERTCertificate *c)
 
-.. _Syntax_5:
+   .. rubric:: Parameter
+      :name: parameter
 
-Syntax
-''''''
+   This function has the following parameter:
 
-::
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate object to be       |
+   |                                                 | duplicated.                                     |
+   |    c                                            |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-   #include <cert.h>
+   .. rubric:: Returns
+      :name: returns_5
 
-::
+   If successful, the function returns a pointer to a certificate object of type
+   ```CERTCertificate`` <ssltyp.html#1027387>`__.
 
-   CERTCertificate *CERT_DupCertificate(CERTCertificate *c)
+   .. rubric:: Description
+      :name: description_3
 
-.. _Parameter:
+   The ``CERT_DupCertificate`` function increments the reference count for the certificate passed in
+   the ``c`` parameter.
 
-Parameter
-'''''''''
+   .. rubric:: CERT_DestroyCertificate
+      :name: cert_destroycertificate
 
-This function has the following parameter:
+   Destroys a certificate object.
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | object to be duplicated.          |
-|    c                              |                                   |
-+-----------------------------------+-----------------------------------+
+   .. rubric:: Syntax
+      :name: syntax_6
 
-.. _Returns_5:
+   .. code:: notranslate
 
-Returns
-'''''''
+      #include <cert.h>
+      #include <certt.h>
 
-If successful, the function returns a pointer to a certificate object of
-type ```CERTCertificate`` <ssltyp.html#1027387>`__.
+   .. code:: notranslate
 
-.. _Description_3:
+      void CERT_DestroyCertificate(CERTCertificate *cert);
 
-Description
-'''''''''''
+   .. rubric:: Parameters
+      :name: parameters_5
 
-The ``CERT_DupCertificate`` function increments the reference count for
-the certificate passed in the ``c`` parameter.
+   This function has the following parameter:
 
-.. _CERT_DestroyCertificate:
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate to destroy.        |
+   |                                                 |                                                 |
+   |    cert                                         |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-CERT_DestroyCertificate
-^^^^^^^^^^^^^^^^^^^^^^^
+   .. rubric:: Description
+      :name: description_4
 
-Destroys a certificate object.
+   Certificate and key structures are shared objects. When an application makes a copy of a
+   particular certificate or key structure that already exists in memory, SSL makes a *shallow*
+   copy--that is, it increments the reference count for that object rather than making a whole new
+   copy. When you call ```CERT_DestroyCertificate`` <#1050532>`__ or
+   ```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__, the function decrements the reference
+   count and, if the reference count reaches zero as a result, both frees the memory and sets all
+   the bits to zero. The use of the word "destroy" in function names or in the description of a
+   function implies reference counting.
 
-.. _Syntax_6:
+   Never alter the contents of a certificate or key structure. If you attempt to do so, the change
+   affects all the shallow copies of that structure and can cause severe problems.
 
-Syntax
-''''''
+.. _getting_certificate_information:
 
-::
+`Getting Certificate Information <#getting_certificate_information>`__
+----------------------------------------------------------------------
 
-   #include <cert.h>
-   #include <certt.h>
+.. container::
 
-::
+   |  ```CERT_FindCertByName`` <#1050345>`__
+   | ```CERT_GetCertNicknames`` <#1050346>`__
+   | ```CERT_FreeNicknames`` <#1050349>`__
+   | ```CERT_GetDefaultCertDB`` <#1052308>`__
+   | ```NSS_FindCertKEAType`` <#1056950>`__
 
-   void CERT_DestroyCertificate(CERTCertificate *cert);
+   .. rubric:: CERT_FindCertByName
+      :name: cert_findcertbyname
 
-.. _Parameters_5:
+   Finds the certificate in the certificate database with a specified DN.
 
-Parameters
-''''''''''
+   .. rubric:: Syntax
+      :name: syntax_7
 
-This function has the following parameter:
+   .. code:: notranslate
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate to   |
-|                                   | destroy.                          |
-|    cert                           |                                   |
-+-----------------------------------+-----------------------------------+
+      #include <cert.h>
 
-.. _Description_4:
+   .. code:: notranslate
 
-Description
-'''''''''''
+      CERTCertificate *CERT_FindCertByName (
+         CERTCertDBHandle *handle,
+         SECItem *name);
 
-Certificate and key structures are shared objects. When an application
-makes a copy of a particular certificate or key structure that already
-exists in memory, SSL makes a *shallow* copy--that is, it increments the
-reference count for that object rather than making a whole new copy.
-When you call ```CERT_DestroyCertificate`` <#1050532>`__ or
-```SECKEY_DestroyPrivateKey`` <sslkey.html#1051017>`__, the function
-decrements the reference count and, if the reference count reaches zero
-as a result, both frees the memory and sets all the bits to zero. The
-use of the word "destroy" in function names or in the description of a
-function implies reference counting.
+   .. rubric:: Parameters
+      :name: parameters_6
 
-Never alter the contents of a certificate or key structure. If you
-attempt to do so, the change affects all the shallow copies of that
-structure and can cause severe problems.
+   This function has the following parameters:
 
-.. _Getting_Certificate_Information:
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate database handle.   |
+   |                                                 |                                                 |
+   |    handle                                       |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The subject DN of the certificate you wish to   |
+   |                                                 | find.                                           |
+   |    name                                         |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-Getting Certificate Information
--------------------------------
+   .. rubric:: Returns
+      :name: returns_6
 
-|  ```CERT_FindCertByName`` <#1050345>`__
-| ```CERT_GetCertNicknames`` <#1050346>`__
-| ```CERT_FreeNicknames`` <#1050349>`__
-| ```CERT_GetDefaultCertDB`` <#1052308>`__
-| ```NSS_FindCertKEAType`` <#1056950>`__
+   If successful, the function returns a certificate object of type
+   ```CERTCertificate`` <ssltyp.html#1027387>`__.
 
-.. _CERT_FindCertByName:
+   .. rubric:: CERT_GetCertNicknames
+      :name: cert_getcertnicknames
 
-CERT_FindCertByName
-^^^^^^^^^^^^^^^^^^^
+   Returns the nicknames of the certificates in a specified certificate database.
 
-Finds the certificate in the certificate database with a specified DN.
+   .. rubric:: Syntax
+      :name: syntax_8
 
-.. _Syntax_7:
+   .. code:: notranslate
 
-Syntax
-''''''
+      #include <cert.h>
+      #include <certt.h>
 
-::
+   .. code:: notranslate
 
-   #include <cert.h>
+      CERTCertNicknames *CERT_GetCertNicknames (
+         CERTCertDBHandle *handle,
+         int what,
+         void *wincx);
 
-::
+   .. rubric:: Parameters
+      :name: parameters_7
 
-   CERTCertificate *CERT_FindCertByName (
-      CERTCertDBHandle *handle,
-      SECItem *name);
+   This function has the following parameters:
 
-.. _Parameters_6:
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the certificate database handle.   |
+   |                                                 |                                                 |
+   |    handle                                       |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | One of these values:                            |
+   |                                                 |                                                 |
+   |    what                                         | -  ``SEC_CERT_NICKNAMES_ALL``                   |
+   |                                                 | -  ``SEC_CERT_NICKNAMES_USER``                  |
+   |                                                 | -  ``SEC_CERT_NICKNAMES_SERVER``                |
+   |                                                 | -  ``SEC_CERT_NICKNAMES_CA``                    |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The PIN argument value to pass to PK11          |
+   |                                                 | functions. See description below for more       |
+   |    wincx                                        | information.                                    |
+   +-------------------------------------------------+-------------------------------------------------+
 
-Parameters
-''''''''''
+   .. rubric:: Returns
+      :name: returns_7
 
-This function has the following parameters:
+   The function returns a ``CERTCertNicknames`` object containing the requested nicknames.
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | database handle.                  |
-|    handle                         |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | The subject DN of the certificate |
-|                                   | you wish to find.                 |
-|    name                           |                                   |
-+-----------------------------------+-----------------------------------+
+   .. rubric:: Description
+      :name: description_5
 
-.. _Returns_6:
+   ``CERT_GetCertNicknames`` must call one or more PK11 functions to obtain the services of a PKCS
+   #11 module. Some of the PK11 functions require a PIN argument (see
+   :ref:`Mozilla_Projects_NSS_SSL_functions_sslfnc#1088040` for details), which must be specified in
+   the ``wincx`` parameter. To obtain the value to pass in the ``wincx`` parameter, call
+   :ref:`Mozilla_Projects_NSS_SSL_functions_sslfnc#1123385`.
 
-Returns
-'''''''
+   .. rubric:: CERT_FreeNicknames
+      :name: cert_freenicknames
 
-If successful, the function returns a certificate object of type
-```CERTCertificate`` <ssltyp.html#1027387>`__.
+   Frees a ``CERTCertNicknames`` structure. This structure is returned by
+   ```CERT_GetCertNicknames`` <#1050346>`__.
 
-.. _CERT_GetCertNicknames:
+   .. rubric:: Syntax
+      :name: syntax_9
 
-CERT_GetCertNicknames
-^^^^^^^^^^^^^^^^^^^^^
+   .. code:: notranslate
 
-Returns the nicknames of the certificates in a specified certificate
-database.
+      #include <cert.h>
 
-.. _Syntax_8:
+   .. code:: notranslate
 
-Syntax
-''''''
+      void CERT_FreeNicknames(CERTCertNicknames *nicknames);
 
-::
+   .. rubric:: Parameters
+      :name: parameters_8
 
-   #include <cert.h>
-   #include <certt.h>
+   This function has the following parameter:
 
-::
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to the ``CERTCertNicknames``          |
+   |                                                 | structure to be freed.                          |
+   |    nicknames                                    |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-   CERTCertNicknames *CERT_GetCertNicknames (
-      CERTCertDBHandle *handle,
-      int what,
-      void *wincx);
+   .. rubric:: CERT_GetDefaultCertDB
+      :name: cert_getdefaultcertdb
 
-.. _Parameters_7:
+   Returns a handle to the default certificate database.
 
-Parameters
-''''''''''
+   .. rubric:: Syntax
+      :name: syntax_10
 
-This function has the following parameters:
+   .. code:: notranslate
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the certificate      |
-|                                   | database handle.                  |
-|    handle                         |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | One of these values:              |
-|                                   |                                   |
-|    what                           | -  ``SEC_CERT_NICKNAMES_ALL``     |
-|                                   | -  ``SEC_CERT_NICKNAMES_USER``    |
-|                                   | -  ``SEC_CERT_NICKNAMES_SERVER``  |
-|                                   | -  ``SEC_CERT_NICKNAMES_CA``      |
-+-----------------------------------+-----------------------------------+
-| ::                                | The PIN argument value to pass to |
-|                                   | PK11 functions. See description   |
-|    wincx                          | below for more information.       |
-+-----------------------------------+-----------------------------------+
+      #include <cert.h>
 
-.. _Returns_7:
+   .. code:: notranslate
 
-Returns
-'''''''
+      CERTCertDBHandle *CERT_GetDefaultCertDB(void);
 
-The function returns a ``CERTCertNicknames`` object containing the
-requested nicknames.
+   .. rubric:: Returns
+      :name: returns_8
 
-.. _Description_5:
+   The function returns the ```CERTCertDBHandle`` <ssltyp.html#1028465>`__ for the default
+   certificate database.
 
-Description
-'''''''''''
+   .. rubric:: Description
+      :name: description_6
 
-``CERT_GetCertNicknames`` must call one or more PK11 functions to obtain
-the services of a PKCS #11 module. Some of the PK11 functions require a
-PIN argument (see ```SSL_SetPKCS11PinArg`` <sslfnc.html#1088040>`__ for
-details), which must be specified in the ``wincx`` parameter. To obtain
-the value to pass in the ``wincx`` parameter, call
-```SSL_RevealPinArg`` <sslfnc.html#1123385>`__.
+   This function is useful for determining whether the default certificate database has been opened.
 
-.. _CERT_FreeNicknames:
+   .. rubric:: NSS_FindCertKEAType
+      :name: nss_findcertkeatype
 
-CERT_FreeNicknames
-^^^^^^^^^^^^^^^^^^
+   Returns key exchange type of the keys in an SSL server certificate.
 
-Frees a ``CERTCertNicknames`` structure. This structure is returned by
-```CERT_GetCertNicknames`` <#1050346>`__.
+   .. rubric:: Syntax
+      :name: syntax_11
 
-.. _Syntax_9:
+   .. code:: notranslate
 
-Syntax
-''''''
+      #include <nss.h>
 
-::
+   .. code:: notranslate
 
-   #include <cert.h>
+      SSLKEAType NSS_FindCertKEAType(CERTCertificate * cert);
 
-::
+   .. rubric:: Parameter
+      :name: parameter_2
 
-   void CERT_FreeNicknames(CERTCertNicknames *nicknames);
+   This function has the following parameter:
 
-.. _Parameters_8:
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | The certificate to check.                       |
+   |                                                 |                                                 |
+   |    a                                            |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-Parameters
-''''''''''
+   .. rubric:: Returns
+      :name: returns_9
 
-This function has the following parameter:
+   The function returns one of these values:
 
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to the                  |
-|                                   | ``CERTCertNicknames`` structure   |
-|    nicknames                      | to be freed.                      |
-+-----------------------------------+-----------------------------------+
+   -  ``kt_null = 0``
+   -  ``kt_rsa``
+   -  ``kt_dh``
+   -  ``kt_fortezza``
+   -  ``kt_kea_size``
 
-.. _CERT_GetDefaultCertDB:
+.. _comparing_secitem_objects:
 
-CERT_GetDefaultCertDB
-^^^^^^^^^^^^^^^^^^^^^
+`Comparing SecItem Objects <#comparing_secitem_objects>`__
+----------------------------------------------------------
 
-Returns a handle to the default certificate database.
+.. container::
 
-.. _Syntax_10:
+   .. rubric:: SECITEM_CompareItem
+      :name: secitem_compareitem
 
-Syntax
-''''''
+   Compares two ```SECItem`` <ssltyp.html#1026076>`__ objects and returns a ``SECComparison``
+   enumerator that shows the difference between them.
 
-::
+   .. rubric:: Syntax
+      :name: syntax_12
 
-   #include <cert.h>
+   .. code:: notranslate
 
-::
+      #include <secitem.h>
+      #include <seccomon.h>
 
-   CERTCertDBHandle *CERT_GetDefaultCertDB(void);
+   .. code:: notranslate
 
-.. _Returns_8:
+      SECComparison SECITEM_CompareItem(
+         SECItem *a,
+         SECItem *b);
 
-Returns
-'''''''
+   .. rubric:: Parameters
+      :name: parameters_9
 
-The function returns the ```CERTCertDBHandle`` <ssltyp.html#1028465>`__
-for the default certificate database.
+   This function has the following parameters:
 
-.. _Description_6:
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to one of the items to be compared.   |
+   |                                                 |                                                 |
+   |    a                                            |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. code:: notranslate                           | A pointer to one of the items to be compared.   |
+   |                                                 |                                                 |
+   |    b                                            |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
 
-Description
-'''''''''''
+   .. rubric:: Returns
+      :name: returns_10
 
-This function is useful for determining whether the default certificate
-database has been opened.
+   The function returns an enumerator of type ``SECComparison``.
 
-.. _NSS_FindCertKEAType:
+   .. code:: notranslate
 
-NSS_FindCertKEAType
-^^^^^^^^^^^^^^^^^^^
-
-Returns key exchange type of the keys in an SSL server certificate.
-
-.. _Syntax_11:
-
-Syntax
-''''''
-
-::
-
-   #include <nss.h>
-
-::
-
-   SSLKEAType NSS_FindCertKEAType(CERTCertificate * cert);
-
-.. _Parameter_2:
-
-Parameter
-'''''''''
-
-This function has the following parameter:
-
-+-----------------------------------+-----------------------------------+
-| ::                                | The certificate to check.         |
-|                                   |                                   |
-|    a                              |                                   |
-+-----------------------------------+-----------------------------------+
-
-.. _Returns_9:
-
-Returns
-'''''''
-
-The function returns one of these values:
-
--  ``kt_null = 0``
--  ``kt_rsa``
--  ``kt_dh``
--  ``kt_fortezza``
--  ``kt_kea_size``
-
-.. _Comparing_SecItem_Objects:
-
-Comparing SecItem Objects
--------------------------
-
-.. _SECITEM_CompareItem:
-
-SECITEM_CompareItem
-^^^^^^^^^^^^^^^^^^^
-
-Compares two ```SECItem`` <ssltyp.html#1026076>`__ objects and returns a
-``SECComparison`` enumerator that shows the difference between them.
-
-.. _Syntax_12:
-
-Syntax
-''''''
-
-::
-
-   #include <secitem.h>
-   #include <seccomon.h>
-
-::
-
-   SECComparison SECITEM_CompareItem(
-      SECItem *a,
-      SECItem *b);
-
-.. _Parameters_9:
-
-Parameters
-''''''''''
-
-This function has the following parameters:
-
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to one of the items to  |
-|                                   | be compared.                      |
-|    a                              |                                   |
-+-----------------------------------+-----------------------------------+
-| ::                                | A pointer to one of the items to  |
-|                                   | be compared.                      |
-|    b                              |                                   |
-+-----------------------------------+-----------------------------------+
-
-.. _Returns_10:
-
-Returns
-'''''''
-
-The function returns an enumerator of type ``SECComparison``.
-
-::
-
-   typedef enum _SECComparison {
-      SECLessThan                = -1,
-      SECEqual                = 0,
-      SECGreaterThan = 1
-   } SECComparison;
+      typedef enum _SECComparison {
+         SECLessThan                = -1,
+         SECEqual                = 0,
+         SECGreaterThan = 1
+      } SECComparison;

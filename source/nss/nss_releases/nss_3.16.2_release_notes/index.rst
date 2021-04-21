@@ -1,120 +1,117 @@
 .. _Mozilla_Projects_NSS_NSS_3_16_2_release_notes:
 
-========================
 NSS 3.16.2 release notes
 ========================
-.. _Introduction:
 
-Introduction
-------------
+`Introduction <#introduction>`__
+--------------------------------
 
-Network Security Services (NSS) 3.16.2 is a patch release for NSS 3.16.
-The bug fixes in NSS 3.16.2 are described in the "Bugs Fixed" section
-below.
+.. container::
 
-.. _Distribution_Information:
+   Network Security Services (NSS) 3.16.2 is a patch release for NSS 3.16. The bug fixes in NSS
+   3.16.2 are described in the "Bugs Fixed" section below.
 
-Distribution Information
-------------------------
+.. _distribution_information:
 
-The HG tag is NSS_3_16_2_RTM. NSS 3.16.2 requires NSPR 4.10.6 or newer.
+`Distribution Information <#distribution_information>`__
+--------------------------------------------------------
 
-NSS 3.16.2 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+.. container::
 
--  Source tarballs:
-   https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_2_RTM/src/
+   The HG tag is NSS_3_16_2_RTM. NSS 3.16.2 requires NSPR 4.10.6 or newer.
 
-.. _New_in_NSS_3.16.2:
+   NSS 3.16.2 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
-New in NSS 3.16.2
------------------
+   -  Source tarballs:
+      https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_16_2_RTM/src/
 
-.. _New_Functionality:
+.. _new_in_nss_3.16.2:
 
-New Functionality
-~~~~~~~~~~~~~~~~~
+`New in NSS 3.16.2 <#new_in_nss_3.16.2>`__
+------------------------------------------
 
--  DTLS 1.2 is supported.
--  The TLS application layer protocol negotiation (ALPN) extension is
-   also supported on the server side.
--  RSA-OEAP is supported. Use the new PK11_PrivDecrypt and
-   PK11_PubEncrypt functions with the CKM_RSA_PKCS_OAEP mechanism.
--  New Intel AES assembly code for 32-bit and 64-bit Windows,
-   contributed by Shay Gueron and Vlad Krasnov of Intel.
+.. container::
 
-.. _New_Functions:
+.. _new_functionality:
 
-New Functions
-^^^^^^^^^^^^^
+`New Functionality <#new_functionality>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  *in cert.h*
+.. container::
 
-   -  **CERT_AddExtensionByOID** - adds an extension to a certificate.
-      It is the same as CERT_AddExtension except that the OID is
-      represented by a SECItem instead of a SECOidTag.
+   -  DTLS 1.2 is supported.
+   -  The TLS application layer protocol negotiation (ALPN) extension is also supported on the
+      server side.
+   -  RSA-OEAP is supported. Use the new PK11_PrivDecrypt and PK11_PubEncrypt functions with the
+      CKM_RSA_PKCS_OAEP mechanism.
+   -  New Intel AES assembly code for 32-bit and 64-bit Windows, contributed by Shay Gueron and Vlad
+      Krasnov of Intel.
 
--  *in pk11pub.h*
+   .. rubric:: New Functions
+      :name: new_functions
 
-   -  **PK11_PrivDecrypt** - decrypts with a private key. The algorithm
-      is specified with a CK_MECHANISM_TYPE.
-   -  **PK11_PubEncrypt** - encrypts with a public key. The algorithm is
-      specified with a CK_MECHANISM_TYPE.
+   -  *in cert.h*
 
-.. _New_Macros:
+      -  **CERT_AddExtensionByOID** - adds an extension to a certificate. It is the same as
+         CERT_AddExtension except that the OID is represented by a SECItem instead of a SECOidTag.
 
-New Macros
-^^^^^^^^^^
+   -  *in pk11pub.h*
 
--  *in sslerr.h*
+      -  **PK11_PrivDecrypt** - decrypts with a private key. The algorithm is specified with a
+         CK_MECHANISM_TYPE.
+      -  **PK11_PubEncrypt** - encrypts with a public key. The algorithm is specified with a
+         CK_MECHANISM_TYPE.
 
-   -  **SSL_ERROR_NEXT_PROTOCOL_NO_CALLBACK** - An SSL error code that
-      means the next protcol negotiation extension was enabled, but the
-      callback was cleared prior to being needed.
-   -  **SSL_ERROR_NEXT_PROTOCOL_NO_PROTOCOL** - An SSL error code that
-      means the server supports no protocols that the client advertises
-      in the ALPN extension.
+   .. rubric:: New Macros
+      :name: new_macros
 
-.. _Notable_Changes_in_NSS_3.16.2:
+   -  *in sslerr.h*
 
-Notable Changes in NSS 3.16.2
------------------------------
+      -  **SSL_ERROR_NEXT_PROTOCOL_NO_CALLBACK** - An SSL error code that means the next protcol
+         negotiation extension was enabled, but the callback was cleared prior to being needed.
+      -  **SSL_ERROR_NEXT_PROTOCOL_NO_PROTOCOL** - An SSL error code that means the server supports
+         no protocols that the client advertises in the ALPN extension.
 
--  The btoa command has a new command-line option -w *suffix*, which
-   causes the output to be wrapped in BEGIN/END lines with the given
-   suffix. Use "c" as a shorthand for the suffix CERTIFICATE.
--  The certutil commands supports additionals types of subject alt name
-   extensions:
+.. _notable_changes_in_nss_3.16.2:
 
-   -  --extSAN *type:name[,type:name]...*
+`Notable Changes in NSS 3.16.2 <#notable_changes_in_nss_3.16.2>`__
+------------------------------------------------------------------
 
--  The certutil commands supports generic certificate extensions, by
-   loading binary data from files, which have been prepared using
-   external tools, or which have been extracted and dumped to file from
-   other existing certificates:
+.. container::
 
-   -  --dump-ext-val *OID*
-   -  --extGeneric
-      *OID:critical-flag:filename[,OID:critical-flag:filename]...*
+   -  The btoa command has a new command-line option -w *suffix*, which causes the output to be
+      wrapped in BEGIN/END lines with the given suffix. Use "c" as a shorthand for the suffix
+      CERTIFICATE.
+   -  The certutil commands supports additionals types of subject alt name extensions:
 
--  The certutil command has three new certificate usage specifiers:
+      -  --extSAN *type:name[,type:name]...*
 
-   -  L:  certificateUsageSSLCA
-   -  A: certificateUsageAnyCA
-   -  Y: certificateUsageVerifyCA
+   -  The certutil commands supports generic certificate extensions, by loading binary data from
+      files, which have been prepared using external tools, or which have been extracted and dumped
+      to file from other existing certificates:
 
--  The pp command has a new command-line option -u, which means "use
-   UTF-8". The default is to show a non-ASCII character as ".".
--  On Linux, NSS is built with the -ffunction-sections
-   -fdata-sections compiler flags and the --gc-sections linker flag to
-   allow unused functions to be discarded.
+      -  --dump-ext-val *OID*
+      -  --extGeneric *OID:critical-flag:filename[,OID:critical-flag:filename]...*
 
-.. _Bugs_fixed_in_NSS_3.16.2:
+   -  The certutil command has three new certificate usage specifiers:
 
-Bugs fixed in NSS 3.16.2
-------------------------
+      -  L:  certificateUsageSSLCA
+      -  A: certificateUsageAnyCA
+      -  Y: certificateUsageVerifyCA
 
-This Bugzilla query returns all the bugs fixed in NSS 3.16.2:
+   -  The pp command has a new command-line option -u, which means "use UTF-8". The default is to
+      show a non-ASCII character as ".".
+   -  On Linux, NSS is built with the -ffunction-sections -fdata-sections compiler flags and the
+      --gc-sections linker flag to allow unused functions to be discarded.
 
-| https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Components&query_format=advanced&product=NSS&target_milestone=3.16.2
-|  
+.. _bugs_fixed_in_nss_3.16.2:
+
+`Bugs fixed in NSS 3.16.2 <#bugs_fixed_in_nss_3.16.2>`__
+--------------------------------------------------------
+
+.. container::
+
+   This Bugzilla query returns all the bugs fixed in NSS 3.16.2:
+
+   | https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Components&query_format=advanced&product=NSS&target_milestone=3.16.2
+   |  

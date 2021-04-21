@@ -1,76 +1,76 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DigestEncryptUpdate:
 
-======================
 FC_DigestEncryptUpdate
 ======================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DigestEncryptUpdate - continue a multi-part digest and encryption
-operation
+.. container::
 
-.. _Syntax:
+   FC_DigestEncryptUpdate - continue a multi-part digest and encryption operation
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DigestEncryptUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pPart,
-     CK_ULONG ulPartLen,
-     CK_BYTE_PTR pEncryptedPart,
-     CK_ULONG_PTR pulEncryptedPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DigestEncryptUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pPart,
+        CK_ULONG ulPartLen,
+        CK_BYTE_PTR pEncryptedPart,
+        CK_ULONG_PTR pulEncryptedPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pPart``
-   [in] pointer to the data part.
-``ulPartLen``
-   [in] length of data in bytes.
-``pEncryptedPart``
-   [in] pointer to the location which receives
-   the digested and encrypted part or NULL.
-``pulEncryptedPartLen``
-   [in] pointer to the length of the encrypted
-   part buffer.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pPart``
+      [in] pointer to the data part.
+   ``ulPartLen``
+      [in] length of data in bytes.
+   ``pEncryptedPart``
+      [in] pointer to the location which receives the digested and encrypted part or NULL.
+   ``pulEncryptedPartLen``
+      [in] pointer to the length of the encrypted part buffer.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DigestEncryptUpdate`` continues a multi-part digest and encryption
-operation. After calling both ``FC_DigestInit`` and ``FC_EncryptInit``
-to set up the operations this function may be called multiple times. The
-operation is finished by calls to ``FC_DigestFinal`` and
-``FC_EncryptFinal`` in that order.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_DigestEncryptUpdate``.
+   ``FC_DigestEncryptUpdate`` continues a multi-part digest and encryption operation. After calling
+   both ``FC_DigestInit`` and ``FC_EncryptInit`` to set up the operations this function may be
+   called multiple times. The operation is finished by calls to ``FC_DigestFinal`` and
+   ``FC_EncryptFinal`` in that order.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling
+   ``FC_DigestEncryptUpdate``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_DigestEncryptUpdate <https://developer.mozilla.org/en-US/NSC_DigestEncryptUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_DigestEncryptUpdate </en-US/NSC_DigestEncryptUpdate>`__

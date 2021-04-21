@@ -1,68 +1,70 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetMechanismList:
 
-===================
 FC_GetMechanismList
 ===================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetMechanismList - get a list of mechanism types supported by a
-token.
+.. container::
 
-.. _Syntax:
+   FC_GetMechanismList - get a list of mechanism types supported by a token.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetMechanismList(
-     CK_SLOT_ID slotID,
-     CK_MECHANISM_TYPE_PTR pMechanismList,
-     CK_ULONG_PTR pusCount
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetMechanismList(
+        CK_SLOT_ID slotID,
+        CK_MECHANISM_TYPE_PTR pMechanismList,
+        CK_ULONG_PTR pusCount
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetMechanismList`` takes three parameters:
+.. container::
 
-``slotID``
-   [Input]
-``pInfo``
-   [Output] The address of a variable that
-   will receive a pointer to the list of function pointers.
+   ``FC_GetMechanismList`` takes three parameters:
 
-.. _Description:
+   ``slotID``
+      [Input]
+   ``pInfo``
+      [Output] The address of a variable that will receive a pointer to the list of function
+      pointers.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetMechanismList`` obtains a list of mechanism types supported by a
-token.
+.. container::
 
-A user may call ``FC_GetMechanismList`` without logging into the token
-(to assume the NSS User role).
+   ``FC_GetMechanismList`` obtains a list of mechanism types supported by a token.
 
-.. _Return_value:
+   A user may call ``FC_GetMechanismList`` without logging into the token (to assume the NSS User
+   role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK``
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK``
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GetMechanismList <https://developer.mozilla.org/en-US/NSC_GetMechanismList>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetMechanismList </en-US/NSC_GetMechanismList>`__

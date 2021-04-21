@@ -1,55 +1,58 @@
 .. _Mozilla_Projects_NSS_Reference_FC_Logout:
 
-=========
 FC_Logout
 =========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_Logout - log a user out from a token.
+.. container::
 
-.. _Syntax:
+   FC_Logout - log a user out from a token.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_Logout(
-     CK_SESSION_HANDLE hSession
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_Logout(
+        CK_SESSION_HANDLE hSession
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Logs the current user out of a USER_FUNCTIONS session.
+.. container::
 
-.. _Return_value:
+   Logs the current user out of a USER_FUNCTIONS session.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_CloseSession <https://developer.mozilla.org/en-US/FC_CloseSession>`__,
-   `NSC_Logout <https://developer.mozilla.org/en-US/NSC_Logout>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_CloseSession`, `NSC_Logout </en-US/NSC_Logout>`__

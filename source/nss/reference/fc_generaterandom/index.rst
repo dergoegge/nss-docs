@@ -1,64 +1,67 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GenerateRandom:
 
-=================
 FC_GenerateRandom
 =================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GenerateRandom - generate a random number.
+.. container::
 
-.. _Syntax:
+   FC_GenerateRandom - generate a random number.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GenerateRandom(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pRandomData,
-     CK_ULONG ulRandomLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GenerateRandom(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pRandomData,
+        CK_ULONG ulRandomLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pRandomData``
-   [out] pointer to the location to receive
-   the random data.
-``ulRandomLen``
-   [in] length of the buffer in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pRandomData``
+      [out] pointer to the location to receive the random data.
+   ``ulRandomLen``
+      [in] length of the buffer in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GenerateRandom`` generates random data of the specified length.
+.. container::
 
-A user may call ``FC_GenerateRandom`` without logging into the token (to
-assume the NSS User role).
+   ``FC_GenerateRandom`` generates random data of the specified length.
 
-.. _Return_value:
+   A user may call ``FC_GenerateRandom`` without logging into the token (to assume the NSS User
+   role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GenerateRandom <https://developer.mozilla.org/en-US/NSC_GenerateRandom>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GenerateRandom </en-US/NSC_GenerateRandom>`__

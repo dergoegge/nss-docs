@@ -1,74 +1,74 @@
 .. _Mozilla_Projects_NSS_Reference_FC_Sign:
 
-=======
 FC_Sign
 =======
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_Sign - sign a block of data.
+.. container::
 
-.. _Syntax:
+   FC_Sign - sign a block of data.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_Sign(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pData,
-     CK_ULONG usDataLen,
-     CK_BYTE_PTR pSignature,
-     CK_ULONG_PTR pusSignatureLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_Sign(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pData,
+        CK_ULONG usDataLen,
+        CK_BYTE_PTR pSignature,
+        CK_ULONG_PTR pusSignatureLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pData``
-   [in] pointer to data block.
-``usDataLen``
-   [in] length of the data in bytes.
-``pSignature``
-   [out] pointer to location where recovered
-   data is to be stored.
-``pusSignatureLen``
-   [in, out] pointer to the maximum size of
-   the output buffer, replaced by the length of the signature if the
-   operation is successful.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pData``
+      [in] pointer to data block.
+   ``usDataLen``
+      [in] length of the data in bytes.
+   ``pSignature``
+      [out] pointer to location where recovered data is to be stored.
+   ``pusSignatureLen``
+      [in, out] pointer to the maximum size of the output buffer, replaced by the length of the
+      signature if the operation is successful.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_Sign`` signs a message in a single operation according to the
-attributes of the previous call to ``FC_SignInit``.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_Sign``.
+   ``FC_Sign`` signs a message in a single operation according to the attributes of the previous
+   call to ``FC_SignInit``.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_Sign``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_SignInit <https://developer.mozilla.org/en-US/FC_SignInit>`__,
-   `NSC_Sign <https://developer.mozilla.org/en-US/NSC_Sign>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_SignInit`, `NSC_Sign </en-US/NSC_Sign>`__

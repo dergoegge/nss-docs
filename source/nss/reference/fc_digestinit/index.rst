@@ -1,61 +1,63 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DigestInit:
 
-=============
 FC_DigestInit
 =============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DigestInit - initialize a message-digest operation.
+.. container::
 
-.. _Syntax:
+   FC_DigestInit - initialize a message-digest operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DigestInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DigestInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] mechanism to be used for the
-   subsequent digest operation.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] mechanism to be used for the subsequent digest operation.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DigestInit`` initializes a message-digest operation.
+.. container::
 
-A user may call ``FC_DigestInit`` without logging into the token (to
-assume the NSS User role).
+   ``FC_DigestInit`` initializes a message-digest operation.
 
-.. _Return_value:
+   A user may call ``FC_DigestInit`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_DigestInit <https://developer.mozilla.org/en-US/NSC_DigestInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_DigestInit </en-US/NSC_DigestInit>`__

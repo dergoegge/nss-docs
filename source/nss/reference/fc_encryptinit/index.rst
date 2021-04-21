@@ -1,70 +1,71 @@
 .. _Mozilla_Projects_NSS_Reference_FC_EncryptInit:
 
-==============
 FC_EncryptInit
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_EncryptInit - initialize an encryption operation.
+.. container::
 
-.. _Syntax:
+   FC_EncryptInit - initialize an encryption operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_EncryptInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_EncryptInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] handle to the session.
-``pMechanism``
-   [in] pointer to the mechanism to be used
-   for subsequent encryption.
-``hKey``
-   [in] handle of the encryption key.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] handle to the session.
+   ``pMechanism``
+      [in] pointer to the mechanism to be used for subsequent encryption.
+   ``hKey``
+      [in] handle of the encryption key.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_EncryptInit`` initializes an encryption operation with the
-mechanism and key to be used.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_EncryptInit``.
+   ``FC_EncryptInit`` initializes an encryption operation with the mechanism and key to be used.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_EncryptInit``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK``
-   Slot information was successfully copied.
-``CKR_SLOT_ID_INVALID``
-   The specified slot number is out of the defined range of values.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK``
+      Slot information was successfully copied.
+   ``CKR_SLOT_ID_INVALID``
+      The specified slot number is out of the defined range of values.
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_EncryptInit <https://developer.mozilla.org/en-US/NSC_EncryptInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_EncryptInit </en-US/NSC_EncryptInit>`__

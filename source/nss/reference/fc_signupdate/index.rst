@@ -1,70 +1,69 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SignUpdate:
 
-=============
 FC_SignUpdate
 =============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SignUpdate - process the next block of a multi-part signing
-operation.
+.. container::
 
-.. _Syntax:
+   FC_SignUpdate - process the next block of a multi-part signing operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SignUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pPart,
-     CK_ULONG usPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SignUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pPart,
+        CK_ULONG usPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pPart``
-   [in] pointer to the next block of the data
-   to be signed.
-``usPartLen``
-   [in] length of data block in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pPart``
+      [in] pointer to the next block of the data to be signed.
+   ``usPartLen``
+      [in] length of data block in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SignUpdate`` starts or continues a multi-part signature operation.
-One or more blocks may be part of the signature. The signature for the
-entire message is returned by a call to
-`FC_SignFinal <https://developer.mozilla.org/en-US/FC_SignFinal>`__.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignUpdate``.
+   ``FC_SignUpdate`` starts or continues a multi-part signature operation. One or more blocks may be
+   part of the signature. The signature for the entire message is returned by a call to
+   :ref:`Mozilla_Projects_NSS_Reference_FC_SignFinal`.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_SignUpdate``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_SignInit <https://developer.mozilla.org/en-US/FC_SignInit>`__,
-   `FC_SignFinal <https://developer.mozilla.org/en-US/FC_SignFinal>`__,
-   `NSC_SignUpdate <https://developer.mozilla.org/en-US/NSC_SignUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_SignInit`,
+      :ref:`Mozilla_Projects_NSS_Reference_FC_SignFinal`, `NSC_SignUpdate </en-US/NSC_SignUpdate>`__

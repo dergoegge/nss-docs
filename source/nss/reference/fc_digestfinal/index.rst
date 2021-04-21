@@ -1,69 +1,69 @@
 .. _Mozilla_Projects_NSS_Reference_FC_DigestFinal:
 
-==============
 FC_DigestFinal
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_DigestFinal - finish a multi-part digest operation.
+.. container::
 
-.. _Syntax:
+   FC_DigestFinal - finish a multi-part digest operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_DigestFinal(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pDigest,
-     CK_ULONG_PTR pulDigestLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_DigestFinal(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pDigest,
+        CK_ULONG_PTR pulDigestLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pDigest``
-   [out] pointer to the buffer which will
-   receive the digest or NULL.
-``pulDigestLen``
-   [in, out] pointer to location containing
-   the maximum buffer size.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pDigest``
+      [out] pointer to the buffer which will receive the digest or NULL.
+   ``pulDigestLen``
+      [in, out] pointer to location containing the maximum buffer size.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_DigestFinal`` finishes a multi-part digest operation by returning
-the complete digest and clearing the operation context. If ``pDigest``
-is NULL the length of the digest is returned and ``FC_DigestFinal`` may
-be called again with ``pDigest`` set to retrieve the digest.
+.. container::
 
-A user may call ``FC_DigestFinal`` without logging into the token (to
-assume the NSS User role).
+   ``FC_DigestFinal`` finishes a multi-part digest operation by returning the complete digest and
+   clearing the operation context. If ``pDigest`` is NULL the length of the digest is returned and
+   ``FC_DigestFinal`` may be called again with ``pDigest`` set to retrieve the digest.
 
-.. _Return_value:
+   A user may call ``FC_DigestFinal`` without logging into the token (to assume the NSS User role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_DigestInit <https://developer.mozilla.org/en-US/FC_DigestInit>`__,
-   `NSC_DigestFinal <https://developer.mozilla.org/en-US/NSC_DigestFinal>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_DigestInit`,
+      `NSC_DigestFinal </en-US/NSC_DigestFinal>`__

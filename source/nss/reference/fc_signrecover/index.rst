@@ -1,74 +1,75 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SignRecover:
 
-==============
 FC_SignRecover
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SignRecover - Sign data in a single recoverable operation.
+.. container::
 
-.. _Syntax:
+   FC_SignRecover - Sign data in a single recoverable operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SignRecover(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pData,
-     CK_ULONG usDataLen,
-     CK_BYTE_PTR pSignature,
-     CK_ULONG_PTR pusSignatureLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SignRecover(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pData,
+        CK_ULONG usDataLen,
+        CK_BYTE_PTR pSignature,
+        CK_ULONG_PTR pusSignatureLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pData``
-   [in] mechanism to be used for the signing
-   operation.
-``usDataLen``
-   [in] handle of the key to be usedn.
-``pSignature``
-   [out] pointer to the buffer or NULL.
-``pusSignatureLen``
-   [in, out] pointer to the size of the output
-   buffer, replaced by the length of the signature if the operation is
-   successful.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pData``
+      [in] mechanism to be used for the signing operation.
+   ``usDataLen``
+      [in] handle of the key to be usedn.
+   ``pSignature``
+      [out] pointer to the buffer or NULL.
+   ``pusSignatureLen``
+      [in, out] pointer to the size of the output buffer, replaced by the length of the signature if
+      the operation is successful.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SignRecover`` signs data in a single operation where the (digest)
-data can be recovered from the signature. If ``pSignature`` is NULL only
-the length of the signature is returned in ``*pusSignatureLen``.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_SignRecover``.
+   ``FC_SignRecover`` signs data in a single operation where the (digest) data can be recovered from
+   the signature. If ``pSignature`` is NULL only the length of the signature is returned in
+   ``*pusSignatureLen``.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_SignRecover``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_SignRecover <https://developer.mozilla.org/en-US/NSC_SignRecover>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_SignRecover </en-US/NSC_SignRecover>`__

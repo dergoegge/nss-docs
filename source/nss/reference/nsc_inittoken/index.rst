@@ -1,114 +1,113 @@
 .. _Mozilla_Projects_NSS_Reference_NSC_InitToken:
 
-=============
 NSC_InitToken
 =============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-``NSC_InitToken()`` - initialize or re-initialize a token.
+.. container::
 
-.. _Syntax:
+   ``NSC_InitToken()`` - initialize or re-initialize a token.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV NSC_InitToken(
-     CK_SLOT_ID slotID,
-     CK_CHAR_PTR pPin,
-     CK_ULONG ulPinLen,
-     CK_CHAR_PTR pLabel
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV NSC_InitToken(
+        CK_SLOT_ID slotID,
+        CK_CHAR_PTR pPin,
+        CK_ULONG ulPinLen,
+        CK_CHAR_PTR pLabel
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``NSC_InitToken()`` has the following parameters:
+.. container::
 
-``slotID``
-   the ID of the token's slot
-``pPin``
-   the password of the security officer (SO)
-``ulPinLen``
-   the length in bytes of the SO password
-``pLabel``
-   points to the label of the token, which must be padded with spaces to
-   32 bytes and not be null-terminated
+   ``NSC_InitToken()`` has the following parameters:
 
-.. _Description:
+   ``slotID``
+      the ID of the token's slot
+   ``pPin``
+      the password of the security officer (SO)
+   ``ulPinLen``
+      the length in bytes of the SO password
+   ``pLabel``
+      points to the label of the token, which must be padded with spaces to 32 bytes and not be
+      null-terminated
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``NSC_InitToken()`` initializes a brand new token or re-initializes a
-token that was initialized before.
+.. container::
 
-Specifically, ``NSC_InitToken()`` initializes or clears the key
-database, removes the password, and then marks all the *user certs* in
-the certificate database as *non-user certs*. (User certs are the
-certificates that have their associated private keys in the key
-database.)
+   ``NSC_InitToken()`` initializes a brand new token or re-initializes a token that was initialized
+   before.
 
-.. note::
+   Specifically, ``NSC_InitToken()`` initializes or clears the key database, removes the password,
+   and then marks all the *user certs* in the certificate database as *non-user certs*. (User certs
+   are the certificates that have their associated private keys in the key database.)
 
-   **Note:** The SO password should be the empty string, i.e.,
-   ``ulPinLen`` argument should be 0. ``NSC_InitToken()`` ignores the
-   ``pLabel`` argument.
+   .. note::
 
-.. _Return_value:
+      **Note:** The SO password should be the empty string, i.e., ``ulPinLen`` argument should be 0.
+      ``NSC_InitToken()`` ignores the ``pLabel`` argument.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``NSC_InitToken()`` returns the following return codes.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``CKR_OK``: token initialization succeeded.
--  ``CKR_SLOT_ID_INVALID``: slot ID is invalid.
--  ``CKR_TOKEN_WRITE_PROTECTED``
+.. container::
 
-   -  slot ID is 1. (The non-FIPS mode has two slots: 1 and 2. The key
-      database is in slot 2. Slot 1 doesn't have a key database.)
-   -  we don't have a reference to the key database (we failed to open
-      the key database or we have released our reference).
+   ``NSC_InitToken()`` returns the following return codes.
 
--  ``CKR_DEVICE_ERROR``: failed to reset the key database.
+   -  ``CKR_OK``: token initialization succeeded.
+   -  ``CKR_SLOT_ID_INVALID``: slot ID is invalid.
+   -  ``CKR_TOKEN_WRITE_PROTECTED``
 
-.. _Examples:
+      -  slot ID is 1. (The non-FIPS mode has two slots: 1 and 2. The key database is in slot 2.
+         Slot 1 doesn't have a key database.)
+      -  we don't have a reference to the key database (we failed to open the key database or we
+         have released our reference).
 
-Examples
-~~~~~~~~
+   -  ``CKR_DEVICE_ERROR``: failed to reset the key database.
 
-.. _Application_usage:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Application usage
-~~~~~~~~~~~~~~~~~
+.. container::
 
-``NSC_InitToken()`` is used to reset the password for the key database
-when the user forgets the password.
+.. _application_usage:
 
--  The "Reset Password" button of the Mozilla Application Suite and
-   SeaMonkey (in **Preferences->Privacy & Security->Master Passwords**)
-   calls ``NSC_InitToken()``.
--  The "-T" (token reset) command of ``certutil`` calls
-   ``NSC_InitToken()``.
+`Application usage <#application_usage>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note::
+.. container::
 
-   **Note:** Resetting the password clears all permanent secret and
-   private keys. You won't be able to decrypt the data, such as
-   Mozilla's stored passwords, that were encrypted using any of those
-   keys.
+   ``NSC_InitToken()`` is used to reset the password for the key database when the user forgets the
+   password.
 
-.. _See_also:
+   -  The "Reset Password" button of the Mozilla Application Suite and SeaMonkey (in
+      **Preferences->Privacy & Security->Master Passwords**) calls ``NSC_InitToken()``.
+   -  The "-T" (token reset) command of ``certutil`` calls ``NSC_InitToken()``.
 
-See also
-~~~~~~~~
+   .. note::
 
--  `NSC_InitPIN <https://developer.mozilla.org/en-US/NSC_InitPIN>`__,
-   `FC_InitToken <https://developer.mozilla.org/en-US/FC_InitToken>`__
+      **Note:** Resetting the password clears all permanent secret and private keys. You won't be
+      able to decrypt the data, such as Mozilla's stored passwords, that were encrypted using any of
+      those keys.
+
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_InitPIN </en-US/NSC_InitPIN>`__, :ref:`Mozilla_Projects_NSS_Reference_FC_InitToken`

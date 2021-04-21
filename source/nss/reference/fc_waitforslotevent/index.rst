@@ -1,58 +1,61 @@
 .. _Mozilla_Projects_NSS_Reference_FC_WaitForSlotEvent:
 
-===================
 FC_WaitForSlotEvent
 ===================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_WaitForSlotEvent - waits for a slot event, such as token insertion or
-token removal, to occur.
+.. container::
 
-.. _Syntax:
+   FC_WaitForSlotEvent - waits for a slot event, such as token insertion or token removal, to occur.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_WaitForSlotEvent(CK_FLAGS flags, CK_SLOT_ID_PTR pSlot CK_VOID_PTR pReserved);
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_WaitForSlotEvent(CK_FLAGS flags, CK_SLOT_ID_PTR pSlot CK_VOID_PTR pReserved);
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_WaitForSlotEvent`` takes three parameters:
+.. container::
 
-``flags``
-``pSlot``.
-``pReserved``.
+   ``FC_WaitForSlotEvent`` takes three parameters:
 
-.. _Description:
+   ``flags``
+   ``pSlot``.
+   ``pReserved``.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This function is not supported by the NSS cryptographic module.
+.. container::
 
-.. _Return_value:
+   This function is not supported by the NSS cryptographic module.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``FC_WaitForSlotEvent`` always returns ``CKR_FUNCTION_NOT_SUPPORTED``.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``FC_WaitForSlotEvent`` always returns ``CKR_FUNCTION_NOT_SUPPORTED``.
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_WaitForSlotEvent <https://developer.mozilla.org/en-US/FC_WaitForSlotEvent>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_WaitForSlotEvent`

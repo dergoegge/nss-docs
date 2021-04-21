@@ -1,85 +1,82 @@
 .. _Mozilla_Projects_NSS_CERT_FindCertByIssuerAndSN:
 
-==========================
 CERT_FindCertByIssuerAndSN
 ==========================
-Find a certificate in the database with the given issuer and serial
-number.
 
-.. _Syntax:
+.. container::
 
-Syntax
-~~~~~~
+   Find a certificate in the database with the given issuer and serial number.
 
-::
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-   #include <cert.h>
-   CERTCertificate *CERT_FindCertByIssuerAndSN (
+.. container::
 
-       CERTCertDBHandle *handle,
-       CERTIssuerAndSN *issuerAndSN            );
+   .. code:: notranslate
 
-.. _Parameters:
+      #include <cert.h>
+      CERTCertificate *CERT_FindCertByIssuerAndSN (
 
-Parameters
-~~~~~~~~~~
+          CERTCertDBHandle *handle,
+          CERTIssuerAndSN *issuerAndSN            );
 
-+-----------------+---------------------------------------------------+
-| ``handle``      | *in* pointer to a                                 |
-|                 | `                                                 |
-|                 | CERTCertDBHandle </en-US/NSS/CERTCertDBHandle>`__ |
-|                 | representing the certificate database to look in  |
-+-----------------+---------------------------------------------------+
-| ``issuerAndSN`` | *in* pointer to a                                 |
-|                 | `CERTIssuerAndSN </en-US/NSS/CERTIssuerAndSN>`__  |
-|                 | that must be properly formed to contain the       |
-|                 | issuer name and the serial number (see {{         |
-|                 | mediawiki.external('Example') }})                 |
-+-----------------+---------------------------------------------------+
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Description:
+.. container::
 
-Description
-~~~~~~~~~~~
+   +-----------------+-------------------------------------------------------------------------------+
+   | ``handle``      | *in* pointer to a `CERTCertDBHandle </en-US/NSS/CERTCertDBHandle>`__          |
+   |                 | representing the certificate database to look in                              |
+   +-----------------+-------------------------------------------------------------------------------+
+   | ``issuerAndSN`` | *in* pointer to a `CERTIssuerAndSN </en-US/NSS/CERTIssuerAndSN>`__ that must  |
+   |                 | be properly formed to contain the issuer name and the serial number (see      |
+   |                 | [Example])                                                                    |
+   +-----------------+-------------------------------------------------------------------------------+
 
-This function creates a certificate key using the ``issuerAndSN`` and it
-then uses the key to find the matching certificate in the database.
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Returns:
+.. container::
 
-Returns
-~~~~~~~
+   This function creates a certificate key using the ``issuerAndSN`` and it then uses the key to
+   find the matching certificate in the database.
 
-A pointer to a `CERTCertificate </en-US/NSS/CERTCertificate>`__
-representing the certificate in the database that matched the issuer and
-serial number, or ``NULL`` if none was found. The certificate is a
-shallow copy, use
-`CERT_DestroyCertificate </en-US/NSS/CERT_DestroyCertificate>`__ to
-decrement the reference count on the certificate instance.
+`Returns <#returns>`__
+~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Example:
+.. container::
 
-Example
-~~~~~~~
+   A pointer to a `CERTCertificate </en-US/NSS/CERTCertificate>`__ representing the certificate in
+   the database that matched the issuer and serial number, or ``NULL`` if none was found. The
+   certificate is a shallow copy, use
+   `CERT_DestroyCertificate </en-US/NSS/CERT_DestroyCertificate>`__ to decrement the reference count
+   on the certificate instance.
 
-::
+`Example <#example>`__
+~~~~~~~~~~~~~~~~~~~~~~
 
-   CERTIssuerAndSN issuerSN;
-   issuerSN.derIssuer.data = caName->data;
-   issuerSN.derIssuer.len = caName->len;
-   issuerSN.serialNumber.data = authorityKeyID->authCertSerialNumber.data;
-   issuerSN.serialNumber.len = authorityKeyID->authCertSerialNumber.len;
-   issuerCert = CERT_FindCertByIssuerAndSN(cert->dbhandle, &issuerSN);
-   if ( issuerCert == NULL ) {
-       PORT_SetError (SEC_ERROR_UNKNOWN_ISSUER);
-   }
+.. container::
 
-.. _See_Also:
+   .. code:: notranslate
 
-See Also
-~~~~~~~~
+      CERTIssuerAndSN issuerSN;
+      issuerSN.derIssuer.data = caName->data;
+      issuerSN.derIssuer.len = caName->len;
+      issuerSN.serialNumber.data = authorityKeyID->authCertSerialNumber.data;
+      issuerSN.serialNumber.len = authorityKeyID->authCertSerialNumber.len;
+      issuerCert = CERT_FindCertByIssuerAndSN(cert->dbhandle, &issuerSN);
+      if ( issuerCert == NULL ) {
+          PORT_SetError (SEC_ERROR_UNKNOWN_ISSUER);
+      }
 
-Occurrences of
-```CERT_FindCertByIssuerAndSN`` <http://lxr.mozilla.org/security/ident?i=CERT_FindCertByIssuerAndSN>`__
-in the current NSS source code (generated by
-`LXR <http://lxr.mozilla.org/security/>`__).
+.. _see_also:
+
+`See Also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   Occurrences of
+   ```CERT_FindCertByIssuerAndSN`` <http://lxr.mozilla.org/security/ident?i=CERT_FindCertByIssuerAndSN>`__
+   in the current NSS source code (generated by `LXR <http://lxr.mozilla.org/security/>`__).

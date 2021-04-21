@@ -1,72 +1,73 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GenerateKey:
 
-==============
 FC_GenerateKey
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GenerateKey - generate a new key
+.. container::
 
-.. _Syntax:
+   FC_GenerateKey - generate a new key
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GenerateKey(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_ATTRIBUTE_PTR pTemplate,
-     CK_ULONG ulCount,
-     CK_OBJECT_HANDLE_PTR phKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GenerateKey(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_ATTRIBUTE_PTR pTemplate,
+        CK_ULONG ulCount,
+        CK_OBJECT_HANDLE_PTR phKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] pointer to the mechanism to use.
-``pTemplate``
-   [in] pointer to the template for the new
-   key.
-``ulCount``
-   [in] number of attributes in the template.
-``phKey``
-   [out] pointer to the location to receive
-   the handle of the new key.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] pointer to the mechanism to use.
+   ``pTemplate``
+      [in] pointer to the template for the new key.
+   ``ulCount``
+      [in] number of attributes in the template.
+   ``phKey``
+      [out] pointer to the location to receive the handle of the new key.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GenerateKey`` generates a secret key, creating a new key object.
-The handle of new key is returned.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_GenerateKey``.
+   ``FC_GenerateKey`` generates a secret key, creating a new key object. The handle of new key is
+   returned.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_GenerateKey``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GenerateKey <https://developer.mozilla.org/en-US/NSC_GenerateKey>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GenerateKey </en-US/NSC_GenerateKey>`__

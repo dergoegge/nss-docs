@@ -1,71 +1,75 @@
 .. _Mozilla_Projects_NSS_Reference_FC_SetPIN:
 
-=========
 FC_SetPIN
 =========
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_SetPIN - Modify the user's PIN.
+.. container::
 
-.. _Syntax:
+   FC_SetPIN - Modify the user's PIN.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_SetPIN(
-     CK_SESSION_HANDLE hSession,
-     CK_CHAR_PTR pOldPin,
-     CK_ULONG ulOldLen,
-     CK_CHAR_PTR pNewPin,
-     CK_ULONG ulNewLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_SetPIN(
+        CK_SESSION_HANDLE hSession,
+        CK_CHAR_PTR pOldPin,
+        CK_ULONG ulOldLen,
+        CK_CHAR_PTR pNewPin,
+        CK_ULONG ulNewLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SetPIN`` takes five parameters:
+.. container::
 
-``hSession``
-   [Input] the session's handle
-``pOldPin``
-   [Input] points to the old PIN.
-``ulOldLen``
-   [Input] the length in bytes of the old PIN.
-``pNewPin``
-   [Input] points to the new PIN.
-``ulNewLen``
-   [Input] the length in bytes of the new PIN.
+   ``FC_SetPIN`` takes five parameters:
 
-.. _Description:
+   ``hSession``
+      [Input] the session's handle
+   ``pOldPin``
+      [Input] points to the old PIN.
+   ``ulOldLen``
+      [Input] the length in bytes of the old PIN.
+   ``pNewPin``
+      [Input] points to the new PIN.
+   ``ulNewLen``
+      [Input] the length in bytes of the new PIN.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_SetPIN`` modifies the PIN of the user. The user must log into the
-token (to assume the NSS User role) before calling ``FC_SetPIN``.
+.. container::
 
-.. _Return_value:
+   ``FC_SetPIN`` modifies the PIN of the user. The user must log into the token (to assume the NSS
+   User role) before calling ``FC_SetPIN``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``CKR_OK``
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``CKR_OK``
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_SetPIN <https://developer.mozilla.org/en-US/NSC_SetPIN>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_SetPIN </en-US/NSC_SetPIN>`__

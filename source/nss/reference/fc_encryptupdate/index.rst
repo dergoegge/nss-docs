@@ -1,75 +1,74 @@
 .. _Mozilla_Projects_NSS_Reference_FC_EncryptUpdate:
 
-================
 FC_EncryptUpdate
 ================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_EncryptUpdate - encrypt a block of a multi-part encryption operation.
+.. container::
 
-.. _Syntax:
+   FC_EncryptUpdate - encrypt a block of a multi-part encryption operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_EncryptUpdate(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pPart,
-     CK_ULONG usPartLen,
-     CK_BYTE_PTR pEncryptedPart,
-     CK_ULONG_PTR pusEncryptedPartLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_EncryptUpdate(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pPart,
+        CK_ULONG usPartLen,
+        CK_BYTE_PTR pEncryptedPart,
+        CK_ULONG_PTR pusEncryptedPartLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pPart``
-   [in] pointer to the next block of data to
-   be encrypted.
-``usPartLen``
-   [in] length of data block in bytes.
-``pEncryptedPart``
-   [out] pointer to location where encrypted
-   block is to be stored.
-``pusEncryptedPartaLen``
-   [out] pointer the location where the number
-   of bytes of encrypted data is to be stored.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pPart``
+      [in] pointer to the next block of data to be encrypted.
+   ``usPartLen``
+      [in] length of data block in bytes.
+   ``pEncryptedPart``
+      [out] pointer to location where encrypted block is to be stored.
+   ``pusEncryptedPartaLen``
+      [out] pointer the location where the number of bytes of encrypted data is to be stored.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_EncryptUpdate`` encrypts a block of data according to the
-attributes of the previous call to ``FC_EncryptInit``. The block may be
-part of a multi-part encryption operation.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_EncryptUpdate``.
+   ``FC_EncryptUpdate`` encrypts a block of data according to the attributes of the previous call to
+   ``FC_EncryptInit``. The block may be part of a multi-part encryption operation.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_EncryptUpdate``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_EncryptInit <https://developer.mozilla.org/en-US/FC_EncryptInit>`__,
-   `NSC_EncryptUpdate <https://developer.mozilla.org/en-US/NSC_EncryptUpdate>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_EncryptInit`,
+      `NSC_EncryptUpdate </en-US/NSC_EncryptUpdate>`__

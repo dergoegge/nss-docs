@@ -1,84 +1,83 @@
 .. _Mozilla_Projects_NSS_Reference_FC_UnwrapKey:
 
-============
 FC_UnwrapKey
 ============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_UnwrapKey - unwrap a key
+.. container::
 
-.. _Syntax:
+   FC_UnwrapKey - unwrap a key
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_UnwrapKey(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hUnwrappingKey,
-     CK_BYTE_PTR pWrappedKey,
-     CK_ULONG usWrappedKeyLen,
-     CK_ATTRIBUTE_PTR pTemplate,
-     CK_ULONG usAttributeCount,
-     CK_OBJECT_HANDLE_PTR phKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_UnwrapKey(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hUnwrappingKey,
+        CK_BYTE_PTR pWrappedKey,
+        CK_ULONG usWrappedKeyLen,
+        CK_ATTRIBUTE_PTR pTemplate,
+        CK_ULONG usAttributeCount,
+        CK_OBJECT_HANDLE_PTR phKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] pointer to the mechanism to use.
-``hUnwrappingKey``
-   [in] handle of the ket to use for
-   unwrapping.
-``pWrappedKey``
-   [in] pointer to the wrapped key.
-``usWrappedKeyLen``
-   [in] length of the wrapped key.
-``pTemplate``
-   [in] pointer to the list of attributes for
-   the unwrapped key.
-``usAttributeCount``
-   [in] number of attributes in the template.
-``phKey``
-   [out] pointer to the location to receive
-   the handle of the unwrapped key.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] pointer to the mechanism to use.
+   ``hUnwrappingKey``
+      [in] handle of the ket to use for unwrapping.
+   ``pWrappedKey``
+      [in] pointer to the wrapped key.
+   ``usWrappedKeyLen``
+      [in] length of the wrapped key.
+   ``pTemplate``
+      [in] pointer to the list of attributes for the unwrapped key.
+   ``usAttributeCount``
+      [in] number of attributes in the template.
+   ``phKey``
+      [out] pointer to the location to receive the handle of the unwrapped key.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_UnwrapKey`` unwraps (decrypts) a key and creates a new key opbject.
-If ``pWrappedKey`` is NULL the length of the wrapped key is returned in
-``pusWrappedKeyLen`` and FC_UnwrapKey may be called again with
-``pWrappedKey`` set to retrieve the wrapped key.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_UnwrapKey``.
+   ``FC_UnwrapKey`` unwraps (decrypts) a key and creates a new key opbject. If ``pWrappedKey`` is
+   NULL the length of the wrapped key is returned in ``pusWrappedKeyLen`` and FC_UnwrapKey may be
+   called again with ``pWrappedKey`` set to retrieve the wrapped key.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_UnwrapKey``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_UnwrapKey <https://developer.mozilla.org/en-US/NSC_UnwrapKey>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_UnwrapKey </en-US/NSC_UnwrapKey>`__

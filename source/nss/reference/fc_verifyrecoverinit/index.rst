@@ -1,65 +1,68 @@
 .. _Mozilla_Projects_NSS_Reference_FC_VerifyRecoverInit:
 
-====================
 FC_VerifyRecoverInit
 ====================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_VerifyRecoverInit - initialize a verification operation where data is
-recoverable.
+.. container::
 
-.. _Syntax:
+   FC_VerifyRecoverInit - initialize a verification operation where data is recoverable.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_VerifyRecoverInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_VerifyRecoverInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] mechanism to be used for verification.
-``hKey``
-   [in] handle of the key to be used.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] mechanism to be used for verification.
+   ``hKey``
+      [in] handle of the key to be used.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_VerifyRecoverInit`` initializes a signature verification operation
-where the (digest) data can be recovered from the signature.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_VerifyRecoverInit``.
+   ``FC_VerifyRecoverInit`` initializes a signature verification operation where the (digest) data
+   can be recovered from the signature.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling
+   ``FC_VerifyRecoverInit``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_VerifyRecoverInit <https://developer.mozilla.org/en-US/NSC_VerifyRecoverInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_VerifyRecoverInit </en-US/NSC_VerifyRecoverInit>`__

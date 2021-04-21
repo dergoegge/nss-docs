@@ -1,65 +1,67 @@
 .. _Mozilla_Projects_NSS_Reference_FC_VerifyInit:
 
-=============
 FC_VerifyInit
 =============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_VerifyInit - initialize a verification operation.
+.. container::
 
-.. _Syntax:
+   FC_VerifyInit - initialize a verification operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_VerifyInit(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_OBJECT_HANDLE hKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_VerifyInit(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_OBJECT_HANDLE hKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] mechanism to be used for the
-   verification operation.
-``hKey``
-   [in] handle of the key to be used.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] mechanism to be used for the verification operation.
+   ``hKey``
+      [in] handle of the key to be used.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_VerifyInit`` initializes a verification operation where the
-signature is an appendix to the data.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_VerifyInit``.
+   ``FC_VerifyInit`` initializes a verification operation where the signature is an appendix to the
+   data.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyInit``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_VerifyInit <https://developer.mozilla.org/en-US/NSC_VerifyInit>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_VerifyInit </en-US/NSC_VerifyInit>`__

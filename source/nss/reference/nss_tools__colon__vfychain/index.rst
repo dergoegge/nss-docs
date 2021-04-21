@@ -1,136 +1,132 @@
 .. _Mozilla_Projects_NSS_Reference_NSS_tools_:_vfychain:
 
-====================
 NSS tools : vfychain
 ====================
-Name
 
-| vfychain — vfychain [options] [revocation options] certfile [[options]
-| certfile] ...
+.. container::
 
-Synopsis
+   Name
 
-vfychain
+   | vfychain — vfychain [options] [revocation options] certfile [[options]
+   | certfile] ...
 
-Description
+   Synopsis
 
-| The verification Tool, vfychain, verifies certificate chains. modutil
-  can
-| add and delete PKCS #11 modules, change passwords on security
-  databases,
-| set defaults, list module contents, enable or disable slots, enable or
-| disable FIPS 140-2 compliance, and assign default providers for
-| cryptographic operations. This tool can also create certificate, key,
-  and
-| module security database files.
+   vfychain
 
-| The tasks associated with security module database management are part
-  of
-| a process that typically also involves managing key databases and
-| certificate databases.
+   Description
 
-Options
+   | The verification Tool, vfychain, verifies certificate chains. modutil can
+   | add and delete PKCS #11 modules, change passwords on security databases,
+   | set defaults, list module contents, enable or disable slots, enable or
+   | disable FIPS 140-2 compliance, and assign default providers for
+   | cryptographic operations. This tool can also create certificate, key, and
+   | module security database files.
 
-| -a
-| the following certfile is base64 encoded
+   | The tasks associated with security module database management are part of
+   | a process that typically also involves managing key databases and
+   | certificate databases.
 
-| -b YYMMDDHHMMZ
-| Validate date (default: now)
+   Options
 
-| -d directory
-| database directory
+   | -a
+   | the following certfile is base64 encoded
 
-| -f
-| Enable cert fetching from AIA URL
+   | -b YYMMDDHHMMZ
+   | Validate date (default: now)
 
-| -o oid
-| Set policy OID for cert validation(Format OID.1.2.3)
+   | -d directory
+   | database directory
 
--p
+   | -f
+   | Enable cert fetching from AIA URL
 
-Use PKIX Library to validate certificate by calling:
+   | -o oid
+   | Set policy OID for cert validation(Format OID.1.2.3)
 
-\* CERT_VerifyCertificate if specified once,
+   -p
 
-\* CERT_PKIXVerifyCert if specified twice and more.
+   Use PKIX Library to validate certificate by calling:
 
-| -r
-| Following certfile is raw binary DER (default)
+   \* CERT_VerifyCertificate if specified once,
 
-| -t
-| Following cert is explicitly trusted (overrides db trust)
+   \* CERT_PKIXVerifyCert if specified twice and more.
 
--u usage
+   | -r
+   | Following certfile is raw binary DER (default)
 
-| 0=SSL client, 1=SSL server, 2=SSL StepUp, 3=SSL CA, 4=Email
-| signer, 5=Email recipient, 6=Object signer,
-| 9=ProtectedObjectSigner, 10=OCSP responder, 11=Any CA
+   | -t
+   | Following cert is explicitly trusted (overrides db trust)
 
-| -v
-| Verbose mode. Prints root cert subject(double the argument for
-| whole root cert info)
+   -u usage
 
-| -w password
-| Database password
+   | 0=SSL client, 1=SSL server, 2=SSL StepUp, 3=SSL CA, 4=Email
+   | signer, 5=Email recipient, 6=Object signer,
+   | 9=ProtectedObjectSigner, 10=OCSP responder, 11=Any CA
 
-| -W pwfile
-| Password file
+   | -v
+   | Verbose mode. Prints root cert subject(double the argument for
+   | whole root cert info)
 
-| Revocation options for PKIX API (invoked with -pp options) is a
-| collection of the following flags: [-g type [-h flags] [-m type
-| [-s flags]] ...] ...
+   | -w password
+   | Database password
 
-Where:
+   | -W pwfile
+   | Password file
 
-| -g test-type
-| Sets status checking test type. Possible values are "leaf" or
-| "chain"
+   | Revocation options for PKIX API (invoked with -pp options) is a
+   | collection of the following flags: [-g type [-h flags] [-m type
+   | [-s flags]] ...] ...
 
-| -g test type
-| Sets status checking test type. Possible values are "leaf" or
-| "chain".
+   Where:
 
-| -h test flags
-| Sets revocation flags for the test type it follows. Possible
-| flags: "testLocalInfoFirst" and "requireFreshInfo".
+   | -g test-type
+   | Sets status checking test type. Possible values are "leaf" or
+   | "chain"
 
-| -m method type
-| Sets method type for the test type it follows. Possible types are
-| "crl" and "ocsp".
+   | -g test type
+   | Sets status checking test type. Possible values are "leaf" or
+   | "chain".
 
-| -s method flags
-| Sets revocation flags for the method it follows. Possible types
-| are "doNotUse", "forbidFetching", "ignoreDefaultSrc",
-| "requireInfo" and "failIfNoInfo".
+   | -h test flags
+   | Sets revocation flags for the test type it follows. Possible
+   | flags: "testLocalInfoFirst" and "requireFreshInfo".
 
-Additional Resources
+   | -m method type
+   | Sets method type for the test type it follows. Possible types are
+   | "crl" and "ocsp".
 
-| For information about NSS and other tools related to NSS (like JSS),
-  check
-| out the NSS project wiki at
-| [1]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
-  The NSS site relates
-| directly to NSS code changes and releases.
+   | -s method flags
+   | Sets revocation flags for the method it follows. Possible types
+   | are "doNotUse", "forbidFetching", "ignoreDefaultSrc",
+   | "requireInfo" and "failIfNoInfo".
 
-Mailing lists: https://lists.mozilla.org/listinfo/dev-tech-crypto
+   Additional Resources
 
-IRC: Freenode at #dogtag-pki
+   | For information about NSS and other tools related to NSS (like JSS), check
+   | out the NSS project wiki at
+   | [1]\ `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__.
+     The NSS site relates
+   | directly to NSS code changes and releases.
 
-Authors
+   Mailing lists: https://lists.mozilla.org/listinfo/dev-tech-crypto
 
-| The NSS tools were written and maintained by developers with Netscape,
-  Red
-| Hat, and Sun.
+   IRC: Freenode at #dogtag-pki
 
-| Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey
-| <dlackey@redhat.com>.
+   Authors
 
-Copyright
+   | The NSS tools were written and maintained by developers with Netscape, Red
+   | Hat, and Sun.
 
-(c) 2010, Red Hat, Inc. Licensed under the GNU Public License version 2.
+   | Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey
+   | <dlackey@redhat.com>.
 
-References
+   Copyright
 
-| Visible links
-| 1.
-  `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__
+   (c) 2010, Red Hat, Inc. Licensed under the GNU Public License version 2.
+
+   References
+
+   | Visible links
+   | 1.
+     `http://www.mozilla.org/projects/security/pki/nss/ <https://www.mozilla.org/projects/security/pki/nss/>`__

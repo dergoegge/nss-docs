@@ -1,75 +1,75 @@
 .. _Mozilla_Projects_NSS_Reference_FC_VerifyRecover:
 
-================
 FC_VerifyRecover
 ================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_VerifyRecover - Verify data in a single recoverable operation.
+.. container::
 
-.. _Syntax:
+   FC_VerifyRecover - Verify data in a single recoverable operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_VerifyRecover(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pSignature,
-     CK_ULONG usSignatureLen,
-     CK_BYTE_PTR pData,
-     CK_ULONG_PTR pusDataLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_VerifyRecover(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pSignature,
+        CK_ULONG usSignatureLen,
+        CK_BYTE_PTR pData,
+        CK_ULONG_PTR pusDataLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pSignature``
-   [in] mechanism to be used for the signing
-   operation.
-``usSignatureLen``
-   [in] handle of the key to be usedn.
-``pData``
-   [out] pointer to the buffer or NULL.
-``pusDataLen``
-   [in, out] pointer to the size of the output
-   buffer, replaced by the length of the signature if the operation is
-   successful.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pSignature``
+      [in] mechanism to be used for the signing operation.
+   ``usSignatureLen``
+      [in] handle of the key to be usedn.
+   ``pData``
+      [out] pointer to the buffer or NULL.
+   ``pusDataLen``
+      [in, out] pointer to the size of the output buffer, replaced by the length of the signature if
+      the operation is successful.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_VerifyRecover`` verifies data in a single operation where the
-(digest) data can be recovered from the signature. If ``pSignature`` is
-NULL only the length of the signature is returned in
-``*pusSignatureLen``.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_VerifyRecover``.
+   ``FC_VerifyRecover`` verifies data in a single operation where the (digest) data can be recovered
+   from the signature. If ``pSignature`` is NULL only the length of the signature is returned in
+   ``*pusSignatureLen``.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyRecover``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_VerifyRecover <https://developer.mozilla.org/en-US/NSC_VerifyRecover>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_VerifyRecover </en-US/NSC_VerifyRecover>`__

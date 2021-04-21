@@ -1,160 +1,159 @@
 .. _Mozilla_Projects_NSS_Building:
 
-============
 Building NSS
 ============
-.. _Introduction:
 
-Introduction
-------------
+`Introduction <#introduction>`__
+--------------------------------
 
-This page has detailed information on how to build NSS. Because NSS is a
-cross-platform library that builds on many different platforms and has
-many options, it may be complex to build. Please read these instructions
-carefully before attempting to build.
+.. container::
 
-.. _Build_environment:
+   This page has detailed information on how to build NSS. Because NSS is a cross-platform library
+   that builds on many different platforms and has many options, it may be complex to build. Please
+   read these instructions carefully before attempting to build.
 
-Build environment
------------------
+.. _build_environment:
 
-NSS needs a C and C++ compiler.  It has minimal dependencies, including
-only standard C and C++ libraries, plus
-`zlib <https://www.zlib.net/>`__.
+`Build environment <#build_environment>`__
+------------------------------------------
 
-For building, you also need
-`make <https://www.gnu.org/software/make/>`__.  Ideally, also install
-`gyp <https://gyp.gsrc.io/>`__ and `ninja <https://ninja-build.org/>`__
-and put them on your path.  This is recommended, as the build is faster
-and more reliable.
+.. container::
 
-.. _Windows:
+   NSS needs a C and C++ compiler.  It has minimal dependencies, including only standard C and C++
+   libraries, plus `zlib <https://www.zlib.net/>`__.
 
-Windows
-~~~~~~~
+   For building, you also need `make <https://www.gnu.org/software/make/>`__.  Ideally, also install
+   `gyp <https://gyp.gsrc.io/>`__ and `ninja <https://ninja-build.org/>`__ and put them on your
+   path.  This is recommended, as the build is faster and more reliable.
 
-NSS compilation on Windows uses the same shared build system as Mozilla
-Firefox. You must first install the `Windows
-Prerequisites <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Windows_Prerequisites>`__,
-including **MozillaBuild**.
+`Windows <#windows>`__
+~~~~~~~~~~~~~~~~~~~~~~
 
-You can also build NSS on the Windows Subsystem for Linux, but the
-resulting binaries aren't usable by other Windows applications.
+.. container::
 
-.. _Get_the_source:
+   NSS compilation on Windows uses the same shared build system as Mozilla Firefox. You must first
+   install the `Windows
+   Prerequisites <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Windows_Prerequisites>`__,
+   including **MozillaBuild**.
 
-Get the source
---------------
+   You can also build NSS on the Windows Subsystem for Linux, but the resulting binaries aren't
+   usable by other Windows applications.
 
-NSS and NSPR use Mercurial for source control like other Mozilla
-projects. To check out the latest sources for NSS and NSPR--which may
-not be part of a stable release--use the following commands:
+.. _get_the_source:
 
-::
+`Get the source <#get_the_source>`__
+------------------------------------
 
-   hg clone https://hg.mozilla.org/projects/nspr
-   hg clone https://hg.mozilla.org/projects/nss
+.. container::
 
-To get the source of a specific release, see
-:ref:`Mozilla_Projects_NSS_NSS_Releases`.
+   NSS and NSPR use Mercurial for source control like other Mozilla projects. To check out the
+   latest sources for NSS and NSPR--which may not be part of a stable release--use the following
+   commands:
 
-.. _Build:
+   .. code:: notranslate
 
-Build
------
+      hg clone https://hg.mozilla.org/projects/nspr
+      hg clone https://hg.mozilla.org/projects/nss
 
-Build NSS using our build script:
+   To get the source of a specific release, see :ref:`Mozilla_Projects_NSS_NSS_Releases`.
 
-::
+`Build <#build>`__
+------------------
 
-   nss/build.sh
+.. container::
 
-This builds both NSPR and NSS.
+   Build NSS using our build script:
 
-.. _Build_with_make:
+   .. code:: notranslate
 
-Build with make
----------------
+      nss/build.sh
 
-Alternatively, there is a ``make`` target called "nss_build_all", which
-produces a similar result.  This supports some alternative options, but
-can be a lot slower.
+   This builds both NSPR and NSS.
 
-::
+.. _build_with_make:
 
-   make -C nss nss_build_all USE_64=1
+`Build with make <#build_with_make>`__
+--------------------------------------
 
-The make-based build system for NSS uses a variety of variables to
-control the build. Below are some of the variables, along with possible
-values they may be set to.
+.. container::
 
-BUILD_OPT
-   0
-      Build a debug (non-optimized) version of NSS. *This is the
-      default.*
-   1
-      Build an optimized (non-debug) version of NSS.
+   Alternatively, there is a ``make`` target called "nss_build_all", which produces a similar
+   result.  This supports some alternative options, but can be a lot slower.
 
-USE_64
-   0
-      Build for a 32-bit environment/ABI. *This is the default.*
-   1
-      Build for a 64-bit environment/ABI. *This is recommended.*
+   .. code:: notranslate
 
-USE_ASAN
-   0
-      Do not create an
-      `AddressSanitizer <http://clang.llvm.org/docs/AddressSanitizer.html>`__
-      build. *This is the default.*
-   1
-      Create an AddressSanitizer build.
+      make -C nss nss_build_all USE_64=1
 
-.. _Unit_testing:
+   The make-based build system for NSS uses a variety of variables to control the build. Below are
+   some of the variables, along with possible values they may be set to.
 
-Unit testing
-------------
+   BUILD_OPT
+      0
+         Build a debug (non-optimized) version of NSS. *This is the default.*
+      1
+         Build an optimized (non-debug) version of NSS.
 
-NSS contains extensive unit tests.  Scripts to run these are found in
-the ``tests`` directory.  Run the standard suite by:
+   USE_64
+      0
+         Build for a 32-bit environment/ABI. *This is the default.*
+      1
+         Build for a 64-bit environment/ABI. *This is recommended.*
 
-::
+   USE_ASAN
+      0
+         Do not create an `AddressSanitizer <http://clang.llvm.org/docs/AddressSanitizer.html>`__
+         build. *This is the default.*
+      1
+         Create an AddressSanitizer build.
 
-   HOST=localhost DOMSUF=localdomain USE_64=1 nss/tests/all.sh
+.. _unit_testing:
 
-.. _Unit_test_configuration:
+`Unit testing <#unit_testing>`__
+--------------------------------
 
-Unit test configuration
-~~~~~~~~~~~~~~~~~~~~~~~
+.. container::
 
-| NSS tests are configured using environment variables.
-| The scripts will attempt to infer values for ``HOST`` and ``DOMSUF``,
-  but can fail. Replace ``localhost`` and ``localdomain`` with the
-  hostname and domain suffix for your host. You need to be able to
-  connect to ``$HOST.$DOMSUF``.
+   NSS contains extensive unit tests.  Scripts to run these are found in the ``tests`` directory. 
+   Run the standard suite by:
 
-If you don't have a domain suffix you can add an entry to ``/etc/hosts``
-(on Windows,\ ``c:\Windows\System32\drivers\etc\hosts``) as follows:
+   .. code:: notranslate
 
-::
+      HOST=localhost DOMSUF=localdomain USE_64=1 nss/tests/all.sh
 
-   127.0.0.1 localhost.localdomain
+.. _unit_test_configuration:
 
-Validate this opening a command shell and typing:
-``ping localhost.localdomain``.
+`Unit test configuration <#unit_test_configuration>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Remove the ``USE_64=1`` override if using a 32-bit build.
+.. container::
 
-.. _Test_results:
+   | NSS tests are configured using environment variables.
+   | The scripts will attempt to infer values for ``HOST`` and ``DOMSUF``, but can fail. Replace
+     ``localhost`` and ``localdomain`` with the hostname and domain suffix for your host. You need
+     to be able to connect to ``$HOST.$DOMSUF``.
 
-Test results
-~~~~~~~~~~~~
+   If you don't have a domain suffix you can add an entry to ``/etc/hosts`` (on
+   Windows,\ ``c:\Windows\System32\drivers\etc\hosts``) as follows:
 
-Running all tests can take a considerable amount of time.
+   .. code:: notranslate
 
-Test output is stored in ``tests_results/security/$HOST.$NUMBER/``.  The
-file ``results.html`` summarizes the results, ``output.log`` captures
-all the test output.
+      127.0.0.1 localhost.localdomain
 
-Other subdirectories of ``nss/tests`` contain scripts that run a subset
-of the full suite. Those can be run directly instead of ``all.sh``,
-which might save some time at the cost of coverage.
+   Validate this opening a command shell and typing: ``ping localhost.localdomain``.
+
+   Remove the ``USE_64=1`` override if using a 32-bit build.
+
+.. _test_results:
+
+`Test results <#test_results>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   Running all tests can take a considerable amount of time.
+
+   Test output is stored in ``tests_results/security/$HOST.$NUMBER/``.  The file ``results.html``
+   summarizes the results, ``output.log`` captures all the test output.
+
+   Other subdirectories of ``nss/tests`` contain scripts that run a subset of the full suite. Those
+   can be run directly instead of ``all.sh``, which might save some time at the cost of coverage.

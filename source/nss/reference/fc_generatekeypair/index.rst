@@ -1,83 +1,83 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GenerateKeyPair:
 
-==================
 FC_GenerateKeyPair
 ==================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GenerateKeyPair - generate a new public/private key pair
+.. container::
 
-.. _Syntax:
+   FC_GenerateKeyPair - generate a new public/private key pair
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GenerateKeyPair(
-     CK_SESSION_HANDLE hSession,
-     CK_MECHANISM_PTR pMechanism,
-     CK_ATTRIBUTE_PTR pPublicKeyTemplate,
-     CK_ULONG usPublicKeyAttributeCount,
-     CK_ATTRIBUTE_PTR pPrivateKeyTemplate,
-     CK_ULONG usPrivateKeyAttributeCount,
-     CK_OBJECT_HANDLE_PTR phPublicKey,
-     CK_OBJECT_HANDLE_PTR phPrivateKey
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GenerateKeyPair(
+        CK_SESSION_HANDLE hSession,
+        CK_MECHANISM_PTR pMechanism,
+        CK_ATTRIBUTE_PTR pPublicKeyTemplate,
+        CK_ULONG usPublicKeyAttributeCount,
+        CK_ATTRIBUTE_PTR pPrivateKeyTemplate,
+        CK_ULONG usPrivateKeyAttributeCount,
+        CK_OBJECT_HANDLE_PTR phPublicKey,
+        CK_OBJECT_HANDLE_PTR phPrivateKey
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pMechanism``
-   [in] pointer to the mechanism to use.
-``pPublicKeyTemplate``
-   [in] pointer to the public key template.
-``usPublicKeyAttributeCount``
-   [in] number of attributes in the public key
-   template.
-``pPrivateKeyTemplate``
-   [in] pointer to the private key template.
-``usPrivateKeyAttributeCount``
-   [in] number of attributes in the private
-   key template.
-``phPublicKey``
-   [out] pointer to the location to receive
-   the handle of the new public key.
-``phPrivateKey``
-   [out] pointer to the location to receive
-   the handle of the new private key.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pMechanism``
+      [in] pointer to the mechanism to use.
+   ``pPublicKeyTemplate``
+      [in] pointer to the public key template.
+   ``usPublicKeyAttributeCount``
+      [in] number of attributes in the public key template.
+   ``pPrivateKeyTemplate``
+      [in] pointer to the private key template.
+   ``usPrivateKeyAttributeCount``
+      [in] number of attributes in the private key template.
+   ``phPublicKey``
+      [out] pointer to the location to receive the handle of the new public key.
+   ``phPrivateKey``
+      [out] pointer to the location to receive the handle of the new private key.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GenerateKeyPair`` generates a public/private key pair, creating new
-key objects. The handles of new keys are returned.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_GenerateKeyPair``.
+   ``FC_GenerateKeyPair`` generates a public/private key pair, creating new key objects. The handles
+   of new keys are returned.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling
+   ``FC_GenerateKeyPair``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GenerateKeyPair <https://developer.mozilla.org/en-US/NSC_GenerateKeyPair>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GenerateKeyPair </en-US/NSC_GenerateKeyPair>`__

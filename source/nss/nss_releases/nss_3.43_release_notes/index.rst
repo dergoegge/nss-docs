@@ -1,169 +1,153 @@
 .. _Mozilla_Projects_NSS_NSS_3_43_release_notes:
 
-======================
 NSS 3.43 release notes
 ======================
-.. _Introduction:
 
-Introduction
-------------
+`Introduction <#introduction>`__
+--------------------------------
 
-The NSS team has released Network Security Services (NSS) 3.43 on 16
-March 2019, which is a minor release.
+.. container::
 
-.. _Distribution_Information:
+   The NSS team has released Network Security Services (NSS) 3.43 on 16 March 2019, which is a minor
+   release.
 
-Distribution Information
-------------------------
+.. _distribution_information:
 
-The HG tag is NSS_3_43_RTM. NSS 3.43 requires NSPR 4.21 or newer.
+`Distribution Information <#distribution_information>`__
+--------------------------------------------------------
 
-NSS 3.43 source distributions are available on ftp.mozilla.org for
-secure HTTPS download:
+.. container::
 
--  Source tarballs:
-   https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_43_RTM/src/
+   The HG tag is NSS_3_43_RTM. NSS 3.43 requires NSPR 4.21 or newer.
 
-Other releases are available :ref:`Mozilla_Projects_NSS_NSS_Releases`.
+   NSS 3.43 source distributions are available on ftp.mozilla.org for secure HTTPS download:
 
-.. _New_in_NSS_3.43:
+   -  Source tarballs:
+      https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_43_RTM/src/
 
-New in NSS 3.43
----------------
+   Other releases are available :ref:`Mozilla_Projects_NSS_NSS_Releases`.
 
-.. _New_Functionality:
+.. _new_in_nss_3.43:
 
-New Functionality
-~~~~~~~~~~~~~~~~~
+`New in NSS 3.43 <#new_in_nss_3.43>`__
+--------------------------------------
 
-.. _New_Functions:
+.. container::
 
-New Functions
-^^^^^^^^^^^^^
+.. _new_functionality:
 
--  *in sechash.h*
+`New Functionality <#new_functionality>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   -  **HASH_GetHashOidTagByHashType** - convert type HASH_HashType to
-      type SECOidTag
+.. container::
 
--  *in sslexp.h*
+   .. rubric:: New Functions
+      :name: new_functions
 
-   -  **SSL_SendCertificateRequest** - allow server to request
-      post-handshake client authentication. To use this both peers need
-      to enable the **SSL_ENABLE_POST_HANDSHAKE_AUTH** option. Note that
-      while the mechanism is present, post-handshake authentication is
-      currently not TLS 1.3 compliant due to `Bug
-      1532312 <https://bugzilla.mozilla.org/show_bug.cgi?id=1532312>`__
+   -  *in sechash.h*
 
-.. _Notable_Changes_in_NSS_3.43:
+      -  **HASH_GetHashOidTagByHashType** - convert type HASH_HashType to type SECOidTag
 
-Notable Changes in NSS 3.43
----------------------------
+   -  *in sslexp.h*
 
--  
+      -  **SSL_SendCertificateRequest** - allow server to request post-handshake client
+         authentication. To use this both peers need to enable the
+         **SSL_ENABLE_POST_HANDSHAKE_AUTH** option. Note that while the mechanism is present,
+         post-handshake authentication is currently not TLS 1.3 compliant due to `Bug
+         1532312 <https://bugzilla.mozilla.org/show_bug.cgi?id=1532312>`__
 
-   .. container:: field indent
+.. _notable_changes_in_nss_3.43:
 
-      .. container::
+`Notable Changes in NSS 3.43 <#notable_changes_in_nss_3.43>`__
+--------------------------------------------------------------
+
+.. container::
+
+   -  
+
+      .. container:: field indent
 
          .. container::
 
-            The following CA certificates were **Added**:
+            .. container::
 
-   -  CN = emSign Root CA - G1
+               The following CA certificates were **Added**:
 
-      -  SHA-256 Fingerprint:
-         40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367
+      -  CN = emSign Root CA - G1
 
-   -  CN = emSign ECC Root CA - G3
+         -  SHA-256 Fingerprint: 40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367
 
-      -  SHA-256 Fingerprint:
-         86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B
+      -  CN = emSign ECC Root CA - G3
 
-   -  CN = emSign Root CA - C1
+         -  SHA-256 Fingerprint: 86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B
 
-      -  SHA-256 Fingerprint:
-         125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F
+      -  CN = emSign Root CA - C1
 
-   -  CN = emSign ECC Root CA - C3
+         -  SHA-256 Fingerprint: 125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F
 
-      -  SHA-256 Fingerprint:
-         BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3
+      -  CN = emSign ECC Root CA - C3
 
-   -  CN = Hongkong Post Root CA 3
+         -  SHA-256 Fingerprint: BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3
 
-      -  SHA-256 Fingerprint:
-         5A2FC03F0C83B090BBFA40604B0988446C7636183DF9846E17101A447FB8EFD6
+      -  CN = Hongkong Post Root CA 3
 
--  The following CA certificates were **Removed**:
+         -  SHA-256 Fingerprint: 5A2FC03F0C83B090BBFA40604B0988446C7636183DF9846E17101A447FB8EFD6
 
-   -  None
+   -  The following CA certificates were **Removed**:
 
-.. _Bugs_fixed_in_NSS_3.43:
+      -  None
 
-Bugs fixed in NSS 3.43
-----------------------
+.. _bugs_fixed_in_nss_3.43:
 
--  `Bug
-   1528669 <https://bugzilla.mozilla.org/show_bug.cgi?id=1528669>`__ and
-   `Bug
-   1529308 <https://bugzilla.mozilla.org/show_bug.cgi?id=1529308>`__ -
-   Improve Gyp build system handling
--  `Bug
-   1529950 <https://bugzilla.mozilla.org/show_bug.cgi?id=1529950>`__ and
-   `Bug
-   1521174 <https://bugzilla.mozilla.org/show_bug.cgi?id=1521174>`__ -
-   Improve NSS S/MIME tests for Thunderbird
--  `Bug
-   1530134 <https://bugzilla.mozilla.org/show_bug.cgi?id=1530134>`__ -
-   If Docker isn't installed, try running a local clang-format as a
-   fallback
--  `Bug
-   1531267 <https://bugzilla.mozilla.org/show_bug.cgi?id=1531267>`__ -
-   Enable FIPS mode automatically if the system FIPS mode flag is set
--  `Bug
-   1528262 <https://bugzilla.mozilla.org/show_bug.cgi?id=1528262>`__ -
-   Add a -J option to the strsclnt command to specify sigschemes
--  `Bug
-   1513909 <https://bugzilla.mozilla.org/show_bug.cgi?id=1513909>`__ -
-   Add manual for nss-policy-check
--  `Bug
-   1531074 <https://bugzilla.mozilla.org/show_bug.cgi?id=1531074>`__ -
-   Fix a deref after a null check in SECKEY_SetPublicValue
--  `Bug
-   1517714 <https://bugzilla.mozilla.org/show_bug.cgi?id=1517714>`__ -
-   Properly handle ESNI with HRR
--  `Bug
-   1529813 <https://bugzilla.mozilla.org/show_bug.cgi?id=1529813>`__ -
-   Expose HKDF-Expand-Label with mechanism
--  `Bug
-   1535122 <https://bugzilla.mozilla.org/show_bug.cgi?id=1535122>`__ -
-   Align TLS 1.3 HKDF trace levels
--  `Bug
-   1530102 <https://bugzilla.mozilla.org/show_bug.cgi?id=1530102>`__ -
-   Use getentropy on compatible versions of FreeBSD.
+`Bugs fixed in NSS 3.43 <#bugs_fixed_in_nss_3.43>`__
+----------------------------------------------------
 
-This Bugzilla query returns all the bugs fixed in NSS 3.43:
+.. container::
 
-https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Components&query_format=advanced&product=NSS&target_milestone=3.43
+   -  `Bug 1528669 <https://bugzilla.mozilla.org/show_bug.cgi?id=1528669>`__ and `Bug
+      1529308 <https://bugzilla.mozilla.org/show_bug.cgi?id=1529308>`__ - Improve Gyp build system
+      handling
+   -  `Bug 1529950 <https://bugzilla.mozilla.org/show_bug.cgi?id=1529950>`__ and `Bug
+      1521174 <https://bugzilla.mozilla.org/show_bug.cgi?id=1521174>`__ - Improve NSS S/MIME tests
+      for Thunderbird
+   -  `Bug 1530134 <https://bugzilla.mozilla.org/show_bug.cgi?id=1530134>`__ - If Docker isn't
+      installed, try running a local clang-format as a fallback
+   -  `Bug 1531267 <https://bugzilla.mozilla.org/show_bug.cgi?id=1531267>`__ - Enable FIPS mode
+      automatically if the system FIPS mode flag is set
+   -  `Bug 1528262 <https://bugzilla.mozilla.org/show_bug.cgi?id=1528262>`__ - Add a -J option to
+      the strsclnt command to specify sigschemes
+   -  `Bug 1513909 <https://bugzilla.mozilla.org/show_bug.cgi?id=1513909>`__ - Add manual for
+      nss-policy-check
+   -  `Bug 1531074 <https://bugzilla.mozilla.org/show_bug.cgi?id=1531074>`__ - Fix a deref after a
+      null check in SECKEY_SetPublicValue
+   -  `Bug 1517714 <https://bugzilla.mozilla.org/show_bug.cgi?id=1517714>`__ - Properly handle ESNI
+      with HRR
+   -  `Bug 1529813 <https://bugzilla.mozilla.org/show_bug.cgi?id=1529813>`__ - Expose
+      HKDF-Expand-Label with mechanism
+   -  `Bug 1535122 <https://bugzilla.mozilla.org/show_bug.cgi?id=1535122>`__ - Align TLS 1.3 HKDF
+      trace levels
+   -  `Bug 1530102 <https://bugzilla.mozilla.org/show_bug.cgi?id=1530102>`__ - Use getentropy on
+      compatible versions of FreeBSD.
 
-.. _Compatibility:
+   This Bugzilla query returns all the bugs fixed in NSS 3.43:
 
-Compatibility
--------------
+   https://bugzilla.mozilla.org/buglist.cgi?resolution=FIXED&classification=Components&query_format=advanced&product=NSS&target_milestone=3.43
 
-NSS 3.43 shared libraries are backward compatible with all older NSS 3.x
-shared libraries. A program linked with older NSS 3.x shared libraries
-will work with NSS 3.43 shared libraries without recompiling or
-relinking. Furthermore, applications that restrict their use of NSS APIs
-to the functions listed in NSS Public Functions will remain compatible
-with future versions of the NSS shared libraries.
+`Compatibility <#compatibility>`__
+----------------------------------
 
-.. _Feedback:
+.. container::
 
-Feedback
---------
+   NSS 3.43 shared libraries are backward compatible with all older NSS 3.x shared libraries. A
+   program linked with older NSS 3.x shared libraries will work with NSS 3.43 shared libraries
+   without recompiling or relinking. Furthermore, applications that restrict their use of NSS APIs
+   to the functions listed in NSS Public Functions will remain compatible with future versions of
+   the NSS shared libraries.
 
-Bugs discovered should be reported by filing a bug report with
-`bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__
-(product NSS).
+`Feedback <#feedback>`__
+------------------------
+
+.. container::
+
+   Bugs discovered should be reported by filing a bug report with
+   `bugzilla.mozilla.org <https://bugzilla.mozilla.org/enter_bug.cgi?product=NSS>`__ (product NSS).

@@ -1,63 +1,66 @@
 .. _Mozilla_Projects_NSS_Reference_FC_CloseAllSessions:
 
-===================
 FC_CloseAllSessions
 ===================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_CloseAllSessions - close all sessions between an application and a
-token.
+.. container::
 
-.. _Syntax:
+   FC_CloseAllSessions - close all sessions between an application and a token.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_CloseAllSessions(
-     CK_SLOT_ID slotID
-    );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_CloseAllSessions(
+        CK_SLOT_ID slotID
+       );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``slotID``
-   [in] the ID of the token's slot.
+.. container::
 
-.. _Description:
+   ``slotID``
+      [in] the ID of the token's slot.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_CloseAllSessions`` closes all sessions between an application and
-the token in the slot with the ID ``slotID``.
+.. container::
 
-The NSS cryptographic module currently doesn't call the surrender
-callback function ``Notify``. (See PKCS #11 v2.20 section 11.17.1.)
+   ``FC_CloseAllSessions`` closes all sessions between an application and the token in the slot with
+   the ID ``slotID``.
 
-A user may call ``FC_CloseAllSessions`` without logging into the token
-(to assume the NSS User role).
+   The NSS cryptographic module currently doesn't call the surrender callback function ``Notify``.
+   (See PKCS #11 v2.20 section 11.17.1.)
 
-.. _Return_value:
+   A user may call ``FC_CloseAllSessions`` without logging into the token (to assume the NSS User
+   role).
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_CloseSession <https://developer.mozilla.org/en-US/FC_CloseSession>`__,
-   `NSC_CloseAllSessions <https://developer.mozilla.org/en-US/NSC_CloseAllSessions>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_CloseSession`,
+      `NSC_CloseAllSessions </en-US/NSC_CloseAllSessions>`__

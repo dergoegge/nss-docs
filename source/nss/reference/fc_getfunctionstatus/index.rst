@@ -1,57 +1,60 @@
 .. _Mozilla_Projects_NSS_Reference_FC_GetFunctionStatus:
 
-====================
 FC_GetFunctionStatus
 ====================
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_GetFunctionStatus - get the status of a function running in parallel
+.. container::
 
-.. _Syntax:
+   FC_GetFunctionStatus - get the status of a function running in parallel
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_GetFunctionStatus(
-     CK_SESSION_HANDLE hSession
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_GetFunctionStatus(
+        CK_SESSION_HANDLE hSession
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_GetFunctionStatus`` is a legacy function that simply returns
-``CKR_FUNCTION_NOT_PARALLEL``.
+.. container::
 
-.. _Return_value:
+   ``FC_GetFunctionStatus`` is a legacy function that simply returns ``CKR_FUNCTION_NOT_PARALLEL``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-``FC_GetFunctionStatus`` always returns ``CKR_FUNCTION_NOT_PARALLEL``.
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Examples:
+.. container::
 
-Examples
-~~~~~~~~
+   ``FC_GetFunctionStatus`` always returns ``CKR_FUNCTION_NOT_PARALLEL``.
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `NSC_GetFunctionStatus <https://developer.mozilla.org/en-US/NSC_GetFunctionStatus>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  `NSC_GetFunctionStatus </en-US/NSC_GetFunctionStatus>`__

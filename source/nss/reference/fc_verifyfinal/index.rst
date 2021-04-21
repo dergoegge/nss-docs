@@ -1,66 +1,67 @@
 .. _Mozilla_Projects_NSS_Reference_FC_VerifyFinal:
 
-==============
 FC_VerifyFinal
 ==============
-.. _Name:
 
-Name
-~~~~
+`Name <#name>`__
+~~~~~~~~~~~~~~~~
 
-FC_VerifyFinal - finish a multi-part verify operation.
+.. container::
 
-.. _Syntax:
+   FC_VerifyFinal - finish a multi-part verify operation.
 
-Syntax
-~~~~~~
+`Syntax <#syntax>`__
+~~~~~~~~~~~~~~~~~~~~
 
-.. code:: eval
+.. container::
 
-   CK_RV FC_VerifyFinal(
-     CK_SESSION_HANDLE hSession,
-     CK_BYTE_PTR pSignature,
-     CK_ULONG usSignatureLen
-   );
+   .. code:: eval
 
-.. _Parameters:
+      CK_RV FC_VerifyFinal(
+        CK_SESSION_HANDLE hSession,
+        CK_BYTE_PTR pSignature,
+        CK_ULONG usSignatureLen
+      );
 
-Parameters
-~~~~~~~~~~
+`Parameters <#parameters>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``hSession``
-   [in] session handle.
-``pSignature``
-   [in] pointer to the buffer which will
-   receive the digest or NULL.
-``usSignatureLen``
-   [in] length of the signature in bytes.
+.. container::
 
-.. _Description:
+   ``hSession``
+      [in] session handle.
+   ``pSignature``
+      [in] pointer to the buffer which will receive the digest or NULL.
+   ``usSignatureLen``
+      [in] length of the signature in bytes.
 
-Description
-~~~~~~~~~~~
+`Description <#description>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``FC_VerifyFinal`` finishes a multi-part signature verification
-operation.
+.. container::
 
-A user must log into the token (to assume the NSS User role) before
-calling ``FC_VerifyFinal``.
+   ``FC_VerifyFinal`` finishes a multi-part signature verification operation.
 
-.. _Return_value:
+   A user must log into the token (to assume the NSS User role) before calling ``FC_VerifyFinal``.
 
-Return value
-~~~~~~~~~~~~
+.. _return_value:
 
-.. _Examples:
+`Return value <#return_value>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Examples
-~~~~~~~~
+.. container::
 
-.. _See_also:
+`Examples <#examples>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-See also
-~~~~~~~~
+.. container::
 
--  `FC_VerifyUpdate <https://developer.mozilla.org/en-US/FC_VerifyUpdate>`__,
-   `NSC_VerifyFinal <https://developer.mozilla.org/en-US/NSC_VerifyFinal>`__
+.. _see_also:
+
+`See also <#see_also>`__
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container::
+
+   -  :ref:`Mozilla_Projects_NSS_Reference_FC_VerifyUpdate`,
+      `NSC_VerifyFinal </en-US/NSC_VerifyFinal>`__
